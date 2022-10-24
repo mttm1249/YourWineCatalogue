@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA27684E28ED67D0008556CD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27684D28ED67D0008556CD /* FilterViewController.swift */; };
+		DA40393A28E990C200A5E5AE /* BottleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40393928E990C200A5E5AE /* BottleCell.swift */; };
+		DA40393C28E990D800A5E5AE /* BottleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA40393B28E990D800A5E5AE /* BottleCell.xib */; };
+		DA40394328E995AF00A5E5AE /* Shadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40394228E995AF00A5E5AE /* Shadows.swift */; };
+		DA40394528E99FB400A5E5AE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40394428E99FB400A5E5AE /* MainViewController.swift */; };
+		DA40394728E9A71500A5E5AE /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40394628E9A71500A5E5AE /* Time.swift */; };
+		DA5764EA28F02BB2002D7F3C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DA5764E928F02BB2002D7F3C /* RealmSwift */; };
+		DA64201C28E865DA00E03CB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64201B28E865DA00E03CB2 /* AppDelegate.swift */; };
+		DA64201E28E865DA00E03CB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64201D28E865DA00E03CB2 /* SceneDelegate.swift */; };
+		DA64202028E865DA00E03CB2 /* NewBottleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64201F28E865DA00E03CB2 /* NewBottleViewController.swift */; };
+		DA64202328E865DA00E03CB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA64202128E865DA00E03CB2 /* Main.storyboard */; };
+		DA64202528E865DB00E03CB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA64202428E865DB00E03CB2 /* Assets.xcassets */; };
+		DA64202828E865DB00E03CB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA64202628E865DB00E03CB2 /* LaunchScreen.storyboard */; };
+		DA64203328E86A3500E03CB2 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64203228E86A3500E03CB2 /* StorageManager.swift */; };
+		DA64203528E86ABF00E03CB2 /* BottleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64203428E86ABF00E03CB2 /* BottleModel.swift */; };
+		DA672CEB28EAD8A900680ACC /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA672CEA28EAD8A900680ACC /* RatingControl.swift */; };
+		DA84FA3C28E870DD006C9DED /* BottlesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA84FA3B28E870DD006C9DED /* BottlesListViewController.swift */; };
+		DA9690A128ED80A700CEEFCE /* PopoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9690A028ED80A700CEEFCE /* PopoverTableViewController.swift */; };
+		DA9690A328EDBE7400CEEFCE /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9690A228EDBE7400CEEFCE /* FilterManager.swift */; };
+		DAB1264D28F021D40090E9D0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DAB1264C28F021D40090E9D0 /* .gitignore */; };
+		DABD3DCD28EB38E1003D84FA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABD3DCC28EB38E1003D84FA /* Colors.swift */; };
+		DAE575EA28EAE3CD00F22741 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE575E928EAE3CD00F22741 /* Extensions.swift */; };
+		DAEE80A628F819640088D88F /* Ramadhan Mubarak.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAEE80A428F816A40088D88F /* Ramadhan Mubarak.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DA27684D28ED67D0008556CD /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		DA40393928E990C200A5E5AE /* BottleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleCell.swift; sourceTree = "<group>"; };
+		DA40393B28E990D800A5E5AE /* BottleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottleCell.xib; sourceTree = "<group>"; };
+		DA40394228E995AF00A5E5AE /* Shadows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shadows.swift; sourceTree = "<group>"; };
+		DA40394428E99FB400A5E5AE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DA40394628E9A71500A5E5AE /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		DA64201828E865DA00E03CB2 /* Vinishko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vinishko.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA64201B28E865DA00E03CB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA64201D28E865DA00E03CB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DA64201F28E865DA00E03CB2 /* NewBottleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBottleViewController.swift; sourceTree = "<group>"; };
+		DA64202228E865DA00E03CB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA64202428E865DB00E03CB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA64202728E865DB00E03CB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA64202928E865DB00E03CB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA64203228E86A3500E03CB2 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		DA64203428E86ABF00E03CB2 /* BottleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleModel.swift; sourceTree = "<group>"; };
+		DA672CEA28EAD8A900680ACC /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		DA84FA3B28E870DD006C9DED /* BottlesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlesListViewController.swift; sourceTree = "<group>"; };
+		DA9690A028ED80A700CEEFCE /* PopoverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverTableViewController.swift; sourceTree = "<group>"; };
+		DA9690A228EDBE7400CEEFCE /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
+		DAB1264C28F021D40090E9D0 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		DABD3DCC28EB38E1003D84FA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		DAE575E928EAE3CD00F22741 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DAEE80A428F816A40088D88F /* Ramadhan Mubarak.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ramadhan Mubarak.ttf"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA64201528E865DA00E03CB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA5764EA28F02BB2002D7F3C /* RealmSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA40393D28E990E000A5E5AE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DA40393928E990C200A5E5AE /* BottleCell.swift */,
+				DA40393B28E990D800A5E5AE /* BottleCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DA40393E28E9910200A5E5AE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DA40394428E99FB400A5E5AE /* MainViewController.swift */,
+				DA64201F28E865DA00E03CB2 /* NewBottleViewController.swift */,
+				DA84FA3B28E870DD006C9DED /* BottlesListViewController.swift */,
+				DA27684D28ED67D0008556CD /* FilterViewController.swift */,
+				DA9690A028ED80A700CEEFCE /* PopoverTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DA40393F28E9911400A5E5AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA64203428E86ABF00E03CB2 /* BottleModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA40394028E9912000A5E5AE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DAEE80A328F815D00088D88F /* Fonts */,
+				DA64201B28E865DA00E03CB2 /* AppDelegate.swift */,
+				DAE575E928EAE3CD00F22741 /* Extensions.swift */,
+				DA64201D28E865DA00E03CB2 /* SceneDelegate.swift */,
+				DA64202428E865DB00E03CB2 /* Assets.xcassets */,
+				DA64202928E865DB00E03CB2 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA40394128E9917200A5E5AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA40393D28E990E000A5E5AE /* Cells */,
+				DA64202128E865DA00E03CB2 /* Main.storyboard */,
+				DA64202628E865DB00E03CB2 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA64200F28E865DA00E03CB2 = {
+			isa = PBXGroup;
+			children = (
+				DA64201A28E865DA00E03CB2 /* Vinishko */,
+				DA64201928E865DA00E03CB2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA64201928E865DA00E03CB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA64201828E865DA00E03CB2 /* Vinishko.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA64201A28E865DA00E03CB2 /* Vinishko */ = {
+			isa = PBXGroup;
+			children = (
+				DAB1264C28F021D40090E9D0 /* .gitignore */,
+				DA40393F28E9911400A5E5AE /* Model */,
+				DA40394128E9917200A5E5AE /* View */,
+				DA40393E28E9910200A5E5AE /* Controllers */,
+				DA672CEC28EAD94400680ACC /* Helpers */,
+				DA40394028E9912000A5E5AE /* Supporting Files */,
+			);
+			path = Vinishko;
+			sourceTree = "<group>";
+		};
+		DA672CEC28EAD94400680ACC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DABD3DCC28EB38E1003D84FA /* Colors.swift */,
+				DA9690A228EDBE7400CEEFCE /* FilterManager.swift */,
+				DA40394228E995AF00A5E5AE /* Shadows.swift */,
+				DA672CEA28EAD8A900680ACC /* RatingControl.swift */,
+				DA64203228E86A3500E03CB2 /* StorageManager.swift */,
+				DA40394628E9A71500A5E5AE /* Time.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DAEE80A328F815D00088D88F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DAEE80A428F816A40088D88F /* Ramadhan Mubarak.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA64201728E865DA00E03CB2 /* Vinishko */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA64202C28E865DB00E03CB2 /* Build configuration list for PBXNativeTarget "Vinishko" */;
+			buildPhases = (
+				DA64201428E865DA00E03CB2 /* Sources */,
+				DA64201528E865DA00E03CB2 /* Frameworks */,
+				DA64201628E865DA00E03CB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Vinishko;
+			packageProductDependencies = (
+				DA5764E928F02BB2002D7F3C /* RealmSwift */,
+			);
+			productName = Vinishko;
+			productReference = DA64201828E865DA00E03CB2 /* Vinishko.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA64201028E865DA00E03CB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					DA64201728E865DA00E03CB2 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+				};
+			};
+			buildConfigurationList = DA64201328E865DA00E03CB2 /* Build configuration list for PBXProject "Vinishko" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA64200F28E865DA00E03CB2;
+			packageReferences = (
+				DA5764E828F02BB2002D7F3C /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
+			productRefGroup = DA64201928E865DA00E03CB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA64201728E865DA00E03CB2 /* Vinishko */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA64201628E865DA00E03CB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB1264D28F021D40090E9D0 /* .gitignore in Resources */,
+				DAEE80A628F819640088D88F /* Ramadhan Mubarak.ttf in Resources */,
+				DA64202828E865DB00E03CB2 /* LaunchScreen.storyboard in Resources */,
+				DA40393C28E990D800A5E5AE /* BottleCell.xib in Resources */,
+				DA64202528E865DB00E03CB2 /* Assets.xcassets in Resources */,
+				DA64202328E865DA00E03CB2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA64201428E865DA00E03CB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA27684E28ED67D0008556CD /* FilterViewController.swift in Sources */,
+				DA9690A128ED80A700CEEFCE /* PopoverTableViewController.swift in Sources */,
+				DA64202028E865DA00E03CB2 /* NewBottleViewController.swift in Sources */,
+				DA672CEB28EAD8A900680ACC /* RatingControl.swift in Sources */,
+				DA64201C28E865DA00E03CB2 /* AppDelegate.swift in Sources */,
+				DA40394728E9A71500A5E5AE /* Time.swift in Sources */,
+				DA64203528E86ABF00E03CB2 /* BottleModel.swift in Sources */,
+				DA64201E28E865DA00E03CB2 /* SceneDelegate.swift in Sources */,
+				DA84FA3C28E870DD006C9DED /* BottlesListViewController.swift in Sources */,
+				DAE575EA28EAE3CD00F22741 /* Extensions.swift in Sources */,
+				DABD3DCD28EB38E1003D84FA /* Colors.swift in Sources */,
+				DA40393A28E990C200A5E5AE /* BottleCell.swift in Sources */,
+				DA40394528E99FB400A5E5AE /* MainViewController.swift in Sources */,
+				DA40394328E995AF00A5E5AE /* Shadows.swift in Sources */,
+				DA64203328E86A3500E03CB2 /* StorageManager.swift in Sources */,
+				DA9690A328EDBE7400CEEFCE /* FilterManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DA64202128E865DA00E03CB2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA64202228E865DA00E03CB2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA64202628E865DB00E03CB2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA64202728E865DB00E03CB2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA64202A28E865DB00E03CB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DA64202B28E865DB00E03CB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA64202D28E865DB00E03CB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KG89CXC5J4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Vinishko/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mttm1249.Vinishko;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA64202E28E865DB00E03CB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KG89CXC5J4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Vinishko/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mttm1249.Vinishko;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA64201328E865DA00E03CB2 /* Build configuration list for PBXProject "Vinishko" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA64202A28E865DB00E03CB2 /* Debug */,
+				DA64202B28E865DB00E03CB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA64202C28E865DB00E03CB2 /* Build configuration list for PBXNativeTarget "Vinishko" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA64202D28E865DB00E03CB2 /* Debug */,
+				DA64202E28E865DB00E03CB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DA5764E828F02BB2002D7F3C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DA5764E928F02BB2002D7F3C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA5764E828F02BB2002D7F3C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = DA64201028E865DA00E03CB2 /* Project object */;
+}
