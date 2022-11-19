@@ -24,11 +24,18 @@ class PopoverTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bottles = realm.objects(Bottle.self)
-        
+        setupPopover()
+    }
+    
+   private func setupPopover() {
         switch optionsArrayId {
         case 0:
-            options = ["Красные", "Белые", "Другие"]
+            for bottle in bottles {
+                guard bottle.wineColor != nil else { return }
+                let wineColorInfo = bottle.wineColor!
+                if !options.contains(colorInfoConverter(number: wineColorInfo)) { options.append(colorInfoConverter(number: wineColorInfo)) }
+            }
+            options = options.reversed()
         case 1:
             for bottle in bottles {
                 guard bottle.placeOfPurchase != nil else { return }
@@ -44,6 +51,21 @@ class PopoverTableViewController: UITableViewController {
         default:
             break
         }
+    }
+    
+    func colorInfoConverter(number: Int) -> String {
+        var string = ""
+        switch number {
+        case 0:
+            string = "Красные"
+        case 1:
+            string = "Белые"
+        case 2:
+            string = "Другие"
+        default:
+            break
+        }
+        return string
     }
     
     // MARK: - Table view data source
@@ -86,5 +108,6 @@ class PopoverTableViewController: UITableViewController {
         }
         dismiss(animated: true)
     }
+    
 }
 

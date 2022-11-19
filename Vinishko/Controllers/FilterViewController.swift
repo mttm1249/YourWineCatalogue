@@ -29,9 +29,10 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
         super.viewDidLoad()
         bottles = realm.objects(Bottle.self)
         setupStatistics()
+        setupCancelButtons()
         setupButtonTitles()
     }
-        
+    
     private func setupStatistics() {
         bottlesCounter.text = "Всего выпито: \(bottles.count)"
         let redWine = bottles.filter { $0.wineColor == 0 }
@@ -42,27 +43,36 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
         otherBottlesCounter.text = "Других: \(otherWine.count)"
     }
     
+    private func setupCancelButtons() {
+        cancelColorButton.isEnabled = false
+        cancelPurchaseButton.isEnabled = false
+        cancelCountryButton.isEnabled = false
+    }
+    
     private func setupButtonTitles() {
         // setup colorButton
-        switch shared.colorIdOptionInfo {
-        case 0:
-            filterByColorButton.setTitle("Красные", for: .normal)
-        case 1:
-            filterByColorButton.setTitle("Белые", for: .normal)
-        case 2:
-            filterByColorButton.setTitle("Другие", for: .normal)
-        default:
-            break
+        if shared.colorIdOptionInfo != nil {
+            switch shared.colorIdOptionInfo {
+            case 0:
+                filterByColorButton.setTitle("Красные", for: .normal)
+            case 1:
+                filterByColorButton.setTitle("Белые", for: .normal)
+            case 2:
+                filterByColorButton.setTitle("Другие", for: .normal)
+            default:
+                break
+            }
+            cancelColorButton.isEnabled = true
         }
-   
         // setup placeOfPurchaseButton
         if shared.placeOfPurchaseOptionInfo != nil {
             filterByPlaceOfPurchaseButton.setTitle(shared.placeOfPurchaseOptionInfo, for: .normal)
+            cancelPurchaseButton.isEnabled = true
         }
-        
         // setup countryButton
         if shared.countryOptionInfo != nil {
             filterByCountryButton.setTitle(shared.countryOptionInfo, for: .normal)
+            cancelCountryButton.isEnabled = true
         }
     }
     
@@ -74,6 +84,7 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
         filterByColorButton.setTitle("Цвет", for: .normal)
         filterByPlaceOfPurchaseButton.setTitle("Место покупки", for: .normal)
         filterByCountryButton.setTitle("Страна", for: .normal)
+        setupCancelButtons()
     }
     
     func delay(_ delay: Double, closure: @escaping() -> ()) {
@@ -89,18 +100,22 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
         case 0:
             shared.colorIdOptionInfo = nil
             filterByColorButton.setTitle("Цвет", for: .normal)
+            cancelColorButton.isEnabled = false
         case 1:
             shared.placeOfPurchaseOptionInfo = nil
             filterByPlaceOfPurchaseButton.setTitle("Место покупки", for: .normal)
+            cancelPurchaseButton.isEnabled = false
         case 2:
             shared.countryOptionInfo = nil
             filterByCountryButton.setTitle("Страна", for: .normal)
+            cancelCountryButton.isEnabled = false
         default:
             break
         }
     }
     
     @IBAction func filterButtonAction(_ sender: Any) {
+        checkAvailabilityOfBottles()
         guard let popoverTableViewController = storyboard?.instantiateViewController(withIdentifier: "popoverTableView") as? PopoverTableViewController else { return }
         popoverTableViewController.modalPresentationStyle = .popover
         popoverTableViewController.delegate = self
@@ -125,13 +140,31 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
         default:
             break
         }
-        
+        popoverTableViewController.bottles = bottles
         popoverTableViewController.preferredContentSize = CGSize(width: 200, height: 200)
         present(popoverTableViewController, animated: true)
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
+    }
+    
+    func checkAvailabilityOfBottles() {
+        bottles = realm.objects(Bottle.self)
+        if shared.colorIdOptionInfo != nil && shared.colorIdOptionInfo != 9 {
+            let filtered = bottles.where { $0.wineColor == shared.colorIdOptionInfo }
+            bottles = filtered
+        }
+        
+        if shared.placeOfPurchaseOptionInfo != nil {
+            let filtered = bottles.where { $0.placeOfPurchase == shared.placeOfPurchaseOptionInfo }
+            bottles = filtered
+        }
+        
+        if shared.countryOptionInfo != nil {
+            let filtered = bottles.where { $0.wineCountry == shared.countryOptionInfo }
+        bottles = filtered
+        }
     }
     
 }
@@ -142,14 +175,16 @@ extension FilterViewController: FilterOptionsProtocol {
         switch tag {
         case 0:
             filterByColorButton.setTitle(name, for: .normal)
+            cancelColorButton.isEnabled = true
         case 1:
             filterByPlaceOfPurchaseButton.setTitle(name, for: .normal)
+            cancelPurchaseButton.isEnabled = true
         case 2:
             filterByCountryButton.setTitle(name, for: .normal)
+            cancelCountryButton.isEnabled = true
         default:
             break
         }
-        
     }
     
     func getColorOption(colorId: Int) {

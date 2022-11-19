@@ -128,25 +128,22 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
         bottles = realm.objects(Bottle.self)
-        
         if shared.colorIdOptionInfo != nil && shared.colorIdOptionInfo != 9 {
             let filtered = bottles.where { $0.wineColor == shared.colorIdOptionInfo }
             bottles = filtered
         }
-           
         if shared.placeOfPurchaseOptionInfo != nil {
             let filtered = bottles.where { $0.placeOfPurchase == shared.placeOfPurchaseOptionInfo }
             bottles = filtered
         }
-        
         if shared.countryOptionInfo != nil {
             let filtered = bottles.where { $0.wineCountry == shared.countryOptionInfo }
-            bottles = filtered
+        bottles = filtered
         }
         addBannerWith(alertText: "Упс, ничего не нашлось..(")
         tableView.reloadData()
     }
-        
+            
 }
 
 // MARK: Searching
