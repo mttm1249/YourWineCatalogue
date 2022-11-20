@@ -84,12 +84,12 @@ class PopoverTableViewController: UITableViewController {
         var colorId: Int?
         switch optionsArrayId {
         case 0:
-            switch indexPath {
-            case [0, 0]:
+            switch optionName {
+            case "Красные":
                 colorId = 0
-            case [0, 1]:
+            case "Белые":
                 colorId = 1
-            case [0, 2]:
+            case "Другие":
                 colorId = 2
             default:
                 break
