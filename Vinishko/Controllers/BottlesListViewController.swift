@@ -107,12 +107,19 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let editVC = storyboard?.instantiateViewController(withIdentifier: "editBottle") as? NewBottleViewController else { return }
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        let bottle = isFiltering ? filteredBottles.reversed()[indexPath.row] : bottles.reversed()[indexPath.row]
-        editVC.currentBottle = bottle
-        editVC.isEdited = true
-        editVC.delegate = self
+//        guard let editVC = storyboard?.instantiateViewController(withIdentifier: "editBottle") as? NewBottleViewController else { return }
+//        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+//        let bottle = isFiltering ? filteredBottles.reversed()[indexPath.row] : bottles.reversed()[indexPath.row]
+//        editVC.currentBottle = bottle
+//        editVC.isEdited = true
+//        editVC.delegate = self
+        
+                guard let editVC = storyboard?.instantiateViewController(withIdentifier: "bottleVC") as? BottleViewController else { return }
+                guard let indexPath = tableView.indexPathForSelectedRow else { return }
+                let bottle = isFiltering ? filteredBottles.reversed()[indexPath.row] : bottles.reversed()[indexPath.row]
+                editVC.currentBottle = bottle
+
+        
         editVC.modalPresentationStyle = .pageSheet
         present(editVC, animated: true)
     }
