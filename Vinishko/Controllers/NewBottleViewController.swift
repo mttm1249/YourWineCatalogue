@@ -8,7 +8,7 @@
 import UIKit
 
 protocol UpdateTableView: AnyObject {
-    func update()
+    func updateCurrentBottleInfo()
 }
 
 class NewBottleViewController: UIViewController {
@@ -131,7 +131,7 @@ class NewBottleViewController: UIViewController {
     
     @IBAction func saveButtonAction(_ sender: Any) {
         save()
-        delegate?.update()
+        delegate?.updateCurrentBottleInfo()
         if isEdited == true {
             dismiss(animated: true)
         } else {
