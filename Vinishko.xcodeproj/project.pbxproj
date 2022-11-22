@@ -28,6 +28,7 @@
 		DA9690A328EDBE7400CEEFCE /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9690A228EDBE7400CEEFCE /* FilterManager.swift */; };
 		DAB1264D28F021D40090E9D0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DAB1264C28F021D40090E9D0 /* .gitignore */; };
 		DABD3DCD28EB38E1003D84FA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABD3DCC28EB38E1003D84FA /* Colors.swift */; };
+		DAC175DE292A4980001639B7 /* BottleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC175DD292A4980001639B7 /* BottleViewController.swift */; };
 		DAE575EA28EAE3CD00F22741 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE575E928EAE3CD00F22741 /* Extensions.swift */; };
 		DAEE80A628F819640088D88F /* Ramadhan Mubarak.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAEE80A428F816A40088D88F /* Ramadhan Mubarak.ttf */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		DA9690A228EDBE7400CEEFCE /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		DAB1264C28F021D40090E9D0 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		DABD3DCC28EB38E1003D84FA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		DAC175DD292A4980001639B7 /* BottleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleViewController.swift; sourceTree = "<group>"; };
 		DAE575E928EAE3CD00F22741 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DAEE80A428F816A40088D88F /* Ramadhan Mubarak.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ramadhan Mubarak.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 			children = (
 				DA40394428E99FB400A5E5AE /* MainViewController.swift */,
 				DA64201F28E865DA00E03CB2 /* NewBottleViewController.swift */,
+				DAC175DD292A4980001639B7 /* BottleViewController.swift */,
 				DA84FA3B28E870DD006C9DED /* BottlesListViewController.swift */,
 				DA27684D28ED67D0008556CD /* FilterViewController.swift */,
 				DA9690A028ED80A700CEEFCE /* PopoverTableViewController.swift */,
@@ -255,6 +258,7 @@
 			files = (
 				DA27684E28ED67D0008556CD /* FilterViewController.swift in Sources */,
 				DA9690A128ED80A700CEEFCE /* PopoverTableViewController.swift in Sources */,
+				DAC175DE292A4980001639B7 /* BottleViewController.swift in Sources */,
 				DA64202028E865DA00E03CB2 /* NewBottleViewController.swift in Sources */,
 				DA672CEB28EAD8A900680ACC /* RatingControl.swift in Sources */,
 				DA64201C28E865DA00E03CB2 /* AppDelegate.swift in Sources */,
