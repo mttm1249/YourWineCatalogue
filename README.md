@@ -7,7 +7,7 @@
 <img src="https://user-images.githubusercontent.com/87662841/197501258-9df4b26a-31c4-491f-8267-66529220d95c.PNG" width="230" height="500"> 
 
 ### Список всех добавленных дегустаций
-<img src="https://user-images.githubusercontent.com/87662841/197501570-5cf2ef50-c329-4e60-bcb4-2155176243d2.PNG" width="230" height="500"> <img src="https://user-images.githubusercontent.com/87662841/203371871-28eccb83-43ca-4012-b83c-8ce2adad7649.jpeg" width="230" height="500"> 
+<img src="https://user-images.githubusercontent.com/87662841/197501570-5cf2ef50-c329-4e60-bcb4-2155176243d2.PNG" width="230" height="500"> <img src="https://user-images.githubusercontent.com/87662841/203496343-5f46d683-ff93-4aaa-8502-732635b416f1.jpeg" width="230" height="500"> 
 
 ### Поиск по названию, статистика, фильтры
 <img src="https://user-images.githubusercontent.com/87662841/197501998-067e34c5-f2d4-4c55-b6a9-c1d35e5b36d1.PNG" width="230" height="500"> <img src="https://user-images.githubusercontent.com/87662841/197502158-9cce24f2-13c3-4da6-a47b-142b7039a6c7.PNG" width="230" height="500"> 
