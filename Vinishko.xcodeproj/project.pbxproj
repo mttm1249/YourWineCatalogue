@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		DA27684E28ED67D0008556CD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27684D28ED67D0008556CD /* FilterViewController.swift */; };
 		DA40393A28E990C200A5E5AE /* BottleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40393928E990C200A5E5AE /* BottleCell.swift */; };
-		DA40393C28E990D800A5E5AE /* BottleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA40393B28E990D800A5E5AE /* BottleCell.xib */; };
 		DA40394328E995AF00A5E5AE /* Shadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40394228E995AF00A5E5AE /* Shadows.swift */; };
 		DA40394528E99FB400A5E5AE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40394428E99FB400A5E5AE /* MainViewController.swift */; };
 		DA40394728E9A71500A5E5AE /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40394628E9A71500A5E5AE /* Time.swift */; };
@@ -29,6 +28,7 @@
 		DAB1264D28F021D40090E9D0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DAB1264C28F021D40090E9D0 /* .gitignore */; };
 		DABD3DCD28EB38E1003D84FA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABD3DCC28EB38E1003D84FA /* Colors.swift */; };
 		DAC175DE292A4980001639B7 /* BottleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC175DD292A4980001639B7 /* BottleViewController.swift */; };
+		DACAE73D2959CD18002E538A /* BottleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DACAE73F2959CD18002E538A /* BottleCell.xib */; };
 		DAE575EA28EAE3CD00F22741 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE575E928EAE3CD00F22741 /* Extensions.swift */; };
 		DAEE80A628F819640088D88F /* Ramadhan Mubarak.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAEE80A428F816A40088D88F /* Ramadhan Mubarak.ttf */; };
 /* End PBXBuildFile section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		DA27684D28ED67D0008556CD /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		DA40393928E990C200A5E5AE /* BottleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleCell.swift; sourceTree = "<group>"; };
-		DA40393B28E990D800A5E5AE /* BottleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottleCell.xib; sourceTree = "<group>"; };
 		DA40394228E995AF00A5E5AE /* Shadows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shadows.swift; sourceTree = "<group>"; };
 		DA40394428E99FB400A5E5AE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DA40394628E9A71500A5E5AE /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
@@ -57,6 +56,10 @@
 		DAB1264C28F021D40090E9D0 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		DABD3DCC28EB38E1003D84FA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DAC175DD292A4980001639B7 /* BottleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleViewController.swift; sourceTree = "<group>"; };
+		DACAE7382959B821002E538A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DACAE73C2959C3A1002E538A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		DACAE7422959CD74002E538A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/BottleCell.strings; sourceTree = "<group>"; };
+		DACAE7432959CD86002E538A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BottleCell.xib; sourceTree = "<group>"; };
 		DAE575E928EAE3CD00F22741 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DAEE80A428F816A40088D88F /* Ramadhan Mubarak.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ramadhan Mubarak.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				DA40393928E990C200A5E5AE /* BottleCell.swift */,
-				DA40393B28E990D800A5E5AE /* BottleCell.xib */,
+				DACAE73F2959CD18002E538A /* BottleCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = DA64200F28E865DA00E03CB2;
 			packageReferences = (
@@ -243,7 +247,7 @@
 				DAB1264D28F021D40090E9D0 /* .gitignore in Resources */,
 				DAEE80A628F819640088D88F /* Ramadhan Mubarak.ttf in Resources */,
 				DA64202828E865DB00E03CB2 /* LaunchScreen.storyboard in Resources */,
-				DA40393C28E990D800A5E5AE /* BottleCell.xib in Resources */,
+				DACAE73D2959CD18002E538A /* BottleCell.xib in Resources */,
 				DA64202528E865DB00E03CB2 /* Assets.xcassets in Resources */,
 				DA64202328E865DA00E03CB2 /* Main.storyboard in Resources */,
 			);
@@ -283,6 +287,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DA64202228E865DA00E03CB2 /* Base */,
+				DACAE73C2959C3A1002E538A /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -291,8 +296,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				DA64202728E865DB00E03CB2 /* Base */,
+				DACAE7382959B821002E538A /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DACAE73F2959CD18002E538A /* BottleCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DACAE7422959CD74002E538A /* ru */,
+				DACAE7432959CD86002E538A /* Base */,
+			);
+			name = BottleCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -302,6 +317,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -362,6 +378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

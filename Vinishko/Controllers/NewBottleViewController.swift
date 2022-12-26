@@ -18,7 +18,6 @@ class NewBottleViewController: UIViewController {
     weak var delegate: UpdateTableView?
     var currentBottle: Bottle!
     var isEdited: Bool?
-    
     private let time = Time()
     
     private var wineColorId = 0
@@ -114,15 +113,31 @@ class NewBottleViewController: UIViewController {
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let currentLanguage = Locale.current.identifier
+       
+        var cameraName = ""
+        var photoName = ""
+        var cancelName = ""
+        
+        if currentLanguage == "en_US" {
+            cameraName = "Camera"
+            photoName = "PhotoLibrary"
+            cancelName = "Cancel"
+        } else {
+            cameraName = "Камера"
+            photoName = "Галерея"
+            cancelName = "Отмена"
+        }
+        
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let camera = UIAlertAction(title: "Камера", style: .default) { _ in
+        let camera = UIAlertAction(title: cameraName, style: .default) { _ in
             self.chooseImagePicker(source: .camera)
         }
-        let photo = UIAlertAction(title: "Галерея", style: .default) { _ in
+        let photo = UIAlertAction(title: photoName, style: .default) { _ in
             self.chooseImagePicker(source: .photoLibrary)
         }
         
-        let cancel = UIAlertAction(title: "Отмена", style: .destructive )
+        let cancel = UIAlertAction(title: cancelName, style: .destructive )
         actionSheet.addAction(camera)
         actionSheet.addAction(photo)
         actionSheet.addAction(cancel)

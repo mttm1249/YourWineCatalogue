@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Регион"; ObjectID = "3Dr-Uf-ATM"; */
+"3Dr-Uf-ATM.text" = "Регион";
+
+/* Class = "UILabel"; text = "Region:"; ObjectID = "BRj-pM-Rhc"; */
+"BRj-pM-Rhc.text" = "Регион:";
+
+/* Class = "UILabel"; text = "Дата"; ObjectID = "H87-cV-k8P"; */
+"H87-cV-k8P.text" = "Дата";
+
+/* Class = "UILabel"; text = "Price:"; ObjectID = "K4C-fQ-XDl"; */
+"K4C-fQ-XDl.text" = "Цена:";
+
+/* Class = "UILabel"; text = "Комментарий"; ObjectID = "Wut-UG-0vM"; */
+"Wut-UG-0vM.text" = "Комментарий";
+
+/* Class = "UILabel"; text = "Название"; ObjectID = "YzN-Jh-eph"; */
+"YzN-Jh-eph.text" = "Название";
+
+/* Class = "UILabel"; text = "Цена"; ObjectID = "qEg-oT-YOu"; */
+"qEg-oT-YOu.text" = "Цена";
+
+/* Class = "UILabel"; text = "Comment:"; ObjectID = "xo0-hV-XGy"; */
+"xo0-hV-XGy.text" = "Комментарий:";

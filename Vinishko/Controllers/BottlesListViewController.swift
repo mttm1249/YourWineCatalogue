@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 
 class BottlesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     let alertView = UIView()
     var bottles: Results<Bottle>!
     var filteredBottles: Results<Bottle>!
@@ -36,7 +36,7 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
         setupSearchBar()
         tableView.reloadData()
     }
-        
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         alertView.removeFromSuperview()
@@ -66,9 +66,14 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     private func setupSearchBar() {
+        let currentLanguage = Locale.current.identifier
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Найти винишко по названию"
+        if currentLanguage == "en_US" {
+            searchController.searchBar.placeholder = "Find bottle by name"
+        } else {
+            searchController.searchBar.placeholder = "Найти винишко по названию"
+        }
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
@@ -96,14 +101,13 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
         return UIView()
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let bottle = bottles.reversed()[indexPath.row]
-        let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") {  (contextualAction, view, boolValue) in
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let bottle = bottles.reversed()[indexPath.row]
             StorageManager.deleteObject(bottle)
             tableView.deleteRows(at: [indexPath], with: .left)
         }
-        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
-        return swipeActions
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -126,6 +130,7 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
+        let currentLanguage = Locale.current.identifier
         bottles = realm.objects(Bottle.self)
         if shared.colorIdOptionInfo != nil && shared.colorIdOptionInfo != 9 {
             let filtered = bottles.where { $0.wineColor == shared.colorIdOptionInfo }
@@ -139,7 +144,11 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
             let filtered = bottles.where { $0.wineCountry == shared.countryOptionInfo }
             bottles = filtered
         }
-        addBannerWith(alertText: "Упс, ничего не нашлось..(")
+        if currentLanguage == "en_US" {
+            addBannerWith(alertText: "Oops, nothing here..(")
+        } else {
+            addBannerWith(alertText: "Упс, ничего не нашлось..(")
+        }
         tableView.reloadData()
     }
     
@@ -161,5 +170,5 @@ extension BottlesListViewController: UpdateBottlesList {
     func updateTableView() {
         tableView.reloadData()
     }
-
+    
 }

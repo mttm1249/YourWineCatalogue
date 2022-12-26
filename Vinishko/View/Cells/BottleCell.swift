@@ -23,11 +23,13 @@ class BottleCell: UITableViewCell {
     @IBOutlet weak var countryIndicator: UILabel!
     
     func setup(model: Bottle) {
+        let currentLanguage = Locale.current.identifier
+        
         bottleImage.image = UIImage(data: model.bottleImage!)
         bottleName.text = model.name
-        wineRegion.text = "Регион: \(model.wineRegion!)"
-        bottlePrice.text = "Цена: \(model.price!)₽"
-        bottleDescription.text = "Комментарий: \(model.bottleDescription!)"
+        wineRegion.text = String(model.wineRegion!)
+        bottlePrice.text = String(model.price!)
+        bottleDescription.text = String(model.bottleDescription!)
         countryIndicator.text = " \(model.wineCountry!) "
         dateLabel.text = model.date
         ratingControl.rating = model.rating
@@ -47,11 +49,23 @@ class BottleCell: UITableViewCell {
         
         switch model.wineType {
         case 0:
-            wineTypeIndicator.text = " Тихое "
+            if currentLanguage == "en_US" {
+                wineTypeIndicator.text = " Still "
+            } else {
+                wineTypeIndicator.text = " Тихое "
+            }
         case 1:
-            wineTypeIndicator.text = " Игристое "
+            if currentLanguage == "en_US" {
+                wineTypeIndicator.text = " Sparkling "
+            } else {
+                wineTypeIndicator.text = " Игристое "
+            }
         case 2:
-            wineTypeIndicator.text = " Другое "
+            if currentLanguage == "en_US" {
+                wineTypeIndicator.text = " Other "
+            } else {
+                wineTypeIndicator.text = " Другое "
+            }
         case .none:
             break
         case .some(_):
@@ -60,13 +74,29 @@ class BottleCell: UITableViewCell {
         
         switch model.wineSugar {
         case 0:
-            wineSugarIndicator.text = " Сух "
+            if currentLanguage == "en_US" {
+                wineSugarIndicator.text = " Dry "
+            } else {
+                wineSugarIndicator.text = " Сух "
+            }
         case 1:
-            wineSugarIndicator.text = " П.сух "
+            if currentLanguage == "en_US" {
+                wineSugarIndicator.text = " S.dry "
+            } else {
+                wineSugarIndicator.text = " П.сух "
+            }
         case 2:
-            wineSugarIndicator.text = " П.слад "
+            if currentLanguage == "en_US" {
+                wineSugarIndicator.text = " S.sweet "
+            } else {
+                wineSugarIndicator.text = " П.слад "
+            }
         case 3:
-            wineSugarIndicator.text = " Слад "
+            if currentLanguage == "en_US" {
+                wineSugarIndicator.text = " Sweet "
+            } else {
+                wineSugarIndicator.text = " Слад "
+            }
         case .none:
             break
         case .some(_):

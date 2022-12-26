@@ -52,7 +52,7 @@ class BottleViewController: UIViewController, UpdateTableView {
         wineCountry.text = currentBottle.wineCountry
         wineRegion.text = currentBottle.wineRegion
         placeOfPurchase.text = currentBottle.placeOfPurchase
-        bottlePrice.text = currentBottle.price?.appending("₽")
+        bottlePrice.text = currentBottle.price
         bottleDescription.text = currentBottle.bottleDescription
         setupRatingCircle()
         setupIndicators()
@@ -76,6 +76,8 @@ class BottleViewController: UIViewController, UpdateTableView {
     }
     
     func setupIndicators() {
+        let currentLanguage = Locale.current.identifier
+
         switch currentBottle.wineColor {
         case 0:
             wineColorIndicator.backgroundColor = .redWineColor
@@ -91,11 +93,23 @@ class BottleViewController: UIViewController, UpdateTableView {
         
         switch currentBottle.wineType {
         case 0:
-            wineTypeIndicator.text = " Тихое "
+            if currentLanguage == "en_US" {
+                wineTypeIndicator.text = " Still "
+            } else {
+                wineTypeIndicator.text = " Тихое "
+            }
         case 1:
-            wineTypeIndicator.text = " Игристое "
+            if currentLanguage == "en_US" {
+                wineTypeIndicator.text = " Sparkling "
+            } else {
+                wineTypeIndicator.text = " Игристое "
+            }
         case 2:
-            wineTypeIndicator.text = " Другое "
+            if currentLanguage == "en_US" {
+                wineTypeIndicator.text = " Other "
+            } else {
+                wineTypeIndicator.text = " Другое "
+            }
         case .none:
             break
         case .some(_):
@@ -104,13 +118,29 @@ class BottleViewController: UIViewController, UpdateTableView {
         
         switch currentBottle.wineSugar {
         case 0:
-            wineSugarIndicator.text = " Сух "
+            if currentLanguage == "en_US" {
+                wineSugarIndicator.text = " Dry "
+            } else {
+                wineSugarIndicator.text = " Сух "
+            }
         case 1:
-            wineSugarIndicator.text = " П.сух "
+            if currentLanguage == "en_US" {
+                wineSugarIndicator.text = " S.dry "
+            } else {
+                wineSugarIndicator.text = " П.сух "
+            }
         case 2:
-            wineSugarIndicator.text = " П.слад "
+            if currentLanguage == "en_US" {
+                wineSugarIndicator.text = " S.sweet "
+            } else {
+                wineSugarIndicator.text = " П.слад "
+            }
         case 3:
-            wineSugarIndicator.text = " Слад "
+            if currentLanguage == "en_US" {
+                wineSugarIndicator.text = " Sweet "
+            } else {
+                wineSugarIndicator.text = " Слад "
+            }
         case .none:
             break
         case .some(_):

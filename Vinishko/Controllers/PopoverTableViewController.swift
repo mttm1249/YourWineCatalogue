@@ -54,14 +54,27 @@ class PopoverTableViewController: UITableViewController {
     }
     
     func colorInfoConverter(number: Int) -> String {
+        let currentLanguage = Locale.current.identifier
         var string = ""
         switch number {
         case 0:
-            string = "Красные"
+            if currentLanguage == "en_US" {
+                string = "Red"
+            } else {
+                string = "Красные"
+            }
         case 1:
-            string = "Белые"
+            if currentLanguage == "en_US" {
+                string = "White"
+            } else {
+                string = "Белые"
+            }
         case 2:
-            string = "Другие"
+            if currentLanguage == "en_US" {
+                string = "Other"
+            } else {
+                string = "Другие"
+            }
         default:
             break
         }

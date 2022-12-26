@@ -34,13 +34,13 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
     }
     
     private func setupStatistics() {
-        bottlesCounter.text = "Всего выпито: \(bottles.count)"
+        bottlesCounter.text = String(bottles.count)
         let redWine = bottles.filter { $0.wineColor == 0 }
-        redBottlesCounter.text = "Красного: \(redWine.count)"
+        redBottlesCounter.text = String(redWine.count)
         let whiteWine = bottles.filter { $0.wineColor == 1 }
-        whiteBottlesCounter.text = "Белого: \(whiteWine.count)"
+        whiteBottlesCounter.text = String(whiteWine.count)
         let otherWine = bottles.filter { $0.wineColor == 2 }
-        otherBottlesCounter.text = "Других: \(otherWine.count)"
+        otherBottlesCounter.text = String(otherWine.count)
     }
     
     private func setupCancelButtons() {
