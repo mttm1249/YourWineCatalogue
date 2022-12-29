@@ -58,19 +58,19 @@ class PopoverTableViewController: UITableViewController {
         var string = ""
         switch number {
         case 0:
-            if currentLanguage == "en_US" {
+            if currentLanguage != "ru_RU" {
                 string = "Red"
             } else {
                 string = "Красные"
             }
         case 1:
-            if currentLanguage == "en_US" {
+            if currentLanguage != "ru_RU" {
                 string = "White"
             } else {
                 string = "Белые"
             }
         case 2:
-            if currentLanguage == "en_US" {
+            if currentLanguage != "ru_RU" {
                 string = "Other"
             } else {
                 string = "Другие"

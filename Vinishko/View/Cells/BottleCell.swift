@@ -49,19 +49,19 @@ class BottleCell: UITableViewCell {
         
         switch model.wineType {
         case 0:
-            if currentLanguage == "en_US" {
+            if currentLanguage != "ru_RU" {
                 wineTypeIndicator.text = " Still "
             } else {
                 wineTypeIndicator.text = " Тихое "
             }
         case 1:
-            if currentLanguage == "en_US" {
+            if currentLanguage != "ru_RU" {
                 wineTypeIndicator.text = " Sparkling "
             } else {
                 wineTypeIndicator.text = " Игристое "
             }
         case 2:
-            if currentLanguage == "en_US" {
+            if currentLanguage != "ru_RU" {
                 wineTypeIndicator.text = " Other "
             } else {
                 wineTypeIndicator.text = " Другое "
@@ -74,25 +74,25 @@ class BottleCell: UITableViewCell {
         
         switch model.wineSugar {
         case 0:
-            if currentLanguage == "en_US" {
+            if currentLanguage != "ru_RU" {
                 wineSugarIndicator.text = " Dry "
             } else {
                 wineSugarIndicator.text = " Сух "
             }
         case 1:
-            if currentLanguage == "en_US" {
+            if currentLanguage != "ru_RU" {
                 wineSugarIndicator.text = " S.dry "
             } else {
                 wineSugarIndicator.text = " П.сух "
             }
         case 2:
-            if currentLanguage == "en_US" {
+            if currentLanguage != "ru_RU" {
                 wineSugarIndicator.text = " S.sweet "
             } else {
                 wineSugarIndicator.text = " П.слад "
             }
         case 3:
-            if currentLanguage == "en_US" {
+            if currentLanguage != "ru_RU" {
                 wineSugarIndicator.text = " Sweet "
             } else {
                 wineSugarIndicator.text = " Слад "

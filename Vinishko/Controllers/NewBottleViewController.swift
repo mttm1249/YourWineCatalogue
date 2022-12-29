@@ -119,7 +119,7 @@ class NewBottleViewController: UIViewController {
         var photoName = ""
         var cancelName = ""
         
-        if currentLanguage == "en_US" {
+        if currentLanguage != "ru_RU" {
             cameraName = "Camera"
             photoName = "PhotoLibrary"
             cancelName = "Cancel"

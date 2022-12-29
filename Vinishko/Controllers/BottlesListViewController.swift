@@ -13,7 +13,8 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     let alertView = UIView()
     var bottles: Results<Bottle>!
     var filteredBottles: Results<Bottle>!
-    
+    private let currentLanguage = Locale.current.identifier
+
     private let shared = FilterManager.shared
     private let searchController = UISearchController(searchResultsController: nil)
     
@@ -37,9 +38,22 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkBottlesCount()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         alertView.removeFromSuperview()
+    }
+    
+    private func checkBottlesCount() {
+        if currentLanguage != "ru_RU" {
+            addBannerWith(alertText: "Empty, add a bottle!")
+        } else {
+            addBannerWith(alertText: "Тут пока пусто...(")
+        }
     }
     
     private func addBannerWith(alertText: String) {
@@ -66,10 +80,9 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     private func setupSearchBar() {
-        let currentLanguage = Locale.current.identifier
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        if currentLanguage == "en_US" {
+        if currentLanguage != "ru_RU" {
             searchController.searchBar.placeholder = "Find bottle by name"
         } else {
             searchController.searchBar.placeholder = "Найти винишко по названию"
@@ -130,7 +143,6 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
-        let currentLanguage = Locale.current.identifier
         bottles = realm.objects(Bottle.self)
         if shared.colorIdOptionInfo != nil && shared.colorIdOptionInfo != 9 {
             let filtered = bottles.where { $0.wineColor == shared.colorIdOptionInfo }
@@ -144,11 +156,11 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
             let filtered = bottles.where { $0.wineCountry == shared.countryOptionInfo }
             bottles = filtered
         }
-        if currentLanguage == "en_US" {
-            addBannerWith(alertText: "Oops, nothing here..(")
-        } else {
-            addBannerWith(alertText: "Упс, ничего не нашлось..(")
-        }
+//        if currentLanguage != "ru_RU" {
+//            addBannerWith(alertText: "Oops, nothing here..(")
+//        } else {
+//            addBannerWith(alertText: "Упс, ничего не нашлось..(")
+//        }
         tableView.reloadData()
     }
     

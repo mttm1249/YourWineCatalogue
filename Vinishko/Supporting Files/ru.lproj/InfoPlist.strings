@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  Vinishko
+
+  Created by Денис on 29.12.2022.
+  
+*/
+
+"NSCameraUsageDescription" = "Vinishko хочет использовать Вашу камеру, можно?";
+
+"NSPhotoLibraryUsageDescription" = "Vinishko хочет использовать Ваши фотографии, можно?";
