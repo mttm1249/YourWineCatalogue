@@ -113,11 +113,10 @@ class CloudManager {
                     record.setValue(bottle.wineSort, forKey: "wineSort")
                     record.setValue(bottle.wineSugar, forKey: "wineSugar")
                     record.setValue(bottle.wineType, forKey: "wineType")
-                    
-                    privateCloudDatabase.save(record) { (_, error) in
+                    privateCloudDatabase.save(record, completionHandler: { (_, error) in
                         if let error = error { print(error.localizedDescription); return }
                         deleteTempImage(imageURL: imageURL)
-                    }
+                    })
                 }
             }
         }

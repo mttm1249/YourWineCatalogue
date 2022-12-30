@@ -14,7 +14,7 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     var bottles: Results<Bottle>!
     var filteredBottles: Results<Bottle>!
     private let currentLanguage = Locale.current.identifier
-
+    
     private let shared = FilterManager.shared
     private let searchController = UISearchController(searchResultsController: nil)
     
@@ -40,7 +40,7 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        checkBottlesCount()
+        checkBottlesCount()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -84,6 +84,17 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
             
             alertView.addSubview(alertTextLabel)
             tableView.addSubview(alertView)
+        }
+        delay(1) {
+            if self.bottles.count != 0 {
+                self.alertView.removeFromSuperview()
+            }
+        }
+    }
+    
+    fileprivate func delay(_ delay: Double, closure: @escaping() -> ()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+            closure()
         }
     }
     
