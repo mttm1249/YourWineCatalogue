@@ -33,7 +33,7 @@ class BottleCell: UITableViewCell {
         countryIndicator.text = " \(model.wineCountry!) "
         dateLabel.text = model.date
         ratingControl.rating = model.rating
-        
+                
         switch model.wineColor {
         case 0:
             wineColorIndicator.backgroundColor = .redWineColor

@@ -18,21 +18,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="u3Q-pc-oTZ">
-                                <rect key="frame" x="140" y="444.33333333333331" width="150" height="112.33333333333331"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="u3Q-pc-oTZ">
+                                <rect key="frame" x="140" y="453" width="150" height="95"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBG-nC-xSG">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="43.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="35"/>
                                         <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="jQx-Qj-xlG"/>
+                                        </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing">
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
                                             <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                        </buttonConfiguration>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
+                                                <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -40,17 +43,20 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXc-s3-3Ye">
-                                        <rect key="frame" x="0.0" y="68.666666666666686" width="150" height="43.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="60" width="150" height="35"/>
                                         <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="spZ-oA-awT"/>
+                                        </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing">
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
                                             <imageReference key="image" image="list.star" catalog="system" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
-                                        </buttonConfiguration>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
+                                                <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -63,7 +69,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Imf-vc-xNL">
-                                <rect key="frame" x="122" y="402.66666666666669" width="187" height="20.333333333333314"/>
+                                <rect key="frame" x="122" y="411.33333333333331" width="187" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -74,6 +80,12 @@
                                 <color key="textColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тестовая сборка: 1.0.3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blf-Tm-LEI">
+                                <rect key="frame" x="40" y="877.66666666666663" width="350" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qVe-B5-BBr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -81,10 +93,13 @@
                             <constraint firstItem="0UU-fu-rmS" firstAttribute="leading" secondItem="qVe-B5-BBr" secondAttribute="leading" constant="15" id="6kF-48-jcW"/>
                             <constraint firstItem="u3Q-pc-oTZ" firstAttribute="centerY" secondItem="qVe-B5-BBr" secondAttribute="centerY" id="EXG-n9-5Er"/>
                             <constraint firstItem="u3Q-pc-oTZ" firstAttribute="top" secondItem="Imf-vc-xNL" secondAttribute="bottom" constant="21.333333333333314" id="HOs-zj-Bf8"/>
+                            <constraint firstItem="blf-Tm-LEI" firstAttribute="leading" secondItem="qVe-B5-BBr" secondAttribute="leading" constant="40" id="HvG-m0-bA0"/>
                             <constraint firstItem="Imf-vc-xNL" firstAttribute="leading" secondItem="qVe-B5-BBr" secondAttribute="leading" constant="122" id="LaM-hk-nPW"/>
                             <constraint firstItem="qVe-B5-BBr" firstAttribute="trailing" secondItem="Imf-vc-xNL" secondAttribute="trailing" constant="121" id="Zva-tn-32w"/>
                             <constraint firstItem="0UU-fu-rmS" firstAttribute="top" secondItem="qVe-B5-BBr" secondAttribute="top" constant="114" id="fON-wx-63i"/>
                             <constraint firstItem="u3Q-pc-oTZ" firstAttribute="centerX" secondItem="qVe-B5-BBr" secondAttribute="centerX" id="g05-oc-oxs"/>
+                            <constraint firstItem="qVe-B5-BBr" firstAttribute="bottom" secondItem="blf-Tm-LEI" secondAttribute="bottom" id="gw8-rr-RCE"/>
+                            <constraint firstItem="qVe-B5-BBr" firstAttribute="trailing" secondItem="blf-Tm-LEI" secondAttribute="trailing" constant="40" id="obN-mf-D9g"/>
                             <constraint firstItem="qVe-B5-BBr" firstAttribute="trailing" secondItem="0UU-fu-rmS" secondAttribute="trailing" constant="15" id="xig-2l-uob"/>
                         </constraints>
                     </view>
@@ -95,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rgv-Of-70J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="594.6564885496183" y="-415.49295774647891"/>
+            <point key="canvasLocation" x="594.41860465116281" y="-415.8798283261803"/>
         </scene>
         <!--Add new bottle-->
         <scene sceneID="tne-QT-ifu">
@@ -213,14 +228,17 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHk-sV-yOS">
-                                        <rect key="frame" x="184.66666666666666" y="682" width="61" height="34.333333333333371"/>
+                                        <rect key="frame" x="159" y="687" width="113" height="30"/>
                                         <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="113" id="euD-1G-Piq"/>
+                                        </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Save"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
+                                                <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -229,15 +247,15 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="kHk-sV-yOS" firstAttribute="top" secondItem="MUh-hF-miw" secondAttribute="bottom" constant="19" id="4yd-zQ-jaE"/>
+                                    <constraint firstItem="kHk-sV-yOS" firstAttribute="top" secondItem="MUh-hF-miw" secondAttribute="bottom" constant="24" id="4yd-zQ-jaE"/>
                                     <constraint firstAttribute="trailing" secondItem="tvE-pu-mAG" secondAttribute="trailing" constant="40" id="B3p-bu-48A"/>
                                     <constraint firstItem="n3m-xq-Wmp" firstAttribute="top" secondItem="WNP-si-IMr" secondAttribute="top" constant="28" id="DbR-kK-fZR"/>
                                     <constraint firstItem="tvE-pu-mAG" firstAttribute="leading" secondItem="WNP-si-IMr" secondAttribute="leading" constant="40" id="J6W-0n-szV"/>
                                     <constraint firstItem="MUh-hF-miw" firstAttribute="top" secondItem="tvE-pu-mAG" secondAttribute="bottom" constant="7" id="KkY-ue-jp2"/>
                                     <constraint firstItem="tvE-pu-mAG" firstAttribute="top" secondItem="n3m-xq-Wmp" secondAttribute="bottom" constant="8" id="Nw8-0a-o1Y"/>
-                                    <constraint firstItem="kHk-sV-yOS" firstAttribute="centerX" secondItem="WNP-si-IMr" secondAttribute="centerX" id="PmM-pW-XCj"/>
+                                    <constraint firstItem="kHk-sV-yOS" firstAttribute="centerX" secondItem="WNP-si-IMr" secondAttribute="centerX" constant="0.5" id="PmM-pW-XCj"/>
                                     <constraint firstItem="tvE-pu-mAG" firstAttribute="centerX" secondItem="WNP-si-IMr" secondAttribute="centerX" id="bhN-cH-RWh"/>
-                                    <constraint firstAttribute="bottom" secondItem="kHk-sV-yOS" secondAttribute="bottom" constant="112.66666666666663" id="qA5-ev-wM5"/>
+                                    <constraint firstAttribute="bottom" secondItem="kHk-sV-yOS" secondAttribute="bottom" constant="112" id="qA5-ev-wM5"/>
                                     <constraint firstItem="MUh-hF-miw" firstAttribute="centerX" secondItem="WNP-si-IMr" secondAttribute="centerX" id="qHS-kg-R5g"/>
                                     <constraint firstItem="n3m-xq-Wmp" firstAttribute="centerX" secondItem="WNP-si-IMr" secondAttribute="centerX" id="x1f-TY-Pno"/>
                                 </constraints>
@@ -566,11 +584,12 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FA-YR-6yF">
-                                <rect key="frame" x="145" y="766.66666666666663" width="140" height="34.333333333333371"/>
+                                <rect key="frame" x="145" y="771" width="140" height="30"/>
                                 <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Edit"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Edit"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="15"/>
@@ -753,17 +772,17 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cL7-uj-uO5" userLabel="Filters StackView">
-                                <rect key="frame" x="75" y="328.66666666666669" width="280" height="123"/>
+                                <rect key="frame" x="75" y="328.66666666666669" width="280" height="110"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="RU1-7X-rNf" userLabel="Color StackView">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lm-SO-TCX">
-                                                <rect key="frame" x="0.0" y="0.0" width="233" height="34.333333333333336"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lm-SO-TCX">
+                                                <rect key="frame" x="0.0" y="0.0" width="233" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Wine color"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Wine color"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="15"/>
@@ -774,16 +793,16 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="to0-i7-goM">
-                                                <rect key="frame" x="235" y="0.0" width="45" height="34.333333333333336"/>
+                                                <rect key="frame" x="235" y="0.0" width="45" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="45" id="cT8-Dy-Tve"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
                                                     <imageReference key="image" image="multiply" catalog="system" symbolScale="large"/>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="15"/>
-                                                </buttonConfiguration>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="15"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="cancelOptionButtonAction:" destination="AqD-AU-99F" eventType="touchUpInside" id="0W0-G8-gt0"/>
                                                 </connections>
@@ -798,14 +817,14 @@
                                         </userDefinedRuntimeAttributes>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ush-OW-e14" userLabel="Purchase StackView">
-                                        <rect key="frame" x="0.0" y="44.333333333333314" width="280" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="40" width="280" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXh-gh-Kcx">
-                                                <rect key="frame" x="0.0" y="0.0" width="233" height="34.333333333333336"/>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXh-gh-Kcx">
+                                                <rect key="frame" x="0.0" y="0.0" width="233" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Place of purchase"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Place of purchase"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="15"/>
@@ -816,16 +835,16 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeF-m3-8r2">
-                                                <rect key="frame" x="235" y="0.0" width="45" height="34.333333333333336"/>
+                                                <rect key="frame" x="235" y="0.0" width="45" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="45" id="DJz-33-eAm"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
                                                     <imageReference key="image" image="multiply" catalog="system" symbolScale="large"/>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="15"/>
-                                                </buttonConfiguration>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="15"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="cancelOptionButtonAction:" destination="AqD-AU-99F" eventType="touchUpInside" id="XeK-z4-cCk"/>
                                                 </connections>
@@ -840,29 +859,29 @@
                                         </userDefinedRuntimeAttributes>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="5sZ-MK-osn" userLabel="Country StackView">
-                                        <rect key="frame" x="0.0" y="88.666666666666629" width="280" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="80" width="280" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvO-UL-YMB">
-                                                <rect key="frame" x="0.0" y="0.0" width="233" height="34.333333333333336"/>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvO-UL-YMB">
+                                                <rect key="frame" x="0.0" y="0.0" width="233" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Country"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Country"/>
                                                 <connections>
                                                     <action selector="filterButtonAction:" destination="AqD-AU-99F" eventType="touchUpInside" id="Rkm-6K-4Zz"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiL-k8-CSb">
-                                                <rect key="frame" x="235" y="0.0" width="45" height="34.333333333333336"/>
+                                                <rect key="frame" x="235" y="0.0" width="45" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="45" id="NIi-dp-NgP"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
                                                     <imageReference key="image" image="multiply" catalog="system" symbolScale="large"/>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="15"/>
-                                                </buttonConfiguration>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="15"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="cancelOptionButtonAction:" destination="AqD-AU-99F" eventType="touchUpInside" id="k6U-GT-Kce"/>
                                                 </connections>
@@ -879,23 +898,23 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKn-E0-6Fr">
-                                <rect key="frame" x="132" y="475" width="166" height="34.333333333333314"/>
+                                <rect key="frame" x="132" y="462" width="166" height="30"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Clear filters"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Clear filters"/>
                                 <connections>
                                     <action selector="cancelAllButtonAction:" destination="AqD-AU-99F" eventType="touchUpInside" id="9fI-WL-Thy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IoL-DN-5tP">
-                                <rect key="frame" x="132" y="612.33333333333337" width="166" height="34.333333333333371"/>
+                                <rect key="frame" x="132" y="595" width="166" height="30"/>
                                 <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="QaP-Ia-NDK"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Apply"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Apply"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="15"/>

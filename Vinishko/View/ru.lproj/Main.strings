@@ -21,7 +21,7 @@
 "4FA-YR-6yF.configuration.title" = "Изменить";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "4FA-YR-6yF"; */
-"4FA-YR-6yF.normalTitle" = "Button";
+"4FA-YR-6yF.normalTitle" = "Изменить";
 
 /* Class = "UILabel"; text = "Красного: 0"; ObjectID = "4zi-DM-fkE"; */
 "4zi-DM-fkE.text" = "Красного: 0";
@@ -30,7 +30,7 @@
 "6lm-SO-TCX.configuration.title" = "Цвет";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "6lm-SO-TCX"; */
-"6lm-SO-TCX.normalTitle" = "Button";
+"6lm-SO-TCX.normalTitle" = "Цвет";
 
 /* Class = "UILabel"; text = "Регион:"; ObjectID = "80y-U7-7h7"; */
 "80y-U7-7h7.text" = "Регион:";
@@ -63,7 +63,7 @@
 "IoL-DN-5tP.configuration.title" = "Применить";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "IoL-DN-5tP"; */
-"IoL-DN-5tP.normalTitle" = "Button";
+"IoL-DN-5tP.normalTitle" = "Применить";
 
 /* Class = "UITextField"; placeholder = "Комментарий"; ObjectID = "NjK-k7-UZ2"; */
 "NjK-k7-UZ2.placeholder" = "Комментарий";
@@ -87,7 +87,7 @@
 "UXh-gh-Kcx.configuration.title" = "Место покупки";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "UXh-gh-Kcx"; */
-"UXh-gh-Kcx.normalTitle" = "Button";
+"UXh-gh-Kcx.normalTitle" = "Место покупки";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "UeF-m3-8r2"; */
 "UeF-m3-8r2.normalTitle" = "Button";
@@ -111,7 +111,7 @@
 "cKn-E0-6Fr.configuration.title" = "Сбросить";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cKn-E0-6Fr"; */
-"cKn-E0-6Fr.normalTitle" = "Button";
+"cKn-E0-6Fr.normalTitle" = "Сбросить";
 
 /* Class = "UILabel"; text = "Страна"; ObjectID = "fvc-2Y-kbm"; */
 "fvc-2Y-kbm.text" = "Страна";
@@ -126,7 +126,7 @@
 "kHk-sV-yOS.configuration.title" = "Сохранить";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kHk-sV-yOS"; */
-"kHk-sV-yOS.normalTitle" = "Button";
+"kHk-sV-yOS.normalTitle" = "Сохранить";
 
 /* Class = "UILabel"; text = "Сорт"; ObjectID = "obe-y6-zsG"; */
 "obe-y6-zsG.text" = "Сорт";
@@ -141,7 +141,7 @@
 "rvO-UL-YMB.configuration.title" = "Страна";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "rvO-UL-YMB"; */
-"rvO-UL-YMB.normalTitle" = "Button";
+"rvO-UL-YMB.normalTitle" = "Страна";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "to0-i7-goM"; */
 "to0-i7-goM.normalTitle" = "Button";

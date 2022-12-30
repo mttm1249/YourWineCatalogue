@@ -157,11 +157,12 @@ class NewBottleViewController: UIViewController {
     // Saving object
     func save() {
         let defaultText = ""
+        guard let image = bottleImage.image else { return }
         let newBottle = Bottle(name: bottleNameTF.text ?? defaultText,
                                bottleDescription: bottleDescriptionTF.text ?? defaultText,
                                placeOfPurchase: placeOfPurchaseTF.text ?? defaultText,
                                date: time.getData(),
-                               bottleImage: bottleImage.image?.pngData(),
+                               bottleImage: bottleImage.image!.pngData(),
                                rating: ratingControl.rating,
                                wineRegion: regionTF.text ?? defaultText,
                                price: priceTF.text ?? defaultText,
@@ -170,7 +171,6 @@ class NewBottleViewController: UIViewController {
                                wineSugar: wineSugarId,
                                wineSort: wineSortTF.text ?? defaultText,
                                wineCountry: countryTF.text ?? defaultText)
-        
         if currentBottle != nil {
             try! realm.write {
                 currentBottle?.bottleImage = newBottle.bottleImage
@@ -189,8 +189,17 @@ class NewBottleViewController: UIViewController {
                 wineColorId = currentBottle.wineColor!
                 wineTypeId = currentBottle.wineType!
                 wineSugarId = currentBottle.wineSugar!
+                
+                CloudManager.updateCloudData(bottle: currentBottle, bottleImage: image)
             }
         } else {
+            CloudManager.saveDataToCloud(bottle: newBottle, bottleImage: image) { recordId in
+                DispatchQueue.main.async {
+                    try! realm.write {
+                        newBottle.recordID = recordId
+                    }
+                }
+            }
             StorageManager.saveObject(newBottle)
         }
         feedbackGenerator.impactOccurred()

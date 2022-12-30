@@ -16,6 +16,7 @@ protocol FilterOptionsProtocol: AnyObject {
 
 class PopoverTableViewController: UITableViewController {
     
+    private let currentLanguage = Locale.current.identifier
     var optionsArrayId: Int?
     private var options: [String] = []
     weak var delegate: FilterOptionsProtocol?
@@ -27,7 +28,7 @@ class PopoverTableViewController: UITableViewController {
         setupPopover()
     }
     
-   private func setupPopover() {
+    private func setupPopover() {
         switch optionsArrayId {
         case 0:
             for bottle in bottles {
@@ -54,7 +55,6 @@ class PopoverTableViewController: UITableViewController {
     }
     
     func colorInfoConverter(number: Int) -> String {
-        let currentLanguage = Locale.current.identifier
         var string = ""
         switch number {
         case 0:
@@ -97,16 +97,7 @@ class PopoverTableViewController: UITableViewController {
         var colorId: Int?
         switch optionsArrayId {
         case 0:
-            switch optionName {
-            case "Красные":
-                colorId = 0
-            case "Белые":
-                colorId = 1
-            case "Другие":
-                colorId = 2
-            default:
-                break
-            }
+            colorId = check(optionName: optionName)
             delegate?.getColorOption(colorId: colorId!)
             delegate?.getOptionName(name: optionName, tag: 0)
             shared.colorIdOptionInfo = colorId!
@@ -120,6 +111,27 @@ class PopoverTableViewController: UITableViewController {
             break
         }
         dismiss(animated: true)
+    }
+    
+    private func check(optionName: String) -> Int {
+        var colorId = 0
+        switch optionName {
+        case "Красные":
+            colorId = 0
+        case "Белые":
+            colorId = 1
+        case "Другие":
+            colorId = 2
+        case "Red":
+            colorId = 0
+        case "White":
+            colorId = 1
+        case "Other":
+            colorId = 2
+        default:
+            break
+        }
+        return colorId
     }
     
 }

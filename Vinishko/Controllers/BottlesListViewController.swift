@@ -35,17 +35,30 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         registerCell()
         setupSearchBar()
-        tableView.reloadData()
+        loadFromCloud()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        checkBottlesCount()
+//        checkBottlesCount()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         alertView.removeFromSuperview()
+    }
+    
+    private func loadFromCloud() {
+        CloudManager.fetchDataFromCloud(bottles: bottles) { (bottle) in
+            StorageManager.saveObject(bottle)
+            self.tableView.reloadData()
+            CloudManager.getImageFromCloud(bottle: bottle, closure: { imageData in
+                try! realm.write {
+                    bottle.bottleImage = imageData
+                }
+                self.tableView.reloadData()
+            })
+        }
     }
     
     private func checkBottlesCount() {
@@ -101,11 +114,8 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bottleCell", for: indexPath) as! BottleCell
-        if isFiltering {
-            cell.setup(model: filteredBottles.reversed()[indexPath.row])
-        } else {
-            cell.setup(model: bottles.reversed()[indexPath.row])
-        }
+        let bottle = isFiltering ? filteredBottles.reversed()[indexPath.row] : bottles.reversed()[indexPath.row]
+        cell.setup(model: bottle)
         return cell
     }
     
@@ -118,8 +128,11 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let bottle = bottles.reversed()[indexPath.row]
-            StorageManager.deleteObject(bottle)
-            tableView.deleteRows(at: [indexPath], with: .left)
+            self.showAlert(title: "Delete record?", message: "This record will be deleted from all your devices") {
+                CloudManager.deleteRecord(recordID: bottle.recordID)
+                StorageManager.deleteObject(bottle)
+                tableView.deleteRows(at: [indexPath], with: .left)
+            }
         }
     }
     
@@ -156,12 +169,19 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
             let filtered = bottles.where { $0.wineCountry == shared.countryOptionInfo }
             bottles = filtered
         }
-//        if currentLanguage != "ru_RU" {
-//            addBannerWith(alertText: "Oops, nothing here..(")
-//        } else {
-//            addBannerWith(alertText: "Упс, ничего не нашлось..(")
-//        }
         tableView.reloadData()
+    }
+    
+    private func showAlert(title: String, message: String, closure: @escaping () -> ()) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            closure()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
     }
     
 }
