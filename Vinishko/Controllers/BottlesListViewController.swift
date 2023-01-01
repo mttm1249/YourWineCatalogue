@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Network
 
 class BottlesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -36,18 +37,9 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
         registerCell()
         setupSearchBar()
         loadFromCloud()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         checkBottlesCount()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        alertView.removeFromSuperview()
-    }
-    
+                
     private func loadFromCloud() {
         CloudManager.fetchDataFromCloud(bottles: bottles) { (bottle) in
             StorageManager.saveObject(bottle)
@@ -137,9 +129,24 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        var titleText = ""
+        var messageText = ""
+        var cancelText = ""
+        var deleteText = ""
+        if currentLanguage != "ru_RU" {
+            titleText = "Delete record?"
+            messageText = "This record will be deleted from all your devices"
+            deleteText = "Delete"
+            cancelText = "Cancel"
+        } else {
+            titleText = "Удалить запись?"
+            messageText = "Эта запись будет удалена со всех Ваших устройств"
+            deleteText = "Удалить"
+            cancelText = "Отмена"
+        }
         if editingStyle == .delete {
             let bottle = bottles.reversed()[indexPath.row]
-            self.showAlert(title: "Delete record?", message: "This record will be deleted from all your devices") {
+            self.showAlert(title: titleText, message: messageText, deleteText: deleteText, cancelText: cancelText) {
                 CloudManager.deleteRecord(recordID: bottle.recordID)
                 StorageManager.deleteObject(bottle)
                 tableView.deleteRows(at: [indexPath], with: .left)
@@ -183,12 +190,12 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.reloadData()
     }
     
-    private func showAlert(title: String, message: String, closure: @escaping () -> ()) {
+    private func showAlert(title: String, message: String, deleteText: String, cancelText: String, closure: @escaping () -> ()) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+        let okAction = UIAlertAction(title: deleteText, style: .destructive) { (_) in
             closure()
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancelAction = UIAlertAction(title: cancelText, style: .cancel)
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         

@@ -13,7 +13,6 @@ class Time {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-//        dateFormatter.locale = Locale(identifier: "ru_RU")
         let dateString = dateFormatter.string(from: date)
         return dateString
     }

@@ -10,7 +10,6 @@ import CloudKit
 import UIKit
 
 class Bottle: Object {
-    
     @Persisted var bottleID = UUID().uuidString
     @Persisted var recordID = ""
     @Persisted var name: String?

@@ -46,7 +46,6 @@ class CloudManager {
     }
     
     static func fetchDataFromCloud(bottles: Results<Bottle>, closure: @escaping (Bottle) -> ()) {
-        
         let query = CKQuery(recordType: "Bottle", predicate: NSPredicate(value: true))
         query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
         
@@ -141,7 +140,6 @@ class CloudManager {
                 }
                 privateCloudDatabase.add(fetchRecordsOperation)
             }
-
         }
     }
     

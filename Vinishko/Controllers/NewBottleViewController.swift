@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Network
 
 protocol UpdateTableView: AnyObject {
     func updateCurrentBottleInfo()
@@ -19,7 +20,8 @@ class NewBottleViewController: UIViewController {
     var currentBottle: Bottle!
     var isEdited: Bool?
     private let time = Time()
-    
+    private let monitor = NWPathMonitor()
+
     private var wineColorId = 0
     private var wineTypeId = 0
     private var wineSugarId = 0
@@ -42,9 +44,30 @@ class NewBottleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkConnection()
         scrollView.delegate = self
         hideKeyboard()
         setupEditScreen()
+    }
+    
+    private func checkConnection() {
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                DispatchQueue.main.async {
+                    self.addButton.isEnabled = true
+                    self.addButton.tintColor = .white
+                    self.addButton.loadingIndicator(false)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.addButton.isEnabled = false
+                    self.addButton.tintColor = .clear
+                    self.addButton.loadingIndicator(true)
+                }
+            }
+        }
+        let queue = DispatchQueue(label: "Monitor")
+        monitor.start(queue: queue)
     }
     
     private func setupEditScreen() {
@@ -114,7 +137,7 @@ class NewBottleViewController: UIViewController {
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let currentLanguage = Locale.current.identifier
-       
+        
         var cameraName = ""
         var photoName = ""
         var cancelName = ""
@@ -220,7 +243,7 @@ class NewBottleViewController: UIViewController {
             break
         }
     }
-     
+    
     @IBAction func wineSugarAction(_ sender: Any) {
         switch wineSugarSegmentedControl.selectedSegmentIndex {
         case 0:
@@ -248,7 +271,7 @@ class NewBottleViewController: UIViewController {
             break
         }
     }
-        
+    
 }
 
 // MARK: Work with image
@@ -274,9 +297,34 @@ extension NewBottleViewController: UIImagePickerControllerDelegate, UINavigation
 
 // MARK: UIScrollViewDelegate
 extension NewBottleViewController: UIScrollViewDelegate {
-   
+    
     // Disable horizontal scroll
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.contentOffset.x = 0
+    }
+}
+
+extension UIButton {
+    func loadingIndicator(_ show: Bool) {
+        let tag = 666
+        if show {
+            self.isEnabled = false
+            self.alpha = 1
+            let indicator = UIActivityIndicatorView()
+            let buttonHeight = self.bounds.size.height
+            let buttonWidth = self.bounds.size.width
+            indicator.layer.position = CGPoint(x: buttonWidth/2, y: buttonHeight/2)
+            indicator.tag = tag
+            indicator.color = .white
+            self.addSubview(indicator)
+            indicator.startAnimating()
+        } else {
+            self.isEnabled = true
+            self.alpha = 1.0
+            if let indicator = self.viewWithTag(tag) as? UIActivityIndicatorView {
+                indicator.stopAnimating()
+                indicator.removeFromSuperview()
+            }
+        }
     }
 }

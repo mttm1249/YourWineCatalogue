@@ -57,7 +57,6 @@
 		DA9690A028ED80A700CEEFCE /* PopoverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverTableViewController.swift; sourceTree = "<group>"; };
 		DA9690A228EDBE7400CEEFCE /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		DAA49821295EC7AD00C3DF60 /* CloudManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudManager.swift; sourceTree = "<group>"; };
-		DAA49823295ED75C00C3DF60 /* Vinishko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vinishko.entitlements; sourceTree = "<group>"; };
 		DAAB0844295D7BB2001542B8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DAB1264C28F021D40090E9D0 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		DABD3DCC28EB38E1003D84FA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -66,6 +65,7 @@
 		DACAE73C2959C3A1002E538A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		DACAE7422959CD74002E538A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/BottleCell.strings; sourceTree = "<group>"; };
 		DACAE7432959CD86002E538A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BottleCell.xib; sourceTree = "<group>"; };
+		DAE53AAD295F60DE00B76985 /* Vinishko.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Vinishko.entitlements; sourceTree = "<group>"; };
 		DAE575E928EAE3CD00F22741 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,8 +153,8 @@
 		DA64201A28E865DA00E03CB2 /* Vinishko */ = {
 			isa = PBXGroup;
 			children = (
-				DAA49823295ED75C00C3DF60 /* Vinishko.entitlements */,
 				DAB1264C28F021D40090E9D0 /* .gitignore */,
+				DAE53AAD295F60DE00B76985 /* Vinishko.entitlements */,
 				DA40393F28E9911400A5E5AE /* Model */,
 				DA40394128E9917200A5E5AE /* View */,
 				DA40393E28E9910200A5E5AE /* Controllers */,
@@ -446,7 +446,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Vinishko/Supporting Files/Info.plist";
@@ -484,7 +484,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Vinishko/Supporting Files/Info.plist";
@@ -525,7 +525,7 @@
 				DA64202B28E865DB00E03CB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		DA64202C28E865DB00E03CB2 /* Build configuration list for PBXNativeTarget "Vinishko" */ = {
 			isa = XCConfigurationList;
@@ -534,7 +534,7 @@
 				DA64202E28E865DB00E03CB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
