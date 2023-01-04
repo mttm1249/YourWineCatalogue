@@ -37,7 +37,7 @@ class BottleViewController: UIViewController, UpdateTableView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundImageBlureEffect()
+        backgroundImageBlurEffect()
         setupInfo()
     }
     
@@ -148,7 +148,7 @@ class BottleViewController: UIViewController, UpdateTableView {
         }
     }
     
-    func backgroundImageBlureEffect() {
+    func backgroundImageBlurEffect() {
         let currentFilter = CIFilter(name: "CIGaussianBlur")
         guard let data = currentBottle?.bottleImage, let image = UIImage(data: data) else { return }
         bottleImage.image = image
@@ -176,7 +176,7 @@ class BottleViewController: UIViewController, UpdateTableView {
     }
     
     func updateCurrentBottleInfo() {
-        backgroundImageBlureEffect()
+        backgroundImageBlurEffect()
         setupInfo()
     }
     

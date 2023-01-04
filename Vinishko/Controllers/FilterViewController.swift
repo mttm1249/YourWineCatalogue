@@ -10,6 +10,16 @@ import RealmSwift
 
 class FilterViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
+    let currentLanguage = Locale.current.identifier
+    // options titles
+    var colorTitle = ""
+    var purchaseTitle = ""
+    var countryTitle = ""
+    // color otions titles
+    var redColorTitle = ""
+    var whiteColorTitle = ""
+    var otherColorTitle = ""
+    
     var bottles: Results<Bottle>!
     private let shared = FilterManager.shared
     
@@ -28,9 +38,32 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         bottles = realm.objects(Bottle.self)
+        checkCurrentLanguage()
         setupStatistics()
         setupCancelButtons()
         setupButtonTitles()
+    }
+    
+    private func checkCurrentLanguage() {
+        if currentLanguage != "ru_RU" {
+            // options titles
+            colorTitle = "Wine color"
+            purchaseTitle = "Place of purchase"
+            countryTitle = "Country"
+            // color otions titles
+            redColorTitle = "Red"
+            whiteColorTitle = "White"
+            otherColorTitle = "Other"
+        } else {
+            // options titles
+            colorTitle = "Цвет"
+            purchaseTitle = "Место покупки"
+            countryTitle = "Страна"
+            // color otions titles
+            redColorTitle = "Красные"
+            whiteColorTitle = "Белые"
+            otherColorTitle = "Другие"
+        }
     }
     
     private func setupStatistics() {
@@ -54,11 +87,13 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
         if shared.colorIdOptionInfo != nil {
             switch shared.colorIdOptionInfo {
             case 0:
-                filterByColorButton.setTitle("Красные", for: .normal)
+                filterByColorButton.setTitle(redColorTitle, for: .normal)
             case 1:
-                filterByColorButton.setTitle("Белые", for: .normal)
+                filterByColorButton.setTitle(whiteColorTitle, for: .normal)
+                
             case 2:
-                filterByColorButton.setTitle("Другие", for: .normal)
+                filterByColorButton.setTitle(otherColorTitle, for: .normal)
+                
             default:
                 break
             }
@@ -80,17 +115,10 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
         shared.colorIdOptionInfo = nil
         shared.placeOfPurchaseOptionInfo = nil
         shared.countryOptionInfo = nil
-        
-        filterByColorButton.setTitle("Цвет", for: .normal)
-        filterByPlaceOfPurchaseButton.setTitle("Место покупки", for: .normal)
-        filterByCountryButton.setTitle("Страна", for: .normal)
+        filterByColorButton.setTitle(colorTitle, for: .normal)
+        filterByPlaceOfPurchaseButton.setTitle(purchaseTitle, for: .normal)
+        filterByCountryButton.setTitle(countryTitle, for: .normal)
         setupCancelButtons()
-    }
-    
-    func delay(_ delay: Double, closure: @escaping() -> ()) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
-            closure()
-        }
     }
     
     @IBAction func cancelOptionButtonAction(_ sender: Any) {
@@ -99,15 +127,15 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
         switch tag {
         case 0:
             shared.colorIdOptionInfo = nil
-            filterByColorButton.setTitle("Цвет", for: .normal)
+            filterByColorButton.setTitle(colorTitle, for: .normal)
             cancelColorButton.isEnabled = false
         case 1:
             shared.placeOfPurchaseOptionInfo = nil
-            filterByPlaceOfPurchaseButton.setTitle("Место покупки", for: .normal)
+            filterByPlaceOfPurchaseButton.setTitle(purchaseTitle, for: .normal)
             cancelPurchaseButton.isEnabled = false
         case 2:
             shared.countryOptionInfo = nil
-            filterByCountryButton.setTitle("Страна", for: .normal)
+            filterByCountryButton.setTitle(countryTitle, for: .normal)
             cancelCountryButton.isEnabled = false
         default:
             break
@@ -163,7 +191,7 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
         
         if shared.countryOptionInfo != nil {
             let filtered = bottles.where { $0.wineCountry == shared.countryOptionInfo }
-        bottles = filtered
+            bottles = filtered
         }
     }
     
