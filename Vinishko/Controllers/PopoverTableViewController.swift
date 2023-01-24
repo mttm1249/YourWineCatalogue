@@ -16,7 +16,6 @@ protocol FilterOptionsProtocol: AnyObject {
 
 class PopoverTableViewController: UITableViewController {
     
-    private let currentLanguage = Locale.current.identifier
     var optionsArrayId: Int?
     private var options: [String] = []
     weak var delegate: FilterOptionsProtocol?
@@ -58,23 +57,11 @@ class PopoverTableViewController: UITableViewController {
         var string = ""
         switch number {
         case 0:
-            if currentLanguage != "ru_RU" {
-                string = "Red"
-            } else {
-                string = "Красные"
-            }
+            string = LocalizableText.redColorTitle
         case 1:
-            if currentLanguage != "ru_RU" {
-                string = "White"
-            } else {
-                string = "Белые"
-            }
+            string = LocalizableText.whiteColorTitle
         case 2:
-            if currentLanguage != "ru_RU" {
-                string = "Other"
-            } else {
-                string = "Другие"
-            }
+            string = LocalizableText.otherColorTitle
         default:
             break
         }

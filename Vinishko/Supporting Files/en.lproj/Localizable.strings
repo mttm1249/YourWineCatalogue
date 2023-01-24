@@ -1,0 +1,35 @@
+/* 
+  Localizable.strings
+  Vinishko
+
+  Created by Денис on 24.01.2023.
+  
+*/
+
+
+"FilterViewController.colorTitle" = "Wine color";
+"FilterViewController.purchaseTitle" = "Place of purchase";
+"FilterViewController.countryTitle" = "Country";
+"FilterViewController.redColorTitle" = "Red";
+"FilterViewController.whiteColorTitle" = "White";
+"FilterViewController.otherColorTitle" = "Other";
+
+"BottleViewController.dry" = " Dry ";
+"BottleViewController.sDry" = " S.dry ";
+"BottleViewController.sSweet" = " S.sweet ";
+"BottleViewController.sweet" = " Sweet ";
+
+"BottleViewController.still" = " Still ";
+"BottleViewController.sparkling" = " Sparkling ";
+"BottleViewController.other" = " Other ";
+
+"BottlesListViewController.titleText" = "Delete record?";
+"BottlesListViewController.messageText" = "This record will be deleted from all your devices";
+"BottlesListViewController.deleteText" = "Delete";
+"BottlesListViewController.cancelText" = "Cancel";
+
+"NewBottleViewController.cameraName" = "Camera";
+"NewBottleViewController.photoName" = "PhotoLibrary";
+
+"BottlesListViewController.emptyText" = "Empty, add a bottle!";
+

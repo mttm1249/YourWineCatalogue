@@ -23,7 +23,6 @@ class BottleCell: UITableViewCell {
     @IBOutlet weak var countryIndicator: UILabel!
     
     func setup(model: Bottle) {
-        let currentLanguage = Locale.current.identifier
         
         bottleImage.image = UIImage(data: model.bottleImage!)
         bottleName.text = model.name
@@ -49,23 +48,11 @@ class BottleCell: UITableViewCell {
         
         switch model.wineType {
         case 0:
-            if currentLanguage != "ru_RU" {
-                wineTypeIndicator.text = " Still "
-            } else {
-                wineTypeIndicator.text = " Тихое "
-            }
+            wineTypeIndicator.text = LocalizableText.still
         case 1:
-            if currentLanguage != "ru_RU" {
-                wineTypeIndicator.text = " Sparkling "
-            } else {
-                wineTypeIndicator.text = " Игристое "
-            }
+            wineTypeIndicator.text = LocalizableText.sparkling
         case 2:
-            if currentLanguage != "ru_RU" {
-                wineTypeIndicator.text = " Other "
-            } else {
-                wineTypeIndicator.text = " Другое "
-            }
+            wineTypeIndicator.text = LocalizableText.other
         case .none:
             break
         case .some(_):
@@ -74,29 +61,13 @@ class BottleCell: UITableViewCell {
         
         switch model.wineSugar {
         case 0:
-            if currentLanguage != "ru_RU" {
-                wineSugarIndicator.text = " Dry "
-            } else {
-                wineSugarIndicator.text = " Сух "
-            }
+            wineSugarIndicator.text = LocalizableText.dry
         case 1:
-            if currentLanguage != "ru_RU" {
-                wineSugarIndicator.text = " S.dry "
-            } else {
-                wineSugarIndicator.text = " П.сух "
-            }
+            wineSugarIndicator.text = LocalizableText.sDry
         case 2:
-            if currentLanguage != "ru_RU" {
-                wineSugarIndicator.text = " S.sweet "
-            } else {
-                wineSugarIndicator.text = " П.слад "
-            }
+            wineSugarIndicator.text = LocalizableText.sSweet
         case 3:
-            if currentLanguage != "ru_RU" {
-                wineSugarIndicator.text = " Sweet "
-            } else {
-                wineSugarIndicator.text = " Слад "
-            }
+            wineSugarIndicator.text = LocalizableText.sweet
         case .none:
             break
         case .some(_):

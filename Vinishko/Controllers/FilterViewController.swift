@@ -10,7 +10,6 @@ import RealmSwift
 
 class FilterViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
-    let currentLanguage = Locale.current.identifier
     // options titles
     var colorTitle = ""
     var purchaseTitle = ""
@@ -38,32 +37,21 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         bottles = realm.objects(Bottle.self)
-        checkCurrentLanguage()
+        setupOptionsTitles()
         setupStatistics()
         setupCancelButtons()
         setupButtonTitles()
     }
     
-    private func checkCurrentLanguage() {
-        if currentLanguage != "ru_RU" {
-            // options titles
-            colorTitle = "Wine color"
-            purchaseTitle = "Place of purchase"
-            countryTitle = "Country"
-            // color otions titles
-            redColorTitle = "Red"
-            whiteColorTitle = "White"
-            otherColorTitle = "Other"
-        } else {
-            // options titles
-            colorTitle = "Цвет"
-            purchaseTitle = "Место покупки"
-            countryTitle = "Страна"
-            // color otions titles
-            redColorTitle = "Красные"
-            whiteColorTitle = "Белые"
-            otherColorTitle = "Другие"
-        }
+    private func setupOptionsTitles() {
+        // options titles
+        colorTitle = LocalizableText.colorTitle
+        purchaseTitle = LocalizableText.purchaseTitle
+        countryTitle = LocalizableText.countryTitle
+        // color otions titles
+        redColorTitle = LocalizableText.redColorTitle
+        whiteColorTitle = LocalizableText.whiteColorTitle
+        otherColorTitle = LocalizableText.otherColorTitle
     }
     
     private func setupStatistics() {

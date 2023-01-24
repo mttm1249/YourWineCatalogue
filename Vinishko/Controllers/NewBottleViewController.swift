@@ -136,31 +136,15 @@ class NewBottleViewController: UIViewController {
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        let currentLanguage = Locale.current.identifier
-        
-        var cameraName = ""
-        var photoName = ""
-        var cancelName = ""
-        
-        if currentLanguage != "ru_RU" {
-            cameraName = "Camera"
-            photoName = "PhotoLibrary"
-            cancelName = "Cancel"
-        } else {
-            cameraName = "Камера"
-            photoName = "Галерея"
-            cancelName = "Отмена"
-        }
-        
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let camera = UIAlertAction(title: cameraName, style: .default) { _ in
+        let camera = UIAlertAction(title: LocalizableText.cameraName, style: .default) { _ in
             self.chooseImagePicker(source: .camera)
         }
-        let photo = UIAlertAction(title: photoName, style: .default) { _ in
+        let photo = UIAlertAction(title: LocalizableText.photoName, style: .default) { _ in
             self.chooseImagePicker(source: .photoLibrary)
         }
         
-        let cancel = UIAlertAction(title: cancelName, style: .destructive )
+        let cancel = UIAlertAction(title: LocalizableText.cancelText, style: .destructive )
         actionSheet.addAction(camera)
         actionSheet.addAction(photo)
         actionSheet.addAction(cancel)

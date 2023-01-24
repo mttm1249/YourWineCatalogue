@@ -1,0 +1,135 @@
+
+/* Class = "UILabel"; text = "Vinishko"; ObjectID = "0UU-fu-rmS"; */
+"0UU-fu-rmS.text" = "Vinishko";
+
+/* Class = "UITextField"; placeholder = "Region"; ObjectID = "2UI-Tf-P4i"; */
+"2UI-Tf-P4i.placeholder" = "Region";
+
+/* Class = "UILabel"; text = "Place of purchase:"; ObjectID = "3c1-rM-sd2"; */
+"3c1-rM-sd2.text" = "Place of purchase:";
+
+/* Class = "UITextField"; placeholder = "Price"; ObjectID = "3ot-mj-nKw"; */
+"3ot-mj-nKw.placeholder" = "Price";
+
+/* Class = "UILabel"; text = "Grapes:"; ObjectID = "3pP-ej-x4m"; */
+"3pP-ej-x4m.text" = "Grapes:";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "4FA-YR-6yF"; */
+"4FA-YR-6yF.normalTitle" = "Edit";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "4SX-sd-WGS"; */
+"4SX-sd-WGS.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "4zi-DM-fkE"; */
+"4zi-DM-fkE.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "Wine color"; ObjectID = "6lm-SO-TCX"; */
+"6lm-SO-TCX.normalTitle" = "Wine color";
+
+/* Class = "UILabel"; text = "Total drinks: "; ObjectID = "73q-zz-GWn"; */
+"73q-zz-GWn.text" = "Total drinks: ";
+
+/* Class = "UILabel"; text = "Region:"; ObjectID = "80y-U7-7h7"; */
+"80y-U7-7h7.text" = "Region:";
+
+/* Class = "UISegmentedControl"; 9yn-US-RDM.segmentTitles[0] = "Dry"; ObjectID = "9yn-US-RDM"; */
+"9yn-US-RDM.segmentTitles[0]" = "Dry";
+
+/* Class = "UISegmentedControl"; 9yn-US-RDM.segmentTitles[1] = "S.dry"; ObjectID = "9yn-US-RDM"; */
+"9yn-US-RDM.segmentTitles[1]" = "S.dry";
+
+/* Class = "UISegmentedControl"; 9yn-US-RDM.segmentTitles[2] = "S.sweet"; ObjectID = "9yn-US-RDM"; */
+"9yn-US-RDM.segmentTitles[2]" = "S.sweet";
+
+/* Class = "UISegmentedControl"; 9yn-US-RDM.segmentTitles[3] = "Sweet"; ObjectID = "9yn-US-RDM"; */
+"9yn-US-RDM.segmentTitles[3]" = "Sweet";
+
+/* Class = "UINavigationItem"; title = "Tasting catalog"; ObjectID = "D4H-nH-T5J"; */
+"D4H-nH-T5J.title" = "Tasting catalog";
+
+/* Class = "UILabel"; text = "Country:"; ObjectID = "GCc-eL-4Za"; */
+"GCc-eL-4Za.text" = "Country:";
+
+/* Class = "UILabel"; text = "Saved!"; ObjectID = "Imf-vc-xNL"; */
+"Imf-vc-xNL.text" = "Saved!";
+
+/* Class = "UIButton"; normalTitle = "Apply"; ObjectID = "IoL-DN-5tP"; */
+"IoL-DN-5tP.normalTitle" = "Apply";
+
+/* Class = "UITextField"; placeholder = "Comment"; ObjectID = "NjK-k7-UZ2"; */
+"NjK-k7-UZ2.placeholder" = "Comment";
+
+/* Class = "UINavigationItem"; title = "Filters & Statistics"; ObjectID = "PMw-tR-G8X"; */
+"PMw-tR-G8X.title" = "Filters & Statistics";
+
+/* Class = "UITextField"; placeholder = "Grapes"; ObjectID = "RPD-fg-gAT"; */
+"RPD-fg-gAT.placeholder" = "Grapes";
+
+/* Class = "UINavigationItem"; title = "Add new bottle"; ObjectID = "TBx-WC-DAb"; */
+"TBx-WC-DAb.title" = "Add new bottle";
+
+/* Class = "UIButton"; normalTitle = "Place of purchase"; ObjectID = "UXh-gh-Kcx"; */
+"UXh-gh-Kcx.normalTitle" = "Place of purchase";
+
+/* Class = "UITextField"; placeholder = "Place of purchase"; ObjectID = "UuV-qq-ND4"; */
+"UuV-qq-ND4.placeholder" = "Place of purchase";
+
+/* Class = "UILabel"; text = "Others:"; ObjectID = "WGc-nW-IKa"; */
+"WGc-nW-IKa.text" = "Others:";
+
+/* Class = "UISegmentedControl"; bZ9-2s-b4C.segmentTitles[0] = "Still"; ObjectID = "bZ9-2s-b4C"; */
+"bZ9-2s-b4C.segmentTitles[0]" = "Still";
+
+/* Class = "UISegmentedControl"; bZ9-2s-b4C.segmentTitles[1] = "Sparkling"; ObjectID = "bZ9-2s-b4C"; */
+"bZ9-2s-b4C.segmentTitles[1]" = "Sparkling";
+
+/* Class = "UISegmentedControl"; bZ9-2s-b4C.segmentTitles[2] = "Other"; ObjectID = "bZ9-2s-b4C"; */
+"bZ9-2s-b4C.segmentTitles[2]" = "Other";
+
+/* Class = "UIButton"; normalTitle = "Clear filters"; ObjectID = "cKn-E0-6Fr"; */
+"cKn-E0-6Fr.normalTitle" = "Clear filters";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "eoM-By-ecc"; */
+"eoM-By-ecc.text" = "0";
+
+/* Class = "UILabel"; text = "Страна"; ObjectID = "fvc-2Y-kbm"; */
+"fvc-2Y-kbm.text" = "Страна";
+
+/* Class = "UITextField"; placeholder = "Country"; ObjectID = "h7A-6H-OTU"; */
+"h7A-6H-OTU.placeholder" = "Country";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "kHk-sV-yOS"; */
+"kHk-sV-yOS.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Price:"; ObjectID = "oyo-FO-Jdb"; */
+"oyo-FO-Jdb.text" = "Price:";
+
+/* Class = "UITabBarItem"; title = "List"; ObjectID = "qG9-b1-LfE"; */
+"qG9-b1-LfE.title" = "List";
+
+/* Class = "UILabel"; text = "Red:"; ObjectID = "qRF-VN-ZCZ"; */
+"qRF-VN-ZCZ.text" = "Red:";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "qWS-7a-huu"; */
+"qWS-7a-huu.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "Country"; ObjectID = "rvO-UL-YMB"; */
+"rvO-UL-YMB.normalTitle" = "Country";
+
+/* Class = "UILabel"; text = "5"; ObjectID = "txL-bh-Y7l"; */
+"txL-bh-Y7l.text" = "5";
+
+/* Class = "UITextField"; placeholder = "Bottle name"; ObjectID = "vdY-yb-Wau"; */
+"vdY-yb-Wau.placeholder" = "Bottle name";
+
+/* Class = "UILabel"; text = "White:"; ObjectID = "yhy-eP-hfB"; */
+"yhy-eP-hfB.text" = "White:";
+
+/* Class = "UISegmentedControl"; zI4-wS-5Vf.segmentTitles[0] = "Red"; ObjectID = "zI4-wS-5Vf"; */
+"zI4-wS-5Vf.segmentTitles[0]" = "Red";
+
+/* Class = "UISegmentedControl"; zI4-wS-5Vf.segmentTitles[1] = "White"; ObjectID = "zI4-wS-5Vf"; */
+"zI4-wS-5Vf.segmentTitles[1]" = "White";
+
+/* Class = "UISegmentedControl"; zI4-wS-5Vf.segmentTitles[2] = "Other"; ObjectID = "zI4-wS-5Vf"; */
+"zI4-wS-5Vf.segmentTitles[2]" = "Other";

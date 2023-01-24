@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA2620CF297FC0BC00948E08 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA2620D1297FC0BC00948E08 /* Localizable.strings */; };
+		DA2620DC297FCCED00948E08 /* LocalizableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2620DB297FCCED00948E08 /* LocalizableText.swift */; };
 		DA27684E28ED67D0008556CD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27684D28ED67D0008556CD /* FilterViewController.swift */; };
 		DA40393A28E990C200A5E5AE /* BottleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40393928E990C200A5E5AE /* BottleCell.swift */; };
 		DA40394328E995AF00A5E5AE /* Shadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40394228E995AF00A5E5AE /* Shadows.swift */; };
@@ -36,6 +38,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA2620D0297FC0BC00948E08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DA2620D2297FC0BF00948E08 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DA2620D6297FC10100948E08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottleCell.strings; sourceTree = "<group>"; };
+		DA2620D9297FC2B100948E08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		DA2620DA297FC2B500948E08 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		DA2620DB297FCCED00948E08 /* LocalizableText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableText.swift; sourceTree = "<group>"; };
 		DA27684D28ED67D0008556CD /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		DA40393928E990C200A5E5AE /* BottleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleCell.swift; sourceTree = "<group>"; };
 		DA40394228E995AF00A5E5AE /* Shadows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shadows.swift; sourceTree = "<group>"; };
@@ -62,7 +70,6 @@
 		DABD3DCC28EB38E1003D84FA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DAC175DD292A4980001639B7 /* BottleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleViewController.swift; sourceTree = "<group>"; };
 		DACAE7382959B821002E538A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		DACAE73C2959C3A1002E538A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		DACAE7422959CD74002E538A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/BottleCell.strings; sourceTree = "<group>"; };
 		DACAE7432959CD86002E538A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BottleCell.xib; sourceTree = "<group>"; };
 		DAE53AAD295F60DE00B76985 /* Vinishko.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Vinishko.entitlements; sourceTree = "<group>"; };
@@ -119,7 +126,9 @@
 				DA64201D28E865DA00E03CB2 /* SceneDelegate.swift */,
 				DA64202428E865DB00E03CB2 /* Assets.xcassets */,
 				DA8E2D5D295D778C007DF897 /* Info.plist */,
+				DA2620DB297FCCED00948E08 /* LocalizableText.swift */,
 				DAAB0845295D7BB2001542B8 /* InfoPlist.strings */,
+				DA2620D1297FC0BC00948E08 /* Localizable.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -247,6 +256,7 @@
 				DAB1264D28F021D40090E9D0 /* .gitignore in Resources */,
 				DAAB0843295D7BB2001542B8 /* InfoPlist.strings in Resources */,
 				DA64202828E865DB00E03CB2 /* LaunchScreen.storyboard in Resources */,
+				DA2620CF297FC0BC00948E08 /* Localizable.strings in Resources */,
 				DACAE73D2959CD18002E538A /* BottleCell.xib in Resources */,
 				DA64202528E865DB00E03CB2 /* Assets.xcassets in Resources */,
 				DA64202328E865DA00E03CB2 /* Main.storyboard in Resources */,
@@ -263,6 +273,7 @@
 				DA27684E28ED67D0008556CD /* FilterViewController.swift in Sources */,
 				DA9690A128ED80A700CEEFCE /* PopoverTableViewController.swift in Sources */,
 				DAC175DE292A4980001639B7 /* BottleViewController.swift in Sources */,
+				DA2620DC297FCCED00948E08 /* LocalizableText.swift in Sources */,
 				DA64202028E865DA00E03CB2 /* NewBottleViewController.swift in Sources */,
 				DA65B12D295EF3870077DD72 /* CloudConfig.swift in Sources */,
 				DA672CEB28EAD8A900680ACC /* RatingControl.swift in Sources */,
@@ -285,11 +296,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		DA2620D1297FC0BC00948E08 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA2620D0297FC0BC00948E08 /* en */,
+				DA2620D2297FC0BF00948E08 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		DA64202128E865DA00E03CB2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DA64202228E865DA00E03CB2 /* Base */,
-				DACAE73C2959C3A1002E538A /* ru */,
+				DA2620D9297FC2B100948E08 /* en */,
+				DA2620DA297FC2B500948E08 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -316,6 +337,7 @@
 			children = (
 				DACAE7422959CD74002E538A /* ru */,
 				DACAE7432959CD86002E538A /* Base */,
+				DA2620D6297FC10100948E08 /* en */,
 			);
 			name = BottleCell.xib;
 			sourceTree = "<group>";
@@ -446,7 +468,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Vinishko/Supporting Files/Info.plist";
@@ -465,7 +487,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = mttm1249.Vinishko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -484,7 +506,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Vinishko/Supporting Files/Info.plist";
@@ -503,7 +525,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = mttm1249.Vinishko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

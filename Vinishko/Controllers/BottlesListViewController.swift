@@ -14,7 +14,6 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     let alertView = UIView()
     var bottles: Results<Bottle>!
     var filteredBottles: Results<Bottle>!
-    private let currentLanguage = Locale.current.identifier
     
     private let shared = FilterManager.shared
     private let searchController = UISearchController(searchResultsController: nil)
@@ -54,16 +53,15 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     private func checkBottlesCount() {
-        if currentLanguage != "ru_RU" {
-            addBannerWith(alertText: "Empty, add a bottle!")
-        } else {
-            addBannerWith(alertText: "Тут пока пусто...(")
-        }
+        addBannerWith(alertText: LocalizableText.emptyText)
     }
     
     private func addBannerWith(alertText: String) {
+        let screenSize: CGRect = UIScreen.main.bounds
+        let screenHeight = screenSize.height
+        let screenWidth = screenSize.width
         if bottles.count == 0 {
-            alertView.frame = CGRect(x: CGFloat(0), y: tableView.bounds.height / 2 - 80, width: tableView.bounds.width, height: CGFloat(80))
+            alertView.frame = CGRect(x: CGFloat(0), y: screenHeight / 2 - 80, width: screenWidth, height: CGFloat(80))
             alertView.backgroundColor = .redWineColor
             
             let alertTextLabel = UILabel()
@@ -98,11 +96,6 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     private func setupSearchBar() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        if currentLanguage != "ru_RU" {
-            searchController.searchBar.placeholder = "Find bottle by name"
-        } else {
-            searchController.searchBar.placeholder = "Найти винишко по названию"
-        }
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
@@ -129,24 +122,9 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        var titleText = ""
-        var messageText = ""
-        var cancelText = ""
-        var deleteText = ""
-        if currentLanguage != "ru_RU" {
-            titleText = "Delete record?"
-            messageText = "This record will be deleted from all your devices"
-            deleteText = "Delete"
-            cancelText = "Cancel"
-        } else {
-            titleText = "Удалить запись?"
-            messageText = "Эта запись будет удалена со всех Ваших устройств"
-            deleteText = "Удалить"
-            cancelText = "Отмена"
-        }
         if editingStyle == .delete {
             let bottle = bottles.reversed()[indexPath.row]
-            self.showAlert(title: titleText, message: messageText, deleteText: deleteText, cancelText: cancelText) {
+            self.showAlert(title: LocalizableText.titleText, message: LocalizableText.messageText, deleteText: LocalizableText.deleteText, cancelText: LocalizableText.cancelText) {
                 CloudManager.deleteRecord(recordID: bottle.recordID)
                 StorageManager.deleteObject(bottle)
                 tableView.deleteRows(at: [indexPath], with: .left)
@@ -211,7 +189,7 @@ extension BottlesListViewController: UISearchResultsUpdating {
     }
     
     private func filterContentForSearchText(_ searchText: String) {
-        filteredBottles = bottles.filter("name CONTAINS[cd] %@", searchText)
+        filteredBottles = bottles.filter("name CONTAINS[cd] %@ OR wineSort CONTAINS[cd] %@ OR wineRegion CONTAINS[cd] %@", searchText, searchText, searchText)
         tableView.reloadData()
     }
 }
