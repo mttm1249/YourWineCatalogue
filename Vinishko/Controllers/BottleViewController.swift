@@ -14,11 +14,12 @@ protocol UpdateBottlesList: AnyObject {
 }
 
 class BottleViewController: UIViewController, UpdateTableView {
-
+    
     var context = CIContext(options: nil)
     var currentBottle: Bottle!
     weak var delegate: UpdateBottlesList?
-
+    private var qrImage = UIImage()
+    
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var bottleImage: UIImageView!
     @IBOutlet weak var bottleName: UILabel!
@@ -149,5 +150,26 @@ class BottleViewController: UIViewController, UpdateTableView {
         backgroundImageBlurEffect()
         setupInfo()
     }
+        
+    @IBAction func generateAction(_ sender: Any) {
+        qrImage = QRGenerator.generateQR(name: currentBottle.name!,
+                                         wineColor: currentBottle.wineColor!,
+                                         wineSugar: currentBottle.wineSugar!,
+                                         wineType: currentBottle.wineType!,
+                                         wineSort: currentBottle.wineSort!,
+                                         wineCountry: currentBottle.wineCountry!,
+                                         wineRegion: currentBottle.wineRegion!,
+                                         placeOfPurchase: currentBottle.placeOfPurchase!,
+                                         price: currentBottle.price!,
+                                         bottleDescription: currentBottle.bottleDescription!,
+                                         rating: currentBottle.rating) ?? UIImage()
+        performSegue(withIdentifier: "showQR", sender: nil)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showQR" {
+            let vc = segue.destination as! QRViewController
+            vc.generatedQRImage = qrImage
+        }
+    }
 }

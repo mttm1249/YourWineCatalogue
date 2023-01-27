@@ -7,21 +7,35 @@
 
 import UIKit
 import Network
+import AVFoundation
+
+struct QRModel : Decodable {
+    let verification: String
+    let name: String
+    let wineColor: Int
+    let wineSugar: Int
+    let wineType: Int
+    let wineSort: String
+    let wineCountry: String
+    let wineRegion: String
+    let placeOfPurchase: String
+    let bottleDescription: String
+    let rating: Int
+    let price: String
+}
 
 protocol UpdateTableView: AnyObject {
     func updateCurrentBottleInfo()
 }
 
-class NewBottleViewController: UIViewController {
-    
-    private let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+class NewBottleViewController: UIViewController, UpdateFromQR {
     
     weak var delegate: UpdateTableView?
     var currentBottle: Bottle!
     var isEdited: Bool?
     private let time = Time()
     private let monitor = NWPathMonitor()
-
+    
     private var wineColorId = 0
     private var wineTypeId = 0
     private var wineSugarId = 0
@@ -48,6 +62,25 @@ class NewBottleViewController: UIViewController {
         scrollView.delegate = self
         hideKeyboard()
         setupEditScreen()
+    }
+    
+    // QR Delegate method
+    func updateBottleInfo(string: String) {
+        if let result = try? JSONDecoder().decode(QRModel.self, from: Data(string.utf8)) {
+            guard result.verification == "VinishkoAPP" else { return }
+            bottleNameTF.text = result.name
+            wineColorSegmentedControl.selectedSegmentIndex = result.wineColor
+            wineSugarSegmentedControl.selectedSegmentIndex = result.wineSugar
+            wineTypeSegmentedControl.selectedSegmentIndex = result.wineType
+            wineSortTF.text = result.wineSort
+            countryTF.text = result.wineCountry
+            regionTF.text = result.wineRegion
+            placeOfPurchaseTF.text = result.placeOfPurchase
+            priceTF.text = result.price
+            bottleDescriptionTF.text = result.bottleDescription
+            ratingControl.rating = result.rating
+            setupWineColorSegments(section: result.wineColor)
+        }
     }
     
     private func checkConnection() {
@@ -98,19 +131,7 @@ class NewBottleViewController: UIViewController {
             wineSortTF.text = currentBottle.wineSort
             
             wineColorSegmentedControl.selectedSegmentIndex = currentBottle.wineColor!
-            
-            switch currentBottle.wineColor {
-            case 0:
-                wineColorSegmentedControl.selectedSegmentTintColor = .redWineColor
-            case 1:
-                wineColorSegmentedControl.selectedSegmentTintColor = .whiteWineColor
-            case 2:
-                wineColorSegmentedControl.selectedSegmentTintColor = .otherWineColor
-            case .none:
-                break
-            case .some(_):
-                break
-            }
+            setupWineColorSegments(section: currentBottle.wineColor!)
             
             wineTypeSegmentedControl.selectedSegmentIndex = currentBottle.wineType!
             wineSugarSegmentedControl.selectedSegmentIndex = currentBottle.wineSugar!
@@ -118,6 +139,20 @@ class NewBottleViewController: UIViewController {
             wineTypeId = currentBottle.wineType!
             wineSugarId = currentBottle.wineSugar!
         }
+    }
+    
+    func setupWineColorSegments(section: Int) {
+        switch section {
+        case 0:
+            wineColorSegmentedControl.selectedSegmentTintColor = .redWineColor
+        case 1:
+            wineColorSegmentedControl.selectedSegmentTintColor = .whiteWineColor
+        case 2:
+            wineColorSegmentedControl.selectedSegmentTintColor = .otherWineColor
+        default:
+            break
+        }
+        
     }
     
     @objc func adjustForKeyboard(notification: Notification) {
@@ -209,7 +244,7 @@ class NewBottleViewController: UIViewController {
             }
             StorageManager.saveObject(newBottle)
         }
-        feedbackGenerator.impactOccurred()
+        feedbackGenerator.impactOccurred(intensity: 1.0)
     }
     
     @IBAction func wineColorAction(_ sender: Any) {
@@ -253,6 +288,13 @@ class NewBottleViewController: UIViewController {
             wineTypeId = 2
         default:
             break
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "scanQR" {
+            let vc = segue.destination as! QRScannerViewController
+            vc.delegate = self
         }
     }
     
@@ -312,3 +354,5 @@ extension UIButton {
         }
     }
 }
+
+

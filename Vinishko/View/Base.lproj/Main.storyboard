@@ -103,6 +103,22 @@
             </objects>
             <point key="canvasLocation" x="594.41860465116281" y="-415.8798283261803"/>
         </scene>
+        <!--Scanner View Controller-->
+        <scene sceneID="cDK-9x-atG">
+            <objects>
+                <viewController id="8zS-dN-qWx" customClass="QRScannerViewController" customModule="Vinishko" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hha-G1-jB0">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="nTX-HM-ltw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" style="editor" id="OBg-6u-wQe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yJl-zP-ERk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1412.0930232558139" y="-1099.5708154506437"/>
+        </scene>
         <!--Add new bottle-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -261,7 +277,14 @@
                             <constraint firstItem="WNP-si-IMr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xgG-Zg-vxl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add new bottle" style="editor" id="TBx-WC-DAb"/>
+                    <navigationItem key="navigationItem" title="Add new bottle" style="editor" id="TBx-WC-DAb">
+                        <barButtonItem key="rightBarButtonItem" title="ScanQR" id="lZz-D1-UYX">
+                            <imageReference key="image" image="qrcode.viewfinder" catalog="system" symbolScale="large"/>
+                            <connections>
+                                <segue destination="8zS-dN-qWx" kind="show" identifier="scanQR" id="17C-u3-7NO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="kHk-sV-yOS" id="OrE-ob-3iI"/>
                         <outlet property="bottleDescriptionTF" destination="NjK-k7-UZ2" id="i9w-8C-dXe"/>
@@ -574,39 +597,60 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FA-YR-6yF">
-                                <rect key="frame" x="90" y="771" width="250" height="30"/>
-                                <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Pic-VT-5VA">
+                                <rect key="frame" x="90" y="756" width="250" height="68"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeo-Sn-Eeq">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
+                                        <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Show QR"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="generateAction:" destination="goT-Yl-Tdh" eventType="touchUpInside" id="ZMV-Qz-wlZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FA-YR-6yF">
+                                        <rect key="frame" x="0.0" y="38" width="250" height="30"/>
+                                        <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Edit"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="editButton:" destination="goT-Yl-Tdh" eventType="touchUpInside" id="u2L-Nh-9kz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="Wnt-Ju-gNp"/>
+                                    <constraint firstAttribute="width" constant="250" id="gFG-Ul-0vy"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Edit"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="editButton:" destination="goT-Yl-Tdh" eventType="touchUpInside" id="u2L-Nh-9kz"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Fdt-f5-cvq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="4FA-YR-6yF" firstAttribute="centerX" secondItem="fBL-Dr-Cxg" secondAttribute="centerX" id="0dI-cW-3ob"/>
                             <constraint firstItem="Fdt-f5-cvq" firstAttribute="bottom" secondItem="foh-hx-yNt" secondAttribute="bottom" constant="-34" id="5kk-od-Zmz"/>
                             <constraint firstItem="fBL-Dr-Cxg" firstAttribute="top" secondItem="Fdt-f5-cvq" secondAttribute="top" constant="108" id="EWM-tH-FZm"/>
                             <constraint firstItem="fBL-Dr-Cxg" firstAttribute="leading" secondItem="Fdt-f5-cvq" secondAttribute="leading" constant="46" id="JMG-Hu-ApT"/>
-                            <constraint firstItem="4FA-YR-6yF" firstAttribute="top" secondItem="fBL-Dr-Cxg" secondAttribute="bottom" constant="50" id="S9l-CE-Md9"/>
                             <constraint firstItem="Fdt-f5-cvq" firstAttribute="bottom" secondItem="fBL-Dr-Cxg" secondAttribute="bottom" constant="177" id="VR2-fY-JYk"/>
+                            <constraint firstItem="Pic-VT-5VA" firstAttribute="top" secondItem="fBL-Dr-Cxg" secondAttribute="bottom" constant="35" id="WZr-xy-WCv"/>
                             <constraint firstItem="Fdt-f5-cvq" firstAttribute="trailing" secondItem="fBL-Dr-Cxg" secondAttribute="trailing" constant="46" id="cIN-8I-mI6"/>
                             <constraint firstItem="Fdt-f5-cvq" firstAttribute="trailing" secondItem="Che-aw-DgJ" secondAttribute="trailing" constant="167" id="fnP-NZ-lxq"/>
                             <constraint firstItem="Che-aw-DgJ" firstAttribute="leading" secondItem="Fdt-f5-cvq" secondAttribute="leading" constant="166" id="gl3-5Y-Mru"/>
                             <constraint firstItem="foh-hx-yNt" firstAttribute="leading" secondItem="Fdt-f5-cvq" secondAttribute="leading" id="k7F-v7-pJl"/>
-                            <constraint firstItem="4FA-YR-6yF" firstAttribute="centerX" secondItem="foh-hx-yNt" secondAttribute="centerX" id="mlU-1q-LMj"/>
                             <constraint firstItem="foh-hx-yNt" firstAttribute="top" secondItem="Fdt-f5-cvq" secondAttribute="top" constant="-59" id="os1-fI-G3E"/>
                             <constraint firstItem="Che-aw-DgJ" firstAttribute="top" secondItem="Fdt-f5-cvq" secondAttribute="top" constant="20" id="sfJ-Kh-5Bl"/>
                             <constraint firstItem="Fdt-f5-cvq" firstAttribute="trailing" secondItem="foh-hx-yNt" secondAttribute="trailing" id="xc6-MB-e45"/>
@@ -628,11 +672,69 @@
                         <outlet property="wineSort" destination="obe-y6-zsG" id="xCl-UA-4XN"/>
                         <outlet property="wineSugarIndicator" destination="x6h-Ja-nun" id="bKU-8t-8CX"/>
                         <outlet property="wineTypeIndicator" destination="v9P-nI-Fcw" id="CF3-E4-EXf"/>
+                        <segue destination="djl-kl-xH7" kind="presentation" identifier="showQR" id="95y-bN-LLg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rKg-TC-jZl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2203.8167938931297" y="-415.49295774647891"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="BKA-Lf-rLR">
+            <objects>
+                <viewController id="djl-kl-xH7" customClass="QRViewController" customModule="Vinishko" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TpU-1g-A5k">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhF-Jy-11j">
+                                <rect key="frame" x="167" y="97" width="97" height="5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="hZ7-hw-tf9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="2.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="byz-Cb-Lh6">
+                                <rect key="frame" x="90" y="318" width="250" height="286.33333333333326"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan it with Vinishko app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nqb-0I-ahz">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="26.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Bb-4V-Ryz">
+                                        <rect key="frame" x="0.0" y="36.333333333333314" width="250" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="V26-Ze-Ro5"/>
+                                            <constraint firstAttribute="height" constant="250" id="ZDN-uP-Nmf"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XNp-AV-ZEY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fhF-Jy-11j" firstAttribute="leading" secondItem="XNp-AV-ZEY" secondAttribute="leading" constant="167" id="PTW-pe-tZO"/>
+                            <constraint firstItem="XNp-AV-ZEY" firstAttribute="trailing" secondItem="fhF-Jy-11j" secondAttribute="trailing" constant="166" id="bRL-mq-aIZ"/>
+                            <constraint firstItem="byz-Cb-Lh6" firstAttribute="centerX" secondItem="XNp-AV-ZEY" secondAttribute="centerX" id="msy-77-w94"/>
+                            <constraint firstItem="fhF-Jy-11j" firstAttribute="top" secondItem="XNp-AV-ZEY" secondAttribute="top" constant="38" id="wQz-lo-THQ"/>
+                            <constraint firstItem="byz-Cb-Lh6" firstAttribute="centerY" secondItem="XNp-AV-ZEY" secondAttribute="centerY" id="z42-MC-ZtQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="qrImage" destination="0Bb-4V-Ryz" id="rVn-Tk-SwG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bdr-cs-gjg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2984.6511627906975" y="-415.23605150214593"/>
         </scene>
         <!--Tasting catalog-->
         <scene sceneID="hOG-MI-OSt">
@@ -1015,6 +1117,7 @@
         <image name="list.star" catalog="system" width="128" height="95"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

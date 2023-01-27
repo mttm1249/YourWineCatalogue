@@ -7,6 +7,9 @@
 
 import UIKit
 
+// MARK: - Global
+let feedbackGenerator = UIImpactFeedbackGenerator()
+
 // MARK: - Hide Keyboard Method
 
 extension UIViewController {
