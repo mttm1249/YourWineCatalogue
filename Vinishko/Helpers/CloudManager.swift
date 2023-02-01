@@ -50,10 +50,10 @@ class CloudManager {
         query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
         
         let queryOperation = CKQueryOperation(query: query)
-
-                queryOperation.desiredKeys = ["recordID", "bottleID", "bottleDescription", "date",
-                                              "name", "placeOfPurchase", "price", "rating", "wineColor",
-                                              "wineCountry", "wineRegion", "wineSort", "wineSugar", "wineType"]
+        
+        queryOperation.desiredKeys = ["recordID", "bottleID", "bottleDescription", "date",
+                                      "name", "placeOfPurchase", "price", "rating", "wineColor",
+                                      "wineCountry", "wineRegion", "wineSort", "wineSugar", "wineType"]
         queryOperation.resultsLimit = 5
         queryOperation.queuePriority = .veryHigh
         
@@ -96,7 +96,6 @@ class CloudManager {
         let recordID = CKRecord.ID(recordName: bottle.recordID)
         let (image, url) = prepareImageToSaveToCloud(bottle: bottle, bottleImage: bottleImage)
         guard let imageAsset = image, let imageURL = url else { return }
-        
         privateCloudDatabase.fetch(withRecordID: recordID) { (record, error) in
             if let record = record, error == nil {
                 DispatchQueue.main.async {

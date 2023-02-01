@@ -72,6 +72,9 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
             wineColorSegmentedControl.selectedSegmentIndex = result.wineColor
             wineSugarSegmentedControl.selectedSegmentIndex = result.wineSugar
             wineTypeSegmentedControl.selectedSegmentIndex = result.wineType
+            wineColorId = result.wineColor
+            wineSugarId = result.wineSugar
+            wineTypeId = result.wineType
             wineSortTF.text = result.wineSort
             countryTF.text = result.wineCountry
             regionTF.text = result.wineRegion
