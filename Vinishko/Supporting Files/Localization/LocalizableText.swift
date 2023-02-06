@@ -36,4 +36,20 @@ class LocalizableText {
     
     static let emptyText = NSLocalizedString("BottlesListViewController.emptyText", comment: "")
         
+    static let wantAddText = NSLocalizedString("QRScannerViewController.wantAddText", comment: "")
+    static let yesText = NSLocalizedString("QRScannerViewController.yesText", comment: "")
+    static let backText = NSLocalizedString("QRScannerViewController.backText", comment: "")
+    
+    static let shareImageText = NSLocalizedString("SettingsViewController.shareImageText", comment: "")
+        
+    static let shareCommentText = NSLocalizedString("SettingsViewController.shareCommentText", comment: "")
+    static let shareRatingText = NSLocalizedString("SettingsViewController.shareRatingText", comment: "")
+    
+    static let sectionQRText = NSLocalizedString("SettingsViewController.sectionQRText", comment: "")
+    
+    static let filtersText = NSLocalizedString("BottlesListViewController.filtersText", comment: "")
+    static let settingsText = NSLocalizedString("BottlesListViewController.settingsText", comment: "")
+
 }
+
+

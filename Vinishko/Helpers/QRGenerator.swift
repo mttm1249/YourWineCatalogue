@@ -8,7 +8,8 @@
 import UIKit
 
 class QRGenerator {
-    static func generateQR(name: String,
+    static func generateQR(imageURL: String,
+                           name: String,
                            wineColor: Int,
                            wineSugar: Int,
                            wineType: Int,
@@ -21,6 +22,7 @@ class QRGenerator {
                            rating: Int) -> UIImage? {
         var jsonDict = [String: Any]()
         jsonDict.updateValue("VinishkoAPP", forKey: "verification")
+        jsonDict.updateValue(imageURL, forKey: "imageURL")
         jsonDict.updateValue(name, forKey: "name")
         jsonDict.updateValue(wineColor, forKey: "wineColor")
         jsonDict.updateValue(wineSugar, forKey: "wineSugar")

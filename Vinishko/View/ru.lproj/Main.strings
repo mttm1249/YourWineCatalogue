@@ -74,6 +74,8 @@
 /* Class = "UINavigationItem"; title = "Фильтры и статистика"; ObjectID = "PMw-tR-G8X"; */
 "PMw-tR-G8X.title" = "Фильтры и статистика";
 
+"ySU-4u-WQz.title" = "Настройки";
+
 /* Class = "UITextField"; placeholder = "Сорт"; ObjectID = "RPD-fg-gAT"; */
 "RPD-fg-gAT.placeholder" = "Сорт";
 

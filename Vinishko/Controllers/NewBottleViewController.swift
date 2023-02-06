@@ -11,6 +11,7 @@ import AVFoundation
 
 struct QRModel : Decodable {
     let verification: String
+    let imageURL: String
     let name: String
     let wineColor: Int
     let wineSugar: Int
@@ -40,6 +41,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
     private var wineTypeId = 0
     private var wineSugarId = 0
     
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottleImage: UIImageView!
     @IBOutlet weak var bottleNameTF: UITextField!
@@ -58,6 +60,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.isHidden = true
         checkConnection()
         scrollView.delegate = self
         hideKeyboard()
@@ -68,6 +71,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
     func updateBottleInfo(string: String) {
         if let result = try? JSONDecoder().decode(QRModel.self, from: Data(string.utf8)) {
             guard result.verification == "VinishkoAPP" else { return }
+            fetchImage(from: result.imageURL)
             bottleNameTF.text = result.name
             wineColorSegmentedControl.selectedSegmentIndex = result.wineColor
             wineSugarSegmentedControl.selectedSegmentIndex = result.wineSugar
@@ -83,6 +87,17 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
             bottleDescriptionTF.text = result.bottleDescription
             ratingControl.rating = result.rating
             setupWineColorSegments(section: result.wineColor)
+        }
+    }
+    
+    func fetchImage(from url: String) {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        NetworkManager.downloadImage(url: url) { (image) in
+            self.activityIndicator.stopAnimating()
+            self.bottleImage.image = image
+            self.bottleImage.contentMode = .scaleAspectFill
         }
     }
     
@@ -155,7 +170,6 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
         default:
             break
         }
-        
     }
     
     @objc func adjustForKeyboard(notification: Notification) {
@@ -307,6 +321,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
 extension NewBottleViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func chooseImagePicker(source: UIImagePickerController.SourceType) {
+        activityIndicator.stopAnimating()
         if UIImagePickerController.isSourceTypeAvailable(source) {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self

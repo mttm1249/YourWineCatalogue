@@ -33,3 +33,17 @@
 
 "BottlesListViewController.emptyText" = "Empty, add a bottle!";
 
+"QRScannerViewController.wantAddText" = "Want to add?";
+"QRScannerViewController.yesText" = "Yes!";
+"QRScannerViewController.backText" = "Back";
+
+"SettingsViewController.shareImageText" = "Share image";
+"SettingsViewController.shareCommentText" = "Share comment";
+"SettingsViewController.shareRatingText" = "Share rating";
+"SettingsViewController.sectionQRText" = "QR-code sharing options:";
+
+"BottlesListViewController.filtersText" = "Filters & Statistics";
+"BottlesListViewController.settingsText" = "Settings";
+
+
+

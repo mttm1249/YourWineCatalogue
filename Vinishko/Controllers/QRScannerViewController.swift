@@ -23,7 +23,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         super.viewDidLoad()
         setupPreviewLayer()
     }
-        
+            
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.session.stopRunning()
@@ -86,11 +86,11 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         session.stopRunning()
         if let object = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
             if object.type == AVMetadataObject.ObjectType.qr {
-                let alert = UIAlertController(title: "Хотите добавить?", message: "", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Назад", style: .default, handler: { (action) in
+                let alert = UIAlertController(title: LocalizableText.wantAddText, message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: LocalizableText.backText, style: .default, handler: { (action) in
                     self.navigationController?.popViewController(animated: true)
                 }))
-                alert.addAction(UIAlertAction(title: "Да!", style: .default, handler: { (action) in
+                alert.addAction(UIAlertAction(title: LocalizableText.yesText, style: .default, handler: { (action) in
                     if object.stringValue != nil {
                         self.delegate?.updateBottleInfo(string: object.stringValue!)
                     }

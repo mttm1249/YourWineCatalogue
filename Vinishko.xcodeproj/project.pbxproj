@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520E2F7B2990E10200EBE8F5 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E2F7A2990E10200EBE8F5 /* SettingsCell.swift */; };
+		520E2F7E2990E14E00EBE8F5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E2F7D2990E14E00EBE8F5 /* SettingsViewController.swift */; };
+		520E2F802990E16700EBE8F5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E2F7F2990E16700EBE8F5 /* SettingsViewModel.swift */; };
+		522372E32990139C00C57E60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 522372E22990139C00C57E60 /* GoogleService-Info.plist */; };
+		52B942EB2991062B00DD6F10 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 52B942EA2991062B00DD6F10 /* FirebaseStorage */; };
+		52B942ED2991107700DD6F10 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B942EC2991107700DD6F10 /* NetworkManager.swift */; };
 		DA2620CF297FC0BC00948E08 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA2620D1297FC0BC00948E08 /* Localizable.strings */; };
 		DA2620DC297FCCED00948E08 /* LocalizableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2620DB297FCCED00948E08 /* LocalizableText.swift */; };
 		DA27684E28ED67D0008556CD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27684D28ED67D0008556CD /* FilterViewController.swift */; };
@@ -41,6 +47,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		520E2F7A2990E10200EBE8F5 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		520E2F7D2990E14E00EBE8F5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		520E2F7F2990E16700EBE8F5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		522372E22990139C00C57E60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		52B942EC2991107700DD6F10 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		DA2620D0297FC0BC00948E08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA2620D2297FC0BF00948E08 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA2620D6297FC10100948E08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottleCell.strings; sourceTree = "<group>"; };
@@ -88,17 +99,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA8E2D61295D7958007DF897 /* RealmSwift in Frameworks */,
+				52B942EB2991062B00DD6F10 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DA40393D28E990E000A5E5AE /* Cells */ = {
+		5204B0182990104100648252 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				DAAB0845295D7BB2001542B8 /* InfoPlist.strings */,
+				DA2620DB297FCCED00948E08 /* LocalizableText.swift */,
+				DA2620D1297FC0BC00948E08 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		520E2F792990E0BD00EBE8F5 /* BottleCell */ = {
 			isa = PBXGroup;
 			children = (
 				DA40393928E990C200A5E5AE /* BottleCell.swift */,
 				DACAE73F2959CD18002E538A /* BottleCell.xib */,
+			);
+			path = BottleCell;
+			sourceTree = "<group>";
+		};
+		520E2F7C2990E11400EBE8F5 /* SettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				520E2F7A2990E10200EBE8F5 /* SettingsCell.swift */,
+			);
+			path = SettingsCell;
+			sourceTree = "<group>";
+		};
+		520E2F812990E16D00EBE8F5 /* SettingsPage */ = {
+			isa = PBXGroup;
+			children = (
+				520E2F7D2990E14E00EBE8F5 /* SettingsViewController.swift */,
+				520E2F7F2990E16700EBE8F5 /* SettingsViewModel.swift */,
+			);
+			path = SettingsPage;
+			sourceTree = "<group>";
+		};
+		DA40393D28E990E000A5E5AE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				520E2F792990E0BD00EBE8F5 /* BottleCell */,
+				520E2F7C2990E11400EBE8F5 /* SettingsCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -114,6 +162,7 @@
 				DA9690A028ED80A700CEEFCE /* PopoverTableViewController.swift */,
 				DAB7C5C42983B19C00BB8545 /* QRScannerViewController.swift */,
 				DA4359142982E7830073ADA6 /* QRViewController.swift */,
+				520E2F812990E16D00EBE8F5 /* SettingsPage */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -129,14 +178,13 @@
 		DA40394028E9912000A5E5AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5204B0182990104100648252 /* Localization */,
 				DA64201B28E865DA00E03CB2 /* AppDelegate.swift */,
 				DAE575E928EAE3CD00F22741 /* Extensions.swift */,
 				DA64201D28E865DA00E03CB2 /* SceneDelegate.swift */,
 				DA64202428E865DB00E03CB2 /* Assets.xcassets */,
+				522372E22990139C00C57E60 /* GoogleService-Info.plist */,
 				DA8E2D5D295D778C007DF897 /* Info.plist */,
-				DA2620DB297FCCED00948E08 /* LocalizableText.swift */,
-				DAAB0845295D7BB2001542B8 /* InfoPlist.strings */,
-				DA2620D1297FC0BC00948E08 /* Localizable.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -185,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				DA4359122982E3DF0073ADA6 /* QRGenerator.swift */,
+				52B942EC2991107700DD6F10 /* NetworkManager.swift */,
 				DABD3DCC28EB38E1003D84FA /* Colors.swift */,
 				DA9690A228EDBE7400CEEFCE /* FilterManager.swift */,
 				DA40394228E995AF00A5E5AE /* Shadows.swift */,
@@ -215,6 +264,7 @@
 			name = Vinishko;
 			packageProductDependencies = (
 				DA8E2D60295D7958007DF897 /* RealmSwift */,
+				52B942EA2991062B00DD6F10 /* FirebaseStorage */,
 			);
 			productName = Vinishko;
 			productReference = DA64201828E865DA00E03CB2 /* Vinishko.app */;
@@ -247,6 +297,7 @@
 			mainGroup = DA64200F28E865DA00E03CB2;
 			packageReferences = (
 				DA8E2D5F295D7958007DF897 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				52B942E92991062B00DD6F10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = DA64201928E865DA00E03CB2 /* Products */;
 			projectDirPath = "";
@@ -263,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB1264D28F021D40090E9D0 /* .gitignore in Resources */,
+				522372E32990139C00C57E60 /* GoogleService-Info.plist in Resources */,
 				DAAB0843295D7BB2001542B8 /* InfoPlist.strings in Resources */,
 				DA64202828E865DB00E03CB2 /* LaunchScreen.storyboard in Resources */,
 				DA2620CF297FC0BC00948E08 /* Localizable.strings in Resources */,
@@ -279,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B942ED2991107700DD6F10 /* NetworkManager.swift in Sources */,
 				DA27684E28ED67D0008556CD /* FilterViewController.swift in Sources */,
 				DA9690A128ED80A700CEEFCE /* PopoverTableViewController.swift in Sources */,
 				DAC175DE292A4980001639B7 /* BottleViewController.swift in Sources */,
@@ -287,17 +340,20 @@
 				DA4359152982E7830073ADA6 /* QRViewController.swift in Sources */,
 				DA65B12D295EF3870077DD72 /* CloudConfig.swift in Sources */,
 				DAB7C5C52983B19C00BB8545 /* QRScannerViewController.swift in Sources */,
+				520E2F7E2990E14E00EBE8F5 /* SettingsViewController.swift in Sources */,
 				DA4359132982E3DF0073ADA6 /* QRGenerator.swift in Sources */,
 				DA672CEB28EAD8A900680ACC /* RatingControl.swift in Sources */,
 				DA64201C28E865DA00E03CB2 /* AppDelegate.swift in Sources */,
 				DA40394728E9A71500A5E5AE /* Time.swift in Sources */,
 				DA64203528E86ABF00E03CB2 /* BottleModel.swift in Sources */,
 				DA64201E28E865DA00E03CB2 /* SceneDelegate.swift in Sources */,
+				520E2F7B2990E10200EBE8F5 /* SettingsCell.swift in Sources */,
 				DAA49822295EC7AD00C3DF60 /* CloudManager.swift in Sources */,
 				DA84FA3C28E870DD006C9DED /* BottlesListViewController.swift in Sources */,
 				DAE575EA28EAE3CD00F22741 /* Extensions.swift in Sources */,
 				DABD3DCD28EB38E1003D84FA /* Colors.swift in Sources */,
 				DA40393A28E990C200A5E5AE /* BottleCell.swift in Sources */,
+				520E2F802990E16700EBE8F5 /* SettingsViewModel.swift in Sources */,
 				DA40394528E99FB400A5E5AE /* MainViewController.swift in Sources */,
 				DA40394328E995AF00A5E5AE /* Shadows.swift in Sources */,
 				DA64203328E86A3500E03CB2 /* StorageManager.swift in Sources */,
@@ -499,7 +555,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = mttm1249.Vinishko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -537,7 +593,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = mttm1249.Vinishko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -573,6 +629,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		52B942E92991062B00DD6F10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		DA8E2D5F295D7958007DF897 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -584,6 +648,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		52B942EA2991062B00DD6F10 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52B942E92991062B00DD6F10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		DA8E2D60295D7958007DF897 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DA8E2D5F295D7958007DF897 /* XCRemoteSwiftPackageReference "realm-swift" */;

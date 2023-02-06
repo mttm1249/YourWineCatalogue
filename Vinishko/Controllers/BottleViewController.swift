@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 import CoreImage
+import FirebaseStorage
 
 protocol UpdateBottlesList: AnyObject {
     func updateTableView()
@@ -19,6 +20,14 @@ class BottleViewController: UIViewController, UpdateTableView {
     var currentBottle: Bottle!
     weak var delegate: UpdateBottlesList?
     private var qrImage = UIImage()
+    private var imageURL = "" {
+        didSet {
+            feedbackGenerator.impactOccurred(intensity: 1.0)
+            generateQR(with: imageURL)
+            progressView.isHidden = true
+            performSegue(withIdentifier: "showQR", sender: nil)
+        }
+    }
     
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var bottleImage: UIImageView!
@@ -35,16 +44,29 @@ class BottleViewController: UIViewController, UpdateTableView {
     @IBOutlet weak var wineColorIndicator: UIView!
     @IBOutlet weak var wineTypeIndicator: UILabel!
     @IBOutlet weak var wineSugarIndicator: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        progressView.isHidden = true
+        progressView.progress = 0
         backgroundImageBlurEffect()
         setupInfo()
+        if !userDefaults.bool(forKey: "qrSettings") {
+            setupDefaultSettingsForQR()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         delegate?.updateTableView()
+    }
+    
+    private func setupDefaultSettingsForQR() {
+        userDefaults.set(true, forKey: "qrSettings")
+        userDefaults.set(true, forKey: "shareImage")
+        userDefaults.set(true, forKey: "shareComment")
+        userDefaults.set(true, forKey: "shareRating")
     }
     
     func setupInfo() {
@@ -150,9 +172,60 @@ class BottleViewController: UIViewController, UpdateTableView {
         backgroundImageBlurEffect()
         setupInfo()
     }
-        
+    
     @IBAction func generateAction(_ sender: Any) {
-        qrImage = QRGenerator.generateQR(name: currentBottle.name!,
+        progressView.isHidden = false
+        
+        // Upload image to Firebase
+        let randomID = UUID.init().uuidString
+        let uploadRef = Storage.storage().reference(withPath: "images/\(randomID).jpg")
+        guard let imageData = bottleImage.image?.jpegData(compressionQuality: 0.3) else { return }
+        
+        let uploadMetadata = StorageMetadata.init()
+        uploadMetadata.contentType = "image/jpg"
+        
+        let taskReference = uploadRef.putData(imageData, metadata: uploadMetadata) { (downloadMetadata, error) in
+            if let error = error {
+                print("Oh no! Got an error! \(error.localizedDescription)")
+                return
+            }
+            uploadRef.downloadURL(completion: { (url, error) in
+                if let error = error {
+                    print("Got an error generating URL: \(error.localizedDescription)")
+                    return
+                }
+                if let url = url {
+                    self.imageURL = url.absoluteString
+                }
+            })
+        }
+        // ProgressView
+        taskReference.observe(.progress) { [weak self] (snapshot) in
+            guard let progressValue = snapshot.progress?.fractionCompleted else { return }
+            self?.progressView.progress = Float(progressValue)
+        }
+    }
+    
+    private func checkPermissionForSharing(by key: String, value: String) -> String {
+        let result = userDefaults.bool(forKey: key)
+        if result == true {
+            return value
+        }
+        return ""
+    }
+    
+    private func checkPermissionForSharingRating(by key: String, value: Int) -> Int {
+        let result = userDefaults.bool(forKey: key)
+        if result == true {
+            return value
+        }
+        return 0
+    }
+    
+    private func generateQR(with imageURL: String) {
+        // Converting JSON string to UIImage
+        qrImage = QRGenerator.generateQR(imageURL: checkPermissionForSharing(by: "shareImage", value: imageURL),
+                                         name: currentBottle.name!,
                                          wineColor: currentBottle.wineColor!,
                                          wineSugar: currentBottle.wineSugar!,
                                          wineType: currentBottle.wineType!,
@@ -161,9 +234,8 @@ class BottleViewController: UIViewController, UpdateTableView {
                                          wineRegion: currentBottle.wineRegion!,
                                          placeOfPurchase: currentBottle.placeOfPurchase!,
                                          price: currentBottle.price!,
-                                         bottleDescription: currentBottle.bottleDescription!,
-                                         rating: currentBottle.rating) ?? UIImage()
-        performSegue(withIdentifier: "showQR", sender: nil)
+                                         bottleDescription: checkPermissionForSharing(by: "shareComment", value: currentBottle.bottleDescription!),
+                                         rating: checkPermissionForSharingRating(by: "shareRating", value: currentBottle.rating)) ?? UIImage()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

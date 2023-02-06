@@ -37,8 +37,31 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
         setupSearchBar()
         loadFromCloud()
         checkBottlesCount()
+        rightBarButtonMenuSetup()
     }
-                
+    
+    private func rightBarButtonMenuSetup() {
+        let handler: (_ action: UIAction) -> () = { action in
+            switch action.identifier.rawValue {
+            case "filter":
+                self.performSegue(withIdentifier: "filter", sender: nil)
+            case "settings":
+                self.performSegue(withIdentifier: "settings", sender: nil)
+            default:
+                break
+            }
+        }
+        
+        let actions = [
+            UIAction(title: LocalizableText.filtersText, image: UIImage(systemName: "chart.bar.xaxis"), identifier: UIAction.Identifier("filter"), handler: handler),
+            UIAction(title: LocalizableText.settingsText, image: UIImage(systemName: "gearshape.2"), identifier: UIAction.Identifier("settings"), handler: handler)
+        ]
+        
+        let menu = UIMenu(title: "",  children: actions)
+        let rightBarButton = UIBarButtonItem(title: "", image: UIImage(named: "3lines"), menu: menu)
+        self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
     private func loadFromCloud() {
         CloudManager.fetchDataFromCloud(bottles: bottles) { (bottle) in
             StorageManager.saveObject(bottle)

@@ -32,3 +32,15 @@
 "NewBottleViewController.photoName" = "Галерея";
 
 "BottlesListViewController.emptyText" = "Тут пока пусто...(";
+
+"QRScannerViewController.wantAddText" = "Хотите добавить?";
+"QRScannerViewController.yesText" = "Да!";
+"QRScannerViewController.backText" = "Назад";
+
+"SettingsViewController.shareImageText" = "Делиться изображением";
+"SettingsViewController.shareCommentText" = "Делиться комментарием";
+"SettingsViewController.shareRatingText" = "Делиться рейтингом";
+"SettingsViewController.sectionQRText" = "Сканирование QR-кода:";
+
+"BottlesListViewController.filtersText" = "Фильтры и статистика";
+"BottlesListViewController.settingsText" = "Настройки";

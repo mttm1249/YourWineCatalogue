@@ -117,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJl-zP-ERk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1412.0930232558139" y="-1099.5708154506437"/>
+            <point key="canvasLocation" x="1418" y="-1089"/>
         </scene>
         <!--Add new bottle-->
         <scene sceneID="tne-QT-ifu">
@@ -259,6 +259,9 @@
                                             <action selector="saveButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="awY-B5-wIM"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="KsN-b3-cuF">
+                                        <rect key="frame" x="205" y="41" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="tvE-pu-mAG" secondAttribute="trailing" constant="40" id="B3p-bu-48A"/>
@@ -267,8 +270,10 @@
                                     <constraint firstItem="tvE-pu-mAG" firstAttribute="leading" secondItem="WNP-si-IMr" secondAttribute="leading" constant="40" id="J6W-0n-szV"/>
                                     <constraint firstItem="MUh-hF-miw" firstAttribute="top" secondItem="tvE-pu-mAG" secondAttribute="bottom" constant="7" id="KkY-ue-jp2"/>
                                     <constraint firstItem="tvE-pu-mAG" firstAttribute="top" secondItem="n3m-xq-Wmp" secondAttribute="bottom" constant="8" id="Nw8-0a-o1Y"/>
+                                    <constraint firstItem="KsN-b3-cuF" firstAttribute="top" secondItem="n3m-xq-Wmp" secondAttribute="top" constant="13" id="Ufc-LG-dum"/>
                                     <constraint firstItem="kHk-sV-yOS" firstAttribute="top" secondItem="MUh-hF-miw" secondAttribute="bottom" constant="24" id="Wod-lG-WZT"/>
                                     <constraint firstItem="tvE-pu-mAG" firstAttribute="centerX" secondItem="WNP-si-IMr" secondAttribute="centerX" id="bhN-cH-RWh"/>
+                                    <constraint firstItem="n3m-xq-Wmp" firstAttribute="leading" secondItem="KsN-b3-cuF" secondAttribute="trailing" constant="-92.333333333333343" id="dtU-Hz-uAw"/>
                                     <constraint firstItem="MUh-hF-miw" firstAttribute="centerX" secondItem="WNP-si-IMr" secondAttribute="centerX" id="qHS-kg-R5g"/>
                                     <constraint firstAttribute="bottom" secondItem="kHk-sV-yOS" secondAttribute="bottom" constant="112" id="wAD-Sa-sOA"/>
                                     <constraint firstItem="n3m-xq-Wmp" firstAttribute="centerX" secondItem="WNP-si-IMr" secondAttribute="centerX" id="x1f-TY-Pno"/>
@@ -293,6 +298,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="KsN-b3-cuF" id="6Yf-ka-Ylh"/>
                         <outlet property="addButton" destination="kHk-sV-yOS" id="OrE-ob-3iI"/>
                         <outlet property="bottleDescriptionTF" destination="NjK-k7-UZ2" id="i9w-8C-dXe"/>
                         <outlet property="bottleImage" destination="n3m-xq-Wmp" id="N5j-sB-Ncm"/>
@@ -313,7 +319,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="7Ld-e1-dt9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1417.6744186046512" y="-415.23605150214593"/>
+            <point key="canvasLocation" x="1418" y="-415"/>
         </scene>
         <!--Bottle View Controller-->
         <scene sceneID="nDL-cr-0PW">
@@ -605,10 +611,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Pic-VT-5VA">
-                                <rect key="frame" x="90" y="756" width="250" height="68"/>
+                                <rect key="frame" x="90" y="756" width="250" height="80"/>
                                 <subviews>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="xnt-sf-6CK">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="4"/>
+                                    </progressView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeo-Sn-Eeq">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
+                                        <rect key="frame" x="0.0" y="12" width="250" height="30"/>
                                         <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -624,7 +633,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FA-YR-6yF">
-                                        <rect key="frame" x="0.0" y="38" width="250" height="30"/>
+                                        <rect key="frame" x="0.0" y="50" width="250" height="30"/>
                                         <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -672,6 +681,7 @@
                         <outlet property="bottlePrice" destination="iTP-BB-Pfe" id="hd0-mc-OoH"/>
                         <outlet property="bottleRatingLabel" destination="txL-bh-Y7l" id="uY4-y9-eKb"/>
                         <outlet property="placeOfPurchase" destination="3g9-FG-hjP" id="1id-0O-oHQ"/>
+                        <outlet property="progressView" destination="xnt-sf-6CK" id="aAn-3t-EAP"/>
                         <outlet property="ratingCircleView" destination="oqT-fT-yXc" id="Tqw-Rm-KvY"/>
                         <outlet property="wineColorIndicator" destination="kfi-lj-vay" id="TbE-Iq-Eyu"/>
                         <outlet property="wineCountry" destination="fvc-2Y-kbm" id="Oh2-bg-pTa"/>
@@ -776,21 +786,16 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="qG9-b1-LfE"/>
-                    <navigationItem key="navigationItem" title="Tasting catalog" style="editor" id="D4H-nH-T5J">
-                        <barButtonItem key="rightBarButtonItem" image="line.horizontal.3" catalog="system" id="6ve-rX-IjL">
-                            <connections>
-                                <action selector="filterButtonAction:" destination="Amr-u6-d3c" id="cY9-Ts-C1N"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Tasting catalog" style="editor" id="D4H-nH-T5J"/>
                     <connections>
                         <outlet property="tableView" destination="exh-yj-m7X" id="SyL-S0-wB3"/>
                         <segue destination="AqD-AU-99F" kind="show" identifier="filter" id="mZp-Yl-hqP"/>
+                        <segue destination="71f-DU-ELX" kind="show" identifier="settings" id="cOC-BP-xKW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nS5-gF-nlp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="596" y="333"/>
+            <point key="canvasLocation" x="594" y="293"/>
         </scene>
         <!--Filters & Statistics-->
         <scene sceneID="uGr-wV-OYI">
@@ -1064,7 +1069,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZI-Sy-930" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="es5-3h-9hg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1417.6744186046512" y="332.83261802575112"/>
+            <point key="canvasLocation" x="1418" y="293"/>
         </scene>
         <!--Popover Table View Controller-->
         <scene sceneID="L1N-9m-fsN">
@@ -1096,7 +1101,73 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXD-aH-bbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2027" y="129"/>
+            <point key="canvasLocation" x="2025" y="89"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="ZOI-yz-Mk0">
+            <objects>
+                <viewController id="71f-DU-ELX" customClass="SettingsViewController" customModule="Vinishko" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QXL-54-gF1">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SuG-Mm-b7G">
+                                <rect key="frame" x="0.0" y="103" width="430" height="795"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" id="DPB-Yx-dFI" customClass="SettingsCell" customModule="Vinishko" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="430" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DPB-Yx-dFI" id="2q1-cw-fqc">
+                                            <rect key="frame" x="0.0" y="0.0" width="430" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqP-FG-Z69">
+                                                    <rect key="frame" x="20" y="11" width="324" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F1w-Fx-MpD">
+                                                    <rect key="frame" x="361" y="5.9999999999999982" width="51" height="31.333333333333329"/>
+                                                    <color key="onTintColor" red="0.52941179279999995" green="0.1411764771" blue="0.31372550129999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="F1w-Fx-MpD" firstAttribute="top" secondItem="2q1-cw-fqc" secondAttribute="top" constant="6" id="Qyg-0u-uOl"/>
+                                                <constraint firstItem="KqP-FG-Z69" firstAttribute="leading" secondItem="2q1-cw-fqc" secondAttribute="leading" constant="20" symbolic="YES" id="akv-dZ-C9p"/>
+                                                <constraint firstItem="F1w-Fx-MpD" firstAttribute="leading" secondItem="KqP-FG-Z69" secondAttribute="trailing" constant="17" id="g9I-KK-ir8"/>
+                                                <constraint firstAttribute="bottom" secondItem="KqP-FG-Z69" secondAttribute="bottom" constant="11.666667938232422" id="hqn-Mo-yX6"/>
+                                                <constraint firstAttribute="trailing" secondItem="F1w-Fx-MpD" secondAttribute="trailing" constant="20" symbolic="YES" id="lQX-vB-T3H"/>
+                                                <constraint firstItem="KqP-FG-Z69" firstAttribute="top" secondItem="2q1-cw-fqc" secondAttribute="top" constant="11" id="mlN-Qq-TC1"/>
+                                                <constraint firstAttribute="bottom" secondItem="F1w-Fx-MpD" secondAttribute="bottom" constant="6.3333320617675781" id="yT1-iT-j8J"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="settingsOptionLabel" destination="KqP-FG-Z69" id="Pbp-Xh-E4n"/>
+                                            <outlet property="settingsSwitch" destination="F1w-Fx-MpD" id="Iab-zB-Cdi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OMW-l9-hQM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SuG-Mm-b7G" firstAttribute="leading" secondItem="OMW-l9-hQM" secondAttribute="leading" id="42J-WP-3D3"/>
+                            <constraint firstItem="SuG-Mm-b7G" firstAttribute="top" secondItem="OMW-l9-hQM" secondAttribute="top" id="6mm-Yd-uPF"/>
+                            <constraint firstItem="OMW-l9-hQM" firstAttribute="bottom" secondItem="SuG-Mm-b7G" secondAttribute="bottom" id="KH9-2C-BX3"/>
+                            <constraint firstItem="OMW-l9-hQM" firstAttribute="trailing" secondItem="SuG-Mm-b7G" secondAttribute="trailing" id="txq-wR-02Z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" style="editor" id="ySU-4u-WQz"/>
+                    <connections>
+                        <outlet property="tableView" destination="SuG-Mm-b7G" id="yR1-iZ-gUs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h27-oX-PvR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="593" y="1053"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uyc-M6-V5W">
@@ -1120,7 +1191,6 @@
     <color key="tintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="addImage" width="330.66665649414062" height="330.66665649414062"/>
-        <image name="line.horizontal.3" catalog="system" width="128" height="65"/>
         <image name="list.star" catalog="system" width="128" height="95"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="plus" catalog="system" width="128" height="113"/>

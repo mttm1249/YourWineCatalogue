@@ -9,9 +9,9 @@ import UIKit
 
 // MARK: - Global
 let feedbackGenerator = UIImpactFeedbackGenerator()
+let userDefaults = UserDefaults.standard
 
 // MARK: - Hide Keyboard Method
-
 extension UIViewController {
     func hideKeyboard() {        
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
