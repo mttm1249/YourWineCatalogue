@@ -6,6 +6,6 @@
   
 */
 
-"NSCameraUsageDescription" = "Vinishko хочет использовать Вашу камеру, можно?";
+"NSCameraUsageDescription" = "Доступ к камере позволяет делать фотографии для дегустационной коллекции и сканировать QR-коды";
 
-"NSPhotoLibraryUsageDescription" = "Vinishko хочет использовать Ваши фотографии, можно?";
+"NSPhotoLibraryUsageDescription" = "Доступ к библиотеке фотографий позволяет вам добавлять фотографии к вашей дегустационной коллекции";
