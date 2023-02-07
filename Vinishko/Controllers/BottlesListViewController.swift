@@ -120,6 +120,7 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
     }
     

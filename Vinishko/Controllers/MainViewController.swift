@@ -10,10 +10,14 @@ import UIKit
 class MainViewController: UIViewController {
         
     @IBOutlet weak var savedAlertLabel: UILabel!
+    @IBOutlet weak var waveView: WaveView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         savedAlertLabel.isHidden = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.waveView.animationStart(direction: .right, speed: 4)
+        }
     }
     
     func delay(_ delay: Double, closure: @escaping() -> ()) {

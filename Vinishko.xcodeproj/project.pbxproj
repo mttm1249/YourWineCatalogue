@@ -13,6 +13,7 @@
 		522372E32990139C00C57E60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 522372E22990139C00C57E60 /* GoogleService-Info.plist */; };
 		52B942EB2991062B00DD6F10 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 52B942EA2991062B00DD6F10 /* FirebaseStorage */; };
 		52B942ED2991107700DD6F10 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B942EC2991107700DD6F10 /* NetworkManager.swift */; };
+		52E85C2A2992C782000FF411 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E85C292992C782000FF411 /* WaveView.swift */; };
 		DA2620CF297FC0BC00948E08 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA2620D1297FC0BC00948E08 /* Localizable.strings */; };
 		DA2620DC297FCCED00948E08 /* LocalizableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2620DB297FCCED00948E08 /* LocalizableText.swift */; };
 		DA27684E28ED67D0008556CD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27684D28ED67D0008556CD /* FilterViewController.swift */; };
@@ -52,6 +53,7 @@
 		520E2F7F2990E16700EBE8F5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		522372E22990139C00C57E60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		52B942EC2991107700DD6F10 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		52E85C292992C782000FF411 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		DA2620D0297FC0BC00948E08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA2620D2297FC0BF00948E08 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA2620D6297FC10100948E08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottleCell.strings; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		DA672CEC28EAD94400680ACC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				52E85C292992C782000FF411 /* WaveView.swift */,
 				DA4359122982E3DF0073ADA6 /* QRGenerator.swift */,
 				52B942EC2991107700DD6F10 /* NetworkManager.swift */,
 				DABD3DCC28EB38E1003D84FA /* Colors.swift */,
@@ -347,6 +350,7 @@
 				DA40394728E9A71500A5E5AE /* Time.swift in Sources */,
 				DA64203528E86ABF00E03CB2 /* BottleModel.swift in Sources */,
 				DA64201E28E865DA00E03CB2 /* SceneDelegate.swift in Sources */,
+				52E85C2A2992C782000FF411 /* WaveView.swift in Sources */,
 				520E2F7B2990E10200EBE8F5 /* SettingsCell.swift in Sources */,
 				DAA49822295EC7AD00C3DF60 /* CloudManager.swift in Sources */,
 				DA84FA3C28E870DD006C9DED /* BottlesListViewController.swift in Sources */,
@@ -536,7 +540,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Vinishko/Supporting Files/Info.plist";
@@ -574,7 +578,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Vinishko/Supporting Files/Info.plist";

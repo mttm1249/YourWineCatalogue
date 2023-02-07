@@ -23,7 +23,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBG-nC-xSG">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="35"/>
-                                        <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.52941179279999995" green="0.1411764771" blue="0.31372550129999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="jQx-Qj-xlG"/>
                                         </constraints>
@@ -44,7 +44,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXc-s3-3Ye">
                                         <rect key="frame" x="0.0" y="60" width="150" height="35"/>
-                                        <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.53333336109999996" green="0.1411764771" blue="0.31372550129999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="spZ-oA-awT"/>
                                         </constraints>
@@ -80,6 +80,13 @@
                                 <color key="textColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cui-a7-U3G" customClass="WaveView" customModule="Vinishko" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="752" width="430" height="180"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="sML-hN-2cg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qVe-B5-BBr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -88,15 +95,19 @@
                             <constraint firstItem="u3Q-pc-oTZ" firstAttribute="centerY" secondItem="qVe-B5-BBr" secondAttribute="centerY" id="EXG-n9-5Er"/>
                             <constraint firstItem="u3Q-pc-oTZ" firstAttribute="top" secondItem="Imf-vc-xNL" secondAttribute="bottom" constant="21.333333333333314" id="HOs-zj-Bf8"/>
                             <constraint firstItem="Imf-vc-xNL" firstAttribute="leading" secondItem="qVe-B5-BBr" secondAttribute="leading" constant="122" id="LaM-hk-nPW"/>
+                            <constraint firstItem="Cui-a7-U3G" firstAttribute="leading" secondItem="qVe-B5-BBr" secondAttribute="leading" id="Psl-i2-BNq"/>
                             <constraint firstItem="qVe-B5-BBr" firstAttribute="trailing" secondItem="Imf-vc-xNL" secondAttribute="trailing" constant="121" id="Zva-tn-32w"/>
                             <constraint firstItem="0UU-fu-rmS" firstAttribute="top" secondItem="qVe-B5-BBr" secondAttribute="top" constant="114" id="fON-wx-63i"/>
+                            <constraint firstAttribute="bottom" secondItem="Cui-a7-U3G" secondAttribute="bottom" id="fZC-9k-P8L"/>
                             <constraint firstItem="u3Q-pc-oTZ" firstAttribute="centerX" secondItem="qVe-B5-BBr" secondAttribute="centerX" id="g05-oc-oxs"/>
+                            <constraint firstItem="Cui-a7-U3G" firstAttribute="trailing" secondItem="qVe-B5-BBr" secondAttribute="trailing" id="iB9-9q-G2i"/>
                             <constraint firstItem="qVe-B5-BBr" firstAttribute="trailing" secondItem="0UU-fu-rmS" secondAttribute="trailing" constant="15" id="xig-2l-uob"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="P5g-6f-l2b"/>
                     <connections>
                         <outlet property="savedAlertLabel" destination="Imf-vc-xNL" id="OJU-8Z-Avk"/>
+                        <outlet property="waveView" destination="Cui-a7-U3G" id="KsG-d3-GA6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rgv-Of-70J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
