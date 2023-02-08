@@ -8,18 +8,32 @@
 import UIKit
 
 class MainViewController: UIViewController {
-        
+
     @IBOutlet weak var savedAlertLabel: UILabel!
     @IBOutlet weak var waveView: WaveView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         savedAlertLabel.isHidden = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            self.waveView.animationStart(direction: .right, speed: 4)
+        if !userDefaults.bool(forKey: "qrSettings") {
+            setDefaultSettingsForQR()
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        waveView.animationStart(direction: .right, speed: 4)
+    }
+      
+    // Set default settings for QR (first start)
+    private func setDefaultSettingsForQR() {
+        userDefaults.set(true, forKey: "qrSettings")
+        userDefaults.set(true, forKey: "shareImage")
+        userDefaults.set(true, forKey: "shareComment")
+        userDefaults.set(true, forKey: "shareRating")
+    }
+    
+    // Delay for label animation
     func delay(_ delay: Double, closure: @escaping() -> ()) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
             closure()

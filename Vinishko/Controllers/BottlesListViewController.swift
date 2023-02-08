@@ -123,7 +123,7 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
     }
-    
+        
     // MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
@@ -165,7 +165,7 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
         editVC.modalPresentationStyle = .pageSheet
         present(editVC, animated: true)
     }
-    
+        
     // Delegate method
     func updateCurrentBottleInfo() {
         tableView.reloadData()

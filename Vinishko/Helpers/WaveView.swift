@@ -20,9 +20,9 @@ class WaveView: UIView {
     var shapeLayer = CAShapeLayer()
     
     var speed: Double = 10
-    var frequency = 8.0
+    var frequency = 7.0
     var parameterA = 1.5
-    var parameterB = 9.0
+    var parameterB = 35.0
     var phase = 0.0
     
     let preferredColor = UIColor.redWineColor
@@ -40,11 +40,7 @@ class WaveView: UIView {
         self.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
         self.setNeedsDisplay()
     }
-    
-    private func stopDisplayLink() {
-           displayLink?.invalidate()
-    }
-    
+        
     func animationStart(direction: Direction, speed: Double) {
         if direction == .right {
             self.speed = -speed

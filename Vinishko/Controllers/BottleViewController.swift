@@ -52,23 +52,13 @@ class BottleViewController: UIViewController, UpdateTableView {
         progressView.progress = 0
         backgroundImageBlurEffect()
         setupInfo()
-        if !userDefaults.bool(forKey: "qrSettings") {
-            setupDefaultSettingsForQR()
-        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         delegate?.updateTableView()
     }
-    
-    private func setupDefaultSettingsForQR() {
-        userDefaults.set(true, forKey: "qrSettings")
-        userDefaults.set(true, forKey: "shareImage")
-        userDefaults.set(true, forKey: "shareComment")
-        userDefaults.set(true, forKey: "shareRating")
-    }
-    
+        
     func setupInfo() {
         bottleName.text = currentBottle.name
         wineSort.text = currentBottle.wineSort
