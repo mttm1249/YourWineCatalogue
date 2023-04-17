@@ -81,5 +81,4 @@ extension SettingsViewModel: UITableViewDelegate, UITableViewDataSource {
             break
         }
     }
-    
 }

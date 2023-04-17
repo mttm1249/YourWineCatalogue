@@ -20,12 +20,12 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
     var otherColorTitle = ""
     
     var bottles: Results<Bottle>!
+    private var redWine: Results<Bottle>!
+    private var whiteWine: Results<Bottle>!
+    private var otherWine: Results<Bottle>!
     private let shared = FilterManager.shared
     
-    @IBOutlet weak var bottlesCounter: UILabel!
-    @IBOutlet weak var redBottlesCounter: UILabel!
-    @IBOutlet weak var whiteBottlesCounter: UILabel!
-    @IBOutlet weak var otherBottlesCounter: UILabel!
+    @IBOutlet weak var pieView: PieView!
     @IBOutlet weak var filterByColorButton: UIButton!
     @IBOutlet weak var filterByPlaceOfPurchaseButton: UIButton!
     @IBOutlet weak var filterByCountryButton: UIButton!
@@ -54,14 +54,20 @@ class FilterViewController: UIViewController, UIPopoverPresentationControllerDel
         otherColorTitle = LocalizableText.otherColorTitle
     }
     
+    func updateChartData() {
+        let redWineCount = CGFloat(redWine.count)
+        let whiteWineCount = CGFloat(whiteWine.count)
+        let otherWineCount = CGFloat(otherWine.count)
+
+        pieView.setValues([redWineCount, whiteWineCount, otherWineCount])
+    }
+    
     private func setupStatistics() {
-        bottlesCounter.text = String(bottles.count)
-        let redWine = bottles.filter { $0.wineColor == 0 }
-        redBottlesCounter.text = String(redWine.count)
-        let whiteWine = bottles.filter { $0.wineColor == 1 }
-        whiteBottlesCounter.text = String(whiteWine.count)
-        let otherWine = bottles.filter { $0.wineColor == 2 }
-        otherBottlesCounter.text = String(otherWine.count)
+        redWine = bottles.filter("wineColor == 0")
+        whiteWine = bottles.filter("wineColor == 1")
+        otherWine = bottles.filter("wineColor == 2")
+        
+        updateChartData()
     }
     
     private func setupCancelButtons() {
@@ -203,7 +209,5 @@ extension FilterViewController: FilterOptionsProtocol {
         }
     }
     
-    func getColorOption(colorId: Int) {
-    }
-    
+    func getColorOption(colorId: Int) {}
 }

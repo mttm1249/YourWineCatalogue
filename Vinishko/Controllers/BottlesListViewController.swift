@@ -7,7 +7,6 @@
 
 import UIKit
 import RealmSwift
-import Network
 
 class BottlesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -84,7 +83,7 @@ class BottlesListViewController: UIViewController, UITableViewDelegate, UITableV
         let screenHeight = screenSize.height
         let screenWidth = screenSize.width
         if bottles.count == 0 {
-            alertView.frame = CGRect(x: CGFloat(0), y: screenHeight / 2 - 80, width: screenWidth, height: CGFloat(80))
+            alertView.frame = CGRect(x: CGFloat(0), y: screenHeight / 2 - 160, width: screenWidth, height: CGFloat(80))
             alertView.backgroundColor = .redWineColor
             
             let alertTextLabel = UILabel()

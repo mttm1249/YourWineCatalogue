@@ -11,7 +11,6 @@
 		520E2F7E2990E14E00EBE8F5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E2F7D2990E14E00EBE8F5 /* SettingsViewController.swift */; };
 		520E2F802990E16700EBE8F5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E2F7F2990E16700EBE8F5 /* SettingsViewModel.swift */; };
 		52A73CB529D4685600E2921C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52A73CB429D4685600E2921C /* GoogleService-Info.plist */; };
-		52AAAD6029E8281300D59F79 /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AAAD5F29E8281300D59F79 /* SyncManager.swift */; };
 		52B25A2929E93043000F9BAA /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B25A2829E93043000F9BAA /* PieView.swift */; };
 		52B942EB2991062B00DD6F10 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 52B942EA2991062B00DD6F10 /* FirebaseStorage */; };
 		52B942ED2991107700DD6F10 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B942EC2991107700DD6F10 /* NetworkManager.swift */; };
@@ -54,7 +53,6 @@
 		520E2F7D2990E14E00EBE8F5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		520E2F7F2990E16700EBE8F5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		52A73CB429D4685600E2921C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		52AAAD5F29E8281300D59F79 /* SyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
 		52B25A2829E93043000F9BAA /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
 		52B942EC2991107700DD6F10 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		52E85C292992C782000FF411 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 				DA64203228E86A3500E03CB2 /* StorageManager.swift */,
 				DAA49821295EC7AD00C3DF60 /* CloudManager.swift */,
 				DA65B12C295EF3870077DD72 /* CloudConfig.swift */,
-				52AAAD5F29E8281300D59F79 /* SyncManager.swift */,
 				DA40394628E9A71500A5E5AE /* Time.swift */,
 			);
 			path = Helpers;
@@ -363,7 +360,6 @@
 				DA84FA3C28E870DD006C9DED /* BottlesListViewController.swift in Sources */,
 				DAE575EA28EAE3CD00F22741 /* Extensions.swift in Sources */,
 				DABD3DCD28EB38E1003D84FA /* Colors.swift in Sources */,
-				52AAAD6029E8281300D59F79 /* SyncManager.swift in Sources */,
 				DA40393A28E990C200A5E5AE /* BottleCell.swift in Sources */,
 				520E2F802990E16700EBE8F5 /* SettingsViewModel.swift in Sources */,
 				DA40394528E99FB400A5E5AE /* MainViewController.swift in Sources */,
@@ -548,7 +544,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Vinishko/Supporting Files/Info.plist";
@@ -586,7 +582,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Vinishko/Supporting Files/Info.plist";
