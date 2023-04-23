@@ -9,7 +9,7 @@ import UIKit
 import Network
 import AVFoundation
 
-struct QRModel : Decodable {
+struct QRModel: Decodable {
     let verification: String
     let imageURL: String
     let name: String
@@ -34,7 +34,6 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
     weak var delegate: UpdateTableView?
     var currentBottle: Bottle!
     var isEdited: Bool?
-    private let time = Time()
     private let monitor = NWPathMonitor()
     
     private var wineColorId = 0
@@ -220,7 +219,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
         let newBottle = Bottle(name: bottleNameTF.text ?? defaultText,
                                bottleDescription: bottleDescriptionTF.text ?? defaultText,
                                placeOfPurchase: placeOfPurchaseTF.text ?? defaultText,
-                               date: time.getData(),
+                               date: Time.getDate(),
                                bottleImage: bottleImage.image!.pngData(),
                                rating: ratingControl.rating,
                                wineRegion: regionTF.text ?? defaultText,

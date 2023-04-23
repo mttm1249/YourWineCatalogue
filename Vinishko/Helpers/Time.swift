@@ -9,7 +9,7 @@ import Foundation
 
 class Time {
         
-    func getData() -> String {
+    static func getDate() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
