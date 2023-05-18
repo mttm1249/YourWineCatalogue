@@ -9,22 +9,6 @@ import UIKit
 import Network
 import AVFoundation
 
-struct QRModel: Decodable {
-    let verification: String
-    let imageURL: String
-    let name: String
-    let wineColor: Int
-    let wineSugar: Int
-    let wineType: Int
-    let wineSort: String
-    let wineCountry: String
-    let wineRegion: String
-    let placeOfPurchase: String
-    let bottleDescription: String
-    let rating: Int
-    let price: String
-}
-
 protocol UpdateTableView: AnyObject {
     func updateCurrentBottleInfo()
 }
@@ -44,7 +28,8 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottleImage: UIImageView!
     @IBOutlet weak var bottleNameTF: UITextField!
-    @IBOutlet weak var bottleDescriptionTF: UITextField!
+    @IBOutlet weak var bottleDescriptionTV: UITextView!
+    @IBOutlet weak var bottleDescriptionHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var placeOfPurchaseTF: UITextField!
     @IBOutlet weak var wineSortTF: UITextField!
     @IBOutlet weak var countryTF: UITextField!
@@ -64,6 +49,26 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
         scrollView.delegate = self
         hideKeyboard()
         setupEditScreen()
+        setupCommentTextView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateBottleDescriptionTextViewHeight()
+    }
+
+    private func updateBottleDescriptionTextViewHeight() {
+        let fixedWidth = bottleDescriptionTV.frame.size.width
+        let newSize = bottleDescriptionTV.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        bottleDescriptionHeightConstraint.constant = newSize.height
+    }
+    
+    private func setupCommentTextView() {
+        bottleDescriptionTV.isScrollEnabled = false
+        bottleDescriptionTV.delegate = self
+        bottleDescriptionTV.layer.borderWidth = 0.7
+        bottleDescriptionTV.layer.borderColor = #colorLiteral(red: 0.9098039269, green: 0.9098039269, blue: 0.9098039269, alpha: 1).cgColor
+        bottleDescriptionTV.layer.cornerRadius = 5.0
     }
     
     // QR Delegate method
@@ -83,7 +88,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
             regionTF.text = result.wineRegion
             placeOfPurchaseTF.text = result.placeOfPurchase
             priceTF.text = result.price
-            bottleDescriptionTF.text = result.bottleDescription
+            bottleDescriptionTV.text = result.bottleDescription
             ratingControl.rating = result.rating
             setupWineColorSegments(section: result.wineColor)
         }
@@ -134,30 +139,46 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
         // White color for wine color selector
         wineColorSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         
-        if currentBottle != nil {
-            guard let data = currentBottle?.bottleImage, let image = UIImage(data: data) else { return }
+        bottleDescriptionTV.delegate = self
+        
+        if let currentBottle = currentBottle {
+            guard let data = currentBottle.bottleImage, let image = UIImage(data: data) else { return }
+            
             bottleImage.image = image
             bottleImage.contentMode = .scaleAspectFill
             bottleNameTF.text = currentBottle.name
-            bottleDescriptionTF.text = currentBottle.bottleDescription
             placeOfPurchaseTF.text = currentBottle.placeOfPurchase
             countryTF.text = currentBottle.wineCountry
             regionTF.text = currentBottle.wineRegion
             priceTF.text = currentBottle.price
-            ratingControl.rating = currentBottle!.rating
+            ratingControl.rating = currentBottle.rating
             wineSortTF.text = currentBottle.wineSort
             
-            wineColorSegmentedControl.selectedSegmentIndex = currentBottle.wineColor!
-            setupWineColorSegments(section: currentBottle.wineColor!)
+            wineColorSegmentedControl.selectedSegmentIndex = currentBottle.wineColor ?? 0
+            setupWineColorSegments(section: currentBottle.wineColor ?? 0)
             
-            wineTypeSegmentedControl.selectedSegmentIndex = currentBottle.wineType!
-            wineSugarSegmentedControl.selectedSegmentIndex = currentBottle.wineSugar!
-            wineColorId = currentBottle.wineColor!
-            wineTypeId = currentBottle.wineType!
-            wineSugarId = currentBottle.wineSugar!
+            wineTypeSegmentedControl.selectedSegmentIndex = currentBottle.wineType ?? 0
+            wineSugarSegmentedControl.selectedSegmentIndex = currentBottle.wineSugar ?? 0
+            wineColorId = currentBottle.wineColor ?? 0
+            wineTypeId = currentBottle.wineType ?? 0
+            wineSugarId = currentBottle.wineSugar ?? 0
+            
+            if let description = currentBottle.bottleDescription, !description.isEmpty {
+                bottleDescriptionTV.text = description
+                bottleDescriptionHeightConstraint.constant = bottleDescriptionTV.contentSize.height
+                bottleDescriptionTV.textColor = .black
+            } else {
+                bottleDescriptionTV.text = LocalizableText.enterComment
+                bottleDescriptionHeightConstraint.constant = bottleDescriptionTV.contentSize.height
+                bottleDescriptionTV.textColor = #colorLiteral(red: 0.7764703631, green: 0.7764707804, blue: 0.7850785851, alpha: 1)
+            }
+        } else {
+            bottleDescriptionTV.text = LocalizableText.enterComment
+            bottleDescriptionHeightConstraint.constant = bottleDescriptionTV.contentSize.height
+            bottleDescriptionTV.textColor = #colorLiteral(red: 0.7764703631, green: 0.7764707804, blue: 0.7850785851, alpha: 1)
         }
     }
-    
+
     func setupWineColorSegments(section: Int) {
         switch section {
         case 0:
@@ -216,8 +237,10 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
     func save() {
         let defaultText = ""
         guard let image = bottleImage.image else { return }
+        let bottleDescription = bottleDescriptionTV.text == LocalizableText.enterComment ? defaultText : (bottleDescriptionTV.text ?? defaultText)
+        
         let newBottle = Bottle(name: bottleNameTF.text ?? defaultText,
-                               bottleDescription: bottleDescriptionTF.text ?? defaultText,
+                               bottleDescription: bottleDescription,
                                placeOfPurchase: placeOfPurchaseTF.text ?? defaultText,
                                date: Time.getDate(),
                                bottleImage: bottleImage.image!.pngData(),
@@ -229,20 +252,21 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
                                wineSugar: wineSugarId,
                                wineSort: wineSortTF.text ?? defaultText,
                                wineCountry: countryTF.text ?? defaultText)
-        if currentBottle != nil {
+        
+        if let currentBottle = currentBottle {
             try! realm.write {
-                currentBottle?.bottleImage = newBottle.bottleImage
-                currentBottle?.name = newBottle.name
-                currentBottle?.bottleDescription = newBottle.bottleDescription
-                currentBottle?.placeOfPurchase = newBottle.placeOfPurchase
-                currentBottle?.rating = newBottle.rating
-                currentBottle?.wineRegion = newBottle.wineRegion
-                currentBottle?.price = newBottle.price
-                currentBottle?.wineColor = newBottle.wineColor
-                currentBottle?.wineType = newBottle.wineType
-                currentBottle?.wineSugar = newBottle.wineSugar
-                currentBottle?.wineSort = newBottle.wineSort
-                currentBottle?.wineCountry = newBottle.wineCountry
+                currentBottle.bottleImage = newBottle.bottleImage
+                currentBottle.name = newBottle.name
+                currentBottle.bottleDescription = newBottle.bottleDescription
+                currentBottle.placeOfPurchase = newBottle.placeOfPurchase
+                currentBottle.rating = newBottle.rating
+                currentBottle.wineRegion = newBottle.wineRegion
+                currentBottle.price = newBottle.price
+                currentBottle.wineColor = newBottle.wineColor
+                currentBottle.wineType = newBottle.wineType
+                currentBottle.wineSugar = newBottle.wineSugar
+                currentBottle.wineSort = newBottle.wineSort
+                currentBottle.wineCountry = newBottle.wineCountry
                 
                 wineColorId = currentBottle.wineColor!
                 wineTypeId = currentBottle.wineType!
@@ -376,4 +400,26 @@ extension UIButton {
     }
 }
 
-
+// MARK: UITextViewDelegate
+extension NewBottleViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == LocalizableText.enterComment {
+            textView.text = ""
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = LocalizableText.enterComment
+            textView.textColor = #colorLiteral(red: 0.7764703631, green: 0.7764707804, blue: 0.7850785851, alpha: 1)
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        let fixedWidth = textView.frame.size.width
+        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        bottleDescriptionHeightConstraint.constant = newSize.height
+        view.layoutIfNeeded()
+    }
+}

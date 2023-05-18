@@ -30,6 +30,7 @@
 
 "NewBottleViewController.cameraName" = "Камера";
 "NewBottleViewController.photoName" = "Галерея";
+"NewBottleViewController.enterComment" = "Оставьте комментарий";
 
 "BottlesListViewController.emptyText" = "Тут пока пусто...(";
 

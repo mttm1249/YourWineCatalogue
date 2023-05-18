@@ -33,6 +33,7 @@ class LocalizableText {
     
     static let cameraName = NSLocalizedString("NewBottleViewController.cameraName", comment: "")
     static let photoName = NSLocalizedString("NewBottleViewController.photoName", comment: "")
+    static let enterComment = NSLocalizedString("NewBottleViewController.enterComment", comment: "")
     
     static let emptyText = NSLocalizedString("BottlesListViewController.emptyText", comment: "")
         

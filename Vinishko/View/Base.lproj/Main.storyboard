@@ -215,12 +215,16 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" keyboardType="decimalPad"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comment" textAlignment="natural" minimumFontSize="8" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NjK-k7-UZ2">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B8D-1Z-jj1">
                                                 <rect key="frame" x="0.0" y="342" width="350" height="34"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="0u9-eE-y8T"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
-                                            </textField>
+                                            </textView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="251.99999999999997" placeholderIntrinsicHeight="44" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MUh-hF-miw" customClass="RatingControl" customModule="Vinishko" customModuleProvider="target">
@@ -311,7 +315,8 @@
                     <connections>
                         <outlet property="activityIndicator" destination="KsN-b3-cuF" id="6Yf-ka-Ylh"/>
                         <outlet property="addButton" destination="kHk-sV-yOS" id="OrE-ob-3iI"/>
-                        <outlet property="bottleDescriptionTF" destination="NjK-k7-UZ2" id="i9w-8C-dXe"/>
+                        <outlet property="bottleDescriptionHeightConstraint" destination="0u9-eE-y8T" id="ta3-9N-QjH"/>
+                        <outlet property="bottleDescriptionTV" destination="B8D-1Z-jj1" id="RXa-Fy-lkv"/>
                         <outlet property="bottleImage" destination="n3m-xq-Wmp" id="N5j-sB-Ncm"/>
                         <outlet property="bottleNameTF" destination="vdY-yb-Wau" id="wSU-p1-KTw"/>
                         <outlet property="countryTF" destination="h7A-6H-OTU" id="UxS-wZ-DRk"/>
@@ -1139,6 +1144,9 @@
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -54,7 +54,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         overlayView.clipsToBounds = true
         return overlayView
     }
-
+    
     func setupPreviewLayer() {
         guard let captureDevice = AVCaptureDevice.default(for: .video) else {
             // Handle case when video capture device is not available

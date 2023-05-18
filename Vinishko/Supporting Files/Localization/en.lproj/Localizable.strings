@@ -30,6 +30,7 @@
 
 "NewBottleViewController.cameraName" = "Camera";
 "NewBottleViewController.photoName" = "PhotoLibrary";
+"NewBottleViewController.enterComment" = "Leave a comment about wine";
 
 "BottlesListViewController.emptyText" = "Empty, add a bottle!";
 
