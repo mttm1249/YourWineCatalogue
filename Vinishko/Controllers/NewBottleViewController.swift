@@ -314,6 +314,10 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
         }
     }
     
+    @IBAction func showQRScannerAction(_ sender: Any) {
+        performSegue(withIdentifier: "scanQR", sender: self)
+    }
+    
 }
 
 // MARK: Work with image

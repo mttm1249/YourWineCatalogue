@@ -37,6 +37,10 @@
 "QRScannerViewController.yesText" = "Да!";
 "QRScannerViewController.backText" = "Назад";
 
+"QRScannerViewController.cameraNotAvailable" = "Камера недоступна";
+"QRScannerViewController.cameraNotAvailableMessage" = "Невозможно получить доступ к камере на вашем устройстве";
+"QRScannerViewController.errorText" = "Ошибка";
+
 "SettingsViewController.shareImageText" = "Делиться изображением";
 "SettingsViewController.shareCommentText" = "Делиться комментарием";
 "SettingsViewController.shareRatingText" = "Делиться рейтингом";

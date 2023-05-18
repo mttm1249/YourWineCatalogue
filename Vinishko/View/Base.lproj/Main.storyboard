@@ -304,7 +304,7 @@
                         <barButtonItem key="rightBarButtonItem" title="ScanQR" id="lZz-D1-UYX">
                             <imageReference key="image" image="qrcode.viewfinder" catalog="system" symbolScale="large"/>
                             <connections>
-                                <segue destination="8zS-dN-qWx" kind="show" identifier="scanQR" id="17C-u3-7NO"/>
+                                <action selector="showQRScannerAction:" destination="BYZ-38-t0r" id="pJZ-Sa-08c"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -325,6 +325,7 @@
                         <outlet property="wineSugarSegmentedControl" destination="9yn-US-RDM" id="1jg-2z-XI8"/>
                         <outlet property="wineTypeSegmentedControl" destination="bZ9-2s-b4C" id="ize-V1-YS5"/>
                         <segue destination="7Ld-e1-dt9" kind="unwind" identifier="unwindSegue" unwindAction="unwindSegue:" id="yM6-AA-pEs"/>
+                        <segue destination="8zS-dN-qWx" kind="show" identifier="scanQR" id="e9h-Xo-Bau"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

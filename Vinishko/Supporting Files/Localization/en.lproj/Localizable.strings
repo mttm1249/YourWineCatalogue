@@ -37,6 +37,10 @@
 "QRScannerViewController.yesText" = "Yes!";
 "QRScannerViewController.backText" = "Back";
 
+"QRScannerViewController.cameraNotAvailable" = "Camera not available";
+"QRScannerViewController.cameraNotAvailableMessage" = "Unable to access the camera on your device";
+"QRScannerViewController.errorText" = "Error";
+
 "SettingsViewController.shareImageText" = "Share image";
 "SettingsViewController.shareCommentText" = "Share comment";
 "SettingsViewController.shareRatingText" = "Share rating";

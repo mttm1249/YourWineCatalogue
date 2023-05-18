@@ -39,6 +39,10 @@ class LocalizableText {
     static let wantAddText = NSLocalizedString("QRScannerViewController.wantAddText", comment: "")
     static let yesText = NSLocalizedString("QRScannerViewController.yesText", comment: "")
     static let backText = NSLocalizedString("QRScannerViewController.backText", comment: "")
+    static let cameraNotAvailable = NSLocalizedString("QRScannerViewController.cameraNotAvailable", comment: "")
+    static let cameraNotAvailableMessage = NSLocalizedString("QRScannerViewController.cameraNotAvailableMessage", comment: "")
+    static let errorText = NSLocalizedString("QRScannerViewController.errorText", comment: "")
+    
     
     static let shareImageText = NSLocalizedString("SettingsViewController.shareImageText", comment: "")
         
