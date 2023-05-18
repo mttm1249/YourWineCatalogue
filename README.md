@@ -10,7 +10,7 @@
 <img src="https://user-images.githubusercontent.com/87662841/215970690-c2732387-6efc-4bd4-af5c-b89b0771a1a2.PNG" width="230" height="500"> <img src="https://user-images.githubusercontent.com/87662841/215970904-87ea24d9-41ae-45b5-a065-dda4e69fc857.PNG" width="230" height="500"> <img src="https://user-images.githubusercontent.com/87662841/215971099-37081b74-b54b-4190-8e70-9df0b5d680e6.png" width="230" height="500">
 
 ### Поиск по названию, статистика, фильтры
-<img src="https://user-images.githubusercontent.com/87662841/215971464-8f2fb518-7fc9-4ebc-9fad-b863c10ea2d2.PNG" width="230" height="500"> <img src="https://user-images.githubusercontent.com/87662841/231988977-730766d1-ba27-4699-b686-e3ef5c92d25c.png" width="230" height="500"> 
+<img src="https://user-images.githubusercontent.com/87662841/215971464-8f2fb518-7fc9-4ebc-9fad-b863c10ea2d2.PNG" width="230" height="500"> <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/87662841/239357259-1421769a-76e9-4859-8a82-0994390ce391.png" width="230" height="500"> 
 
 ## Installation: 
 1. Download archive with project.
