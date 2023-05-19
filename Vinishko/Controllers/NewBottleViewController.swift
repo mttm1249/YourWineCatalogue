@@ -8,6 +8,7 @@
 import UIKit
 import Network
 import AVFoundation
+import PhotosUI
 
 protocol UpdateTableView: AnyObject {
     func updateCurrentBottleInfo()
@@ -56,7 +57,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
         super.viewWillAppear(animated)
         updateBottleDescriptionTextViewHeight()
     }
-
+    
     private func updateBottleDescriptionTextViewHeight() {
         let fixedWidth = bottleDescriptionTV.frame.size.width
         let newSize = bottleDescriptionTV.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
@@ -132,7 +133,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         // UIImagePickerController calls when UIImageView tapped
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         bottleImage.isUserInteractionEnabled = true
         bottleImage.addGestureRecognizer(tapGestureRecognizer)
         
@@ -178,7 +179,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
             bottleDescriptionTV.textColor = #colorLiteral(red: 0.7764703631, green: 0.7764707804, blue: 0.7850785851, alpha: 1)
         }
     }
-
+    
     func setupWineColorSegments(section: Int) {
         switch section {
         case 0:
@@ -207,20 +208,29 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
         scrollView.scrollIndicatorInsets = scrollView.contentInset
     }
     
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let camera = UIAlertAction(title: LocalizableText.cameraName, style: .default) { _ in
-            self.chooseImagePicker(source: .camera)
-        }
-        let photo = UIAlertAction(title: LocalizableText.photoName, style: .default) { _ in
-            self.chooseImagePicker(source: .photoLibrary)
-        }
+    @objc func imageTapped() {
+        presentImagePickerOptions()
+    }
+    
+    func presentImagePickerOptions() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let cancel = UIAlertAction(title: LocalizableText.cancelText, style: .destructive )
-        actionSheet.addAction(camera)
-        actionSheet.addAction(photo)
-        actionSheet.addAction(cancel)
-        present(actionSheet, animated: true)
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let cameraAction = UIAlertAction(title: LocalizableText.cameraName, style: .default) { [weak self] (_) in
+                self?.presentImagePicker(sourceType: .camera)
+            }
+            alertController.addAction(cameraAction)
+        } 
+        
+        let galleryAction = UIAlertAction(title: LocalizableText.photoName, style: .default) { [weak self] (_) in
+            self?.presentImagePicker(sourceType: .photoLibrary)
+        }
+        alertController.addAction(galleryAction)
+        
+        let cancelAction = UIAlertAction(title: LocalizableText.cancelText, style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func saveButtonAction(_ sender: Any) {
@@ -344,28 +354,6 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
     
 }
 
-// MARK: Work with image
-extension NewBottleViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func chooseImagePicker(source: UIImagePickerController.SourceType) {
-        activityIndicator.stopAnimating()
-        if UIImagePickerController.isSourceTypeAvailable(source) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.allowsEditing = true
-            imagePicker.sourceType = source
-            present(imagePicker, animated: true)
-        }
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        bottleImage.image = info[.editedImage] as? UIImage
-        bottleImage.contentMode = .scaleAspectFill
-        bottleImage.clipsToBounds = true
-        dismiss(animated: true)
-    }
-}
-
 // MARK: UIScrollViewDelegate
 extension NewBottleViewController: UIScrollViewDelegate {
     
@@ -421,5 +409,45 @@ extension NewBottleViewController: UITextViewDelegate {
         let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
         bottleDescriptionHeightConstraint.constant = newSize.height
         view.layoutIfNeeded()
+    }
+}
+
+// MARK: UIImagePickerControllerDelegate
+extension NewBottleViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func presentImagePicker(sourceType: UIImagePickerController.SourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = sourceType
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+}
+
+// MARK: - PHPickerViewControllerDelegate
+extension NewBottleViewController: PHPickerViewControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        if let image = info[.originalImage] as? UIImage {
+            bottleImage.image = image
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let result = results.first else {
+            return
+        }
+        
+        result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] (object, error) in
+            DispatchQueue.main.async {
+                if let image = object as? UIImage {
+                    self?.bottleImage.image = image
+                }
+            }
+        }
     }
 }

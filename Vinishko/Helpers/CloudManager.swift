@@ -54,7 +54,7 @@ class CloudManager {
         queryOperation.desiredKeys = ["recordID", "bottleID", "bottleDescription", "date",
                                       "name", "placeOfPurchase", "price", "rating", "wineColor",
                                       "wineCountry", "wineRegion", "wineSort", "wineSugar", "wineType"]
-        queryOperation.resultsLimit = 5
+        queryOperation.resultsLimit = 10
         queryOperation.queuePriority = .veryHigh
         
         queryOperation.recordFetchedBlock = { record in
