@@ -221,5 +221,4 @@ extension BottlesListViewController: UpdateBottlesList {
     func updateTableView() {
         tableView.reloadData()
     }
-    
 }

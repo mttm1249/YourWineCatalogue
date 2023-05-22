@@ -20,6 +20,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
     var currentBottle: Bottle!
     var isEdited: Bool?
     private let monitor = NWPathMonitor()
+    private let textScanner = TextScanner()
     
     private var wineColorId = 0
     private var wineTypeId = 0
@@ -29,7 +30,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottleImage: UIImageView!
     @IBOutlet weak var bottleNameTF: UITextField!
-    @IBOutlet weak var bottleDescriptionTV: UITextView!
+    @IBOutlet weak var bottleDescriptionTV: CustomTextView!
     @IBOutlet weak var bottleDescriptionHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var placeOfPurchaseTF: UITextField!
     @IBOutlet weak var wineSortTF: UITextField!
@@ -50,7 +51,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
         scrollView.delegate = self
         hideKeyboard()
         setupEditScreen()
-        setupCommentTextView()
+        bottleDescriptionTV.setup(bottleDescriptionHeightConstraint)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,14 +63,6 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
         let fixedWidth = bottleDescriptionTV.frame.size.width
         let newSize = bottleDescriptionTV.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
         bottleDescriptionHeightConstraint.constant = newSize.height
-    }
-    
-    private func setupCommentTextView() {
-        bottleDescriptionTV.isScrollEnabled = false
-        bottleDescriptionTV.delegate = self
-        bottleDescriptionTV.layer.borderWidth = 0.7
-        bottleDescriptionTV.layer.borderColor = #colorLiteral(red: 0.9098039269, green: 0.9098039269, blue: 0.9098039269, alpha: 1).cgColor
-        bottleDescriptionTV.layer.cornerRadius = 5.0
     }
     
     // QR Delegate method
@@ -139,9 +132,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
         
         // White color for wine color selector
         wineColorSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
-        
-        bottleDescriptionTV.delegate = self
-        
+                
         if let currentBottle = currentBottle {
             guard let data = currentBottle.bottleImage, let image = UIImage(data: data) else { return }
             
@@ -220,7 +211,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
                 self?.presentImagePicker(sourceType: .camera)
             }
             alertController.addAction(cameraAction)
-        } 
+        }
         
         let galleryAction = UIAlertAction(title: LocalizableText.photoName, style: .default) { [weak self] (_) in
             self?.presentImagePicker(sourceType: .photoLibrary)
@@ -244,7 +235,7 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
     }
     
     // Saving object
-    func save() {
+    private func save() {
         let defaultText = ""
         guard let image = bottleImage.image else { return }
         let bottleDescription = bottleDescriptionTV.text == LocalizableText.enterComment ? defaultText : (bottleDescriptionTV.text ?? defaultText)
@@ -351,7 +342,6 @@ class NewBottleViewController: UIViewController, UpdateFromQR {
     @IBAction func showQRScannerAction(_ sender: Any) {
         performSegue(withIdentifier: "scanQR", sender: self)
     }
-    
 }
 
 // MARK: UIScrollViewDelegate
@@ -388,29 +378,29 @@ extension UIButton {
     }
 }
 
-// MARK: UITextViewDelegate
-extension NewBottleViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == LocalizableText.enterComment {
-            textView.text = ""
-            textView.textColor = .black
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = LocalizableText.enterComment
-            textView.textColor = #colorLiteral(red: 0.7764703631, green: 0.7764707804, blue: 0.7850785851, alpha: 1)
-        }
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        let fixedWidth = textView.frame.size.width
-        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-        bottleDescriptionHeightConstraint.constant = newSize.height
-        view.layoutIfNeeded()
-    }
-}
+//// MARK: UITextViewDelegate
+//extension NewBottleViewController: UITextViewDelegate {
+//    func textViewDidBeginEditing(_ textView: UITextView) {
+//        if textView.text == LocalizableText.enterComment {
+//            textView.text = ""
+//            textView.textColor = .black
+//        }
+//    }
+//
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//        if textView.text.isEmpty {
+//            textView.text = LocalizableText.enterComment
+//            textView.textColor = #colorLiteral(red: 0.7764703631, green: 0.7764707804, blue: 0.7850785851, alpha: 1)
+//        }
+//    }
+//
+//    func textViewDidChange(_ textView: UITextView) {
+//        let fixedWidth = textView.frame.size.width
+//        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+//        bottleDescriptionHeightConstraint.constant = newSize.height
+//        view.layoutIfNeeded()
+//    }
+//}
 
 // MARK: UIImagePickerControllerDelegate
 extension NewBottleViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -426,8 +416,14 @@ extension NewBottleViewController: UIImagePickerControllerDelegate, UINavigation
 extension NewBottleViewController: PHPickerViewControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
+        
         if let image = info[.originalImage] as? UIImage {
             bottleImage.image = image
+            self.textScanner.recognizeText(from: image) { recognizedText in
+                if let text = recognizedText {
+                    self.bottleNameTF.text = text
+                }
+            }
         }
     }
     
