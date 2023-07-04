@@ -378,30 +378,6 @@ extension UIButton {
     }
 }
 
-//// MARK: UITextViewDelegate
-//extension NewBottleViewController: UITextViewDelegate {
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        if textView.text == LocalizableText.enterComment {
-//            textView.text = ""
-//            textView.textColor = .black
-//        }
-//    }
-//
-//    func textViewDidEndEditing(_ textView: UITextView) {
-//        if textView.text.isEmpty {
-//            textView.text = LocalizableText.enterComment
-//            textView.textColor = #colorLiteral(red: 0.7764703631, green: 0.7764707804, blue: 0.7850785851, alpha: 1)
-//        }
-//    }
-//
-//    func textViewDidChange(_ textView: UITextView) {
-//        let fixedWidth = textView.frame.size.width
-//        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-//        bottleDescriptionHeightConstraint.constant = newSize.height
-//        view.layoutIfNeeded()
-//    }
-//}
-
 // MARK: UIImagePickerControllerDelegate
 extension NewBottleViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func presentImagePicker(sourceType: UIImagePickerController.SourceType) {

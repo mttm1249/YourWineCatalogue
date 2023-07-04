@@ -22,3 +22,18 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+// MARK: UILabel Animation
+extension UILabel {
+    func fadeIn(duration: TimeInterval = 0.5) {
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 1.0
+        })
+    }
+    
+    func fadeOut(duration: TimeInterval = 0.5) {
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 0.0
+        })
+    }
+}
