@@ -18,6 +18,7 @@
 		52B942EB2991062B00DD6F10 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 52B942EA2991062B00DD6F10 /* FirebaseStorage */; };
 		52B942ED2991107700DD6F10 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B942EC2991107700DD6F10 /* NetworkManager.swift */; };
 		52E85C2A2992C782000FF411 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E85C292992C782000FF411 /* WaveView.swift */; };
+		DA1BC9022A542F7900446AA2 /* Aminations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1BC9012A542F7900446AA2 /* Aminations.swift */; };
 		DA2620CF297FC0BC00948E08 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA2620D1297FC0BC00948E08 /* Localizable.strings */; };
 		DA2620DC297FCCED00948E08 /* LocalizableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2620DB297FCCED00948E08 /* LocalizableText.swift */; };
 		DA27684E28ED67D0008556CD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27684D28ED67D0008556CD /* FilterViewController.swift */; };
@@ -61,6 +62,7 @@
 		52B25A2829E93043000F9BAA /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
 		52B942EC2991107700DD6F10 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		52E85C292992C782000FF411 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		DA1BC9012A542F7900446AA2 /* Aminations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aminations.swift; sourceTree = "<group>"; };
 		DA2620D0297FC0BC00948E08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA2620D2297FC0BF00948E08 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA2620D6297FC10100948E08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottleCell.strings; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				DA40394628E9A71500A5E5AE /* Time.swift */,
 				5201AB442A1A87DE000ECDDC /* TextScanner.swift */,
 				5201AB4A2A1B6264000ECDDC /* CustomTextView.swift */,
+				DA1BC9012A542F7900446AA2 /* Aminations.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52B942ED2991107700DD6F10 /* NetworkManager.swift in Sources */,
+				DA1BC9022A542F7900446AA2 /* Aminations.swift in Sources */,
 				DA27684E28ED67D0008556CD /* FilterViewController.swift in Sources */,
 				DA9690A128ED80A700CEEFCE /* PopoverTableViewController.swift in Sources */,
 				DAC175DE292A4980001639B7 /* BottleViewController.swift in Sources */,
