@@ -16,7 +16,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         waveView.animationStart(direction: .right, speed: 4)
         savedAlertLabel.isHidden = true
- 
     }
         
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
