@@ -11,7 +11,7 @@ import UIKit
 extension UIColor {
     
     static var redWineColor: UIColor {
-        #colorLiteral(red: 0.5808190107, green: 0.0884276256, blue: 0.3186392188, alpha: 1)
+        #colorLiteral(red: 0.5803921569, green: 0.09019607843, blue: 0.3176470588, alpha: 1)
     }
     
     static var whiteWineColor: UIColor {
