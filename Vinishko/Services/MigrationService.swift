@@ -57,7 +57,7 @@ class MigrationService {
                                              wineRegion: wineRegion,
                                              placeOfPurchase: placeOfPurchase,
                                              price: price,
-//                                             rating: rating?.description,
+                                             rating: rating?.description,
                                              bottleDescription: bottleDescription,
                                              wineColor: wineColor,
                                              wineSugar: wineSugar,

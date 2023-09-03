@@ -17,6 +17,7 @@ struct BottleCell: View {
     var wineType: Int64
     var wineSugar: Int64
     var price: String
+    var rating: String
     var action: () -> Void
     
     var body: some View {
@@ -30,7 +31,7 @@ struct BottleCell: View {
                             .resizable()
                             .frame(width: 14, height: 14)
                             .foregroundColor(.orange)
-                        Text("3.5")
+                        Text(rating)
                             .foregroundColor(Pallete.textColor)
                             .font(.system(size: 14)).bold()
                     }
@@ -57,6 +58,7 @@ struct BottleCell: View {
                     Text(bottleDescription)
                         .font(.system(size: 14))
                         .foregroundColor(Pallete.textColor)
+                        .multilineTextAlignment(.leading)
                     HStack {
                         BubbleDetailsView(wineColor: wineColor,
                                           wineType: wineType,
@@ -85,6 +87,7 @@ struct BottleCell_Previews: PreviewProvider {
                    wineType: 0,
                    wineSugar: 0,
                    price: "500",
+                   rating: "5",
                    action: {})
     }
 }

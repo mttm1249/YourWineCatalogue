@@ -52,6 +52,7 @@ extension CoreDataManager {
                                  wineRegion: String?,
                                  placeOfPurchase: String?,
                                  price: String?,
+                                 rating: String?,
                                  bottleDescription: String?,
                                  wineColor: Int?,
                                  wineSugar: Int?,
@@ -76,6 +77,7 @@ extension CoreDataManager {
         newBottle.wineRegion = wineRegion
         newBottle.placeOfPurchase = placeOfPurchase
         newBottle.price = price
+        newBottle.rating = rating
         newBottle.bottleDescription = bottleDescription
         newBottle.wineColor = Int64(wineColor ?? 0)
         newBottle.wineSugar = Int64(wineSugar ?? 0)
