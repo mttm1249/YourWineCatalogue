@@ -63,8 +63,7 @@ struct BottlesCatalogueView: View {
                                            wineColor: bottle.wineColor,
                                            wineType: bottle.wineType,
                                            wineSugar: bottle.wineSugar,
-                                           price: bottle.price ?? "",
-                                           rating: bottle.rating ?? "0") {
+                                           price: bottle.price ?? "") {
                                     self.viewModel.bottleToDelete = bottle
                                     self.showingAlert = true
                                 }

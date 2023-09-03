@@ -9,7 +9,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="placeOfPurchase" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="String"/>
-        <attribute name="rating" optional="YES" attributeType="String"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="recordID" optional="YES" attributeType="String"/>
         <attribute name="wineColor" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="wineCountry" optional="YES" attributeType="String"/>

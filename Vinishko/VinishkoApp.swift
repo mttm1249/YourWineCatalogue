@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct VinishkoApp: App {
+    let persistenceController = CoreDataManager.shared.persistentContainer
     
     init() {
         MigrationService.performInitialMigration()
@@ -17,7 +18,7 @@ struct VinishkoApp: App {
     var body: some Scene {
         WindowGroup {
             MainScreenView()
-                .environment(\.managedObjectContext, CoreDataManager.managedContext)
+                .environment(\.managedObjectContext, persistenceController.viewContext)
         }
     }
 }
