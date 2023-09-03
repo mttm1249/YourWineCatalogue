@@ -1,0 +1,19 @@
+//
+//  CircleImageView.swift
+//  Vinishko
+//
+//  Created by mttm on 07.07.2023.
+//
+
+import SwiftUI
+
+struct CircleImageView: View {
+    var imageName: UIImage
+
+    var body: some View {
+        Image(uiImage: imageName)
+            .resizable()
+            .scaledToFill()
+            .clipShape(Circle())
+    }
+}

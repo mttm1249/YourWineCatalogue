@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1410"
+   LastUpgradeVersion = "1430"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DA64201728E865DA00E03CB2"
+               BlueprintIdentifier = "DA7CCBA12A543B9D00C5876D"
                BuildableName = "Vinishko.app"
                BlueprintName = "Vinishko"
                ReferencedContainer = "container:Vinishko.xcodeproj">
@@ -44,7 +44,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA64201728E865DA00E03CB2"
+            BlueprintIdentifier = "DA7CCBA12A543B9D00C5876D"
             BuildableName = "Vinishko.app"
             BlueprintName = "Vinishko"
             ReferencedContainer = "container:Vinishko.xcodeproj">
@@ -61,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA64201728E865DA00E03CB2"
+            BlueprintIdentifier = "DA7CCBA12A543B9D00C5876D"
             BuildableName = "Vinishko.app"
             BlueprintName = "Vinishko"
             ReferencedContainer = "container:Vinishko.xcodeproj">

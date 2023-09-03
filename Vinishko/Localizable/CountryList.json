@@ -1,0 +1,132 @@
+{
+    "countries": [
+        {
+            "code": "FR",
+            "regions": ["region_bordeaux", "region_burgundy", "region_champagne"]
+        },
+        {
+            "code": "IT",
+            "regions": ["region_tuscany", "region_piedmont", "region_veneto"]
+        },
+        {
+            "code": "ES",
+            "regions": ["region_rioja", "region_priorat", "region_jerez"]
+        },
+        {
+            "code": "US",
+            "regions": ["region_california", "region_oregon", "region_washington"]
+        },
+        {
+            "code": "AU",
+            "regions": ["region_barossa", "region_margaret_river", "region_coonawarra"]
+        },
+        {
+            "code": "AR",
+            "regions": ["region_mendoza", "region_patagonia", "region_salta"]
+        },
+        {
+            "code": "ZA",
+            "regions": ["region_stellenbosch", "region_paarl", "region_swartland"]
+        },
+        {
+            "code": "CL",
+            "regions": ["region_maule", "region_colchagua", "region_aconcagua"]
+        },
+        {
+            "code": "PT",
+            "regions": ["region_douro", "region_vinho_verde", "region_alentejo"]
+        },
+        {
+            "code": "NZ",
+            "regions": ["region_marlborough", "region_hawkes_bay", "region_central_otago"]
+        },
+        {
+            "code": "DE",
+            "regions": ["region_mosel", "region_rheingau", "region_baden", "region_rheinhessen"]
+        },
+        {
+            "code": "AT",
+            "regions": ["region_burgenland", "region_lower_austria", "region_styria"]
+        },
+        {
+            "code": "CH",
+            "regions": ["region_valais", "region_vaud", "region_ticino"]
+        },
+        {
+            "code": "BR",
+            "regions": ["region_vale_dos_vinhedos", "region_sao_francisco_valley", "region_campanha"]
+        },
+        {
+            "code": "CA",
+            "regions": ["region_okanagan_valley", "region_niagara_peninsula", "region_nova_scotia"]
+        },
+        {
+            "code": "GB",
+            "regions": ["region_sussex", "region_kent", "region_cornwall"]
+        },
+        {
+            "code": "RU",
+            "regions": ["region_krasnodar", "region_stavropol"]
+        },
+        {
+            "code": "GE",
+            "regions": ["region_kakheti", "region_imereti", "region_racha"]
+        },
+        {
+            "code": "AM",
+            "regions": ["region_ararat", "region_tavush", "region_vayots_dzor"]
+        },
+        {
+            "code": "AZ",
+            "regions": ["region_ganja", "region_sheki", "region_guba"]
+        },
+        {
+            "code": "GR",
+            "regions": ["region_peloponnese", "region_macedonia", "region_crete"]
+        },
+        {
+            "code": "BG",
+            "regions": ["region_thrace", "region_mizia", "region_strandzha"]
+        },
+        {
+            "code": "CY",
+            "regions": ["region_limassol", "region_paphos", "region_larnaca"]
+        },
+        {
+            "code": "MD",
+            "regions": ["region_nistreana", "region_codru", "region_valyaluy"]
+        },
+        {
+            "code": "RS",
+            "regions": ["region_vojvodina", "region_metohija", "region_sumadija"]
+        },
+        {
+            "code": "UY",
+            "regions": ["region_canelones", "region_montevideo", "region_carmelo"]
+        },
+        {
+            "code": "CR",
+            "regions": ["region_san_jose", "region_puntarenas", "region_limon"]
+        },
+        {
+            "code": "HU",
+            "regions": ["region_tokaj", "region_eger", "region_balaton"]
+        },
+        {
+            "code": "IN",
+            "regions": ["region_nashik", "region_nandi_hills", "region_pune"]
+        },
+        {
+            "code": "JP",
+            "regions": ["region_yamanashi", "region_nagano", "region_hokkaido"]
+        },
+        {
+            "code": "LB",
+            "regions": ["region_bekaa_valley", "region_batroun", "region_jezzine"]
+        },
+        {
+            "code": "MX",
+            "regions": ["region_valle_de_guadalupe", "region_valle_de_parras", "region_queretaro"]
+        }
+    ]
+}
