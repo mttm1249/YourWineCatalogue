@@ -22,7 +22,7 @@
 		DA2C2B3B2A9DF4E800C6680D /* SegmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */; };
 		DA2C2B3F2A9E119900C6680D /* TextEditorStandart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B3E2A9E119900C6680D /* TextEditorStandart.swift */; };
 		DA37DAEF2A9F740C006D3717 /* OptionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37DAEE2A9F740C006D3717 /* OptionButtonView.swift */; };
-		DA3A2D642A9CBE3D00FEFBE1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D632A9CBE3D00FEFBE1 /* Persistence.swift */; };
+		DA3A2D642A9CBE3D00FEFBE1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D632A9CBE3D00FEFBE1 /* CoreDataManager.swift */; };
 		DA3A2D662A9CC2B100FEFBE1 /* BottleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D652A9CC2B100FEFBE1 /* BottleCell.swift */; };
 		DA4D2DE12AA3088800C78495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA4D2DE02AA3088800C78495 /* GoogleService-Info.plist */; };
 		DA4D2DE42AA31A0500C78495 /* BottlesCatalogueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D2DE32AA31A0400C78495 /* BottlesCatalogueViewModel.swift */; };
@@ -39,6 +39,7 @@
 		DA7CCBC52A54410E00C5876D /* Pallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC42A54410E00C5876D /* Pallete.swift */; };
 		DA7CCBC72A54445600C5876D /* NewBottleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC62A54445600C5876D /* NewBottleScreen.swift */; };
 		DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */; };
+		DA8FF5EE2AA4AB2500DBAE6C /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */; };
 		DAB0261E2A9CDDD200E5BF5C /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0261D2A9CDDD200E5BF5C /* SegmentedControl.swift */; };
 		DAB026202A9CDFA000E5BF5C /* HideBackButtonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */; };
 		DAB026252A9CE5CF00E5BF5C /* HapticFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */; };
@@ -64,7 +65,7 @@
 		DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPicker.swift; sourceTree = "<group>"; };
 		DA2C2B3E2A9E119900C6680D /* TextEditorStandart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorStandart.swift; sourceTree = "<group>"; };
 		DA37DAEE2A9F740C006D3717 /* OptionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButtonView.swift; sourceTree = "<group>"; };
-		DA3A2D632A9CBE3D00FEFBE1 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		DA3A2D632A9CBE3D00FEFBE1 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DA3A2D652A9CC2B100FEFBE1 /* BottleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleCell.swift; sourceTree = "<group>"; };
 		DA4D2DE02AA3088800C78495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA4D2DE22AA3099E00C78495 /* Vinishko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vinishko.entitlements; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 		DA7CCBC42A54410E00C5876D /* Pallete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pallete.swift; sourceTree = "<group>"; };
 		DA7CCBC62A54445600C5876D /* NewBottleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBottleScreen.swift; sourceTree = "<group>"; };
 		DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStandart.swift; sourceTree = "<group>"; };
+		DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationService.swift; sourceTree = "<group>"; };
 		DAB0261D2A9CDDD200E5BF5C /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideBackButtonText.swift; sourceTree = "<group>"; };
 		DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackService.swift; sourceTree = "<group>"; };
@@ -107,7 +109,7 @@
 		DA033DF02A9CA4B6004C847D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				DA3A2D632A9CBE3D00FEFBE1 /* Persistence.swift */,
+				DA3A2D632A9CBE3D00FEFBE1 /* CoreDataManager.swift */,
 				DA7CCBB02A543B9E00C5876D /* Vinishko.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -268,6 +270,7 @@
 			children = (
 				DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */,
 				DA6556AE2AA1ED0600D8427C /* Utils.swift */,
+				DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -368,8 +371,9 @@
 				DA7CCBA62A543B9D00C5876D /* VinishkoApp.swift in Sources */,
 				DA033DF52A9CAA43004C847D /* BottlesCatalogueView.swift in Sources */,
 				DAB026202A9CDFA000E5BF5C /* HideBackButtonText.swift in Sources */,
-				DA3A2D642A9CBE3D00FEFBE1 /* Persistence.swift in Sources */,
+				DA3A2D642A9CBE3D00FEFBE1 /* CoreDataManager.swift in Sources */,
 				DA6556AF2AA1ED0600D8427C /* Utils.swift in Sources */,
+				DA8FF5EE2AA4AB2500DBAE6C /* MigrationService.swift in Sources */,
 				DA7CCBC52A54410E00C5876D /* Pallete.swift in Sources */,
 				DA37DAEF2A9F740C006D3717 /* OptionButtonView.swift in Sources */,
 				DA0355A52AA072EA002EBA77 /* PickersModuleView.swift in Sources */,

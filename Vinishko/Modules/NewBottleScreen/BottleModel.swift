@@ -16,7 +16,7 @@ struct BottleModel {
     var wineRegion: String?
     var price: String?
     var date: String?
-    var rating = 0
+//    var rating: String?
     var bottleImage: Data?
     var wineColor: Int?
     var wineType: Int?
@@ -27,7 +27,7 @@ struct BottleModel {
         placeOfPurchase: String?,
         date: String?,
         bottleImage: Data?,
-        rating: Int,
+//        rating: String?,
         wineRegion: String?,
         price: String?,
         wineColor: Int?,
@@ -41,7 +41,7 @@ struct BottleModel {
         self.bottleDescription = bottleDescription
         self.placeOfPurchase = placeOfPurchase
         self.bottleImage = bottleImage
-        self.rating = rating
+//        self.rating = rating
         self.wineRegion = wineRegion
         self.price = price
         self.wineColor = wineColor
