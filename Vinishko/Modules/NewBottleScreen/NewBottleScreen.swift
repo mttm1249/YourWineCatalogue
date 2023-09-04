@@ -74,8 +74,8 @@ struct NewBottleScreen: View {
                     CoreDataManager.saveBottleRecord(
                         name: bottleName,
                         wineSort: selectedGrapeVarieties,
-                        wineCountry: selectedCountry?.code,
-                        wineRegion: selectedRegion,
+                        wineCountry: selectedCountry?.code.localize(),
+                        wineRegion: selectedRegion?.localize(),
                         placeOfPurchase: placeOfPurchase,
                         price: price,
                         rating: rating,
@@ -84,7 +84,8 @@ struct NewBottleScreen: View {
                         wineSugar: sugarSelectedSegment,
                         wineType: typeSelectedSegment,
                         image: image,
-                        createDate: Date()
+                        createDate: Date(),
+                        isOldRecord: false
                     )
                     // Показываем баннер сохранения
                     showSaveBanner = true

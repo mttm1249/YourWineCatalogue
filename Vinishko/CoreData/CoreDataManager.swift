@@ -56,7 +56,8 @@ extension CoreDataManager {
                                  wineSugar: Int?,
                                  wineType: Int?,
                                  image: UIImage?,
-                                 createDate: Date?) {
+                                 createDate: Date?,
+                                 isOldRecord: Bool) {
         
         let newBottle = Bottle(context: managedContext)
 
@@ -73,6 +74,7 @@ extension CoreDataManager {
         newBottle.wineType = Int64(wineType ?? 0)
         processImageFor(newBottle, with: image) // image
         newBottle.createDate = Date()
+        newBottle.isOldRecord = isOldRecord
 
         CoreDataManager.shared.saveContext()
     }

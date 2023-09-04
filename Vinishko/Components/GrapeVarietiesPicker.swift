@@ -48,7 +48,7 @@ struct GrapeVarietiesPicker: View {
                 }
             }
             .padding()
-            .background(Pallete.segmentPickerBg)
+            .background(Pallete.searchBarBg)
             .cornerRadius(10)
             .padding(.horizontal)
             

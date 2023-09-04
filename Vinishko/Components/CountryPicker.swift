@@ -33,6 +33,15 @@ struct CountryPicker: View {
         VStack {
             SearchBarView(text: $searchText)
                 .padding(.top, 20)
+            
+            if filteredCountries.isEmpty {
+                Button("Добавить страну: \(searchText)?") {
+                    selectedCountry = Country(code: searchText, regions: [])
+                    presentationMode.wrappedValue.dismiss()
+                }
+                .padding()
+            }
+            
             List(filteredCountries, id: \.code) { country in
                 Button(action: {
                     selectedCountry = country
@@ -59,3 +68,4 @@ struct CountryPicker_Previews: PreviewProvider {
         return CountryPicker(countries: countries, selectedCountry: .constant(countries[0]))
     }
 }
+

@@ -28,6 +28,15 @@ struct RegionPicker: View {
         VStack {
             SearchBarView(text: $searchText)
                 .padding(.top, 20)
+            
+            if filteredRegions.isEmpty {
+                Button("Добавить регион: \(searchText)?") {
+                    selectedRegion = searchText
+                    presentationMode.wrappedValue.dismiss()
+                }
+                .padding()
+            }
+            
             List(filteredRegions, id: \.self) { region in
                 Button(action: {
                     selectedRegion = region

@@ -11,14 +11,15 @@ struct Pallete {
     static let mainColor = Color("MainColor")
     static let borderColor = Color("BorderColor")
     
-    static var redWineColor = Color("RedWineColor")
-    static var whiteWineColor = Color("WhiteWineColor")
-    static var otherWineColor = Color("OtherWineColor")
+    static let redWineColor = Color("RedWineColor")
+    static let whiteWineColor = Color("WhiteWineColor")
+    static let otherWineColor = Color("OtherWineColor")
     
-    static var textColor = Color("TextColor")
-    static var lightGray = Color("LightGray")
+    static let textColor = Color("TextColor")
+    static let lightGray = Color("LightGray")
     
-    static var segmentPickerBg = Color("SegmentPickerBg")
+    static let segmentPickerBg = Color("SegmentPickerBg")
+    static let searchBarBg = Color("SearchBar")
 
 
 }

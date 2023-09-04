@@ -26,11 +26,8 @@ struct Country: Codable, Equatable {
 
 struct PickersModuleView: View {
     @State private var countries: [Country] = []
-    //    @State private var selectedCountry: Country?
     @State private var selectedCountryName: String?
-    //    @State private var selectedRegion: String?
     @State private var activeSheet: ActiveSheet?
-    //    @State private var selectedGrapeVarieties: [String] = []
     @State private var selectedGrapeVarietiesString: String?
     
     @Binding var selectedCountry: Country?
@@ -99,8 +96,4 @@ struct PickersModuleView: View {
     }
 }
 
-//struct TestCountryPicker_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PickersModuleView(selectedCountry: <#Binding<Country?>#>, selectedRegion: <#Binding<String?>#>, selectedGrapeVarieties: <#Binding<[String]>#>)
-//    }
-//}
+

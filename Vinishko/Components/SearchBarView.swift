@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SearchBarView: View {
-  
     @Binding var text: String
     @State private var isEditing = false
     
@@ -39,7 +38,7 @@ struct SearchBarView: View {
                 
             }
             .frame(height: 36)
-            .background(Color(.systemGray6))
+            .background(Pallete.searchBarBg)
             .cornerRadius(8)
             .padding(.horizontal, 16)
             

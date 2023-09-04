@@ -58,7 +58,7 @@ struct BottlesCatalogueView: View {
                                 BottleCell(name: bottle.name ?? "",
                                            bottleImage: bottle.bottleImage.flatMap { UIImage(data: $0) } ?? UIImage(named: "wine") ?? UIImage(),
                                            bottleDescription: bottle.bottleDescription ?? "",
-                                           wineCountry: Locale.current.localizedString(forRegionCode: bottle.wineCountry ?? "") ?? "",
+                                           wineCountry: bottle.wineCountry ?? "",
                                            wineSort: bottle.wineSort ?? "",
                                            wineColor: bottle.wineColor,
                                            wineType: bottle.wineType,

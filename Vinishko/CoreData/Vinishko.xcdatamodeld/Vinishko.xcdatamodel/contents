@@ -6,6 +6,7 @@
         <attribute name="bottleImage" optional="YES" attributeType="Binary"/>
         <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="isOldRecord" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="newRating" optional="YES" attributeType="String"/>
         <attribute name="placeOfPurchase" optional="YES" attributeType="String"/>
