@@ -7,6 +7,7 @@
         <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="date" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="newRating" optional="YES" attributeType="String"/>
         <attribute name="placeOfPurchase" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="String"/>
         <attribute name="rating" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>

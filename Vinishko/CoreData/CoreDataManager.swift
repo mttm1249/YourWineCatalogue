@@ -30,7 +30,6 @@ class CoreDataManager {
     }
 
     // MARK: - Core Data Saving support
-
     func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -42,7 +41,6 @@ class CoreDataManager {
             }
         }
     }
-    
 }
 
 extension CoreDataManager {
@@ -52,7 +50,7 @@ extension CoreDataManager {
                                  wineRegion: String?,
                                  placeOfPurchase: String?,
                                  price: String?,
-//                                 rating: String?,
+                                 rating: Int?,
                                  bottleDescription: String?,
                                  wineColor: Int?,
                                  wineSugar: Int?,
@@ -61,29 +59,32 @@ extension CoreDataManager {
                                  createDate: Date?) {
         
         let newBottle = Bottle(context: managedContext)
+
         newBottle.name = name
-        
-        // Проверка на изображение по умолчанию и сжатие
-        if let defaultImage = UIImage(named: "addImage"), image != defaultImage {
-            if let compressedData = image?.jpegData(compressionQuality: 0.7) {
-                newBottle.bottleImage = compressedData
-            }
-        }
-        
-        // Преобразование массива вариететов вина в строку, разделенную запятыми
-        newBottle.wineSort = wineSort.map( { $0.localize() } ).joined(separator: ", ")
-        
+        processWineSortFor(newBottle, with: wineSort)
         newBottle.wineCountry = wineCountry
         newBottle.wineRegion = wineRegion
         newBottle.placeOfPurchase = placeOfPurchase
         newBottle.price = price
-//        newBottle.rating = rating
+        newBottle.rating = Int64(rating ?? 0)
         newBottle.bottleDescription = bottleDescription
         newBottle.wineColor = Int64(wineColor ?? 0)
         newBottle.wineSugar = Int64(wineSugar ?? 0)
         newBottle.wineType = Int64(wineType ?? 0)
+        processImageFor(newBottle, with: image) // image
         newBottle.createDate = Date()
-        
+
         CoreDataManager.shared.saveContext()
+    }
+
+    private static func processImageFor(_ bottle: Bottle, with image: UIImage?) {
+        if let defaultImage = UIImage(named: "addImage"), image != defaultImage,
+           let compressedData = image?.jpegData(compressionQuality: 0.8) {
+            bottle.bottleImage = compressedData
+        }
+    }
+
+    private static func processWineSortFor(_ bottle: Bottle, with wineSort: [String]) {
+        bottle.wineSort = wineSort.map( { $0.localize() } ).joined(separator: ", ")
     }
 }

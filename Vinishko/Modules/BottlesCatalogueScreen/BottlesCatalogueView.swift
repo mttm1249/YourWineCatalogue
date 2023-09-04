@@ -63,7 +63,8 @@ struct BottlesCatalogueView: View {
                                            wineColor: bottle.wineColor,
                                            wineType: bottle.wineType,
                                            wineSugar: bottle.wineSugar,
-                                           price: bottle.price ?? "") {
+                                           price: bottle.price ?? "",
+                                           rating: Int(bottle.rating)) {
                                     self.viewModel.bottleToDelete = bottle
                                     self.showingAlert = true
                                 }
@@ -102,7 +103,7 @@ struct BottlesCatalogueView: View {
                         }
                     }
                 } label: {
-                    Image(systemName: "line.3.horizontal")
+                    Image("3lines")
                         .frame(width: 20, height: 20)
                 }
             }

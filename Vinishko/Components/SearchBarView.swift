@@ -10,32 +10,57 @@ import SwiftUI
 struct SearchBarView: View {
   
     @Binding var text: String
-  
+    @State private var isEditing = false
+    
     var body: some View {
         HStack {
-            Image(systemName: "magnifyingglass")
-                .foregroundColor(.gray)
-                .padding(.leading, 8)
-            TextField("Поиск", text: $text)
-            Button(action: {
-                self.text = ""
-            }) {
-                Image(systemName: "xmark.circle.fill")
+            
+            HStack {
+                Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
+                    .padding(.leading, 8)
+                
+                TextField("Поиск", text: $text, onEditingChanged: { editingChanged in
+                    withAnimation {
+                        self.isEditing = editingChanged
+                    }
+                })
+                
+                if isEditing && !text.isEmpty {
+                    Button(action: {
+                        self.text = ""
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.gray)
+                    }
+                    .padding(.trailing, 8)
+                    .transition(.scale)
+                }
+                
             }
-            .opacity(text.isEmpty ? 0 : 1)
-            .padding(.trailing, 8)
+            .frame(height: 36)
+            .background(Color(.systemGray6))
+            .cornerRadius(8)
+            .padding(.horizontal, 16)
+            
+            if isEditing {
+                Button("Отменить") {
+                    withAnimation {
+                        self.isEditing = false
+                        self.text = ""
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    }
+                }
+                .padding(.trailing, 16)
+                .transition(.move(edge: .trailing))
+            }
         }
-        .frame(height: 36)
-        .background(Color(.systemGray6))
-        .cornerRadius(8)
-        .padding(.horizontal, 16)
     }
 }
 
 struct SearchBarView_Previews: PreviewProvider {
     @State static var text = ""
-
+    
     static var previews: some View {
         SearchBarView(text: $text)
             .previewLayout(.sizeThatFits)

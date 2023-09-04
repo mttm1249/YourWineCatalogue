@@ -28,10 +28,15 @@ struct GrapeVarietiesPicker: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
+            HStack {
+                Spacer()
+                Button("Готово") {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            }
+            .padding()
             SearchBarView(text: $searchText)
-                .padding(.top, 20)
-            
             HStack(alignment: .top) {
                 Text(selectedGrapeVarieties.map { $0.localize() }.joined(separator: ", "))
                     .lineLimit(3)
@@ -43,6 +48,9 @@ struct GrapeVarietiesPicker: View {
                 }
             }
             .padding()
+            .background(Pallete.segmentPickerBg)
+            .cornerRadius(10)
+            .padding(.horizontal)
             
             if filteredVarieties.isEmpty && !searchText.isEmpty {
                 Button("Добавить \(searchText)?") {

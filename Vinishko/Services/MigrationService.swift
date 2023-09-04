@@ -10,7 +10,6 @@ import UIKit
 import CloudKit
 
 class MigrationService {
-    
     private static let privateCloudDatabase = CKContainer(identifier: "iCloud.userContainer.Vinishko").privateCloudDatabase
     private static var records: [CKRecord] = []
     
@@ -57,7 +56,7 @@ class MigrationService {
                                              wineRegion: wineRegion,
                                              placeOfPurchase: placeOfPurchase,
                                              price: price,
-//                                             rating: rating?.description,
+                                             rating: rating,
                                              bottleDescription: bottleDescription,
                                              wineColor: wineColor,
                                              wineSugar: wineSugar,
