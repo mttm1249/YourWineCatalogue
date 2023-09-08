@@ -22,7 +22,6 @@ struct NewBottleScreen: View {
     @State private var colorSelectedSegment = 0
     @State private var sugarSelectedSegment = 0
     @State private var typeSelectedSegment = 0
-    @State private var isCountryPickerPresented: Bool = false
     @State private var selectedCountry: Country?
     @State private var selectedRegion: String?
     @State private var selectedGrapeVarieties: [String] = []
@@ -74,8 +73,8 @@ struct NewBottleScreen: View {
                     CoreDataManager.saveBottleRecord(
                         name: bottleName,
                         wineSort: selectedGrapeVarieties,
-                        wineCountry: selectedCountry?.code.localize(),
-                        wineRegion: selectedRegion?.localize(),
+                        wineCountry: selectedCountry?.code,
+                        wineRegion: selectedRegion,
                         placeOfPurchase: placeOfPurchase,
                         price: price,
                         rating: rating,
@@ -102,6 +101,13 @@ struct NewBottleScreen: View {
                 }
             }
         }
+    }
+}
+
+// MARK: For RecordUpdate
+extension NewBottleScreen {
+    func checkRecord(_ bottle: BottleModel) -> Bool {
+        return bottle.isOldRecord
     }
 }
 

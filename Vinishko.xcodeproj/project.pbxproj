@@ -17,6 +17,7 @@
 		DA0355A72AA0768C002EBA77 /* CountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = DA0355A62AA07354002EBA77 /* CountryList.json */; };
 		DA08B2962A9F1BFE00A8872A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA08B2952A9F1BFE00A8872A /* SearchBarView.swift */; };
 		DA195D212A9F4469000753B3 /* BubbleDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA195D202A9F4469000753B3 /* BubbleDetailsView.swift */; };
+		DA200C622AA700060056F3F2 /* GrapeVarietiesBubbles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA200C612AA700060056F3F2 /* GrapeVarietiesBubbles.swift */; };
 		DA2C2B362A9DE05200C6680D /* BottleDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B352A9DE05200C6680D /* BottleDetailsView.swift */; };
 		DA2C2B392A9DF30700C6680D /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B382A9DF30700C6680D /* FiltersView.swift */; };
 		DA2C2B3B2A9DF4E800C6680D /* SegmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */; };
@@ -27,7 +28,7 @@
 		DA4D2DE12AA3088800C78495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA4D2DE02AA3088800C78495 /* GoogleService-Info.plist */; };
 		DA4D2DE42AA31A0500C78495 /* BottlesCatalogueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D2DE32AA31A0400C78495 /* BottlesCatalogueViewModel.swift */; };
 		DA6556AD2AA1DF5300D8427C /* GrapeVariatiesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6556AC2AA1DF5300D8427C /* GrapeVariatiesList.swift */; };
-		DA6556AF2AA1ED0600D8427C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6556AE2AA1ED0600D8427C /* Utils.swift */; };
+		DA6556AF2AA1ED0600D8427C /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6556AE2AA1ED0600D8427C /* String + Ext.swift */; };
 		DA6556B22AA1ED7F00D8427C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA6556B42AA1ED7F00D8427C /* Localizable.strings */; };
 		DA6556B82AA1F13100D8427C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA6556BA2AA1F13100D8427C /* Localizable.strings */; };
 		DA7CCBA62A543B9D00C5876D /* VinishkoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBA52A543B9D00C5876D /* VinishkoApp.swift */; };
@@ -60,6 +61,7 @@
 		DA0355A62AA07354002EBA77 /* CountryList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryList.json; sourceTree = "<group>"; };
 		DA08B2952A9F1BFE00A8872A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		DA195D202A9F4469000753B3 /* BubbleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleDetailsView.swift; sourceTree = "<group>"; };
+		DA200C612AA700060056F3F2 /* GrapeVarietiesBubbles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeVarietiesBubbles.swift; sourceTree = "<group>"; };
 		DA2C2B352A9DE05200C6680D /* BottleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleDetailsView.swift; sourceTree = "<group>"; };
 		DA2C2B382A9DF30700C6680D /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPicker.swift; sourceTree = "<group>"; };
@@ -71,7 +73,7 @@
 		DA4D2DE22AA3099E00C78495 /* Vinishko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vinishko.entitlements; sourceTree = "<group>"; };
 		DA4D2DE32AA31A0400C78495 /* BottlesCatalogueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlesCatalogueViewModel.swift; sourceTree = "<group>"; };
 		DA6556AC2AA1DF5300D8427C /* GrapeVariatiesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeVariatiesList.swift; sourceTree = "<group>"; };
-		DA6556AE2AA1ED0600D8427C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		DA6556AE2AA1ED0600D8427C /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 		DA6556B32AA1ED7F00D8427C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA6556B92AA1F13100D8427C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA7CCBA22A543B9D00C5876D /* Vinishko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vinishko.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +251,7 @@
 				DAE4DA742AA2079E00853426 /* CountryPicker.swift */,
 				DAE4DA722AA2074F00853426 /* RegionPicker.swift */,
 				DAE4DA702AA2068B00853426 /* GrapeVarietiesPicker.swift */,
+				DA200C612AA700060056F3F2 /* GrapeVarietiesBubbles.swift */,
 				DA3A2D652A9CC2B100FEFBE1 /* BottleCell.swift */,
 			);
 			path = Components;
@@ -269,7 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */,
-				DA6556AE2AA1ED0600D8427C /* Utils.swift */,
+				DA6556AE2AA1ED0600D8427C /* String + Ext.swift */,
 				DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */,
 			);
 			path = Services;
@@ -372,9 +375,10 @@
 				DA033DF52A9CAA43004C847D /* BottlesCatalogueView.swift in Sources */,
 				DAB026202A9CDFA000E5BF5C /* HideBackButtonText.swift in Sources */,
 				DA3A2D642A9CBE3D00FEFBE1 /* CoreDataManager.swift in Sources */,
-				DA6556AF2AA1ED0600D8427C /* Utils.swift in Sources */,
+				DA6556AF2AA1ED0600D8427C /* String + Ext.swift in Sources */,
 				DA8FF5EE2AA4AB2500DBAE6C /* MigrationService.swift in Sources */,
 				DA7CCBC52A54410E00C5876D /* Pallete.swift in Sources */,
+				DA200C622AA700060056F3F2 /* GrapeVarietiesBubbles.swift in Sources */,
 				DA37DAEF2A9F740C006D3717 /* OptionButtonView.swift in Sources */,
 				DA0355A52AA072EA002EBA77 /* PickersModuleView.swift in Sources */,
 				DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */,
@@ -531,7 +535,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
@@ -569,7 +573,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;

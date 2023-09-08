@@ -55,16 +55,18 @@ struct BottlesCatalogueView: View {
                     LazyVStack(alignment: .leading) {
                         ForEach(viewModel.filteredBottles, id: \.self) { bottle in
                             NavigationLink(destination: BottleDetailsView(bottle: bottle)) {
-                                BottleCell(name: bottle.name ?? "",
-                                           bottleImage: bottle.bottleImage.flatMap { UIImage(data: $0) } ?? UIImage(named: "wine") ?? UIImage(),
-                                           bottleDescription: bottle.bottleDescription ?? "",
-                                           wineCountry: bottle.wineCountry ?? "",
-                                           wineSort: bottle.wineSort ?? "",
-                                           wineColor: bottle.wineColor,
-                                           wineType: bottle.wineType,
-                                           wineSugar: bottle.wineSugar,
-                                           price: bottle.price ?? "",
-                                           rating: Int(bottle.rating)) {
+                                BottleCell(
+                                    name: bottle.name ?? "",
+                                    bottleImage: viewModel.getBottleImage(for: bottle),
+                                    bottleDescription: bottle.bottleDescription ?? "",
+                                    wineCountry: viewModel.getWineCountry(for: bottle),
+                                    wineSort: bottle.wineSort ?? "",
+                                    wineColor: bottle.wineColor,
+                                    wineType: bottle.wineType,
+                                    wineSugar: bottle.wineSugar,
+                                    price: bottle.price ?? "",
+                                    rating: bottle.rating
+                                ) {
                                     self.viewModel.bottleToDelete = bottle
                                     self.showingAlert = true
                                 }
@@ -103,8 +105,7 @@ struct BottlesCatalogueView: View {
                         }
                     }
                 } label: {
-                    Image("3lines")
-                        .frame(width: 20, height: 20)
+                    Image(systemName: "line.3.horizontal")
                 }
             }
         }

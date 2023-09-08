@@ -5,8 +5,8 @@
 //  Created by mttm on 02.09.2023.
 //
 
-import Foundation
 import CoreData
+import UIKit
 
 class BottlesCatalogueViewModel: ObservableObject {
     @Published var bottles: [Bottle] = []
@@ -63,6 +63,22 @@ class BottlesCatalogueViewModel: ObservableObject {
             fetchBottles()
         } catch {
             print(error.localizedDescription)
+        }
+    }
+    
+    func getWineCountry(for bottle: Bottle) -> String {
+        if bottle.isOldRecord {
+            return bottle.wineCountry ?? ""
+        } else {
+            return Locale.current.localizedString(forRegionCode: bottle.wineCountry ?? "") ?? ""
+        }
+    }
+
+    func getBottleImage(for bottle: Bottle) -> UIImage {
+        if let bottleImageData = bottle.bottleImage, let bottleImage = UIImage(data: bottleImageData) {
+            return bottleImage
+        } else {
+            return UIImage(named: "wine") ?? UIImage()
         }
     }
 }

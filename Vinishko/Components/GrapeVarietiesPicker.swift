@@ -53,7 +53,7 @@ struct GrapeVarietiesPicker: View {
             .padding(.horizontal)
             
             if filteredVarieties.isEmpty && !searchText.isEmpty {
-                Button("Добавить \(searchText)?") {
+                Button("Добавить \(searchText)") {
                     if selectedGrapeVarieties.count < 10 {
                         selectedGrapeVarieties.append(searchText)
                     }
@@ -88,6 +88,6 @@ struct GrapeVarietiesPicker: View {
 
 struct GrapeVarietiesPicker_Previews: PreviewProvider {
     static var previews: some View {
-        GrapeVarietiesPicker(grapeVarieties: ["1", "2", "3"], selectedGrapeVarieties: .constant(["4", "5"]))
+        GrapeVarietiesPicker(grapeVarieties: ["1", "2", "3"], selectedGrapeVarieties: .constant(["Мерло", "Мальбек", "Гренаш", "Мерло"]))
     }
 }

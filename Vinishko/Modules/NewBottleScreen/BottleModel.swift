@@ -54,4 +54,3 @@ struct BottleModel {
         self.isOldRecord = isOldRecord
     }
 }
-

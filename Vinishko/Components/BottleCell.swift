@@ -17,7 +17,7 @@ struct BottleCell: View {
     var wineType: Int64
     var wineSugar: Int64
     var price: String
-    var rating: Int
+    var rating: Int64
     var action: () -> Void
     
     var body: some View {

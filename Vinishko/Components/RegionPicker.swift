@@ -30,7 +30,7 @@ struct RegionPicker: View {
                 .padding(.top, 20)
             
             if filteredRegions.isEmpty {
-                Button("Добавить регион: \(searchText)?") {
+                Button("Добавить \(searchText)") {
                     selectedRegion = searchText
                     presentationMode.wrappedValue.dismiss()
                 }

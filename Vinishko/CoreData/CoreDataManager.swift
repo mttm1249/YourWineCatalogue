@@ -72,7 +72,7 @@ extension CoreDataManager {
         newBottle.wineColor = Int64(wineColor ?? 0)
         newBottle.wineSugar = Int64(wineSugar ?? 0)
         newBottle.wineType = Int64(wineType ?? 0)
-        processImageFor(newBottle, with: image) // image
+        processImageFor(newBottle, with: image)
         newBottle.createDate = Date()
         newBottle.isOldRecord = isOldRecord
 

@@ -35,7 +35,7 @@ struct CountryPicker: View {
                 .padding(.top, 20)
             
             if filteredCountries.isEmpty {
-                Button("Добавить страну: \(searchText)?") {
+                Button("Добавить \(searchText)") {
                     selectedCountry = Country(code: searchText, regions: [])
                     presentationMode.wrappedValue.dismiss()
                 }
