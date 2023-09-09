@@ -21,33 +21,23 @@ struct RoundedCorner: Shape {
 
 
 struct BottleImageView: View {
+    
+    var image: UIImage
+    
     var body: some View {
-        ScrollView {
-            VStack(spacing: -5) {
-                Image("wine")
+            VStack {
+                Image(uiImage: image)
                     .resizable()
                     .clipShape(RoundedCorner(radius: 20, corners: [.topLeft, .topRight]))
                     .frame(height: 350)
-                ZStack(alignment: .topLeading) {
-                          Rectangle()
-                              .fill(Color.blue)
-                              .frame(maxWidth: .infinity)
-                    VStack {
-                        Text("Привет, Олег!")
-                            .foregroundColor(.white)
-                    }
-                    .padding()
-                      }
-                .clipShape(RoundedCorner(radius: 20, corners: [.bottomLeft, .bottomRight]))
-                .frame(height: 350)
+
             }
-        }
         .padding(.horizontal, 16)
     }
 }
 
 struct BottleImageView_Previews: PreviewProvider {
     static var previews: some View {
-        BottleImageView()
+        BottleImageView(image: UIImage(named: "wine")!)
     }
 }

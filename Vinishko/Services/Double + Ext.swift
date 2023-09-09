@@ -17,3 +17,12 @@ extension Double {
         }
     }
 }
+
+extension Double {
+    var stringWithoutTrailingZeroes: String {
+        let nf = NumberFormatter()
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 2 // максимальное количество десятичных знаков
+        return nf.string(from: NSNumber(value: self)) ?? ""
+    }
+}

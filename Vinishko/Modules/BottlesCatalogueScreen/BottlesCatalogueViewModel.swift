@@ -23,12 +23,10 @@ class BottlesCatalogueViewModel: ObservableObject {
     
     func fetchBottles() {
         let fetchRequest: NSFetchRequest<Bottle> = Bottle.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createDate", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createDate", ascending: false)]
         do {
             self.bottles = try managedObjectContext.fetch(fetchRequest)
             applyFilters()
-            print("all bottles: \(bottles)")
-            print("all bottles count: \(bottles.count)")
         } catch let error as NSError {
             print("Не удалось извлечь данные. Ошибка: \(error), \(error.userInfo)")
         }

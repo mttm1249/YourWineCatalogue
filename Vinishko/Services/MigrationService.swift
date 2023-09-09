@@ -23,7 +23,7 @@ class MigrationService {
     
     static private func fetchDataFromCloud() {
         let query = CKQuery(recordType: "Bottle", predicate: NSPredicate(value: true))
-        query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+        query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         
         let queryOperation = CKQueryOperation(query: query)
         queryOperation.recordFetchedBlock = { record in

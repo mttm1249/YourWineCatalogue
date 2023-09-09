@@ -47,6 +47,7 @@
 		DAB026202A9CDFA000E5BF5C /* HideBackButtonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */; };
 		DAB026252A9CE5CF00E5BF5C /* HapticFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */; };
 		DAE2155E2A9E258A00131FE4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2155D2A9E258A00131FE4 /* ImagePicker.swift */; };
+		DAE255882AAC89140004C707 /* BottomDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE255872AAC89140004C707 /* BottomDetailsView.swift */; };
 		DAE4DA712AA2068B00853426 /* GrapeVarietiesPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4DA702AA2068B00853426 /* GrapeVarietiesPicker.swift */; };
 		DAE4DA732AA2074F00853426 /* RegionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4DA722AA2074F00853426 /* RegionPicker.swift */; };
 		DAE4DA752AA2079E00853426 /* CountryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4DA742AA2079E00853426 /* CountryPicker.swift */; };
@@ -97,6 +98,7 @@
 		DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideBackButtonText.swift; sourceTree = "<group>"; };
 		DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackService.swift; sourceTree = "<group>"; };
 		DAE2155D2A9E258A00131FE4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		DAE255872AAC89140004C707 /* BottomDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomDetailsView.swift; sourceTree = "<group>"; };
 		DAE4DA702AA2068B00853426 /* GrapeVarietiesPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeVarietiesPicker.swift; sourceTree = "<group>"; };
 		DAE4DA722AA2074F00853426 /* RegionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPicker.swift; sourceTree = "<group>"; };
 		DAE4DA742AA2079E00853426 /* CountryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPicker.swift; sourceTree = "<group>"; };
@@ -258,9 +260,10 @@
 				DAE4DA722AA2074F00853426 /* RegionPicker.swift */,
 				DAE4DA702AA2068B00853426 /* GrapeVarietiesPicker.swift */,
 				DA200C612AA700060056F3F2 /* GrapeVarietiesBubbles.swift */,
-				DAF736412AAAFBE600AD2DB6 /* BottleImageView.swift */,
 				DA3A2D652A9CC2B100FEFBE1 /* BottleCell.swift */,
 				DA63D0A72AAC3A7E00161343 /* RatingSlider.swift */,
+				DAF736412AAAFBE600AD2DB6 /* BottleImageView.swift */,
+				DAE255872AAC89140004C707 /* BottomDetailsView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				DA3A2D662A9CC2B100FEFBE1 /* BottleCell.swift in Sources */,
 				DA63D0AA2AAC4A8E00161343 /* Double + Ext.swift in Sources */,
 				DA4D2DE42AA31A0500C78495 /* BottlesCatalogueViewModel.swift in Sources */,
+				DAE255882AAC89140004C707 /* BottomDetailsView.swift in Sources */,
 				DA033E002A9CBB83004C847D /* BottleModel.swift in Sources */,
 				DA6556AD2AA1DF5300D8427C /* GrapeVariatiesList.swift in Sources */,
 				DAB026252A9CE5CF00E5BF5C /* HapticFeedbackService.swift in Sources */,
@@ -547,7 +551,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
@@ -585,7 +589,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;

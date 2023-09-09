@@ -24,14 +24,14 @@ struct BottleCell: View {
         VStack {
             HStack(alignment: .top, spacing: 15) {
                 VStack {
-                    CircleImageView(imageName: bottleImage)
+                    CircleImageView(image: bottleImage)
                         .frame(width: 80, height: 80)
                     HStack {
                         Image(systemName: "star.fill")
                             .resizable()
                             .frame(width: 14, height: 14)
                             .foregroundColor(.orange)
-                        Text(rating.smartDescription)
+                        Text(rating.stringWithoutTrailingZeroes)
                             .foregroundColor(Pallete.textColor)
                             .font(.system(size: 14)).bold()
                     }

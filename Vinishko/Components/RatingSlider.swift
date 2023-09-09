@@ -25,13 +25,17 @@ struct RatingPicker: View {
     var body: some View {
         VStack {
             HStack {
+                Text("Рейтинг")
+                    .font(.system(size: 14)).bold()
+                Spacer()
                 if selectedRating <= 0 {
                     Text("Без рейтинга")
+                        .font(.system(size: 14)).bold()
+                        .foregroundColor(.gray)
                 } else {
                     Text("\(selectedRating, specifier: "%.2f")")
-                        .font(.headline)
+                        .font(.system(size: 14)).bold()
                 }
-                Spacer()
             }
             
             ZStack(alignment: .leading) {

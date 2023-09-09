@@ -11,14 +11,28 @@ import CoreData
 struct BottleDetailsView: View {
     
     var bottle: Bottle
+    
+    let fakeImage = UIImage(named: "wine")
 
     var body: some View {
-        VStack {
-            Text(bottle.bottleDescription ?? "")
+        ScrollView {
+            VStack(spacing: -5) {
+                if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
+                    BottleImageView(image: uiImage)
+                }
+//                BottleImageView(image: fakeImage!)
+
+                BottomDetailsView(descriptionText: bottle.bottleDescription ?? "",
+                                  grapeVarieties: bottle.wineSort ?? "",
+                                  placeOfPurchaseInfo: bottle.placeOfPurchase ?? "",
+                                  priceInfo: bottle.price ?? "",
+                                  rating: bottle.doubleRating.stringWithoutTrailingZeroes)
+            }
+            .navigationTitle(bottle.name ?? "")
         }
-        .navigationTitle(bottle.name ?? "")
     }
 }
+
 
 struct BottleDetailsView_Previews: PreviewProvider {
     static var previews: some View {
@@ -39,12 +53,12 @@ extension NSManagedObjectContext {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-        
+
         let context = container.viewContext
-        
+
         let newBottle = Bottle(context: context)
         newBottle.name = "Sample Bottle"
-        
+
         return context
     }
 }
