@@ -22,6 +22,7 @@ struct BottleModel {
     var wineType: Int?
     var wineSugar: Int?
     var isOldRecord: Bool
+    var doubleRating: Double?
     
     init(name: String,
          bottleDescription: String?,
@@ -36,7 +37,8 @@ struct BottleModel {
          wineSugar: Int?,
          wineSort: String?,
          wineCountry: String?,
-         isOldRecord: Bool)
+         isOldRecord: Bool,
+         doubleRating: Double?)
     {
         self.date = date
         self.name = name
@@ -52,5 +54,6 @@ struct BottleModel {
         self.wineSort = wineSort
         self.wineCountry = wineCountry
         self.isOldRecord = isOldRecord
+        self.doubleRating = doubleRating
     }
 }

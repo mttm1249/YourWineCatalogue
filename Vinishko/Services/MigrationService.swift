@@ -63,7 +63,8 @@ class MigrationService {
                                              wineType: wineType,
                                              image: uiImage,
                                              createDate: createDate,
-                                             isOldRecord: true)
+                                             isOldRecord: true,
+                                             doubleRating: Double(rating ?? 0))
             
         }
         privateCloudDatabase.add(queryOperation)

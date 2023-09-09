@@ -17,7 +17,7 @@ struct NewBottleScreen: View {
     @State private var bottleName: String = ""
     @State private var placeOfPurchase: String = ""
     @State private var price: String = ""
-    @State private var rating: Int = 0
+    @State private var rating: Double = 0
     @State private var bottleDescription: String = ""
     @State private var colorSelectedSegment = 0
     @State private var sugarSelectedSegment = 0
@@ -46,6 +46,7 @@ struct NewBottleScreen: View {
             }
             
             VStack(spacing: 12) {
+                RatingPicker(selectedRating: $rating)
                 TextFieldStandart(header: "Название", text: $bottleName)
                 SegmentedPicker(titles: ["Красное", "Белое", "Другое"],
                                 selectedSegment: $colorSelectedSegment)
@@ -77,14 +78,15 @@ struct NewBottleScreen: View {
                         wineRegion: selectedRegion,
                         placeOfPurchase: placeOfPurchase,
                         price: price,
-                        rating: rating,
+                        rating: 0,
                         bottleDescription: bottleDescription,
                         wineColor: colorSelectedSegment,
                         wineSugar: sugarSelectedSegment,
                         wineType: typeSelectedSegment,
                         image: image,
                         createDate: Date(),
-                        isOldRecord: false
+                        isOldRecord: false,
+                        doubleRating: rating
                     )
                     // Показываем баннер сохранения
                     showSaveBanner = true

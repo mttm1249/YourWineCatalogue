@@ -27,6 +27,8 @@
 		DA3A2D662A9CC2B100FEFBE1 /* BottleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D652A9CC2B100FEFBE1 /* BottleCell.swift */; };
 		DA4D2DE12AA3088800C78495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA4D2DE02AA3088800C78495 /* GoogleService-Info.plist */; };
 		DA4D2DE42AA31A0500C78495 /* BottlesCatalogueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D2DE32AA31A0400C78495 /* BottlesCatalogueViewModel.swift */; };
+		DA63D0A82AAC3A7E00161343 /* RatingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63D0A72AAC3A7E00161343 /* RatingSlider.swift */; };
+		DA63D0AA2AAC4A8E00161343 /* Double + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63D0A92AAC4A8E00161343 /* Double + Ext.swift */; };
 		DA6556AD2AA1DF5300D8427C /* GrapeVariatiesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6556AC2AA1DF5300D8427C /* GrapeVariatiesList.swift */; };
 		DA6556AF2AA1ED0600D8427C /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6556AE2AA1ED0600D8427C /* String + Ext.swift */; };
 		DA6556B22AA1ED7F00D8427C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA6556B42AA1ED7F00D8427C /* Localizable.strings */; };
@@ -48,6 +50,7 @@
 		DAE4DA712AA2068B00853426 /* GrapeVarietiesPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4DA702AA2068B00853426 /* GrapeVarietiesPicker.swift */; };
 		DAE4DA732AA2074F00853426 /* RegionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4DA722AA2074F00853426 /* RegionPicker.swift */; };
 		DAE4DA752AA2079E00853426 /* CountryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4DA742AA2079E00853426 /* CountryPicker.swift */; };
+		DAF736422AAAFBE600AD2DB6 /* BottleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF736412AAAFBE600AD2DB6 /* BottleImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,8 @@
 		DA4D2DE02AA3088800C78495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA4D2DE22AA3099E00C78495 /* Vinishko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vinishko.entitlements; sourceTree = "<group>"; };
 		DA4D2DE32AA31A0400C78495 /* BottlesCatalogueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlesCatalogueViewModel.swift; sourceTree = "<group>"; };
+		DA63D0A72AAC3A7E00161343 /* RatingSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingSlider.swift; sourceTree = "<group>"; };
+		DA63D0A92AAC4A8E00161343 /* Double + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + Ext.swift"; sourceTree = "<group>"; };
 		DA6556AC2AA1DF5300D8427C /* GrapeVariatiesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeVariatiesList.swift; sourceTree = "<group>"; };
 		DA6556AE2AA1ED0600D8427C /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 		DA6556B32AA1ED7F00D8427C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -95,6 +100,7 @@
 		DAE4DA702AA2068B00853426 /* GrapeVarietiesPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeVarietiesPicker.swift; sourceTree = "<group>"; };
 		DAE4DA722AA2074F00853426 /* RegionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPicker.swift; sourceTree = "<group>"; };
 		DAE4DA742AA2079E00853426 /* CountryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPicker.swift; sourceTree = "<group>"; };
+		DAF736412AAAFBE600AD2DB6 /* BottleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,7 +258,9 @@
 				DAE4DA722AA2074F00853426 /* RegionPicker.swift */,
 				DAE4DA702AA2068B00853426 /* GrapeVarietiesPicker.swift */,
 				DA200C612AA700060056F3F2 /* GrapeVarietiesBubbles.swift */,
+				DAF736412AAAFBE600AD2DB6 /* BottleImageView.swift */,
 				DA3A2D652A9CC2B100FEFBE1 /* BottleCell.swift */,
+				DA63D0A72AAC3A7E00161343 /* RatingSlider.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -274,6 +282,7 @@
 				DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */,
 				DA6556AE2AA1ED0600D8427C /* String + Ext.swift */,
 				DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */,
+				DA63D0A92AAC4A8E00161343 /* Double + Ext.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -364,10 +373,12 @@
 				DAB0261E2A9CDDD200E5BF5C /* SegmentedControl.swift in Sources */,
 				DA7CCBB22A543B9E00C5876D /* Vinishko.xcdatamodeld in Sources */,
 				DA3A2D662A9CC2B100FEFBE1 /* BottleCell.swift in Sources */,
+				DA63D0AA2AAC4A8E00161343 /* Double + Ext.swift in Sources */,
 				DA4D2DE42AA31A0500C78495 /* BottlesCatalogueViewModel.swift in Sources */,
 				DA033E002A9CBB83004C847D /* BottleModel.swift in Sources */,
 				DA6556AD2AA1DF5300D8427C /* GrapeVariatiesList.swift in Sources */,
 				DAB026252A9CE5CF00E5BF5C /* HapticFeedbackService.swift in Sources */,
+				DA63D0A82AAC3A7E00161343 /* RatingSlider.swift in Sources */,
 				DA2C2B392A9DF30700C6680D /* FiltersView.swift in Sources */,
 				DA033DF92A9CAAD8004C847D /* Images.swift in Sources */,
 				DA2C2B3F2A9E119900C6680D /* TextEditorStandart.swift in Sources */,
@@ -384,6 +395,7 @@
 				DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */,
 				DA2C2B3B2A9DF4E800C6680D /* SegmentPicker.swift in Sources */,
 				DAE4DA712AA2068B00853426 /* GrapeVarietiesPicker.swift in Sources */,
+				DAF736422AAAFBE600AD2DB6 /* BottleImageView.swift in Sources */,
 				DAE2155E2A9E258A00131FE4 /* ImagePicker.swift in Sources */,
 				DA033DFB2A9CAB19004C847D /* CircleImageView.swift in Sources */,
 				DA7CCBC72A54445600C5876D /* NewBottleScreen.swift in Sources */,

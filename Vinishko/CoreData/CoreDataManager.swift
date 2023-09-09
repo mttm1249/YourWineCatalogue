@@ -11,7 +11,7 @@ import UIKit
 class CoreDataManager {
     
     static let shared = CoreDataManager()
-
+    
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
         let container = NSPersistentCloudKitContainer(name: "Vinishko")
@@ -28,7 +28,7 @@ class CoreDataManager {
         context.automaticallyMergesChangesFromParent = true
         return context
     }
-
+    
     // MARK: - Core Data Saving support
     func saveContext() {
         let context = persistentContainer.viewContext
@@ -57,10 +57,11 @@ extension CoreDataManager {
                                  wineType: Int?,
                                  image: UIImage?,
                                  createDate: Date?,
-                                 isOldRecord: Bool) {
+                                 isOldRecord: Bool,
+                                 doubleRating: Double?) {
         
         let newBottle = Bottle(context: managedContext)
-
+        
         newBottle.name = name
         processWineSortFor(newBottle, with: wineSort)
         newBottle.wineCountry = wineCountry
@@ -75,17 +76,18 @@ extension CoreDataManager {
         processImageFor(newBottle, with: image)
         newBottle.createDate = Date()
         newBottle.isOldRecord = isOldRecord
-
+        newBottle.doubleRating = doubleRating ?? 0.0
+        
         CoreDataManager.shared.saveContext()
     }
-
+    
     private static func processImageFor(_ bottle: Bottle, with image: UIImage?) {
         if let defaultImage = UIImage(named: "addImage"), image != defaultImage,
            let compressedData = image?.jpegData(compressionQuality: 0.8) {
             bottle.bottleImage = compressedData
         }
     }
-
+    
     private static func processWineSortFor(_ bottle: Bottle, with wineSort: [String]) {
         bottle.wineSort = wineSort.map( { $0.localize() } ).joined(separator: ", ")
     }
