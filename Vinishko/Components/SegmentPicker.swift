@@ -55,7 +55,7 @@ struct SegmentedPicker: View {
             }
         }
         .frame(height: 30)
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 24)
     }
     
 }

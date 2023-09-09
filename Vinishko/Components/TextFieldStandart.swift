@@ -27,7 +27,7 @@ struct TextFieldStandart: View {
                     .stroke(isEditing ? Pallete.borderColor : Color.gray, lineWidth: 1)
             )
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 24)
     }
 }
 

@@ -33,7 +33,7 @@ struct OptionButtonView: View {
                     .stroke(Color.gray, lineWidth: 1)
             )
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 24)
     }
 }
 

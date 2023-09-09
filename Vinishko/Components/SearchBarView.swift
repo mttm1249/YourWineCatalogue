@@ -13,7 +13,6 @@ struct SearchBarView: View {
     
     var body: some View {
         HStack {
-            
             HStack {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
@@ -37,7 +36,7 @@ struct SearchBarView: View {
                 }
                 
             }
-            .frame(height: 36)
+            .frame(minHeight: 35)
             .background(Pallete.searchBarBg)
             .cornerRadius(8)
             .padding(.horizontal, 16)
@@ -52,6 +51,7 @@ struct SearchBarView: View {
                 }
                 .padding(.trailing, 16)
                 .transition(.move(edge: .trailing))
+                .frame(minHeight: 35)
             }
         }
     }

@@ -46,7 +46,7 @@ struct NewBottleScreen: View {
             }
             
             VStack(spacing: 12) {
-                RatingPicker(selectedRating: $rating)
+                RatingView(selectedRating: $rating)
                 TextFieldStandart(header: "Название", text: $bottleName)
                 SegmentedPicker(titles: ["Красное", "Белое", "Другое"],
                                 selectedSegment: $colorSelectedSegment)
