@@ -13,9 +13,9 @@ struct BottleCell: View {
     var bottleDescription: String
     var wineCountry: String
     var wineSort: String
-    var wineColor: Int64
-    var wineType: Int64
-    var wineSugar: Int64
+    var wineColor: Int16
+    var wineType: Int16
+    var wineSugar: Int16
     var price: String
     var rating: Double
     var action: () -> Void

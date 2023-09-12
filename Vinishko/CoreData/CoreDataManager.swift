@@ -68,11 +68,11 @@ extension CoreDataManager {
         newBottle.wineRegion = wineRegion
         newBottle.placeOfPurchase = placeOfPurchase
         newBottle.price = price
-        newBottle.rating = Int64(rating ?? 0)
+        newBottle.rating = Int16(rating ?? 0)
         newBottle.bottleDescription = bottleDescription
-        newBottle.wineColor = Int64(wineColor ?? 0)
-        newBottle.wineSugar = Int64(wineSugar ?? 0)
-        newBottle.wineType = Int64(wineType ?? 0)
+        newBottle.wineColor = Int16(wineColor ?? 0)
+        newBottle.wineSugar = Int16(wineSugar ?? 0)
+        newBottle.wineType = Int16(wineType ?? 0)
         processImageFor(newBottle, with: image)
         newBottle.createDate = Date()
         newBottle.isOldRecord = isOldRecord

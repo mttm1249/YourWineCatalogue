@@ -9,9 +9,9 @@ import SwiftUI
 
 struct BubbleDetailsView: View {
     
-    var wineColor: Int64
-    var wineType: Int64
-    var wineSugar: Int64
+    var wineColor: Int16
+    var wineType: Int16
+    var wineSugar: Int16
     var wineCountry: String
     
     private struct Constants {

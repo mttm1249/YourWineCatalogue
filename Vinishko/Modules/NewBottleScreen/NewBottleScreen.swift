@@ -11,8 +11,13 @@ struct NewBottleScreen: View {
     @Environment(\.managedObjectContext) private var managedObjectContext
     @Environment(\.presentationMode) private var presentationMode
     
-    @Binding var showSaveBanner: Bool
+    @State private var showImagePicker: Bool = false
+    @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var image: UIImage = UIImage(named: "addImage") ?? UIImage()
+    @State private var showActionSheet: Bool = false
+
+    
+    @Binding var showSaveBanner: Bool
     @State private var showSheet = false
     @State private var bottleName: String = ""
     @State private var placeOfPurchase: String = ""
@@ -31,7 +36,7 @@ struct NewBottleScreen: View {
         ScrollView {
             ZStack(alignment: .topTrailing) {
                 Button {
-                    showSheet = true
+                    self.showActionSheet = true
                 } label: {
                     Image(uiImage: self.image)
                         .resizable()
@@ -40,9 +45,22 @@ struct NewBottleScreen: View {
                         .background(Pallete.segmentPickerBg)
                         .clipShape(Circle())
                 }
-                .sheet(isPresented: $showSheet) {
-                    ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
-                }
+                .actionSheet(isPresented: $showActionSheet) {
+                                      ActionSheet(title: Text("Выберите источник"), buttons: [
+                                        .default(Text("Камера").foregroundColor(Pallete.textColor), action: {
+                                              self.imagePickerSourceType = .camera
+                                              self.showImagePicker = true
+                                          }),
+                                          .default(Text("Галерея").foregroundColor(Pallete.textColor), action: {
+                                              self.imagePickerSourceType = .photoLibrary
+                                              self.showImagePicker = true
+                                          }),
+                                          .cancel()
+                                      ])
+                                  }
+                                  .sheet(isPresented: $showImagePicker, content: {
+                                      ImagePicker(image: self.$image, sourceType: self.imagePickerSourceType)
+                                  })
             }
             
             VStack(spacing: 12) {
@@ -103,13 +121,6 @@ struct NewBottleScreen: View {
                 }
             }
         }
-    }
-}
-
-// MARK: For RecordUpdate
-extension NewBottleScreen {
-    func checkRecord(_ bottle: BottleModel) -> Bool {
-        return bottle.isOldRecord
     }
 }
 

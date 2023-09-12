@@ -36,7 +36,7 @@ struct BottomDetailsView: View {
             .padding()
         }
         .background(Pallete.segmentPickerBg)
-        .clipShape(RoundedCorner(radius: 20, corners: [.bottomLeft, .bottomRight]))
+//        .clipShape(RoundedCorner(radius: 20, corners: [.bottomLeft, .bottomRight]))
         .padding(.horizontal, 16)
     }
 }
