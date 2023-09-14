@@ -7,45 +7,177 @@
 
 import SwiftUI
 
+enum DetailsType {
+    case info
+    case location
+    case purchase
+}
+
 struct BottomDetailsView: View {
     
-    var descriptionText: String
-    var grapeVarieties: String
-    var placeOfPurchaseInfo: String
-    var priceInfo: String
-    var rating: String
+    
+    
+    var activeType: DetailsType
+    
+    var wineColor: Int16 = 0
+    var wineCountry: String = ""
+    var wineRegion: String = ""
+    var wineSugar: Int16 = 0
+    var wineType: Int16 = 0
+    var price: String = ""
+    var placeOfPurchaseInfo: String = ""
+    
+    private func getWineColor() -> Color {
+        switch wineColor {
+        case 0:
+            return Pallete.redWineColor
+        case 1:
+            return Pallete.whiteWineColor
+        case 2:
+            return Pallete.otherWineColor
+        default:
+            return .clear
+        }
+    }
+    
+    private func getWineColorName() -> String {
+        switch wineColor {
+        case 0:
+            return "Красное"
+        case 1:
+            return "Белое"
+        case 2:
+            return "Другое"
+        default:
+            return ""
+        }
+    }
+    
+    private func getWineSugar() -> String {
+        switch wineSugar {
+        case 0:
+            return "Сухое"
+        case 1:
+            return "Полусухое"
+        case 2:
+            return "Полусладкое"
+        case 3:
+            return "Сладкое"
+        default:
+            return ""
+        }
+    }
+    
+    private func getWineType() -> String {
+        switch wineType {
+        case 0:
+            return "Тихое"
+        case 1:
+            return "Игристое"
+        case 2:
+            return "Другое"
+        default:
+            return ""
+        }
+    }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Spacer()
-            }
-            VStack(alignment: .leading, spacing: 10) {
-                HStack {
-                    Text("Рейтинг: \(rating)/5")
-                    Image(systemName: "star.fill")
-                        .resizable()
-                        .frame(width: 14, height: 14)
-                        .foregroundColor(.orange)
+        switch activeType {
+        case .info:
+            VStack(alignment: .leading) {
+                Text("Описание")
+                    .font(.system(size: 14)).bold()
+                HStack(spacing: 8) {
+                    Text(getWineColorName())
+                        .font(.system(size: 14))
+                        .foregroundColor(Pallete.textColor)
+                        .frame(height: 20)
+                        .padding(.horizontal, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 50)
+                                .stroke(getWineColor(), lineWidth: 2)
+                        )
+
+
+                    Text(getWineSugar())
+                        .font(.system(size: 14))
+                        .foregroundColor(Pallete.textColor)
+                        .frame(height: 20)
+                        .padding(.horizontal, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 50)
+                                .stroke(.gray, lineWidth: 1)
+                        )
+                    Text(getWineType())
+                        .font(.system(size: 14))
+                        .foregroundColor(Pallete.textColor)
+                        .frame(height: 20)
+                        .padding(.horizontal, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 50)
+                                .stroke(.gray, lineWidth: 1)
+                        )
                 }
-                Text("Куплено в: \(placeOfPurchaseInfo)")
-                Text("Цена: \(priceInfo)₽")
-                Text("Сорт: \(grapeVarieties)")
-                Text("Комментарий: \(descriptionText)")
             }
-            .padding()
+            .padding(.horizontal, 16)
+        case .purchase:
+            VStack(alignment: .leading) {
+                Text("Покупка")
+                    .font(.system(size: 14)).bold()
+                HStack(spacing: 8) {
+                    Text(placeOfPurchaseInfo)
+                        .font(.system(size: 14))
+                        .foregroundColor(Pallete.textColor)
+                        .frame(height: 20)
+                        .padding(.horizontal, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 50)
+                                .stroke(.gray, lineWidth: 1)
+                        )
+                    Text(price)
+                        .font(.system(size: 14))
+                        .foregroundColor(Pallete.textColor)
+                        .frame(height: 20)
+                        .padding(.horizontal, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 50)
+                                .stroke(.gray, lineWidth: 1)
+                        )
+                }
+            }
+            .padding(.horizontal, 16)
+        case .location:
+            VStack(alignment: .leading) {
+                Text("Происхождение")
+                    .font(.system(size: 14)).bold()
+                HStack(spacing: 8) {
+                    Text(wineCountry)
+                        .font(.system(size: 14))
+                        .foregroundColor(Pallete.textColor)
+                        .frame(height: 20)
+                        .padding(.horizontal, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 50)
+                                .stroke(.gray, lineWidth: 1)
+                        )
+                    Text(wineRegion)
+                        .font(.system(size: 14))
+                        .foregroundColor(Pallete.textColor)
+                        .frame(height: 20)
+                        .padding(.horizontal, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 50)
+                                .stroke(.gray, lineWidth: 1)
+                        )
+                }
+            }
+            .padding(.horizontal, 16)
         }
-        .background(Pallete.segmentPickerBg)
-//        .clipShape(RoundedCorner(radius: 20, corners: [.bottomLeft, .bottomRight]))
-        .padding(.horizontal, 16)
     }
 }
 
 struct BottomDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        BottomDetailsView(descriptionText: "",
-                          grapeVarieties: "",
-                          placeOfPurchaseInfo: "",
-                          priceInfo: "", rating: "")
+        BottomDetailsView(activeType: .info)
     }
 }

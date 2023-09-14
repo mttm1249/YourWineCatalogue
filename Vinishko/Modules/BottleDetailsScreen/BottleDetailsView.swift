@@ -13,47 +13,57 @@ struct BottleDetailsView: View {
     var bottle: Bottle
     let fakeImage = UIImage(named: "wine")
     
-    private func getWineColor() -> Color {
-        switch bottle.wineColor {
-        case 0:
-            return Pallete.redWineColor
-        case 1:
-            return Pallete.whiteWineColor
-        case 2:
-            return Pallete.otherWineColor
-        default:
-            return .clear
+    
+    private func getWineCountry(for bottle: Bottle) -> String {
+        if bottle.isOldRecord {
+            return bottle.wineCountry ?? ""
+        } else {
+            return Locale.current.localizedString(forRegionCode: bottle.wineCountry ?? "") ?? ""
         }
     }
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 6) {
+            VStack(alignment: .leading, spacing: 10) {
                 if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
                     BottleImageView(image: uiImage)
                 }
-//                                BottleImageView(image: fakeImage!)
-             
+                //                                BottleImageView(image: fakeImage!)
+                
                 // Bottle name
-                HStack {
-                    ZStack {
-                        Circle()
-                            .frame(width: 28, height: 28)
-                            .foregroundColor(getWineColor())
-                        Text(bottle.doubleRating.smartDescription)
-                            .foregroundColor(.white)
-                            .font(.system(size: 12)).bold()
-                    }
-                    Text(bottle.name ?? "")
-                        .font(.system(size: 28)).bold()
-                }
-                .padding(.horizontal, 16)
+                
+                Text(bottle.name ?? "")
+                    .font(.system(size: 28)).bold()
+                    .padding(.horizontal, 16)
                 
                 // Wine sort
                 Text(bottle.wineSort ?? "")
                     .font(.system(size: 18)).bold()
                     .padding(.horizontal, 16)
                     .padding(.bottom, 16)
+                
+                BottomDetailsView(activeType: .info,
+                                  wineColor: bottle.wineColor,
+                                  wineSugar: bottle.wineSugar,
+                                  wineType: bottle.wineType)
+                
+                Divider()
+                    .padding(.leading, 16)
+                
+                BottomDetailsView(activeType: .location,
+                                  wineCountry: getWineCountry(for: bottle),
+                                  wineRegion: bottle.wineRegion ?? "")
+                
+                Divider()
+                    .padding(.leading, 16)
+                
+                BottomDetailsView(activeType: .purchase,
+                                  price: bottle.price ?? "",
+                                  placeOfPurchaseInfo: bottle.placeOfPurchase ?? "")
+                
+                Divider()
+                    .padding(.leading, 16)
+                
                 
                 // Bottle Description
                 Text(bottle.bottleDescription ?? "")
@@ -69,7 +79,7 @@ struct BottleDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         let previewContext = NSManagedObjectContext.preview
         let bottle = Bottle(context: previewContext)
-        bottle.name = "Test Bottle"
+        bottle.name = "Test Bottle With Loong Naming "
         bottle.wineSort = "Wine sort"
         bottle.bottleDescription = "This is a test description."
         

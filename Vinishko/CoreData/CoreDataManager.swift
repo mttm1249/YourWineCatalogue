@@ -12,7 +12,6 @@ class CoreDataManager {
     
     static let shared = CoreDataManager()
     
-    // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
         let container = NSPersistentCloudKitContainer(name: "Vinishko")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -29,7 +28,6 @@ class CoreDataManager {
         return context
     }
     
-    // MARK: - Core Data Saving support
     func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -43,6 +41,31 @@ class CoreDataManager {
     }
 }
 
+// New function for checking if a record exists with the given name
+extension CoreDataManager {
+    static func recordExists(withName name: String?) -> Bool {
+        guard let nameToCheck = name else {
+            return false
+        }
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Bottle")
+        fetchRequest.predicate = NSPredicate(format: "name == %@", nameToCheck)
+        
+        do {
+            let count = try managedContext.count(for: fetchRequest)
+            if count > 0 {
+                return true
+            } else {
+                return false
+            }
+        } catch {
+            print("Error occurred while executing fetch request: \(error)")
+            return false
+        }
+    }
+}
+
+// Modified function to include the check for existing record
 extension CoreDataManager {
     static func saveBottleRecord(name: String?,
                                  wineSort: [String],
@@ -60,10 +83,16 @@ extension CoreDataManager {
                                  isOldRecord: Bool,
                                  doubleRating: Double?) {
         
+        // If a record with the same name already exists, return without saving
+        if recordExists(withName: name) {
+            print("Record with the same name already exists. Skipping the save operation.")
+            return
+        }
+        
         let newBottle = Bottle(context: managedContext)
         
         newBottle.name = name
-        processWineSortFor(newBottle, with: wineSort)
+        newBottle.wineSort = wineSort.joined(separator: ", ")
         newBottle.wineCountry = wineCountry
         newBottle.wineRegion = wineRegion
         newBottle.placeOfPurchase = placeOfPurchase
@@ -73,22 +102,14 @@ extension CoreDataManager {
         newBottle.wineColor = Int16(wineColor ?? 0)
         newBottle.wineSugar = Int16(wineSugar ?? 0)
         newBottle.wineType = Int16(wineType ?? 0)
-        processImageFor(newBottle, with: image)
-        newBottle.createDate = Date()
+        newBottle.createDate = createDate
         newBottle.isOldRecord = isOldRecord
         newBottle.doubleRating = doubleRating ?? 0.0
         
-        CoreDataManager.shared.saveContext()
-    }
-    
-    private static func processImageFor(_ bottle: Bottle, with image: UIImage?) {
-        if let defaultImage = UIImage(named: "addImage"), image != defaultImage,
-           let compressedData = image?.jpegData(compressionQuality: 0.8) {
-            bottle.bottleImage = compressedData
+        if let imageToSave = image, let imageData = imageToSave.jpegData(compressionQuality: 0.8) {
+            newBottle.bottleImage = imageData
         }
-    }
-    
-    private static func processWineSortFor(_ bottle: Bottle, with wineSort: [String]) {
-        bottle.wineSort = wineSort.map( { $0.localize() } ).joined(separator: ", ")
+        
+        CoreDataManager.shared.saveContext()
     }
 }
