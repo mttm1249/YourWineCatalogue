@@ -27,17 +27,11 @@ class MigrationService {
         
         let queryOperation = CKQueryOperation(query: query)
         queryOperation.recordFetchedBlock = { record in
-            // Проверяем, существует ли уже такая запись в CoreData
-            let name = record["name"] as? String
-            if CoreDataManager.recordExists(withName: name) {
-                print("Record with the same name already exists. Skipping the save operation.")
-                return
-            }
-            
             // Добавляем запись в массив
             self.records.append(record)
             
             // Извлекаем данные из CKRecord и сохраняем в CoreData
+            let name = record["name"] as? String
             let wineSort = (record["wineSort"] as? String)?.components(separatedBy: ", ") ?? []
             let wineCountry = record["wineCountry"] as? String
             let wineRegion = record["wineRegion"] as? String

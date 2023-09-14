@@ -11,11 +11,11 @@ enum DetailsType {
     case info
     case location
     case purchase
+    case comment
 }
 
 struct BottomDetailsView: View {
-    
-    
+    private let headerColor = Color.gray
     
     var activeType: DetailsType
     
@@ -26,6 +26,7 @@ struct BottomDetailsView: View {
     var wineType: Int16 = 0
     var price: String = ""
     var placeOfPurchaseInfo: String = ""
+    var bottleDescription: String = ""
     
     private func getWineColor() -> Color {
         switch wineColor {
@@ -87,6 +88,7 @@ struct BottomDetailsView: View {
             VStack(alignment: .leading) {
                 Text("Описание")
                     .font(.system(size: 14)).bold()
+                    .foregroundColor(headerColor)
                 HStack(spacing: 8) {
                     Text(getWineColorName())
                         .font(.system(size: 14))
@@ -124,6 +126,7 @@ struct BottomDetailsView: View {
             VStack(alignment: .leading) {
                 Text("Покупка")
                     .font(.system(size: 14)).bold()
+                    .foregroundColor(headerColor)
                 HStack(spacing: 8) {
                     Text(placeOfPurchaseInfo)
                         .font(.system(size: 14))
@@ -134,7 +137,7 @@ struct BottomDetailsView: View {
                             RoundedRectangle(cornerRadius: 50)
                                 .stroke(.gray, lineWidth: 1)
                         )
-                    Text(price)
+                    Text("\(price)₽")
                         .font(.system(size: 14))
                         .foregroundColor(Pallete.textColor)
                         .frame(height: 20)
@@ -150,6 +153,7 @@ struct BottomDetailsView: View {
             VStack(alignment: .leading) {
                 Text("Происхождение")
                     .font(.system(size: 14)).bold()
+                    .foregroundColor(headerColor)
                 HStack(spacing: 8) {
                     Text(wineCountry)
                         .font(.system(size: 14))
@@ -172,12 +176,21 @@ struct BottomDetailsView: View {
                 }
             }
             .padding(.horizontal, 16)
+        case .comment:
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Комментарий")
+                    .font(.system(size: 14)).bold()
+                    .foregroundColor(headerColor)
+                    Text(bottleDescription)
+                        .font(.system(size: 14))
+            }
+            .padding(.horizontal, 16)
         }
     }
 }
 
 struct BottomDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        BottomDetailsView(activeType: .info)
+        BottomDetailsView(activeType: .comment, bottleDescription: "Text")
     }
 }

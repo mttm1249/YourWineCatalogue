@@ -20,6 +20,6 @@ struct Pallete {
     
     static let segmentPickerBg = Color("SegmentPickerBg")
     static let searchBarBg = Color("SearchBar")
-
-
+    
+    static let ratingBg = Color("RatingBg")
 }

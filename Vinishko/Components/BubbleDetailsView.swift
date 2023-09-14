@@ -20,7 +20,7 @@ struct BubbleDetailsView: View {
         static let frameHeight: CGFloat = 20
         static let padding: CGFloat = 5
         static let cornerRadius: CGFloat = 10
-        static let lineWidth: CGFloat = 0.5
+        static let lineWidth: CGFloat = 1
         static let spacing: CGFloat = 8
     }
     

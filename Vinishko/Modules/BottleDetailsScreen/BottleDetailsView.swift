@@ -26,9 +26,10 @@ struct BottleDetailsView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
                 if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
-                    BottleImageView(image: uiImage)
+                    BottleImageView(image: uiImage,
+                                    rating: bottle.doubleRating.smartDescription)
                 }
-                //                                BottleImageView(image: fakeImage!)
+//                BottleImageView(image: fakeImage!, rating: bottle.doubleRating.smartDescription)
                 
                 // Bottle name
                 
@@ -37,7 +38,7 @@ struct BottleDetailsView: View {
                     .padding(.horizontal, 16)
                 
                 // Wine sort
-                Text(bottle.wineSort ?? "")
+                Text(bottle.wineSort?.localize() ?? "")
                     .font(.system(size: 18)).bold()
                     .padding(.horizontal, 16)
                     .padding(.bottom, 16)
@@ -66,9 +67,8 @@ struct BottleDetailsView: View {
                 
                 
                 // Bottle Description
-                Text(bottle.bottleDescription ?? "")
-                    .font(.system(size: 17))
-                    .padding(.horizontal, 16)
+                BottomDetailsView(activeType: .comment,
+                                  bottleDescription: bottle.bottleDescription ?? "")
             }
         }
         .navigationTitle("Сведения о дегустации")
