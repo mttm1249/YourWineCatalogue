@@ -30,9 +30,6 @@ struct BottleImageView: View {
             }
             .padding(8)
             .background(Capsule().fill(Pallete.ratingBg))
-//            .overlay(
-//                Capsule()
-//                    .stroke(Color.white, lineWidth: 2))
             .padding(8)
         }
     }

@@ -10,17 +10,9 @@ import CoreData
 
 struct BottleDetailsView: View {
     
+    @StateObject var viewModel: BottleDetailsViewModel
     var bottle: Bottle
     let fakeImage = UIImage(named: "wine")
-    
-    
-    private func getWineCountry(for bottle: Bottle) -> String {
-        if bottle.isOldRecord {
-            return bottle.wineCountry ?? ""
-        } else {
-            return Locale.current.localizedString(forRegionCode: bottle.wineCountry ?? "") ?? ""
-        }
-    }
     
     var body: some View {
         ScrollView {
@@ -29,10 +21,9 @@ struct BottleDetailsView: View {
                     BottleImageView(image: uiImage,
                                     rating: bottle.doubleRating.smartDescription)
                 }
-//                BottleImageView(image: fakeImage!, rating: bottle.doubleRating.smartDescription)
+                //                BottleImageView(image: fakeImage!, rating: bottle.doubleRating.smartDescription)
                 
                 // Bottle name
-                
                 Text(bottle.name ?? "")
                     .font(.system(size: 28)).bold()
                     .padding(.horizontal, 16)
@@ -41,34 +32,34 @@ struct BottleDetailsView: View {
                 Text(bottle.wineSort?.localize() ?? "")
                     .font(.system(size: 18)).bold()
                     .padding(.horizontal, 16)
-                    .padding(.bottom, 16)
+                    .padding(.bottom, 8)
                 
-                BottomDetailsView(activeType: .info,
-                                  wineColor: bottle.wineColor,
-                                  wineSugar: bottle.wineSugar,
-                                  wineType: bottle.wineType)
+                // Wine info
+                InfoBubbles(header: "Описание",
+                            content: [viewModel.getWineColorName(for: bottle),
+                                      viewModel.getWineSugar(for: bottle),
+                                      viewModel.getWineType(for: bottle)],
+                            firstItemBorderStyle: .thick(viewModel.getWineColor(for: bottle)))
                 
-                Divider()
-                    .padding(.leading, 16)
+                // Country & Region info
+                InfoBubbles(header: "Происхождение",
+                            content: [LocalizationManager.shared.getWineCountry(for: bottle),
+                                      bottle.wineRegion ?? ""])
                 
-                BottomDetailsView(activeType: .location,
-                                  wineCountry: getWineCountry(for: bottle),
-                                  wineRegion: bottle.wineRegion ?? "")
-                
-                Divider()
-                    .padding(.leading, 16)
-                
-                BottomDetailsView(activeType: .purchase,
-                                  price: bottle.price ?? "",
-                                  placeOfPurchaseInfo: bottle.placeOfPurchase ?? "")
-                
-                Divider()
-                    .padding(.leading, 16)
-                
+                // Purchase info
+                InfoBubbles(header: "Покупка",
+                            content: [bottle.placeOfPurchase ?? "",
+                                     "\(bottle.price ?? "")₽"])
                 
                 // Bottle Description
-                BottomDetailsView(activeType: .comment,
-                                  bottleDescription: bottle.bottleDescription ?? "")
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Комментарий")
+                        .font(.system(size: 14)).bold()
+                        .foregroundColor(.gray)
+                    Text(bottle.bottleDescription ?? "")
+                        .font(.system(size: 14))
+                }
+                .padding(.horizontal, 16)
             }
         }
         .navigationTitle("Сведения о дегустации")
@@ -82,8 +73,9 @@ struct BottleDetailsView_Previews: PreviewProvider {
         bottle.name = "Test Bottle With Loong Naming "
         bottle.wineSort = "Wine sort"
         bottle.bottleDescription = "This is a test description."
+        bottle.wineSugar = 1
         
-        return BottleDetailsView(bottle: bottle)
+        return BottleDetailsView(viewModel: BottleDetailsViewModel(), bottle: bottle)
     }
 }
 
@@ -100,6 +92,7 @@ extension NSManagedObjectContext {
         
         let newBottle = Bottle(context: context)
         newBottle.name = "Sample Bottle"
+    
         
         return context
     }

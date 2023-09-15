@@ -37,6 +37,7 @@ struct SegmentedPicker: View {
                             withAnimation {
                                 selectedSegment = index
                                 segmentOffset = calculateOffset(geometry: geometry, selectedIndex: index)
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                             }
                         }) {
                             Text(titles[index])
@@ -75,4 +76,3 @@ struct SegmentedPickerView: View {
         }
     }
 }
-

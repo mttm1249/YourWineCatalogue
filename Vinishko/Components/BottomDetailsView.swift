@@ -99,8 +99,6 @@ struct BottomDetailsView: View {
                             RoundedRectangle(cornerRadius: 50)
                                 .stroke(getWineColor(), lineWidth: 2)
                         )
-
-
                     Text(getWineSugar())
                         .font(.system(size: 14))
                         .foregroundColor(Pallete.textColor)

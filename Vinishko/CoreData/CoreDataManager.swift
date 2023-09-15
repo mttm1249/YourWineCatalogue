@@ -91,4 +91,27 @@ extension CoreDataManager {
     private static func processWineSortFor(_ bottle: Bottle, with wineSort: [String]) {
         bottle.wineSort = wineSort.map( { $0.localize() } ).joined(separator: ", ")
     }
+    
+     func deleteAllData() {
+        let container = persistentContainer
+        let entities = container.managedObjectModel.entities
+        
+        entities.compactMap({ $0.name }).forEach(clearDeepObjectEntity)
+    }
+    
+    private func clearDeepObjectEntity(_ entity: String) {
+        let context = persistentContainer.viewContext
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print ("There was an error")
+        }
+    }
+    
+    
 }

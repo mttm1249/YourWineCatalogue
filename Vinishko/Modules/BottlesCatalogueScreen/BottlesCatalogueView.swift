@@ -54,12 +54,12 @@ struct BottlesCatalogueView: View {
                 ScrollView {
                     LazyVStack(alignment: .leading) {
                         ForEach(viewModel.filteredBottles, id: \.self) { bottle in
-                            NavigationLink(destination: BottleDetailsView(bottle: bottle)) {
+                            NavigationLink(destination: BottleDetailsView(viewModel: BottleDetailsViewModel(), bottle: bottle)) {
                                 BottleCell(
                                     name: bottle.name ?? "",
                                     bottleImage: viewModel.getBottleImage(for: bottle),
                                     bottleDescription: bottle.bottleDescription ?? "",
-                                    wineCountry: viewModel.getWineCountry(for: bottle),
+                                    wineCountry: LocalizationManager.shared.getWineCountry(for: bottle),
                                     wineSort: bottle.wineSort ?? "",
                                     wineColor: bottle.wineColor,
                                     wineType: bottle.wineType,
@@ -92,6 +92,14 @@ struct BottlesCatalogueView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
+                    Button(role: .destructive, action: {
+                        CoreDataManager.shared.deleteAllData()
+                    }) {
+                        HStack {
+                            Text("Удалить все записи CD")
+                            Image(systemName: "gear")
+                        }
+                    }
                     Button(action: {}) {
                         HStack {
                             Text("Настройки QR")
@@ -111,7 +119,6 @@ struct BottlesCatalogueView: View {
         }
     }
 }
-
 
 struct BottlesCatalogueScreenView_Previews: PreviewProvider {
     static var previews: some View {
