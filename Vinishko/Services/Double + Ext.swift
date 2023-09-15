@@ -13,7 +13,7 @@ extension Double {
         if Double(intValue) == self {
             return "\(intValue)"
         } else {
-            return String(format: "%.2f", self)
+            return String(format: "%.1f", self)
         }
     }
 }

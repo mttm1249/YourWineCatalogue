@@ -79,7 +79,7 @@ struct NewBottleScreen: View {
                 )
                 TextFieldStandart(header: "Место покупки", text: $placeOfPurchase)
                 TextFieldStandart(header: "Цена", text: $price)
-                    .keyboardType(.numberPad)
+                    .keyboardType(.decimalPad)
                 TextEditorStandart(header: "Комментарий", text: $bottleDescription)
             }
             .hideKeyboard()
