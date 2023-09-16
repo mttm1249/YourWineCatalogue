@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct BottlesCatalogueView: View {
-    @Environment(\.managedObjectContext) private var managedObjectContext
     @StateObject var viewModel: BottlesCatalogueViewModel
     @State private var showingAlert = false
     @State private var isFiltersViewActive: Bool = false

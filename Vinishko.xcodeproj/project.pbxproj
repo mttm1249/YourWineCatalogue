@@ -48,6 +48,7 @@
 		DAB0261E2A9CDDD200E5BF5C /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0261D2A9CDDD200E5BF5C /* SegmentedControl.swift */; };
 		DAB026202A9CDFA000E5BF5C /* HideBackButtonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */; };
 		DAB026252A9CE5CF00E5BF5C /* HapticFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */; };
+		DABDE2952AB62D8600DFC9ED /* BottlePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABDE2942AB62D8600DFC9ED /* BottlePhotoView.swift */; };
 		DAE2155E2A9E258A00131FE4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2155D2A9E258A00131FE4 /* ImagePicker.swift */; };
 		DAE255882AAC89140004C707 /* BottomDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE255872AAC89140004C707 /* BottomDetailsView.swift */; };
 		DAE2558A2AACB1F50004C707 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE255892AACB1F50004C707 /* RatingView.swift */; };
@@ -102,6 +103,7 @@
 		DAB0261D2A9CDDD200E5BF5C /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideBackButtonText.swift; sourceTree = "<group>"; };
 		DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackService.swift; sourceTree = "<group>"; };
+		DABDE2942AB62D8600DFC9ED /* BottlePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlePhotoView.swift; sourceTree = "<group>"; };
 		DAE2155D2A9E258A00131FE4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DAE255872AAC89140004C707 /* BottomDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomDetailsView.swift; sourceTree = "<group>"; };
 		DAE255892AACB1F50004C707 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				DAE255872AAC89140004C707 /* BottomDetailsView.swift */,
 				DAE255892AACB1F50004C707 /* RatingView.swift */,
 				DA549CE52AB42EE500F6398D /* InfoBubbles.swift */,
+				DABDE2942AB62D8600DFC9ED /* BottlePhotoView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				DAB026252A9CE5CF00E5BF5C /* HapticFeedbackService.swift in Sources */,
 				DA2C2B392A9DF30700C6680D /* FiltersView.swift in Sources */,
 				DA033DF92A9CAAD8004C847D /* Images.swift in Sources */,
+				DABDE2952AB62D8600DFC9ED /* BottlePhotoView.swift in Sources */,
 				DA2C2B3F2A9E119900C6680D /* TextEditorStandart.swift in Sources */,
 				DA7CCBA62A543B9D00C5876D /* VinishkoApp.swift in Sources */,
 				DA033DF52A9CAA43004C847D /* BottlesCatalogueView.swift in Sources */,
@@ -563,7 +567,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
@@ -601,7 +605,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;

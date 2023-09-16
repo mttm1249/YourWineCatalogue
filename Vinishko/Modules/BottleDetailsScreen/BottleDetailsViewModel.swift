@@ -62,4 +62,14 @@ class BottleDetailsViewModel: ObservableObject {
             return ""
         }
     }
+    
+    func getCreateDateString(bottle: Bottle) -> String {
+        guard let unwrappedDate = bottle.createDate else {
+            return ""
+        }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E, d MMM yyyy HH:mm"
+        return dateFormatter.string(from: unwrappedDate)
+    }
 }

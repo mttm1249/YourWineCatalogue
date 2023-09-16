@@ -21,6 +21,16 @@ class MigrationService {
         }
     }
     
+    static private func convertStringToDate(_ dateString: String?) -> Date? {
+        guard let dateString = dateString else { return nil }        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        
+        let date = dateFormatter.date(from: dateString)
+        print("Converted Date: \(String(describing: date))")
+        return date
+    }
+    
     static private func fetchDataFromCloud() {
         let query = CKQuery(recordType: "Bottle", predicate: NSPredicate(value: true))
         query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
@@ -42,7 +52,7 @@ class MigrationService {
             let wineColor = record["wineColor"] as? Int
             let wineSugar = record["wineSugar"] as? Int
             let wineType = record["wineType"] as? Int
-            let createDate = record.creationDate
+            let date = record["date"] as? String
             
             var uiImage: UIImage? = nil
             if let asset = record["bottleImage"] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!), let image = UIImage(data: data) {
@@ -62,7 +72,7 @@ class MigrationService {
                                              wineSugar: wineSugar,
                                              wineType: wineType,
                                              image: uiImage,
-                                             createDate: createDate,
+                                             createDate: convertStringToDate(date),
                                              isOldRecord: true,
                                              doubleRating: Double(rating ?? 0))
             

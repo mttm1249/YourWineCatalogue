@@ -18,7 +18,6 @@ struct BottleImageView: View {
                 .scaledToFill()
                 .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 250)
                 .clipped()
-           
             HStack(spacing: 2) {
                 Text(rating)
 //                    .foregroundColor(.white)

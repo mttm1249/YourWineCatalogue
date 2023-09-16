@@ -8,54 +8,51 @@
 import SwiftUI
 import CoreData
 
+
 struct BottleDetailsView: View {
     
     @StateObject var viewModel: BottleDetailsViewModel
     var bottle: Bottle
-    let fakeImage = UIImage(named: "wine")
+    @State private var showingSheet = false
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
                 if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
-                    BottleImageView(image: uiImage,
-                                    rating: bottle.doubleRating.smartDescription)
+                    BottleImageView(image: uiImage, rating: bottle.doubleRating.smartDescription)
+                        .onTapGesture {
+                            self.showingSheet = true
+                        }
                 }
-                //                BottleImageView(image: fakeImage!, rating: bottle.doubleRating.smartDescription)
                 
-                // Bottle name
                 Text(bottle.name ?? "")
                     .font(.system(size: 28)).bold()
                     .padding(.horizontal, 16)
                 
-                // Wine sort
                 Text(bottle.wineSort?.localize() ?? "")
                     .font(.system(size: 18)).bold()
                     .padding(.horizontal, 16)
                     .padding(.bottom, 8)
                 
-                // Wine info
                 InfoBubbles(header: "Описание",
                             content: [viewModel.getWineColorName(for: bottle),
                                       viewModel.getWineSugar(for: bottle),
                                       viewModel.getWineType(for: bottle)],
                             firstItemBorderStyle: .thick(viewModel.getWineColor(for: bottle)))
                 
-                // Country & Region info
                 InfoBubbles(header: "Происхождение",
                             content: [LocalizationManager.shared.getWineCountry(for: bottle),
                                       bottle.wineRegion ?? ""])
                 
-                // Purchase info
                 InfoBubbles(header: "Покупка",
                             content: [bottle.placeOfPurchase ?? "",
                                      "\(bottle.price ?? "")₽"])
                 
-                // Bottle Description
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Комментарий")
                         .font(.system(size: 14)).bold()
                         .foregroundColor(.gray)
+                    
                     Text(bottle.bottleDescription ?? "")
                         .font(.system(size: 14))
                 }
@@ -63,6 +60,13 @@ struct BottleDetailsView: View {
             }
         }
         .navigationTitle("Сведения о дегустации")
+        .sheet(isPresented: $showingSheet) {
+            if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
+                BottlePhotoView(bottle: bottle,
+                                tastingDate: viewModel.getCreateDateString(bottle: bottle),
+                                image: uiImage)
+            }
+        }
     }
 }
 
