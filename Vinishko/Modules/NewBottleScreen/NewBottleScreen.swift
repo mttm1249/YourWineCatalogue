@@ -10,6 +10,7 @@ import SwiftUI
 struct NewBottleScreen: View {
     @Environment(\.managedObjectContext) private var managedObjectContext
     @Environment(\.presentationMode) private var presentationMode
+    @StateObject var viewModel: NewBottleScreenViewModel
     
     @State private var showImagePicker: Bool = false
     @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
@@ -101,7 +102,7 @@ struct NewBottleScreen: View {
                         wineColor: colorSelectedSegment,
                         wineSugar: sugarSelectedSegment,
                         wineType: typeSelectedSegment,
-                        image: image,
+                        image: viewModel.cropToSquare(image: image),
                         createDate: Date(),
                         isOldRecord: false,
                         doubleRating: rating
@@ -126,6 +127,6 @@ struct NewBottleScreen: View {
 
 struct NewBottleScreen_Previews: PreviewProvider {
     static var previews: some View {
-        NewBottleScreen(showSaveBanner: .constant(false))
+        NewBottleScreen(viewModel: NewBottleScreenViewModel(), showSaveBanner: .constant(false))
     }
 }

@@ -15,6 +15,7 @@
 		DA033E002A9CBB83004C847D /* BottleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA033DFF2A9CBB83004C847D /* BottleModel.swift */; };
 		DA0355A52AA072EA002EBA77 /* PickersModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0355A42AA072EA002EBA77 /* PickersModuleView.swift */; };
 		DA0355A72AA0768C002EBA77 /* CountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = DA0355A62AA07354002EBA77 /* CountryList.json */; };
+		DA0886872AB75A5400743CE7 /* NewBottleScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0886862AB75A5400743CE7 /* NewBottleScreenViewModel.swift */; };
 		DA08B2962A9F1BFE00A8872A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA08B2952A9F1BFE00A8872A /* SearchBarView.swift */; };
 		DA195D212A9F4469000753B3 /* BubbleDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA195D202A9F4469000753B3 /* BubbleDetailsView.swift */; };
 		DA200C622AA700060056F3F2 /* GrapeVarietiesBubbles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA200C612AA700060056F3F2 /* GrapeVarietiesBubbles.swift */; };
@@ -67,6 +68,7 @@
 		DA033DFF2A9CBB83004C847D /* BottleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleModel.swift; sourceTree = "<group>"; };
 		DA0355A42AA072EA002EBA77 /* PickersModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickersModuleView.swift; sourceTree = "<group>"; };
 		DA0355A62AA07354002EBA77 /* CountryList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryList.json; sourceTree = "<group>"; };
+		DA0886862AB75A5400743CE7 /* NewBottleScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBottleScreenViewModel.swift; sourceTree = "<group>"; };
 		DA08B2952A9F1BFE00A8872A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		DA195D202A9F4469000753B3 /* BubbleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleDetailsView.swift; sourceTree = "<group>"; };
 		DA200C612AA700060056F3F2 /* GrapeVarietiesBubbles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeVarietiesBubbles.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				DA7CCBC62A54445600C5876D /* NewBottleScreen.swift */,
+				DA0886862AB75A5400743CE7 /* NewBottleScreenViewModel.swift */,
 				DA033DFF2A9CBB83004C847D /* BottleModel.swift */,
 			);
 			path = NewBottleScreen;
@@ -414,6 +417,7 @@
 				DA0355A52AA072EA002EBA77 /* PickersModuleView.swift in Sources */,
 				DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */,
 				DA2C2B3B2A9DF4E800C6680D /* SegmentPicker.swift in Sources */,
+				DA0886872AB75A5400743CE7 /* NewBottleScreenViewModel.swift in Sources */,
 				DAE4DA712AA2068B00853426 /* GrapeVarietiesPicker.swift in Sources */,
 				DAF736422AAAFBE600AD2DB6 /* BottleImageView.swift in Sources */,
 				DAE2155E2A9E258A00131FE4 /* ImagePicker.swift in Sources */,

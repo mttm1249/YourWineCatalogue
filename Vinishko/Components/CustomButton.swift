@@ -26,6 +26,6 @@ struct CustomButton<Destination: View>: View {
 
 struct Buttons_Previews: PreviewProvider {
     static var previews: some View {
-        CustomButton(destination: NewBottleScreen(showSaveBanner: .constant(false)), imageName: "plus")
+        CustomButton(destination: NewBottleScreen(viewModel: NewBottleScreenViewModel(), showSaveBanner: .constant(false)), imageName: "plus")
     }
 }
