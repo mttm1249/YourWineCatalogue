@@ -34,11 +34,9 @@ struct BottlePhotoView: View {
                     Image(uiImage: uiImage)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .clipped()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
-            .offset(y: -36)
-            Spacer()
         }
     }
 }
