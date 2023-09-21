@@ -55,7 +55,7 @@ struct NewBottleScreen: View {
                                               self.imagePickerSourceType = .photoLibrary
                                               self.showImagePicker = true
                                           }),
-                                          .cancel()
+                                        .cancel()
                                       ])
                                   }
                                   .sheet(isPresented: $showImagePicker, content: {
