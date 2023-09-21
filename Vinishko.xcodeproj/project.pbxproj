@@ -17,7 +17,6 @@
 		DA0355A72AA0768C002EBA77 /* CountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = DA0355A62AA07354002EBA77 /* CountryList.json */; };
 		DA08B2962A9F1BFE00A8872A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA08B2952A9F1BFE00A8872A /* SearchBarView.swift */; };
 		DA195D212A9F4469000753B3 /* BubbleDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA195D202A9F4469000753B3 /* BubbleDetailsView.swift */; };
-		DA200C622AA700060056F3F2 /* GrapeVarietiesBubbles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA200C612AA700060056F3F2 /* GrapeVarietiesBubbles.swift */; };
 		DA2C2B362A9DE05200C6680D /* BottleDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B352A9DE05200C6680D /* BottleDetailsView.swift */; };
 		DA2C2B392A9DF30700C6680D /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B382A9DF30700C6680D /* FiltersView.swift */; };
 		DA2C2B3B2A9DF4E800C6680D /* SegmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */; };
@@ -69,7 +68,6 @@
 		DA0355A62AA07354002EBA77 /* CountryList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryList.json; sourceTree = "<group>"; };
 		DA08B2952A9F1BFE00A8872A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		DA195D202A9F4469000753B3 /* BubbleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleDetailsView.swift; sourceTree = "<group>"; };
-		DA200C612AA700060056F3F2 /* GrapeVarietiesBubbles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeVarietiesBubbles.swift; sourceTree = "<group>"; };
 		DA2C2B352A9DE05200C6680D /* BottleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleDetailsView.swift; sourceTree = "<group>"; };
 		DA2C2B382A9DF30700C6680D /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPicker.swift; sourceTree = "<group>"; };
@@ -168,6 +166,68 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		DA0886882AB75BCF00743CE7 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */,
+				DA2C2B3E2A9E119900C6680D /* TextEditorStandart.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		DA0886892AB75BD800743CE7 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				DA7CCBC12A543DCE00C5876D /* CustomButton.swift */,
+				DA37DAEE2A9F740C006D3717 /* OptionButtonView.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		DA08868A2AB75BE100743CE7 /* SegmentedControls */ = {
+			isa = PBXGroup;
+			children = (
+				DAB0261D2A9CDDD200E5BF5C /* SegmentedControl.swift */,
+				DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */,
+			);
+			path = SegmentedControls;
+			sourceTree = "<group>";
+		};
+		DA08868B2AB75BFB00743CE7 /* ImagesViews */ = {
+			isa = PBXGroup;
+			children = (
+				DABDE2942AB62D8600DFC9ED /* BottlePhotoView.swift */,
+				DA033DFA2A9CAB19004C847D /* CircleImageView.swift */,
+				DAE2155D2A9E258A00131FE4 /* ImagePicker.swift */,
+				DAF736412AAAFBE600AD2DB6 /* BottleImageView.swift */,
+			);
+			path = ImagesViews;
+			sourceTree = "<group>";
+		};
+		DA08868C2AB75C0B00743CE7 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				DA0355A42AA072EA002EBA77 /* PickersModuleView.swift */,
+				DAE4DA742AA2079E00853426 /* CountryPicker.swift */,
+				DAE4DA722AA2074F00853426 /* RegionPicker.swift */,
+				DAE4DA702AA2068B00853426 /* GrapeVarietiesPicker.swift */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
+		DA08868E2AB75CAD00743CE7 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				DA08B2952A9F1BFE00A8872A /* SearchBarView.swift */,
+				DA195D202A9F4469000753B3 /* BubbleDetailsView.swift */,
+				DA549CE52AB42EE500F6398D /* InfoBubbles.swift */,
+				DA3A2D652A9CC2B100FEFBE1 /* BottleCell.swift */,
+				DAE255872AAC89140004C707 /* BottomDetailsView.swift */,
+				DAE255892AACB1F50004C707 /* RatingView.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		DA2C2B342A9DE03700C6680D /* BottleDetailsScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,11 +303,11 @@
 		DA7CCBB92A543D1D00C5876D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				DA2C2B372A9DF2FC00C6680D /* FiltersScreen */,
-				DA2C2B342A9DE03700C6680D /* BottleDetailsScreen */,
 				DA033DF12A9CA96D004C847D /* MainScreen */,
 				DA033DF22A9CA977004C847D /* NewBottleScreen */,
 				DA033DF32A9CAA11004C847D /* BottlesCatalogueScreen */,
+				DA2C2B342A9DE03700C6680D /* BottleDetailsScreen */,
+				DA2C2B372A9DF2FC00C6680D /* FiltersScreen */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -255,27 +315,12 @@
 		DA7CCBBC2A543D2600C5876D /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DA033DFA2A9CAB19004C847D /* CircleImageView.swift */,
-				DA7CCBC12A543DCE00C5876D /* CustomButton.swift */,
-				DA37DAEE2A9F740C006D3717 /* OptionButtonView.swift */,
-				DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */,
-				DA2C2B3E2A9E119900C6680D /* TextEditorStandart.swift */,
-				DAB0261D2A9CDDD200E5BF5C /* SegmentedControl.swift */,
-				DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */,
-				DAE2155D2A9E258A00131FE4 /* ImagePicker.swift */,
-				DA08B2952A9F1BFE00A8872A /* SearchBarView.swift */,
-				DA195D202A9F4469000753B3 /* BubbleDetailsView.swift */,
-				DA0355A42AA072EA002EBA77 /* PickersModuleView.swift */,
-				DAE4DA742AA2079E00853426 /* CountryPicker.swift */,
-				DAE4DA722AA2074F00853426 /* RegionPicker.swift */,
-				DAE4DA702AA2068B00853426 /* GrapeVarietiesPicker.swift */,
-				DA200C612AA700060056F3F2 /* GrapeVarietiesBubbles.swift */,
-				DA3A2D652A9CC2B100FEFBE1 /* BottleCell.swift */,
-				DAF736412AAAFBE600AD2DB6 /* BottleImageView.swift */,
-				DAE255872AAC89140004C707 /* BottomDetailsView.swift */,
-				DAE255892AACB1F50004C707 /* RatingView.swift */,
-				DA549CE52AB42EE500F6398D /* InfoBubbles.swift */,
-				DABDE2942AB62D8600DFC9ED /* BottlePhotoView.swift */,
+				DA08868B2AB75BFB00743CE7 /* ImagesViews */,
+				DA0886892AB75BD800743CE7 /* Buttons */,
+				DA0886882AB75BCF00743CE7 /* TextFields */,
+				DA08868A2AB75BE100743CE7 /* SegmentedControls */,
+				DA08868C2AB75C0B00743CE7 /* Pickers */,
+				DA08868E2AB75CAD00743CE7 /* Other */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -330,7 +375,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					DA7CCBA12A543B9D00C5876D = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -344,6 +389,7 @@
 			knownRegions = (
 				ru,
 				en,
+				Base,
 			);
 			mainGroup = DA7CCB992A543B9D00C5876D;
 			productRefGroup = DA7CCBA32A543B9D00C5876D /* Products */;
@@ -409,7 +455,6 @@
 				DA6556AF2AA1ED0600D8427C /* String + Ext.swift in Sources */,
 				DA8FF5EE2AA4AB2500DBAE6C /* MigrationService.swift in Sources */,
 				DA7CCBC52A54410E00C5876D /* Pallete.swift in Sources */,
-				DA200C622AA700060056F3F2 /* GrapeVarietiesBubbles.swift in Sources */,
 				DA37DAEF2A9F740C006D3717 /* OptionButtonView.swift in Sources */,
 				DA0355A52AA072EA002EBA77 /* PickersModuleView.swift in Sources */,
 				DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */,
@@ -481,6 +526,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -542,6 +588,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -567,7 +614,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
@@ -605,7 +652,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
