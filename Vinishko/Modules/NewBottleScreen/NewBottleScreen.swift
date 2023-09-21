@@ -56,7 +56,7 @@ struct NewBottleScreen: View {
                                               self.imagePickerSourceType = .photoLibrary
                                               self.showImagePicker = true
                                           }),
-                                          .cancel()
+                                        .cancel()
                                       ])
                                   }
                                   .sheet(isPresented: $showImagePicker, content: {
@@ -102,7 +102,8 @@ struct NewBottleScreen: View {
                         wineColor: colorSelectedSegment,
                         wineSugar: sugarSelectedSegment,
                         wineType: typeSelectedSegment,
-                        image: viewModel.cropToSquare(image: image),
+//                        image: viewModel.cropToSquare(image: image),
+                        image: image,
                         createDate: Date(),
                         isOldRecord: false,
                         doubleRating: rating
