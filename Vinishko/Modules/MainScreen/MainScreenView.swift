@@ -19,8 +19,8 @@ struct MainScreenView: View {
                     .font(.title).bold()
                     .foregroundColor(Pallete.mainColor)
                     .padding(.bottom, 150)
-                CustomButton(destination: NewBottleScreen(viewModel: NewBottleScreenViewModel(), showSaveBanner: $showSaveBanner),
-                             imageName: "plus")
+                CustomButton(destination: NewBottleScreen(showSaveBanner: $showSaveBanner),
+                                            imageName: "plus")
                 CustomButton(destination: BottlesCatalogueView(viewModel: BottlesCatalogueViewModel(context: CoreDataManager.managedContext))
 ,
                              imageName: "list.star")

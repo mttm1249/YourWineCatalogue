@@ -19,22 +19,26 @@ struct BottlePhotoView: View {
             Capsule()
                 .frame(width: 40, height: 5)
                 .foregroundColor(Color.gray.opacity(0.5))
-                .padding()
+                .padding(.top, 16)
             Spacer()
             VStack(alignment: .leading) {
-                Text("Дата дегустации")
-                    .font(.system(size: 14)).bold()
-                    .foregroundColor(.gray)
-                Text(tastingDate)
-                    .font(.system(size: 14))
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Дата дегустации")
+                        .font(.system(size: 14)).bold()
+                        .foregroundColor(.gray)
+                    Text(tastingDate)
+                        .font(.system(size: 14))
+                }
+                .padding(.horizontal, 16)
+                if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding()
-                Image(uiImage: getImage(from: bottle))
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: .infinity)
-            Spacer()
+//            .offset(y: -36)
+//            Spacer()
         }
     }
 }
