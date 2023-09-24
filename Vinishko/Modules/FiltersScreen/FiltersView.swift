@@ -13,13 +13,19 @@ struct WineSortPicker: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        List {
-            ForEach(wineSorts, id: \.self) { wineSort in
-                Button(action: {
-                    selectedWineSort = wineSort
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text(wineSort)
+        if wineSorts.isEmpty {
+            Text("Список сортов пуст")
+                .padding()
+                .foregroundColor(.gray)
+        } else {
+            List {
+                ForEach(wineSorts, id: \.self) { wineSort in
+                    Button(action: {
+                        selectedWineSort = wineSort
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text(wineSort)
+                    }
                 }
             }
         }
@@ -70,9 +76,6 @@ struct FiltersView: View {
         }
     }
 }
-
-
-
 
 
 //struct FiltersView_Previews: PreviewProvider {
