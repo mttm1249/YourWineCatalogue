@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct BottlesCatalogueView: View {
-    @StateObject var viewModel: BottlesCatalogueViewModel
+    @EnvironmentObject var viewModel: BottlesCatalogueViewModel
     @State private var showingAlert = false
     @State private var isFiltersViewActive: Bool = false
     
@@ -27,7 +27,12 @@ struct BottlesCatalogueView: View {
                         .font(.system(size: 14))
                 }
                 .background(
-                    NavigationLink("", destination: FiltersView(), isActive: $isFiltersViewActive)
+                    NavigationLink(
+                         "",
+                         destination: FiltersView()
+                             .environmentObject(viewModel),
+                         isActive: $isFiltersViewActive
+                     )
                         .opacity(0)
                 )
                 Text("|")
@@ -45,7 +50,7 @@ struct BottlesCatalogueView: View {
                     HStack {
                         Text("Записи отсутствуют")
                             .font(.headline)
-                            .foregroundColor(Pallete.textColor)
+                            .foregroundColor(.gray)
                     }
                     Spacer()
                 }
@@ -119,8 +124,8 @@ struct BottlesCatalogueView: View {
     }
 }
 
-struct BottlesCatalogueScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        BottlesCatalogueView(viewModel: BottlesCatalogueViewModel(context: CoreDataManager.managedContext))
-    }
-}
+//struct BottlesCatalogueScreenView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BottlesCatalogueView(viewModel: BottlesCatalogueViewModel(context: CoreDataManager.managedContext))
+//    }
+//}

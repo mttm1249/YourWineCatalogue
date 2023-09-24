@@ -10,6 +10,8 @@ import SwiftUI
 struct MainScreenView: View {
     @State var showSaveBanner = false
     @State var offset: CGFloat = 300
+    @EnvironmentObject var viewModel: BottlesCatalogueViewModel
+
 
     var body: some View {
         NavigationView {
@@ -21,9 +23,9 @@ struct MainScreenView: View {
                     .padding(.bottom, 150)
                 CustomButton(destination: NewBottleScreen(showSaveBanner: $showSaveBanner),
                                             imageName: "plus")
-                CustomButton(destination: BottlesCatalogueView(viewModel: BottlesCatalogueViewModel(context: CoreDataManager.managedContext))
-,
-                             imageName: "list.star")
+                CustomButton(destination: BottlesCatalogueView()
+                                       .environmentObject(viewModel),
+                                    imageName: "list.star")
                     .padding(.bottom, 150)
                 Spacer()
             }

@@ -16,6 +16,15 @@ class BottlesCatalogueViewModel: ObservableObject {
     var bottleToDelete: Bottle? = nil
     var managedObjectContext: NSManagedObjectContext
     
+    var wineSorts: [String] {
+        Set(bottles.compactMap { $0.wineSort }).sorted()
+    }
+    @Published var selectedWineSort: String? {
+         didSet {
+             applyFilters() 
+         }
+     }
+    
     init(context: NSManagedObjectContext) {
         self.managedObjectContext = context
         fetchBottles()
@@ -33,26 +42,36 @@ class BottlesCatalogueViewModel: ObservableObject {
     }
 
     func applyFilters() {
-        let lowercasedSearchText = self.searchText.lowercased()
-        filteredBottles = bottles.filter { bottle in
-            guard let bottleName = bottle.name else { return false }
-            
-            let isNameMatching = lowercasedSearchText.isEmpty ? true : bottleName.lowercased().contains(lowercasedSearchText)
-            
-            let isColorMatching: Bool
-            switch selectedSegment {
-            case 0:
-                isColorMatching = (bottle.wineColor == 0)
-            case 1:
-                isColorMatching = (bottle.wineColor == 1)
-            case 2:
-                isColorMatching = (bottle.wineColor == 2)
-            default:
-                isColorMatching = true
-            }
-            return isNameMatching && isColorMatching
-        }
-    }
+          let lowercasedSearchText = self.searchText.lowercased()
+          filteredBottles = bottles.filter { bottle in
+              guard let bottleName = bottle.name else { return false }
+              
+              let isNameMatching = lowercasedSearchText.isEmpty ? true : bottleName.lowercased().contains(lowercasedSearchText)
+              
+              let isColorMatching: Bool
+              switch selectedSegment {
+              case 0:
+                  isColorMatching = (bottle.wineColor == 0)
+              case 1:
+                  isColorMatching = (bottle.wineColor == 1)
+              case 2:
+                  isColorMatching = (bottle.wineColor == 2)
+              default:
+                  isColorMatching = true
+              }
+              
+              let isSortMatching: Bool
+              if let selectedSort = selectedWineSort, let wineSort = bottle.wineSort {
+                  isSortMatching = wineSort.contains(selectedSort)
+              } else {
+                  isSortMatching = true
+              }
+              
+              return isNameMatching && isColorMatching && isSortMatching
+          }
+        print("Applying filters with selectedWineSort: \(String(describing: selectedWineSort))")
+           print("Filtered bottles count: \(filteredBottles.count)")
+      }
     
     func deleteBottle(_ bottle: Bottle) {
         managedObjectContext.delete(bottle)
