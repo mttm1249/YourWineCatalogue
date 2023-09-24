@@ -37,8 +37,6 @@ struct BottlePhotoView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
-//            .offset(y: -36)
-//            Spacer()
         }
     }
 }
