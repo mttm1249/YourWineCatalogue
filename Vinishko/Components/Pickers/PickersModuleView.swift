@@ -34,8 +34,6 @@ struct PickersModuleView: View {
     @Binding var selectedRegion: String?
     @Binding var selectedGrapeVarieties: [String]
     
-    
-    
     init(
           selectedCountry: Binding<Country?>,
           selectedRegion: Binding<String?>,
@@ -60,14 +58,14 @@ struct PickersModuleView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            OptionButtonView(header: "Сорт", text: $selectedGrapeVarietiesString) {
+            OptionButton(header: "Сорт", text: $selectedGrapeVarietiesString) {
                 activeSheet = .grapeVarietiesPicker
             }
             .onChange(of: selectedGrapeVarieties) { newValue in
                 selectedGrapeVarietiesString = newValue.map { $0.localize() }.joined(separator: ", ")
             }
             
-            OptionButtonView(header: "Страна", text: $selectedCountryName) {
+            OptionButton(header: "Страна", text: $selectedCountryName) {
                 activeSheet = .countryPicker
                 selectedRegion = nil
             }
@@ -75,7 +73,7 @@ struct PickersModuleView: View {
                 selectedCountryName = newValue.map { Locale.current.localizedString(forRegionCode: $0.code) ?? $0.code }
             }
             
-            OptionButtonView(header: "Регион", text: $selectedRegion) {
+            OptionButton(header: "Регион", text: $selectedRegion) {
                 activeSheet = .regionPicker
             }
             .onChange(of: selectedRegion) { newValue in
@@ -95,5 +93,3 @@ struct PickersModuleView: View {
         }
     }
 }
-
-

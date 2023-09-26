@@ -21,7 +21,7 @@
 		DA2C2B392A9DF30700C6680D /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B382A9DF30700C6680D /* FiltersView.swift */; };
 		DA2C2B3B2A9DF4E800C6680D /* SegmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */; };
 		DA2C2B3F2A9E119900C6680D /* TextEditorStandart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B3E2A9E119900C6680D /* TextEditorStandart.swift */; };
-		DA37DAEF2A9F740C006D3717 /* OptionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37DAEE2A9F740C006D3717 /* OptionButtonView.swift */; };
+		DA37DAEF2A9F740C006D3717 /* OptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37DAEE2A9F740C006D3717 /* OptionButton.swift */; };
 		DA3A2D642A9CBE3D00FEFBE1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D632A9CBE3D00FEFBE1 /* CoreDataManager.swift */; };
 		DA3A2D662A9CC2B100FEFBE1 /* BottleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D652A9CC2B100FEFBE1 /* BottleCell.swift */; };
 		DA4D2DE12AA3088800C78495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA4D2DE02AA3088800C78495 /* GoogleService-Info.plist */; };
@@ -72,7 +72,7 @@
 		DA2C2B382A9DF30700C6680D /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPicker.swift; sourceTree = "<group>"; };
 		DA2C2B3E2A9E119900C6680D /* TextEditorStandart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorStandart.swift; sourceTree = "<group>"; };
-		DA37DAEE2A9F740C006D3717 /* OptionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButtonView.swift; sourceTree = "<group>"; };
+		DA37DAEE2A9F740C006D3717 /* OptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButton.swift; sourceTree = "<group>"; };
 		DA3A2D632A9CBE3D00FEFBE1 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DA3A2D652A9CC2B100FEFBE1 /* BottleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleCell.swift; sourceTree = "<group>"; };
 		DA4D2DE02AA3088800C78495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				DA7CCBC12A543DCE00C5876D /* CustomButton.swift */,
-				DA37DAEE2A9F740C006D3717 /* OptionButtonView.swift */,
+				DA37DAEE2A9F740C006D3717 /* OptionButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -455,7 +455,7 @@
 				DA6556AF2AA1ED0600D8427C /* String + Ext.swift in Sources */,
 				DA8FF5EE2AA4AB2500DBAE6C /* MigrationService.swift in Sources */,
 				DA7CCBC52A54410E00C5876D /* Pallete.swift in Sources */,
-				DA37DAEF2A9F740C006D3717 /* OptionButtonView.swift in Sources */,
+				DA37DAEF2A9F740C006D3717 /* OptionButton.swift in Sources */,
 				DA0355A52AA072EA002EBA77 /* PickersModuleView.swift in Sources */,
 				DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */,
 				DA2C2B3B2A9DF4E800C6680D /* SegmentPicker.swift in Sources */,
@@ -614,7 +614,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
@@ -652,7 +652,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;

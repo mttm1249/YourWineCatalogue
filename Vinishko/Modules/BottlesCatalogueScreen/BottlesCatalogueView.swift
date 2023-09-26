@@ -15,13 +15,6 @@ struct BottlesCatalogueView: View {
     
     var body: some View {
         VStack {
-            if viewModel.isLoading {
-                // Отображаем индикатор загрузки, когда данные загружаются
-                ProgressView()
-                    .scaleEffect(2)
-                    .padding()
-            } else {
-                // Отображаем основной контент, когда загрузка завершена
                 VStack {
                     SearchBarView(text: $viewModel.searchText)
                         .onChange(of: viewModel.searchText) { _ in
@@ -100,7 +93,6 @@ struct BottlesCatalogueView: View {
                         }
                     }
                 }
-            }
         }
         .navigationTitle("Каталог дегустаций")
         .toolbar {

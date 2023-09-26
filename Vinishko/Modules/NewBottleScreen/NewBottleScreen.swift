@@ -16,7 +16,6 @@ struct NewBottleScreen: View {
     @State private var image: UIImage = UIImage(named: "addImage") ?? UIImage()
     @State private var showActionSheet: Bool = false
 
-    
     @Binding var showSaveBanner: Bool
     @State private var showSheet = false
     @State private var bottleName: String = ""

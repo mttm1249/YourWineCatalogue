@@ -20,10 +20,20 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
     private var fetchedResultsController: NSFetchedResultsController<Bottle>!
     
     var wineSorts: [String] {
-        Set(fetchedResultsController.fetchedObjects?.compactMap { $0.wineSort } ?? []).sorted()
+        Set(filteredBottles.compactMap { $0.wineSort } ).sorted()
+    }
+
+    var placesOfPurchase: [String] {
+        Set(filteredBottles.compactMap { $0.placeOfPurchase } ).sorted()
     }
     
     @Published var selectedWineSort: String? {
+        didSet {
+            applyFilters()
+        }
+    }
+    
+    @Published var selectedPlace: String? {
         didSet {
             applyFilters()
         }
@@ -37,7 +47,6 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
     }
     
     func setupFetchedResultsController() {
-        isLoading = true // начинаем загрузку
         let fetchRequest: NSFetchRequest<Bottle> = Bottle.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createDate", ascending: false)]
         
@@ -48,13 +57,10 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
             cacheName: nil
         )
         fetchedResultsController.delegate = self
-        
         do {
             try fetchedResultsController.performFetch()
-            isLoading = false // завершаем загрузку
         } catch let error as NSError {
             print("Не удалось извлечь данные. Ошибка: \(error), \(error.userInfo)")
-            isLoading = false // завершаем загрузку, даже если произошла ошибка
         }
     }
     
@@ -84,7 +90,14 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
                 isSortMatching = true
             }
             
-            return isNameMatching && isColorMatching && isSortMatching
+            let isPlaceMatching: Bool
+            if let selectedPlace = selectedPlace, let placeOfPurchase = bottle.placeOfPurchase {
+                isPlaceMatching = placeOfPurchase.contains(selectedPlace)
+            } else {
+                isPlaceMatching = true
+            }
+
+            return isNameMatching && isColorMatching && isSortMatching && isPlaceMatching
         } ?? []
     }
     

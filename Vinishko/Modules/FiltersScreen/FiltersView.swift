@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+enum FiltersActiveSheet: Identifiable {
+    case wineSort, placeOfPurchase
+    
+    var id: Int {
+        hashValue
+    }
+}
+
 struct WineSortPicker: View {
     var wineSorts: [String]
     @Binding var selectedWineSort: String?
@@ -25,6 +33,33 @@ struct WineSortPicker: View {
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         Text(wineSort)
+                            .foregroundColor(Pallete.textColor)
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct PlaceOfPurchasePicker: View {
+    var placesOfPurchase: [String]
+    @Binding var selectedPlace: String?
+    @Environment(\.presentationMode) var presentationMode
+    
+    var body: some View {
+        if placesOfPurchase.isEmpty {
+            Text("Список мест покупки пуст")
+                .padding()
+                .foregroundColor(.gray)
+        } else {
+            List {
+                ForEach(placesOfPurchase, id: \.self) { place in
+                    Button(action: {
+                        selectedPlace = place
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text(place)
+                            .foregroundColor(Pallete.textColor)
                     }
                 }
             }
@@ -35,52 +70,65 @@ struct WineSortPicker: View {
 struct FiltersView: View {
     @EnvironmentObject var viewModel: BottlesCatalogueViewModel
     @State private var selectedWineSort: String? = nil
-    @State private var showingWineSortPicker = false
+    @State private var selectedPlaceOfPurchase: String? = nil
+    @State private var selectedPicker: FiltersActiveSheet?
+    @State private var showingPicker = false
     
     var body: some View {
         VStack {
-            Button(action: {
-                showingWineSortPicker = true
-            }) {
-                HStack {
-                    Text("Сорт")
-                    Spacer()
-                    Text(selectedWineSort ?? "Не выбрано")
-                        .foregroundColor(.gray)
-                }
-                .padding()
+            OptionButton(header: "По сорту", text: $selectedWineSort) {
+                selectedPicker = .wineSort
+                showingPicker = true
             }
+            .onChange(of: selectedWineSort) { newValue in
+                selectedWineSort = newValue
+            }
+            
+            OptionButton(header: "По месту покупки", text: $selectedPlaceOfPurchase) {
+                selectedPicker = .placeOfPurchase
+                showingPicker = true
+            }
+            .onChange(of: selectedPlaceOfPurchase) { newValue in
+                selectedPlaceOfPurchase = newValue
+            }
+            
+            Spacer()
+            
             Button(action: {
                 // Сбрасываем значения фильтров
                 selectedWineSort = nil
+                selectedPlaceOfPurchase = nil
                 viewModel.selectedWineSort = nil
-                viewModel.selectedSegment = -1
-                // ... сброс других фильтров по аналогии
+                viewModel.selectedPlace = nil
             }) {
                 Text("Сбросить фильтры")
                     .foregroundColor(.red)
             }
         }
         .navigationTitle("Фильтры")
-        .sheet(isPresented: $showingWineSortPicker) {
-            let allSorts = viewModel.wineSorts.flatMap { $0.split(separator: ",").map(String.init) }.map { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
-            WineSortPicker(wineSorts: Array(Set(allSorts)).sorted(), selectedWineSort: $selectedWineSort)
-        }
-        .onChange(of: selectedWineSort) { newValue in
-            viewModel.selectedWineSort = newValue
+        .sheet(item: $selectedPicker) { item in
+            switch item {
+            case .wineSort:
+                let allSorts = viewModel.wineSorts.flatMap { $0.split(separator: ",").map(String.init) }.map { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
+                WineSortPicker(wineSorts: Array(Set(allSorts)).sorted(), selectedWineSort: $selectedWineSort)
+            case .placeOfPurchase:
+                let allPurchasePlaces = viewModel.placesOfPurchase
+                PlaceOfPurchasePicker(placesOfPurchase: allPurchasePlaces, selectedPlace: $selectedPlaceOfPurchase)
+            }
         }
         .onAppear {
             if selectedWineSort == nil {
                 selectedWineSort = viewModel.selectedWineSort
             }
+            if selectedPlaceOfPurchase == nil {
+                selectedPlaceOfPurchase = viewModel.selectedPlace
+            }
+        }
+        .onChange(of: selectedWineSort) { newValue in
+            viewModel.selectedWineSort = newValue
+        }
+        .onChange(of: selectedPlaceOfPurchase) { newValue in
+            viewModel.selectedPlace = newValue
         }
     }
 }
-
-
-//struct FiltersView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FiltersView(viewModel: BottlesCatalogueViewModel(context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)))
-//    }
-//}
-
