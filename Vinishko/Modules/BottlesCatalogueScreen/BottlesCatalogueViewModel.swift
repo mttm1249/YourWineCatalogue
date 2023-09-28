@@ -13,26 +13,32 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
     private var fetchedResultsController: NSFetchedResultsController<Bottle>!
     var managedObjectContext: NSManagedObjectContext
     
-    var filteredBottles: [Bottle] = []
-    var searchText: String = ""
-    var selectedSegment: Int = -1
-    var bottleToDelete: Bottle? = nil
-   
+    @Published var filteredBottles: [Bottle] = []
+    @Published var searchText: String = ""
+    @Published var selectedSegment: Int = -1
+    @Published var bottleToDelete: Bottle? = nil
+    
     var wineSorts: [String] {
         Set(filteredBottles.compactMap { $0.wineSort } ).sorted()
     }
-   
+    
     var placesOfPurchase: [String] {
         Set(filteredBottles.compactMap { $0.placeOfPurchase } ).sorted()
     }
-   
+    
     var selectedWineSort: String? {
         didSet {
             applyFilters()
         }
     }
- 
+    
     var selectedPlace: String? {
+        didSet {
+            applyFilters()
+        }
+    }
+    
+    var selectedType: Int16? {
         didSet {
             applyFilters()
         }
@@ -82,6 +88,18 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
                 isColorMatching = true
             }
             
+            let isTypeMatching: Bool
+            switch selectedType {
+            case 0:
+                isTypeMatching = (bottle.wineType == 0)
+            case 1:
+                isTypeMatching = (bottle.wineType == 1)
+            case 2:
+                isTypeMatching = (bottle.wineType == 2)
+            default:
+                isTypeMatching = true
+            }
+            
             let isSortMatching: Bool
             if let selectedSort = selectedWineSort, let wineSort = bottle.wineSort {
                 isSortMatching = wineSort.contains(selectedSort)
@@ -96,7 +114,7 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
                 isPlaceMatching = true
             }
             
-            return isNameMatching && isColorMatching && isSortMatching && isPlaceMatching
+            return isNameMatching && isColorMatching && isSortMatching && isPlaceMatching && isTypeMatching
         } ?? []
     }
     

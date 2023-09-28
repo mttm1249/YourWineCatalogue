@@ -21,9 +21,9 @@ struct MainScreenView: View {
                     .font(.title).bold()
                     .foregroundColor(Pallete.mainColor)
                     .padding(.bottom, 150)
-                CustomButton(destination: NewBottleScreen(showSaveBanner: $showSaveBanner),
+                NavigationButton(destination: NewBottleScreen(showSaveBanner: $showSaveBanner),
                                             imageName: "plus")
-                CustomButton(destination: BottlesCatalogueView()
+                NavigationButton(destination: BottlesCatalogueView()
                                        .environmentObject(viewModel),
                                     imageName: "list.star")
                     .padding(.bottom, 150)

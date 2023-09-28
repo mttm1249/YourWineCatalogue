@@ -21,7 +21,6 @@
 		DA2C2B392A9DF30700C6680D /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B382A9DF30700C6680D /* FiltersView.swift */; };
 		DA2C2B3B2A9DF4E800C6680D /* SegmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */; };
 		DA2C2B3F2A9E119900C6680D /* TextEditorStandart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B3E2A9E119900C6680D /* TextEditorStandart.swift */; };
-		DA37DAEF2A9F740C006D3717 /* OptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37DAEE2A9F740C006D3717 /* OptionButton.swift */; };
 		DA3A2D642A9CBE3D00FEFBE1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D632A9CBE3D00FEFBE1 /* CoreDataManager.swift */; };
 		DA3A2D662A9CC2B100FEFBE1 /* BottleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D652A9CC2B100FEFBE1 /* BottleCell.swift */; };
 		DA4D2DE12AA3088800C78495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA4D2DE02AA3088800C78495 /* GoogleService-Info.plist */; };
@@ -39,7 +38,7 @@
 		DA7CCBAD2A543B9E00C5876D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7CCBAC2A543B9E00C5876D /* Preview Assets.xcassets */; };
 		DA7CCBB22A543B9E00C5876D /* Vinishko.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBB02A543B9E00C5876D /* Vinishko.xcdatamodeld */; };
 		DA7CCBC02A543DBA00C5876D /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBBF2A543DBA00C5876D /* MainScreenView.swift */; };
-		DA7CCBC22A543DCE00C5876D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC12A543DCE00C5876D /* CustomButton.swift */; };
+		DA7CCBC22A543DCE00C5876D /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC12A543DCE00C5876D /* Buttons.swift */; };
 		DA7CCBC52A54410E00C5876D /* Pallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC42A54410E00C5876D /* Pallete.swift */; };
 		DA7CCBC72A54445600C5876D /* NewBottleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC62A54445600C5876D /* NewBottleScreen.swift */; };
 		DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */; };
@@ -71,7 +70,6 @@
 		DA2C2B382A9DF30700C6680D /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPicker.swift; sourceTree = "<group>"; };
 		DA2C2B3E2A9E119900C6680D /* TextEditorStandart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorStandart.swift; sourceTree = "<group>"; };
-		DA37DAEE2A9F740C006D3717 /* OptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButton.swift; sourceTree = "<group>"; };
 		DA3A2D632A9CBE3D00FEFBE1 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DA3A2D652A9CC2B100FEFBE1 /* BottleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleCell.swift; sourceTree = "<group>"; };
 		DA4D2DE02AA3088800C78495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -92,7 +90,7 @@
 		DA7CCBB12A543B9E00C5876D /* Vinishko.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Vinishko.xcdatamodel; sourceTree = "<group>"; };
 		DA7CCBB32A543B9E00C5876D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA7CCBBF2A543DBA00C5876D /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
-		DA7CCBC12A543DCE00C5876D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		DA7CCBC12A543DCE00C5876D /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		DA7CCBC42A54410E00C5876D /* Pallete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pallete.swift; sourceTree = "<group>"; };
 		DA7CCBC62A54445600C5876D /* NewBottleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBottleScreen.swift; sourceTree = "<group>"; };
 		DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStandart.swift; sourceTree = "<group>"; };
@@ -176,8 +174,7 @@
 		DA0886892AB75BD800743CE7 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				DA7CCBC12A543DCE00C5876D /* CustomButton.swift */,
-				DA37DAEE2A9F740C006D3717 /* OptionButton.swift */,
+				DA7CCBC12A543DCE00C5876D /* Buttons.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -421,7 +418,7 @@
 			files = (
 				DA549CE42AB42C3900F6398D /* LocalizationManager.swift in Sources */,
 				DAE4DA752AA2079E00853426 /* CountryPicker.swift in Sources */,
-				DA7CCBC22A543DCE00C5876D /* CustomButton.swift in Sources */,
+				DA7CCBC22A543DCE00C5876D /* Buttons.swift in Sources */,
 				DA2C2B362A9DE05200C6680D /* BottleDetailsView.swift in Sources */,
 				DAE2558A2AACB1F50004C707 /* RatingView.swift in Sources */,
 				DA549CE62AB42EE500F6398D /* InfoBubbles.swift in Sources */,
@@ -451,7 +448,6 @@
 				DA6556AF2AA1ED0600D8427C /* String + Ext.swift in Sources */,
 				DA8FF5EE2AA4AB2500DBAE6C /* MigrationService.swift in Sources */,
 				DA7CCBC52A54410E00C5876D /* Pallete.swift in Sources */,
-				DA37DAEF2A9F740C006D3717 /* OptionButton.swift in Sources */,
 				DA0355A52AA072EA002EBA77 /* PickersModuleView.swift in Sources */,
 				DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */,
 				DA2C2B3B2A9DF4E800C6680D /* SegmentPicker.swift in Sources */,
