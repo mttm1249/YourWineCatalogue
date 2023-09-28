@@ -26,6 +26,10 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         Set(filteredBottles.compactMap { $0.placeOfPurchase } ).sorted()
     }
     
+    var wineTypes: [Int16] {
+        Set(filteredBottles.compactMap { $0.wineType } ).sorted()
+    }
+    
     var selectedWineSort: String? {
         didSet {
             applyFilters()
@@ -118,7 +122,7 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         } ?? []
     }
     
-    // NSFetchedResultsControllerDelegate
+    // NSFetchedResultsControllerDelegate method for auto update ui
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         applyFilters()
     }

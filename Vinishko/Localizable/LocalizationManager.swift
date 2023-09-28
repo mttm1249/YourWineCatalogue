@@ -23,4 +23,21 @@ class LocalizationManager {
         }
         return ""
     }
+    
+    func getWineType(_ name: Int16?) -> String {
+        guard let name = name else {
+            return ""
+        }
+        
+        switch name {
+        case 0:
+            return "Тихое"
+        case 1:
+            return "Игристое"
+        case 2:
+            return "Другое"
+        default:
+            return ""
+        }
+    }
 }

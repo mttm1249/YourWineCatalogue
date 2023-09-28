@@ -54,9 +54,14 @@ struct OptionButton: View {
     }
 }
 
+enum FilterButtonType {
+    case string(Binding<String?>)
+    case int(Binding<Int16?>)
+}
+
 struct FilterButton: View {
     var header: String
-    @Binding var selectedFilter: String?
+    var filterType: FilterButtonType
     var action: () -> Void
     
     var body: some View {
@@ -66,21 +71,43 @@ struct FilterButton: View {
                 .foregroundColor(.gray)
             
             HStack {
-                if let text = selectedFilter, !text.isEmpty {
-                    Button(action: {
-                        HapticFeedbackService.generateFeedback(style: .light)
-                        selectedFilter = nil
-                    }) {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundColor(.red)
-                            .padding(.trailing, 8)
+                switch filterType {
+                case .string(let selectedFilter):
+                    if let text = selectedFilter.wrappedValue, !text.isEmpty {
+                        Button(action: {
+                            HapticFeedbackService.generateFeedback(style: .light)
+                            selectedFilter.wrappedValue = nil
+                        }) {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(Pallete.mainColor)
+                                .padding(.trailing, 8)
+                        }
+                    }
+                case .int(let selectedFilter):
+                    if LocalizationManager.shared.getWineType(selectedFilter.wrappedValue) != "" {
+                        Button(action: {
+                            HapticFeedbackService.generateFeedback(style: .light)
+                            selectedFilter.wrappedValue = nil
+                        }) {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(Pallete.mainColor)
+                                .padding(.trailing, 8)
+                        }
                     }
                 }
                 
                 Button(action: action) {
                     HStack {
-                        Text(selectedFilter ?? "")
-                            .foregroundColor(Pallete.textColor)
+                        switch filterType {
+                        case .string(let selectedFilter):
+                            Text(selectedFilter.wrappedValue ?? "")
+                                .foregroundColor(Pallete.textColor)
+                        case .int(let selectedFilter):
+                            let wineTypeText = LocalizationManager.shared.getWineType(selectedFilter.wrappedValue)
+                            Text(wineTypeText)
+                                .foregroundColor(Pallete.textColor)
+                        }
+                        
                         Spacer()
                         Image(systemName: "chevron.down")
                             .padding(.trailing, 8)
@@ -106,8 +133,8 @@ struct Buttons_Previews: PreviewProvider {
             OptionButton(header: "Страна", text: .constant("")) {
                 print("Button Tapped")
             }
-            FilterButton(header: "Filter by", selectedFilter: .constant("")) {
-                print("Button Tapped")
+            FilterButton(header: "Filter", filterType: .string(.constant("123"))) {
+                print("123")
             }
         }
     }
