@@ -70,35 +70,35 @@ struct BottleDetailsView: View {
     }
 }
 
-struct BottleDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        let previewContext = NSManagedObjectContext.preview
-        let bottle = Bottle(context: previewContext)
-        bottle.name = "Test Bottle With Loong Naming "
-        bottle.wineSort = "Wine sort"
-        bottle.bottleDescription = "This is a test description."
-        bottle.wineSugar = 1
-        
-        return BottleDetailsView(viewModel: BottleDetailsViewModel(), bottle: bottle)
-    }
-}
-
-extension NSManagedObjectContext {
-    static var preview: NSManagedObjectContext {
-        let container = NSPersistentContainer(name: "Bottle")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        
-        let context = container.viewContext
-        
-        let newBottle = Bottle(context: context)
-        newBottle.name = "Sample Bottle"
-    
-        
-        return context
-    }
-}
+//struct BottleDetailsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let previewContext = NSManagedObjectContext.preview
+//        let bottle = Bottle(context: previewContext)
+//        bottle.name = "Test Bottle With Loong Naming "
+//        bottle.wineSort = "Wine sort"
+//        bottle.bottleDescription = "This is a test description."
+//        bottle.wineSugar = 1
+//        
+//        return BottleDetailsView(viewModel: BottleDetailsViewModel(), bottle: bottle)
+//    }
+//}
+//
+//extension NSManagedObjectContext {
+//    static var preview: NSManagedObjectContext {
+//        let container = NSPersistentContainer(name: "Bottle")
+//        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+//            if let error = error as NSError? {
+//                fatalError("Unresolved error \(error), \(error.userInfo)")
+//            }
+//        })
+//        
+//        let context = container.viewContext
+//        
+//        let newBottle = Bottle(context: context)
+//        newBottle.name = "Sample Bottle"
+//    
+//        
+//        return context
+//    }
+//}
 

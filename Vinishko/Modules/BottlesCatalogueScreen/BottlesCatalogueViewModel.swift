@@ -10,30 +10,29 @@ import UIKit
 
 class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
     
-    @Published var filteredBottles: [Bottle] = []
-    @Published var searchText: String = ""
-    @Published var selectedSegment: Int = -1
-    @Published var isLoading: Bool = false
-    var bottleToDelete: Bottle? = nil
+    private var fetchedResultsController: NSFetchedResultsController<Bottle>!
     var managedObjectContext: NSManagedObjectContext
     
-    private var fetchedResultsController: NSFetchedResultsController<Bottle>!
-    
+    var filteredBottles: [Bottle] = []
+    var searchText: String = ""
+    var selectedSegment: Int = -1
+    var bottleToDelete: Bottle? = nil
+   
     var wineSorts: [String] {
         Set(filteredBottles.compactMap { $0.wineSort } ).sorted()
     }
-
+   
     var placesOfPurchase: [String] {
         Set(filteredBottles.compactMap { $0.placeOfPurchase } ).sorted()
     }
-    
-    @Published var selectedWineSort: String? {
+   
+    var selectedWineSort: String? {
         didSet {
             applyFilters()
         }
     }
-    
-    @Published var selectedPlace: String? {
+ 
+    var selectedPlace: String? {
         didSet {
             applyFilters()
         }
@@ -46,7 +45,7 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         applyFilters()
     }
     
-    func setupFetchedResultsController() {
+    private func setupFetchedResultsController() {
         let fetchRequest: NSFetchRequest<Bottle> = Bottle.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createDate", ascending: false)]
         
@@ -96,7 +95,7 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
             } else {
                 isPlaceMatching = true
             }
-
+            
             return isNameMatching && isColorMatching && isSortMatching && isPlaceMatching
         } ?? []
     }
