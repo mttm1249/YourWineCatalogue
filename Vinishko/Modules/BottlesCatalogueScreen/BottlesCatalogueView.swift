@@ -15,84 +15,87 @@ struct BottlesCatalogueView: View {
     
     var body: some View {
         VStack {
-                VStack {
-                    SearchBarView(text: $viewModel.searchText)
-                        .onChange(of: viewModel.searchText) { _ in
-                            viewModel.applyFilters()
-                        }
-                    HStack {
-                        Button(action: {
-                            self.isFiltersViewActive = true
-                        }) {
-                            Text("Фильтры")
-                                .font(.system(size: 14))
-                        }
-                        .background(
-                            NavigationLink(
-                                 "",
-                                 destination: FiltersView()
-                                     .environmentObject(viewModel),
-                                 isActive: $isFiltersViewActive
-                             )
-                                .opacity(0)
-                        )
-                        Text("|")
-                            .foregroundColor(.gray)
-                        SegmentedControl(selectedSegment: $viewModel.selectedSegment, titles: ["Красное", "Белое", "Другие"])
-                    }
-                    .onChange(of: viewModel.selectedSegment) { _ in
+            VStack {
+                SearchBarView(text: $viewModel.searchText)
+                    .onChange(of: viewModel.searchText) { _ in
                         viewModel.applyFilters()
                     }
-                    .padding()
-                    Spacer()
-                    if viewModel.filteredBottles.isEmpty {
-                        VStack {
-                            Spacer()
-                            HStack {
-                                Text("Записи отсутствуют")
-                                    .font(.headline)
-                                    .foregroundColor(.gray)
-                            }
-                            Spacer()
+                HStack {
+                    Button(action: {
+                        self.isFiltersViewActive = true
+                    }) {
+                        Text("Фильтры")
+                            .font(.system(size: 14))
+                    }
+                    .background(
+                        NavigationLink(
+                            "",
+                            destination: FiltersView()
+                                .environmentObject(viewModel),
+                            isActive: $isFiltersViewActive
+                        )
+                        .opacity(0)
+                    )
+                    Text("|")
+                        .foregroundColor(.gray)
+                    SegmentedControl(selectedSegment: $viewModel.selectedSegment, titles: ["Красное", "Белое", "Другие"])
+                }
+                .onChange(of: viewModel.selectedSegment) { _ in
+                    viewModel.applyFilters()
+                    if viewModel.selectedSorting != 0 {
+                        viewModel.applySorting()
+                    }
+                }
+                .padding()
+                Spacer()
+                if viewModel.filteredBottles.isEmpty {
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Text("Записи отсутствуют")
+                                .font(.headline)
+                                .foregroundColor(.gray)
                         }
-                    } else {
-                        ScrollView {
-                            LazyVStack(alignment: .leading) {
-                                ForEach(viewModel.filteredBottles, id: \.self) { bottle in
-                                    NavigationLink(destination: BottleDetailsView(viewModel: BottleDetailsViewModel(), bottle: bottle)) {
-                                        BottleCell(
-                                            name: bottle.name ?? "",
-                                            bottleImage: viewModel.getBottleImage(for: bottle),
-                                            bottleDescription: bottle.bottleDescription ?? "",
-                                            wineCountry: LocalizationManager.shared.getWineCountry(from: bottle.wineCountry),
-                                            wineSort: bottle.wineSort ?? "",
-                                            wineColor: bottle.wineColor,
-                                            wineType: bottle.wineType,
-                                            wineSugar: bottle.wineSugar,
-                                            price: bottle.price ?? "",
-                                            rating: bottle.doubleRating
-                                        ) {
-                                            self.viewModel.bottleToDelete = bottle
-                                            self.showingAlert = true
-                                        }
+                        Spacer()
+                    }
+                } else {
+                    ScrollView {
+                        LazyVStack(alignment: .leading) {
+                            ForEach(viewModel.filteredBottles, id: \.self) { bottle in
+                                NavigationLink(destination: BottleDetailsView(viewModel: BottleDetailsViewModel(), bottle: bottle)) {
+                                    BottleCell(
+                                        name: bottle.name ?? "",
+                                        bottleImage: viewModel.getBottleImage(for: bottle),
+                                        bottleDescription: bottle.bottleDescription ?? "",
+                                        wineCountry: LocalizationManager.shared.getWineCountry(from: bottle.wineCountry),
+                                        wineSort: bottle.wineSort ?? "",
+                                        wineColor: bottle.wineColor,
+                                        wineType: bottle.wineType,
+                                        wineSugar: bottle.wineSugar,
+                                        price: bottle.price ?? "",
+                                        rating: bottle.doubleRating
+                                    ) {
+                                        self.viewModel.bottleToDelete = bottle
+                                        self.showingAlert = true
                                     }
                                 }
                             }
                         }
-                        .alert(isPresented: $showingAlert) {
-                            Alert(title: Text("Вы уверены?"),
-                                  message: Text("Вы действительно хотите удалить эту бутылку?"),
-                                  primaryButton: .destructive(Text("Удалить")) {
+                    }
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Вы уверены?"),
+                              message: Text("Вы действительно хотите удалить эту бутылку?"),
+                              primaryButton: .destructive(Text("Удалить")) {
                             if let bottle = viewModel.bottleToDelete {
                                 viewModel.deleteBottle(bottle)
                             }
                             HapticFeedbackService.generateFeedback(style: .success)
                         },
-                                  secondaryButton: .cancel(Text("Отмена"))
-                            )
-                        }
+                              secondaryButton: .cancel(Text("Отмена"))
+                        )
                     }
                 }
+            }
         }
         .navigationTitle("Каталог дегустаций")
         .toolbar {

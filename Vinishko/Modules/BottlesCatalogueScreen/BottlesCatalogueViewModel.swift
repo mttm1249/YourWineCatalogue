@@ -71,7 +71,25 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         applyFilters()
     }
     
-    private func applySorting() {
+    private func setupFetchedResultsController() {
+        let fetchRequest: NSFetchRequest<Bottle> = Bottle.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createDate", ascending: false)]
+        
+        fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: managedObjectContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
+        fetchedResultsController.delegate = self
+        do {
+            try fetchedResultsController.performFetch()
+        } catch let error as NSError {
+            print("Не удалось извлечь данные. Ошибка: \(error), \(error.userInfo)")
+        }
+    }
+    
+     func applySorting() {
         let sortedBottles: [Bottle]
         switch selectedSorting {
         case 0:
@@ -102,24 +120,6 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         self.filteredBottles = sortedBottles
     }
 
-    private func setupFetchedResultsController() {
-        let fetchRequest: NSFetchRequest<Bottle> = Bottle.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createDate", ascending: false)]
-        
-        fetchedResultsController = NSFetchedResultsController(
-            fetchRequest: fetchRequest,
-            managedObjectContext: managedObjectContext,
-            sectionNameKeyPath: nil,
-            cacheName: nil
-        )
-        fetchedResultsController.delegate = self
-        do {
-            try fetchedResultsController.performFetch()
-        } catch let error as NSError {
-            print("Не удалось извлечь данные. Ошибка: \(error), \(error.userInfo)")
-        }
-    }
-    
     func applyFilters() {
         let lowercasedSearchText = searchText.lowercased()
         filteredBottles = fetchedResultsController.fetchedObjects?.filter { bottle in
