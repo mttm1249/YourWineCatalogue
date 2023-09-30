@@ -106,21 +106,16 @@ struct FiltersView: View {
     
     var body: some View {
         VStack(spacing: 12) {
-            VStack(alignment: .leading) {
-                FilterButton(header: "По сорту", filterType: .string($selectedWineSort)) {
-                    selectedPicker = .wineSort
-                    showingPicker = true
-                }
-                .onChange(of: selectedWineSort) { newValue in
-                    selectedWineSort = newValue
-                }
-                
-                FilterButton(header: "По месту покупки", filterType: .string($selectedPlaceOfPurchase)) {
-                    selectedPicker = .placeOfPurchase
-                    showingPicker = true
-                }
-                .onChange(of: selectedPlaceOfPurchase) { newValue in
-                    selectedPlaceOfPurchase = newValue
+                VStack(alignment: .leading) {
+                    Text("Сортировать по")
+                        .font(.system(size: 14)).bold()
+                        .foregroundColor(.gray)
+                        .padding(.horizontal, 24)
+                        .padding(.top, 12)
+                    SegmentedPicker(titles: ["Дате", "Рейтингу", "Цене"], selectedSegment: $selectedSorting)
+                        .onChange(of: selectedSorting) { newValue in
+                            selectedSorting = newValue
+                        }
                 }
                 
                 FilterButton(header: "По типу вина", filterType: .int($selectedWineType)) {
@@ -131,6 +126,26 @@ struct FiltersView: View {
                     selectedWineType = newValue
                 }
                 
+                FilterButton(header: "По сорту", filterType: .string($selectedWineSort)) {
+                    selectedPicker = .wineSort
+                    showingPicker = true
+                }
+                .onChange(of: selectedWineSort) { newValue in
+                    selectedWineSort = newValue
+                }
+                
+                // По стране
+              
+                // По региону
+                                
+                FilterButton(header: "По месту покупки", filterType: .string($selectedPlaceOfPurchase)) {
+                    selectedPicker = .placeOfPurchase
+                    showingPicker = true
+                }
+                .onChange(of: selectedPlaceOfPurchase) { newValue in
+                    selectedPlaceOfPurchase = newValue
+                }
+                
                 Spacer()
                 
                 Button(action: {
@@ -138,15 +153,16 @@ struct FiltersView: View {
                     // Сбрасываем значения фильтров
                     selectedWineSort = nil
                     selectedWineType = nil
+                    selectedSorting = 0
                     selectedPlaceOfPurchase = nil
                     viewModel.selectedWineSort = nil
                     viewModel.selectedPlace = nil
                     viewModel.selectedType = nil
+                    viewModel.selectedSorting = 0
                 }) {
                     Text("Сбросить")
                         .foregroundColor(.red)
                 }
-            }
             .navigationTitle("Сортировка и фильтры")
             .sheet(item: $selectedPicker) { item in
                 switch item {
@@ -171,6 +187,9 @@ struct FiltersView: View {
                 if selectedWineType == nil {
                     selectedWineType = viewModel.selectedType
                 }
+                if selectedSorting == 0 {
+                    selectedSorting = viewModel.selectedSorting
+                }
             }
             .onChange(of: selectedWineSort) { newValue in
                 viewModel.selectedWineSort = newValue
@@ -180,6 +199,9 @@ struct FiltersView: View {
             }
             .onChange(of: selectedWineType) { newValue in
                 viewModel.selectedType = newValue
+            }
+            .onChange(of: selectedSorting) { newValue in
+                viewModel.selectedSorting = newValue
             }
         }
     }

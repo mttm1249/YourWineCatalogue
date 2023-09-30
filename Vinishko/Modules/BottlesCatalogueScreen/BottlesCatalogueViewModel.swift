@@ -48,6 +48,12 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         }
     }
     
+    var selectedSorting = 0 {
+        didSet {
+            applySorting()
+        }
+    }
+    
     init(context: NSManagedObjectContext) {
         self.managedObjectContext = context
         super.init()
@@ -55,6 +61,37 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         applyFilters()
     }
     
+    private func applySorting() {
+        let sortedBottles: [Bottle]
+        switch selectedSorting {
+        case 0:
+            sortedBottles = filteredBottles.sorted { (bottle1, bottle2) in
+                if let date1 = bottle1.createDate, let date2 = bottle2.createDate {
+                    return date1 > date2
+                } else {
+                    return false
+                }
+            }
+        case 1:
+            sortedBottles = filteredBottles.sorted { (bottle1, bottle2) in
+                let doubleRating1 = bottle1.doubleRating
+                let doubleRating2 = bottle2.doubleRating
+                return doubleRating1 > doubleRating2
+            }
+        case 2:
+            sortedBottles = filteredBottles.sorted { (bottle1, bottle2) in
+                if let price1 = bottle1.price, let price2 = bottle2.price {
+                    return price1 < price2
+                } else {
+                    return false
+                }
+            }
+        default:
+            sortedBottles = filteredBottles
+        }
+        self.filteredBottles = sortedBottles
+    }
+
     private func setupFetchedResultsController() {
         let fetchRequest: NSFetchRequest<Bottle> = Bottle.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createDate", ascending: false)]
@@ -122,7 +159,7 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         } ?? []
     }
     
-    // NSFetchedResultsControllerDelegate method for auto update ui
+    // NSFetchedResultsControllerDelegate method for autoupdate ui
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         applyFilters()
     }

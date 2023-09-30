@@ -54,11 +54,15 @@ struct SegmentedPicker: View {
             .onAppear {
                 segmentOffset = calculateOffset(geometry: geometry, selectedIndex: selectedSegment)
             }
+            .onChange(of: selectedSegment) { newValue in
+                if newValue == 0 {
+                    segmentOffset = 1.0
+                }
+            }
         }
         .frame(height: 30)
         .padding(.horizontal, 24)
     }
-    
 }
 
 struct SegmentedPickerView: View {
