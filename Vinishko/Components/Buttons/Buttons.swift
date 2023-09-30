@@ -57,6 +57,7 @@ struct OptionButton: View {
 enum FilterButtonType {
     case string(Binding<String?>)
     case int(Binding<Int16?>)
+    case countryCode(Binding<String?>)
 }
 
 struct FilterButton: View {
@@ -94,6 +95,17 @@ struct FilterButton: View {
                                 .padding(.trailing, 8)
                         }
                     }
+                case .countryCode(let selectedFilter):
+                    if let text = selectedFilter.wrappedValue, !text.isEmpty {
+                        Button(action: {
+                            HapticFeedbackService.generateFeedback(style: .light)
+                            selectedFilter.wrappedValue = nil
+                        }) {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(Pallete.mainColor)
+                                .padding(.trailing, 8)
+                        }
+                    }
                 }
                 
                 Button(action: action) {
@@ -105,6 +117,10 @@ struct FilterButton: View {
                         case .int(let selectedFilter):
                             let wineTypeText = LocalizationManager.shared.getWineType(selectedFilter.wrappedValue)
                             Text(wineTypeText)
+                                .foregroundColor(Pallete.textColor)
+                        case .countryCode(let selectedFilter):
+                            let wineCountryText = LocalizationManager.shared.getWineCountry(from: selectedFilter.wrappedValue)
+                            Text(wineCountryText)
                                 .foregroundColor(Pallete.textColor)
                         }
                         

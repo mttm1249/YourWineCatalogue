@@ -64,7 +64,7 @@ struct BottlesCatalogueView: View {
                                             name: bottle.name ?? "",
                                             bottleImage: viewModel.getBottleImage(for: bottle),
                                             bottleDescription: bottle.bottleDescription ?? "",
-                                            wineCountry: LocalizationManager.shared.getWineCountry(for: bottle),
+                                            wineCountry: LocalizationManager.shared.getWineCountry(from: bottle.wineCountry),
                                             wineSort: bottle.wineSort ?? "",
                                             wineColor: bottle.wineColor,
                                             wineType: bottle.wineType,

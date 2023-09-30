@@ -30,7 +30,17 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         Set(filteredBottles.compactMap { $0.wineType } ).sorted()
     }
     
+    var wineCountries: [String] {
+        Set(filteredBottles.compactMap { $0.wineCountry } ).sorted()
+    }
+    
     var selectedWineSort: String? {
+        didSet {
+            applyFilters()
+        }
+    }
+    
+    var selectedWineCountry: String? {
         didSet {
             applyFilters()
         }
@@ -155,7 +165,14 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
                 isPlaceMatching = true
             }
             
-            return isNameMatching && isColorMatching && isSortMatching && isPlaceMatching && isTypeMatching
+            let isCountryMatching: Bool
+            if let selectedCountry = selectedWineCountry, let wineCountry = bottle.wineCountry {
+                isCountryMatching = wineCountry == selectedCountry
+            } else {
+                isCountryMatching = true
+            }
+            
+            return isNameMatching && isColorMatching && isSortMatching && isPlaceMatching && isTypeMatching && isCountryMatching
         } ?? []
     }
     

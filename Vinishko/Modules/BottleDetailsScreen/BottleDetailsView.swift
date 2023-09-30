@@ -41,7 +41,7 @@ struct BottleDetailsView: View {
                             firstItemBorderStyle: .thick(viewModel.getWineColor(for: bottle)))
                 
                 InfoBubbles(header: "Происхождение",
-                            content: [LocalizationManager.shared.getWineCountry(for: bottle),
+                            content: [LocalizationManager.shared.getWineCountry(from: bottle.wineCountry),
                                       bottle.wineRegion ?? ""])
                 
                 InfoBubbles(header: "Покупка",

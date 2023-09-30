@@ -11,6 +11,7 @@ enum FiltersActiveSheet: Identifiable {
     case wineSort
     case placeOfPurchase
     case wineType
+    case wineCountry
     
     var id: Int {
         hashValue
@@ -69,6 +70,32 @@ struct PlaceOfPurchasePicker: View {
     }
 }
 
+struct WineCountryPicker: View {
+    var wineCountries: [String]
+    @Binding var selectedCountry: String?
+    @Environment(\.presentationMode) var presentationMode
+    
+    var body: some View {
+        if wineCountries.isEmpty {
+            Text("Список стран пуст")
+                .padding()
+                .foregroundColor(.gray)
+        } else {
+            List {
+                ForEach(wineCountries, id: \.self) { country in
+                    Button(action: {
+                        selectedCountry = country
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text(LocalizationManager.shared.getWineCountry(from: country))
+                            .foregroundColor(Pallete.textColor)
+                    }
+                }
+            }
+        }
+    }
+}
+
 struct WineTypePicker: View {
     var wineTypes: [Int16]
     @Binding var selectedType: Int16?
@@ -98,6 +125,7 @@ struct WineTypePicker: View {
 struct FiltersView: View {
     @EnvironmentObject var viewModel: BottlesCatalogueViewModel
     @State private var selectedWineSort: String? = nil
+    @State private var selectedWineCountry: String? = nil
     @State private var selectedPlaceOfPurchase: String? = nil
     @State private var selectedWineType: Int16? = nil
     @State private var selectedPicker: FiltersActiveSheet?
@@ -134,7 +162,13 @@ struct FiltersView: View {
                     selectedWineSort = newValue
                 }
                 
-                // По стране
+            FilterButton(header: "По стране", filterType: .countryCode($selectedWineCountry)) {
+                selectedPicker = .wineCountry
+                showingPicker = true
+            }
+            .onChange(of: selectedWineCountry) { newValue in
+                selectedWineCountry = newValue
+            }
               
                 // По региону
                                 
@@ -154,11 +188,13 @@ struct FiltersView: View {
                     selectedWineSort = nil
                     selectedWineType = nil
                     selectedSorting = 0
+                    selectedWineCountry = nil
                     selectedPlaceOfPurchase = nil
                     viewModel.selectedWineSort = nil
                     viewModel.selectedPlace = nil
                     viewModel.selectedType = nil
                     viewModel.selectedSorting = 0
+                    viewModel.selectedWineCountry = nil
                 }) {
                     Text("Сбросить")
                         .foregroundColor(.red)
@@ -175,6 +211,9 @@ struct FiltersView: View {
                 case .wineType:
                     let allAvailableTypes = viewModel.wineTypes
                     WineTypePicker(wineTypes: allAvailableTypes, selectedType: $selectedWineType)
+                case .wineCountry:
+                    let allAvailableCountries = viewModel.wineCountries
+                    WineCountryPicker(wineCountries: allAvailableCountries, selectedCountry: $selectedWineCountry)
                 }
             }
             .onAppear {
@@ -190,6 +229,9 @@ struct FiltersView: View {
                 if selectedSorting == 0 {
                     selectedSorting = viewModel.selectedSorting
                 }
+                if selectedWineCountry == nil {
+                    selectedWineCountry = viewModel.selectedWineCountry
+                }
             }
             .onChange(of: selectedWineSort) { newValue in
                 viewModel.selectedWineSort = newValue
@@ -202,6 +244,9 @@ struct FiltersView: View {
             }
             .onChange(of: selectedSorting) { newValue in
                 viewModel.selectedSorting = newValue
+            }
+            .onChange(of: selectedWineCountry) { newValue in
+                viewModel.selectedWineCountry = newValue
             }
         }
     }

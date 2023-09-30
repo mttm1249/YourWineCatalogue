@@ -13,12 +13,12 @@ class LocalizationManager {
     
     private init() {}
     
-    func getWineCountry(for bottle: Bottle) -> String {
-        if let country = bottle.wineCountry {
-            if let localizedCountry = Locale.current.localizedString(forRegionCode: country) {
+    func getWineCountry(from country: String?) -> String {
+        if let countryCode = country {
+            if let localizedCountry = Locale.current.localizedString(forRegionCode: countryCode) {
                 return localizedCountry
             } else {
-                return country
+                return countryCode
             }
         }
         return ""
