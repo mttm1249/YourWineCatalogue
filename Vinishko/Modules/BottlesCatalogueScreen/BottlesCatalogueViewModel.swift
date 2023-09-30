@@ -34,6 +34,10 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         Set(filteredBottles.compactMap { $0.wineCountry } ).sorted()
     }
     
+    var wineRegions: [String] {
+        Set(filteredBottles.compactMap { $0.wineRegion } ).sorted()
+    }
+    
     var selectedWineSort: String? {
         didSet {
             applyFilters()
@@ -64,6 +68,12 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         }
     }
     
+    var selectedWineRegion: String? {
+        didSet {
+            applyFilters()
+        }
+    }
+    
     init(context: NSManagedObjectContext) {
         self.managedObjectContext = context
         super.init()
@@ -89,7 +99,21 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         }
     }
     
-     func applySorting() {
+    func applyFilters() {
+        filteredBottles = fetchedResultsController.fetchedObjects?.filter { bottle in
+            let isNameMatch = isNameMatching(bottle)
+            let isColorMatch = isColorMatching(bottle)
+            let isTypeMatch = isTypeMatching(bottle)
+            let isSortMatch = isSortMatching(bottle)
+            let isPlaceMatch = isPlaceMatching(bottle)
+            let isCountryMatch = isCountryMatching(bottle)
+            let isRegionMatch = isRegionMatching(bottle)
+            
+            return isNameMatch && isColorMatch && isTypeMatch && isSortMatch && isPlaceMatch && isCountryMatch && isRegionMatch
+        } ?? []
+    }
+    
+    func applySorting() {
         let sortedBottles: [Bottle]
         switch selectedSorting {
         case 0:
@@ -119,61 +143,69 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         }
         self.filteredBottles = sortedBottles
     }
-
-    func applyFilters() {
+    
+    private func isNameMatching(_ bottle: Bottle) -> Bool {
         let lowercasedSearchText = searchText.lowercased()
-        filteredBottles = fetchedResultsController.fetchedObjects?.filter { bottle in
-            guard let bottleName = bottle.name else { return false }
-            
-            let isNameMatching = lowercasedSearchText.isEmpty ? true : bottleName.lowercased().contains(lowercasedSearchText)
-            
-            let isColorMatching: Bool
-            switch selectedSegment {
-            case 0:
-                isColorMatching = (bottle.wineColor == 0)
-            case 1:
-                isColorMatching = (bottle.wineColor == 1)
-            case 2:
-                isColorMatching = (bottle.wineColor == 2)
-            default:
-                isColorMatching = true
-            }
-            
-            let isTypeMatching: Bool
-            switch selectedType {
-            case 0:
-                isTypeMatching = (bottle.wineType == 0)
-            case 1:
-                isTypeMatching = (bottle.wineType == 1)
-            case 2:
-                isTypeMatching = (bottle.wineType == 2)
-            default:
-                isTypeMatching = true
-            }
-            
-            let isSortMatching: Bool
-            if let selectedSort = selectedWineSort, let wineSort = bottle.wineSort {
-                isSortMatching = wineSort.contains(selectedSort)
-            } else {
-                isSortMatching = true
-            }
-            
-            let isPlaceMatching: Bool
-            if let selectedPlace = selectedPlace, let placeOfPurchase = bottle.placeOfPurchase {
-                isPlaceMatching = placeOfPurchase.contains(selectedPlace)
-            } else {
-                isPlaceMatching = true
-            }
-            
-            let isCountryMatching: Bool
-            if let selectedCountry = selectedWineCountry, let wineCountry = bottle.wineCountry {
-                isCountryMatching = wineCountry == selectedCountry
-            } else {
-                isCountryMatching = true
-            }
-            
-            return isNameMatching && isColorMatching && isSortMatching && isPlaceMatching && isTypeMatching && isCountryMatching
-        } ?? []
+        guard let bottleName = bottle.name else { return false }
+        return lowercasedSearchText.isEmpty ? true : bottleName.lowercased().contains(lowercasedSearchText)
+    }
+    
+    private func isColorMatching(_ bottle: Bottle) -> Bool {
+        switch selectedSegment {
+        case 0:
+            return bottle.wineColor == 0
+        case 1:
+            return bottle.wineColor == 1
+        case 2:
+            return bottle.wineColor == 2
+        default:
+            return true
+        }
+    }
+    
+    private func isTypeMatching(_ bottle: Bottle) -> Bool {
+        switch selectedType {
+        case 0:
+            return bottle.wineType == 0
+        case 1:
+            return bottle.wineType == 1
+        case 2:
+            return bottle.wineType == 2
+        default:
+            return true
+        }
+    }
+    
+    private func isSortMatching(_ bottle: Bottle) -> Bool {
+        if let selectedSort = selectedWineSort, let wineSort = bottle.wineSort {
+            return wineSort.contains(selectedSort)
+        } else {
+            return true
+        }
+    }
+    
+    private func isPlaceMatching(_ bottle: Bottle) -> Bool {
+        if let selectedPlace = selectedPlace, let placeOfPurchase = bottle.placeOfPurchase {
+            return placeOfPurchase.contains(selectedPlace)
+        } else {
+            return true
+        }
+    }
+    
+    private func isCountryMatching(_ bottle: Bottle) -> Bool {
+        if let selectedCountry = selectedWineCountry, let wineCountry = bottle.wineCountry {
+            return !wineCountry.isEmpty && wineCountry.contains(selectedCountry)
+        } else {
+            return true
+        }
+    }
+    
+    private func isRegionMatching(_ bottle: Bottle) -> Bool {
+        if let selectedRegion = selectedWineRegion, let wineRegion = bottle.wineRegion {
+            return !wineRegion.isEmpty && wineRegion.contains(selectedRegion)
+        } else {
+            return true
+        }
     }
     
     // NSFetchedResultsControllerDelegate method for autoupdate ui

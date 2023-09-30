@@ -12,6 +12,7 @@ enum FiltersActiveSheet: Identifiable {
     case placeOfPurchase
     case wineType
     case wineCountry
+    case wineRegion
     
     var id: Int {
         hashValue
@@ -30,12 +31,38 @@ struct WineSortPicker: View {
                 .foregroundColor(.gray)
         } else {
             List {
-                ForEach(wineSorts, id: \.self) { wineSort in
+                ForEach(wineSorts.filter { !$0.isEmpty }, id: \.self) { wineSort in
                     Button(action: {
                         selectedWineSort = wineSort
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         Text(wineSort)
+                            .foregroundColor(Pallete.textColor)
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct WineRegionPicker: View {
+    var wineRegions: [String]
+    @Binding var selectedWineRegion: String?
+    @Environment(\.presentationMode) var presentationMode
+    
+    var body: some View {
+        if wineRegions.isEmpty {
+            Text("Список регионов пуст")
+                .padding()
+                .foregroundColor(.gray)
+        } else {
+            List {
+                ForEach(wineRegions.filter { !$0.isEmpty }, id: \.self) { region in
+                    Button(action: {
+                        selectedWineRegion = region
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text(region)
                             .foregroundColor(Pallete.textColor)
                     }
                 }
@@ -56,7 +83,7 @@ struct PlaceOfPurchasePicker: View {
                 .foregroundColor(.gray)
         } else {
             List {
-                ForEach(placesOfPurchase, id: \.self) { place in
+                ForEach(placesOfPurchase.filter { !$0.isEmpty }, id: \.self) { place in
                     Button(action: {
                         selectedPlace = place
                         presentationMode.wrappedValue.dismiss()
@@ -82,7 +109,7 @@ struct WineCountryPicker: View {
                 .foregroundColor(.gray)
         } else {
             List {
-                ForEach(wineCountries, id: \.self) { country in
+                ForEach(wineCountries.filter { !$0.isEmpty }, id: \.self) { country in
                     Button(action: {
                         selectedCountry = country
                         presentationMode.wrappedValue.dismiss()
@@ -103,7 +130,7 @@ struct WineTypePicker: View {
     
     var body: some View {
         if wineTypes.isEmpty {
-            Text("Список типов вин пуст")
+            Text("Список типов пуст")
                 .padding()
                 .foregroundColor(.gray)
         } else {
@@ -126,6 +153,7 @@ struct FiltersView: View {
     @EnvironmentObject var viewModel: BottlesCatalogueViewModel
     @State private var selectedWineSort: String? = nil
     @State private var selectedWineCountry: String? = nil
+    @State private var selectedWineRegion: String? = nil
     @State private var selectedPlaceOfPurchase: String? = nil
     @State private var selectedWineType: Int16? = nil
     @State private var selectedPicker: FiltersActiveSheet?
@@ -170,7 +198,13 @@ struct FiltersView: View {
                 selectedWineCountry = newValue
             }
               
-                // По региону
+            FilterButton(header: "По региону", filterType: .string($selectedWineRegion)) {
+                selectedPicker = .wineRegion
+                showingPicker = true
+            }
+            .onChange(of: selectedWineRegion) { newValue in
+                selectedWineRegion = newValue
+            }
                                 
                 FilterButton(header: "По месту покупки", filterType: .string($selectedPlaceOfPurchase)) {
                     selectedPicker = .placeOfPurchase
@@ -189,12 +223,14 @@ struct FiltersView: View {
                     selectedWineType = nil
                     selectedSorting = 0
                     selectedWineCountry = nil
+                    selectedWineRegion = nil
                     selectedPlaceOfPurchase = nil
                     viewModel.selectedWineSort = nil
                     viewModel.selectedPlace = nil
                     viewModel.selectedType = nil
                     viewModel.selectedSorting = 0
                     viewModel.selectedWineCountry = nil
+                    viewModel.selectedWineRegion = nil
                 }) {
                     Text("Сбросить")
                         .foregroundColor(.red)
@@ -214,6 +250,9 @@ struct FiltersView: View {
                 case .wineCountry:
                     let allAvailableCountries = viewModel.wineCountries
                     WineCountryPicker(wineCountries: allAvailableCountries, selectedCountry: $selectedWineCountry)
+                case .wineRegion:
+                    let allAvailableRegions = viewModel.wineRegions
+                    WineRegionPicker(wineRegions: allAvailableRegions, selectedWineRegion: $selectedWineRegion)
                 }
             }
             .onAppear {
@@ -232,6 +271,9 @@ struct FiltersView: View {
                 if selectedWineCountry == nil {
                     selectedWineCountry = viewModel.selectedWineCountry
                 }
+                if selectedWineRegion == nil {
+                    selectedWineRegion = viewModel.selectedWineRegion
+                }
             }
             .onChange(of: selectedWineSort) { newValue in
                 viewModel.selectedWineSort = newValue
@@ -247,6 +289,9 @@ struct FiltersView: View {
             }
             .onChange(of: selectedWineCountry) { newValue in
                 viewModel.selectedWineCountry = newValue
+            }
+            .onChange(of: selectedWineRegion) { newValue in
+                viewModel.selectedWineRegion = newValue
             }
         }
     }
