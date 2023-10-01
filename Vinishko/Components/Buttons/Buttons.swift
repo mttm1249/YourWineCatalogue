@@ -34,7 +34,10 @@ struct OptionButton: View {
             Text(header)
                 .font(.system(size: 14)).bold()
                 .foregroundColor(.gray)
-            Button(action: action) {
+            Button(action: {
+                action()
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }) {
                 HStack {
                     Text(text ?? "")
                         .foregroundColor(Pallete.textColor)

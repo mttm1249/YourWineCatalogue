@@ -105,7 +105,6 @@ struct NewBottleScreen: View {
                         isOldRecord: false,
                         doubleRating: rating
                     )
-                    // Показываем баннер сохранения
                     showSaveBanner = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         withAnimation {

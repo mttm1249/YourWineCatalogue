@@ -25,7 +25,7 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
     var placesOfPurchase: [String] {
         Set(filteredBottles.compactMap { $0.placeOfPurchase }.filter { !$0.isEmpty }).sorted()
     }
-
+    
     var wineTypes: [Int16] {
         Set(filteredBottles.compactMap { $0.wineType } ).sorted()
     }
@@ -122,7 +122,6 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
             
             return isNameMatch && isColorMatch && isTypeMatch && isSortMatch && isPlaceMatch && isCountryMatch && isRegionMatch && isSugarAmountMatch
         } ?? []
-        print("TEST: \(filteredBottles)")
     }
     
     func applySorting() {
@@ -235,11 +234,6 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         }
     }
     
-    // NSFetchedResultsControllerDelegate method for autoupdate ui
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        applyFilters()
-    }
-    
     func deleteBottle(_ bottle: Bottle) {
         managedObjectContext.delete(bottle)
         do {
@@ -255,5 +249,9 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         } else {
             return UIImage(named: "wine") ?? UIImage()
         }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        applyFilters()
     }
 }

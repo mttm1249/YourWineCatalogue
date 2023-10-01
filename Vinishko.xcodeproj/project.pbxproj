@@ -28,6 +28,7 @@
 		DA549CE42AB42C3900F6398D /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA549CE32AB42C3900F6398D /* LocalizationManager.swift */; };
 		DA549CE62AB42EE500F6398D /* InfoBubbles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA549CE52AB42EE500F6398D /* InfoBubbles.swift */; };
 		DA549CE82AB443D400F6398D /* BottleDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA549CE72AB443D400F6398D /* BottleDetailsViewModel.swift */; };
+		DA631AEC2AC97D910033BA12 /* FiltersPickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA631AEB2AC97D910033BA12 /* FiltersPickers.swift */; };
 		DA63D0AA2AAC4A8E00161343 /* Double + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63D0A92AAC4A8E00161343 /* Double + Ext.swift */; };
 		DA6556AD2AA1DF5300D8427C /* GrapeVariatiesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6556AC2AA1DF5300D8427C /* GrapeVariatiesList.swift */; };
 		DA6556AF2AA1ED0600D8427C /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6556AE2AA1ED0600D8427C /* String + Ext.swift */; };
@@ -78,6 +79,7 @@
 		DA549CE32AB42C3900F6398D /* LocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationManager.swift; sourceTree = "<group>"; };
 		DA549CE52AB42EE500F6398D /* InfoBubbles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBubbles.swift; sourceTree = "<group>"; };
 		DA549CE72AB443D400F6398D /* BottleDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleDetailsViewModel.swift; sourceTree = "<group>"; };
+		DA631AEB2AC97D910033BA12 /* FiltersPickers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersPickers.swift; sourceTree = "<group>"; };
 		DA63D0A92AAC4A8E00161343 /* Double + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + Ext.swift"; sourceTree = "<group>"; };
 		DA6556AC2AA1DF5300D8427C /* GrapeVariatiesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeVariatiesList.swift; sourceTree = "<group>"; };
 		DA6556AE2AA1ED0600D8427C /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				DA2C2B382A9DF30700C6680D /* FiltersView.swift */,
+				DA631AEB2AC97D910033BA12 /* FiltersPickers.swift */,
 			);
 			path = FiltersScreen;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				DAE4DA712AA2068B00853426 /* GrapeVarietiesPicker.swift in Sources */,
 				DAF736422AAAFBE600AD2DB6 /* BottleImageView.swift in Sources */,
 				DAE2155E2A9E258A00131FE4 /* ImagePicker.swift in Sources */,
+				DA631AEC2AC97D910033BA12 /* FiltersPickers.swift in Sources */,
 				DA033DFB2A9CAB19004C847D /* CircleImageView.swift in Sources */,
 				DA7CCBC72A54445600C5876D /* NewBottleScreen.swift in Sources */,
 			);
