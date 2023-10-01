@@ -19,23 +19,27 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
     @Published var bottleToDelete: Bottle? = nil
     
     var wineSorts: [String] {
-        Set(filteredBottles.compactMap { $0.wineSort } ).sorted()
+        Set(filteredBottles.compactMap { $0.wineSort }.filter { !$0.isEmpty }).sorted()
     }
     
     var placesOfPurchase: [String] {
-        Set(filteredBottles.compactMap { $0.placeOfPurchase } ).sorted()
+        Set(filteredBottles.compactMap { $0.placeOfPurchase }.filter { !$0.isEmpty }).sorted()
     }
-    
+
     var wineTypes: [Int16] {
         Set(filteredBottles.compactMap { $0.wineType } ).sorted()
     }
     
+    var wineSugar: [Int16] {
+        Set(filteredBottles.compactMap { $0.wineSugar } ).sorted()
+    }
+    
     var wineCountries: [String] {
-        Set(filteredBottles.compactMap { $0.wineCountry } ).sorted()
+        Set(filteredBottles.compactMap { $0.wineCountry }.filter { !$0.isEmpty }).sorted()
     }
     
     var wineRegions: [String] {
-        Set(filteredBottles.compactMap { $0.wineRegion } ).sorted()
+        Set(filteredBottles.compactMap { $0.wineRegion }.filter { !$0.isEmpty }).sorted()
     }
     
     var selectedWineSort: String? {
@@ -57,6 +61,12 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
     }
     
     var selectedType: Int16? {
+        didSet {
+            applyFilters()
+        }
+    }
+    
+    var selectedWineSugar: Int16? {
         didSet {
             applyFilters()
         }
@@ -108,9 +118,11 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
             let isPlaceMatch = isPlaceMatching(bottle)
             let isCountryMatch = isCountryMatching(bottle)
             let isRegionMatch = isRegionMatching(bottle)
+            let isSugarAmountMatch = isSugarAmountMatching(bottle)
             
-            return isNameMatch && isColorMatch && isTypeMatch && isSortMatch && isPlaceMatch && isCountryMatch && isRegionMatch
+            return isNameMatch && isColorMatch && isTypeMatch && isSortMatch && isPlaceMatch && isCountryMatch && isRegionMatch && isSugarAmountMatch
         } ?? []
+        print("TEST: \(filteredBottles)")
     }
     
     func applySorting() {
@@ -176,6 +188,21 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
         }
     }
     
+    private func isSugarAmountMatching(_ bottle: Bottle) -> Bool {
+        switch selectedWineSugar {
+        case 0:
+            return bottle.wineSugar == 0
+        case 1:
+            return bottle.wineSugar == 1
+        case 2:
+            return bottle.wineSugar == 2
+        case 3:
+            return bottle.wineSugar == 3
+        default:
+            return true
+        }
+    }
+    
     private func isSortMatching(_ bottle: Bottle) -> Bool {
         if let selectedSort = selectedWineSort, let wineSort = bottle.wineSort {
             return wineSort.contains(selectedSort)
@@ -194,7 +221,7 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
     
     private func isCountryMatching(_ bottle: Bottle) -> Bool {
         if let selectedCountry = selectedWineCountry, let wineCountry = bottle.wineCountry {
-            return !wineCountry.isEmpty && wineCountry.contains(selectedCountry)
+            return wineCountry.contains(selectedCountry)
         } else {
             return true
         }
@@ -202,7 +229,7 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
     
     private func isRegionMatching(_ bottle: Bottle) -> Bool {
         if let selectedRegion = selectedWineRegion, let wineRegion = bottle.wineRegion {
-            return !wineRegion.isEmpty && wineRegion.contains(selectedRegion)
+            return wineRegion.contains(selectedRegion)
         } else {
             return true
         }

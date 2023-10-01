@@ -40,4 +40,23 @@ class LocalizationManager {
             return ""
         }
     }
+    
+    func getWineSugar(_ amount: Int16?) -> String {
+        guard let amount = amount else {
+            return ""
+        }
+        
+        switch amount {
+        case 0:
+            return "Сухое"
+        case 1:
+            return "Полусухое"
+        case 2:
+            return "Полусладкое"
+        case 3:
+            return "Сладкое"
+        default:
+            return ""
+        }
+    }
 }

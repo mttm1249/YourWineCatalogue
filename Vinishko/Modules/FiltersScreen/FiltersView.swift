@@ -13,6 +13,7 @@ enum FiltersActiveSheet: Identifiable {
     case wineType
     case wineCountry
     case wineRegion
+    case wineSugar
     
     var id: Int {
         hashValue
@@ -78,7 +79,7 @@ struct PlaceOfPurchasePicker: View {
     
     var body: some View {
         if placesOfPurchase.isEmpty {
-            Text("Список мест покупки пуст")
+            Text("Список мест пуст")
                 .padding()
                 .foregroundColor(.gray)
         } else {
@@ -149,9 +150,36 @@ struct WineTypePicker: View {
     }
 }
 
+struct WineSugarPicker: View {
+    var wineSugarAmount: [Int16]
+    @Binding var selectedSugarAmount: Int16?
+    @Environment(\.presentationMode) var presentationMode
+    
+    var body: some View {
+        if wineSugarAmount.isEmpty {
+            Text("Список содержания сахара пуст")
+                .padding()
+                .foregroundColor(.gray)
+        } else {
+            List {
+                ForEach(wineSugarAmount, id: \.self) { amount in
+                    Button(action: {
+                        selectedSugarAmount = amount
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text(LocalizationManager.shared.getWineSugar(amount))
+                            .foregroundColor(Pallete.textColor)
+                    }
+                }
+            }
+        }
+    }
+}
+
 struct FiltersView: View {
     @EnvironmentObject var viewModel: BottlesCatalogueViewModel
     @State private var selectedWineSort: String? = nil
+    @State private var selectedWineSugarAmount: Int16? = nil
     @State private var selectedWineCountry: String? = nil
     @State private var selectedWineRegion: String? = nil
     @State private var selectedPlaceOfPurchase: String? = nil
@@ -174,7 +202,15 @@ struct FiltersView: View {
                         }
                 }
                 
-                FilterButton(header: "По типу вина", filterType: .int($selectedWineType)) {
+            FilterButton(header: "По содержанию сахара", filterType: .wineSugarInt($selectedWineSugarAmount)) {
+                selectedPicker = .wineSugar
+                showingPicker = true
+            }
+            .onChange(of: selectedWineSugarAmount) { newValue in
+                selectedWineSugarAmount = newValue
+            }
+            
+                FilterButton(header: "По типу", filterType: .wineTypeInt($selectedWineType)) {
                     selectedPicker = .wineType
                     showingPicker = true
                 }
@@ -224,6 +260,7 @@ struct FiltersView: View {
                     selectedSorting = 0
                     selectedWineCountry = nil
                     selectedWineRegion = nil
+                    selectedWineSugarAmount = nil
                     selectedPlaceOfPurchase = nil
                     viewModel.selectedWineSort = nil
                     viewModel.selectedPlace = nil
@@ -231,6 +268,7 @@ struct FiltersView: View {
                     viewModel.selectedSorting = 0
                     viewModel.selectedWineCountry = nil
                     viewModel.selectedWineRegion = nil
+                    viewModel.selectedWineSugar = nil
                 }) {
                     Text("Сбросить")
                         .foregroundColor(.red)
@@ -253,6 +291,9 @@ struct FiltersView: View {
                 case .wineRegion:
                     let allAvailableRegions = viewModel.wineRegions
                     WineRegionPicker(wineRegions: allAvailableRegions, selectedWineRegion: $selectedWineRegion)
+                case .wineSugar:
+                    let allAvailableSugar = viewModel.wineSugar
+                    WineSugarPicker(wineSugarAmount: allAvailableSugar, selectedSugarAmount: $selectedWineSugarAmount)
                 }
             }
             .onAppear {
@@ -274,6 +315,9 @@ struct FiltersView: View {
                 if selectedWineRegion == nil {
                     selectedWineRegion = viewModel.selectedWineRegion
                 }
+                if selectedWineSugarAmount == nil {
+                    selectedWineSugarAmount = viewModel.selectedWineSugar
+                }
             }
             .onChange(of: selectedWineSort) { newValue in
                 viewModel.selectedWineSort = newValue
@@ -292,6 +336,9 @@ struct FiltersView: View {
             }
             .onChange(of: selectedWineRegion) { newValue in
                 viewModel.selectedWineRegion = newValue
+            }
+            .onChange(of: selectedWineSugarAmount) { newValue in
+                viewModel.selectedWineSugar = newValue
             }
         }
     }

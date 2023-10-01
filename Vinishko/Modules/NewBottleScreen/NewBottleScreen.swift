@@ -91,8 +91,8 @@ struct NewBottleScreen: View {
                     CoreDataManager.saveBottleRecord(
                         name: bottleName,
                         wineSort: selectedGrapeVarieties,
-                        wineCountry: selectedCountry?.code,
-                        wineRegion: selectedRegion,
+                        wineCountry: checkCountryCode(selectedCountry),
+                        wineRegion: checkRegion(selectedRegion),
                         placeOfPurchase: placeOfPurchase,
                         price: price,
                         rating: 0,
@@ -119,6 +119,24 @@ struct NewBottleScreen: View {
                         .frame(width: 20, height: 20)
                 }
             }
+        }
+    }
+}
+
+extension NewBottleScreen {
+    func checkCountryCode(_ selectedCountry: Country?) -> String {
+        if let countryCode = selectedCountry?.code {
+            return countryCode
+        } else {
+            return ""
+        }
+    }
+    
+    func checkRegion(_ selectedRegion: String?) -> String {
+        if let region = selectedRegion {
+            return region
+        } else {
+            return ""
         }
     }
 }
