@@ -20,19 +20,20 @@ struct FiltersView: View {
     @State private var selectedSorting = 0
     
     var body: some View {
+        ScrollView {
         VStack(spacing: 12) {
-                VStack(alignment: .leading) {
-                    Text("Сортировать по")
-                        .font(.system(size: 14)).bold()
-                        .foregroundColor(.gray)
-                        .padding(.horizontal, 24)
-                        .padding(.top, 12)
-                    SegmentedPicker(titles: ["Дате", "Рейтингу", "Цене"], selectedSegment: $selectedSorting)
-                        .onChange(of: selectedSorting) { newValue in
-                            selectedSorting = newValue
-                        }
-                }
-                
+            VStack(alignment: .leading) {
+                Text("Сортировать по")
+                    .font(.system(size: 14)).bold()
+                    .foregroundColor(.gray)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 12)
+                SegmentedPicker(titles: ["Дате", "Рейтингу", "Цене"], selectedSegment: $selectedSorting)
+                    .onChange(of: selectedSorting) { newValue in
+                        selectedSorting = newValue
+                    }
+            }
+            
             FilterButton(header: "По содержанию сахара", filterType: .wineSugarInt($selectedWineSugarAmount)) {
                 selectedPicker = .wineSugar
                 showingPicker = true
@@ -41,22 +42,22 @@ struct FiltersView: View {
                 selectedWineSugarAmount = newValue
             }
             
-                FilterButton(header: "По типу", filterType: .wineTypeInt($selectedWineType)) {
-                    selectedPicker = .wineType
-                    showingPicker = true
-                }
-                .onChange(of: selectedWineType) { newValue in
-                    selectedWineType = newValue
-                }
-                
-                FilterButton(header: "По сорту", filterType: .string($selectedWineSort)) {
-                    selectedPicker = .wineSort
-                    showingPicker = true
-                }
-                .onChange(of: selectedWineSort) { newValue in
-                    selectedWineSort = newValue
-                }
-                
+            FilterButton(header: "По типу", filterType: .wineTypeInt($selectedWineType)) {
+                selectedPicker = .wineType
+                showingPicker = true
+            }
+            .onChange(of: selectedWineType) { newValue in
+                selectedWineType = newValue
+            }
+            
+            FilterButton(header: "По сорту", filterType: .string($selectedWineSort)) {
+                selectedPicker = .wineSort
+                showingPicker = true
+            }
+            .onChange(of: selectedWineSort) { newValue in
+                selectedWineSort = newValue
+            }
+            
             FilterButton(header: "По стране", filterType: .countryCode($selectedWineCountry)) {
                 selectedPicker = .wineCountry
                 showingPicker = true
@@ -64,7 +65,7 @@ struct FiltersView: View {
             .onChange(of: selectedWineCountry) { newValue in
                 selectedWineCountry = newValue
             }
-              
+            
             FilterButton(header: "По региону", filterType: .string($selectedWineRegion)) {
                 selectedPicker = .wineRegion
                 showingPicker = true
@@ -72,38 +73,38 @@ struct FiltersView: View {
             .onChange(of: selectedWineRegion) { newValue in
                 selectedWineRegion = newValue
             }
-                                
-                FilterButton(header: "По месту покупки", filterType: .string($selectedPlaceOfPurchase)) {
-                    selectedPicker = .placeOfPurchase
-                    showingPicker = true
-                }
-                .onChange(of: selectedPlaceOfPurchase) { newValue in
-                    selectedPlaceOfPurchase = newValue
-                }
-                
-                Spacer()
-                
-                Button(action: {
-                    HapticFeedbackService.generateFeedback(style: .success)
-                    // Сбрасываем значения фильтров
-                    selectedWineSort = nil
-                    selectedWineType = nil
-                    selectedSorting = 0
-                    selectedWineCountry = nil
-                    selectedWineRegion = nil
-                    selectedWineSugarAmount = nil
-                    selectedPlaceOfPurchase = nil
-                    viewModel.selectedWineSort = nil
-                    viewModel.selectedPlace = nil
-                    viewModel.selectedType = nil
-                    viewModel.selectedSorting = 0
-                    viewModel.selectedWineCountry = nil
-                    viewModel.selectedWineRegion = nil
-                    viewModel.selectedWineSugar = nil
-                }) {
-                    Text("Сбросить")
-                        .foregroundColor(.red)
-                }
+            
+            FilterButton(header: "По месту покупки", filterType: .string($selectedPlaceOfPurchase)) {
+                selectedPicker = .placeOfPurchase
+                showingPicker = true
+            }
+            .onChange(of: selectedPlaceOfPurchase) { newValue in
+                selectedPlaceOfPurchase = newValue
+            }
+            
+            Spacer()
+            
+            Button(action: {
+                HapticFeedbackService.generateFeedback(style: .success)
+                // Сбрасываем значения фильтров
+                selectedWineSort = nil
+                selectedWineType = nil
+                selectedSorting = 0
+                selectedWineCountry = nil
+                selectedWineRegion = nil
+                selectedWineSugarAmount = nil
+                selectedPlaceOfPurchase = nil
+                viewModel.selectedWineSort = nil
+                viewModel.selectedPlace = nil
+                viewModel.selectedType = nil
+                viewModel.selectedSorting = 0
+                viewModel.selectedWineCountry = nil
+                viewModel.selectedWineRegion = nil
+                viewModel.selectedWineSugar = nil
+            }) {
+                Text("Сбросить")
+                    .foregroundColor(.red)
+            }
             .navigationTitle("Сортировка и фильтры")
             .sheet(item: $selectedPicker) { item in
                 switch item {
@@ -172,5 +173,6 @@ struct FiltersView: View {
                 viewModel.selectedWineSugar = newValue
             }
         }
+    }
     }
 }

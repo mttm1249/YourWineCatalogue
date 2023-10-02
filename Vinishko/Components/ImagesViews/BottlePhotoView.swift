@@ -41,7 +41,7 @@ struct BottlePhotoView: View {
     }
 }
 
-extension BottlePhotoView {
+extension Image {
     func getImage(from bottle: Bottle) -> UIImage {
         guard let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) else {
             return UIImage(named: "addImage") ?? UIImage()

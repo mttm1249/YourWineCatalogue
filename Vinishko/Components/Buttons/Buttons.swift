@@ -160,17 +160,17 @@ struct FilterButton: View {
     }
 }
 
-struct Buttons_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            NavigationButton(destination: NewBottleScreen(showSaveBanner: .constant(false)), imageName: "plus")
-            NavigationButton(destination: NewBottleScreen(showSaveBanner: .constant(false)), imageName: "list.star")
-            OptionButton(header: "Страна", text: .constant("")) {
-                print("Button Tapped")
-            }
-            FilterButton(header: "Filter", filterType: .string(.constant("123"))) {
-                print("123")
-            }
-        }
-    }
-}
+//struct Buttons_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VStack {
+//            NavigationButton(destination: NewBottleScreen(showSaveBanner: .constant(false)), imageName: "plus")
+//            NavigationButton(destination: NewBottleScreen(showSaveBanner: .constant(false)), imageName: "list.star")
+//            OptionButton(header: "Страна", text: .constant("")) {
+//                print("Button Tapped")
+//            }
+//            FilterButton(header: "Filter", filterType: .string(.constant("123"))) {
+//                print("123")
+//            }
+//        }
+//    }
+//}

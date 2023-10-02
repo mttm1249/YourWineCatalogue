@@ -14,6 +14,7 @@ struct BottleDetailsView: View {
     @StateObject var viewModel: BottleDetailsViewModel
     var bottle: Bottle
     @State private var showingSheet = false
+    @State var showSaveBanner = false
     
     var body: some View {
         ScrollView {
@@ -46,7 +47,7 @@ struct BottleDetailsView: View {
                 
                 InfoBubbles(header: "Покупка",
                             content: [bottle.placeOfPurchase ?? "",
-                                     "\(bottle.price ?? "")₽"])
+                                      "\(bottle.price ?? "")₽"])
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Комментарий")
@@ -60,6 +61,13 @@ struct BottleDetailsView: View {
             }
         }
         .navigationTitle("Сведения о дегустации")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: NewBottleScreen(editableBottle: bottle, showSaveBanner: $showSaveBanner)) {
+                    Text("Ред.")
+                }
+            }
+        }
         .sheet(isPresented: $showingSheet) {
             if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
                 BottlePhotoView(bottle: bottle,
@@ -78,7 +86,7 @@ struct BottleDetailsView: View {
 //        bottle.wineSort = "Wine sort"
 //        bottle.bottleDescription = "This is a test description."
 //        bottle.wineSugar = 1
-//        
+//
 //        return BottleDetailsView(viewModel: BottleDetailsViewModel(), bottle: bottle)
 //    }
 //}
@@ -91,13 +99,13 @@ struct BottleDetailsView: View {
 //                fatalError("Unresolved error \(error), \(error.userInfo)")
 //            }
 //        })
-//        
+//
 //        let context = container.viewContext
-//        
+//
 //        let newBottle = Bottle(context: context)
 //        newBottle.name = "Sample Bottle"
-//    
-//        
+//
+//
 //        return context
 //    }
 //}
