@@ -8,11 +8,10 @@
 import SwiftUI
 import CoreData
 
-
 struct BottleDetailsView: View {
     
-    @StateObject var viewModel: BottleDetailsViewModel
     var bottle: Bottle
+    @StateObject var viewModel: BottleDetailsViewModel
     @State private var showingSheet = false
     @State var showSaveBanner = false
     
@@ -63,7 +62,7 @@ struct BottleDetailsView: View {
         .navigationTitle("Сведения о дегустации")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: NewBottleScreen(editableBottle: bottle, showSaveBanner: $showSaveBanner)) {
+                NavigationLink(destination: NewBottleScreen(viewModel: self.viewModel, editableBottle: bottle, showSaveBanner: $showSaveBanner)) {
                     Text("Ред.")
                 }
             }

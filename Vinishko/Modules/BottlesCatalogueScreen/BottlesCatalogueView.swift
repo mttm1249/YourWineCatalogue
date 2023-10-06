@@ -62,7 +62,7 @@ struct BottlesCatalogueView: View {
                     ScrollView {
                         LazyVStack(alignment: .leading) {
                             ForEach(viewModel.filteredBottles, id: \.self) { bottle in
-                                NavigationLink(destination: BottleDetailsView(viewModel: BottleDetailsViewModel(), bottle: bottle)) {
+                                NavigationLink(destination: BottleDetailsView(bottle: bottle, viewModel: BottleDetailsViewModel(bottle: bottle))) {
                                     BottleCell(
                                         name: bottle.name ?? "",
                                         bottleImage: viewModel.getBottleImage(for: bottle),

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct NewBottleScreen: View {
+    
+    @StateObject var viewModel: BottleDetailsViewModel = BottleDetailsViewModel(bottle: Bottle())
+    
     @Environment(\.managedObjectContext) private var managedObjectContext
     @Environment(\.presentationMode) private var presentationMode
     
@@ -88,15 +91,21 @@ struct NewBottleScreen: View {
         .navigationTitle("Добавить винишко")
         .onAppear {
             if editableBottle != nil {
+                if let imageData = editableBottle?.bottleImage {
+                    image = UIImage(data: imageData) ?? UIImage()
+                } else {
+                    image = UIImage()
+                }
+                
                 rating = editableBottle?.doubleRating ?? 0
                 bottleName = editableBottle?.name ?? ""
                 colorSelectedSegment = Int(editableBottle?.wineColor ?? 0)
                 sugarSelectedSegment = Int(editableBottle?.wineSugar ?? 0)
                 typeSelectedSegment =  Int(editableBottle?.wineType ?? 0)
                 selectedGrapeVarieties.append(editableBottle?.wineSort ?? "")
-                //TODO: Добавить страну
-                //                selectedCountry =
-                selectedRegion = editableBottle?.wineCountry
+                let country = Country(code: editableBottle?.wineCountry ?? "", regions: [])
+                selectedCountry = country
+                selectedRegion = editableBottle?.wineRegion
                 placeOfPurchase = editableBottle?.placeOfPurchase ?? ""
                 price = editableBottle?.price ?? ""
                 bottleDescription = editableBottle?.bottleDescription ?? ""
@@ -107,6 +116,18 @@ struct NewBottleScreen: View {
                 Button(action: {
                     if editableBottle != nil {
                         // Редактирование существующей записи
+                        
+                        // Проверяем, изменилось ли изображение
+                        if let currentImageData = editableBottle?.bottleImage,
+                           let newImageData = image.jpegData(compressionQuality: 1.0) {
+
+                            // Сравниваем данные текущего изображения и нового изображения
+                            if !currentImageData.elementsEqual(newImageData) {
+                                // Если изображения различаются, сохраняем новое изображение
+                                editableBottle?.bottleImage = newImageData
+                            }
+                        }
+
                         editableBottle?.name = bottleName
                         editableBottle?.wineSort = selectedGrapeVarieties.joined(separator: ", ")
                         editableBottle?.wineCountry = checkCountryCode(selectedCountry)
@@ -117,12 +138,12 @@ struct NewBottleScreen: View {
                         editableBottle?.wineColor = Int16(colorSelectedSegment)
                         editableBottle?.wineSugar = Int16(sugarSelectedSegment)
                         editableBottle?.wineType = Int16(typeSelectedSegment)
-                        //TODO: Добавить изображение в виде Data
-                        //editableBottle?.bottleImage = image
                         editableBottle?.doubleRating = rating
-                        
+                                                
                         CoreDataManager.shared.saveContext()
                         
+                        viewModel.updateBottle(editableBottle!)
+
                         presentationMode.wrappedValue.dismiss()
                         HapticFeedbackService.generateFeedback(style: .medium)
                     } else {

@@ -7,7 +7,18 @@
 
 import SwiftUI
 
-class BottleDetailsViewModel: ObservableObject {
+final class BottleDetailsViewModel: ObservableObject {
+
+    var bottle: Bottle
+    
+    init(bottle: Bottle) {
+         self.bottle = bottle
+     }
+    
+    func updateBottle(_ newBottle: Bottle) {
+        self.bottle = newBottle
+        self.objectWillChange.send()
+    }
     
     func getWineColor(for bottle: Bottle) -> Color {
         switch bottle.wineColor {

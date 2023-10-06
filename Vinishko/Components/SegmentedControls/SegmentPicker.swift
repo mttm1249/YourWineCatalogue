@@ -14,10 +14,10 @@ struct SegmentedPicker: View {
     let selectedItemFontColor = Pallete.textColor
     let defaultItemFontColor = Color.gray
     let borderColor = Pallete.textColor
-        
+    
     @State private var segmentOffset: CGFloat = 0
     @Binding var selectedSegment: Int
-        
+    
     private func calculateOffset(geometry: GeometryProxy, selectedIndex: Int) -> CGFloat {
         return CGFloat(selectedIndex) * (geometry.size.width / CGFloat(titles.count)) + 1
     }
@@ -54,10 +54,8 @@ struct SegmentedPicker: View {
             .onAppear {
                 segmentOffset = calculateOffset(geometry: geometry, selectedIndex: selectedSegment)
             }
-            .onChange(of: selectedSegment) { newValue in
-                if newValue == 0 {
-                    segmentOffset = 1.0
-                }
+            .onChange(of: selectedSegment) { _ in
+                segmentOffset = calculateOffset(geometry: geometry, selectedIndex: selectedSegment)
             }
         }
         .frame(height: 30)
