@@ -9,31 +9,12 @@ import SwiftUI
 
 struct NewBottleScreen: View {
     
-    @StateObject var viewModel: BottleDetailsViewModel = BottleDetailsViewModel(bottle: Bottle())
-    
-    @Environment(\.managedObjectContext) private var managedObjectContext
+    @StateObject var viewModel: NewBottleViewModel
     @Environment(\.presentationMode) private var presentationMode
-    
-    var editableBottle: Bottle?
-    
+    @State private var imagePickerSourceType: UIImagePickerController.SourceType = .camera
+        
     @State private var showImagePicker: Bool = false
-    @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
-    @State private var image: UIImage = UIImage(named: "addImage") ?? UIImage()
     @State private var showActionSheet: Bool = false
-    
-    @Binding var showSaveBanner: Bool
-    @State private var showSheet = false
-    @State private var bottleName: String = ""
-    @State private var placeOfPurchase: String = ""
-    @State private var price: String = ""
-    @State private var rating: Double = 0
-    @State private var bottleDescription: String = ""
-    @State private var colorSelectedSegment = 0
-    @State private var sugarSelectedSegment = 0
-    @State private var typeSelectedSegment = 0
-    @State private var selectedCountry: Country?
-    @State private var selectedRegion: String?
-    @State private var selectedGrapeVarieties: [String] = []
     
     var body: some View {
         ScrollView {
@@ -41,7 +22,7 @@ struct NewBottleScreen: View {
                 Button {
                     self.showActionSheet = true
                 } label: {
-                    Image(uiImage: self.image)
+                    Image(uiImage: self.viewModel.image)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 150, height: 150)
@@ -62,117 +43,38 @@ struct NewBottleScreen: View {
                     ])
                 }
                 .sheet(isPresented: $showImagePicker, content: {
-                    ImagePicker(image: self.$image, sourceType: self.imagePickerSourceType)
+                    ImagePicker(image: self.$viewModel.image, sourceType: self.imagePickerSourceType)
                 })
             }
             
             VStack(spacing: 12) {
-                RatingView(selectedRating: $rating)
-                TextFieldStandart(header: "Название", text: $bottleName)
+                RatingView(selectedRating: $viewModel.rating)
+                TextFieldStandart(header: "Название", text: $viewModel.bottleName)
                 SegmentedPicker(titles: ["Красное", "Белое", "Другое"],
-                                selectedSegment: $colorSelectedSegment)
+                                selectedSegment: $viewModel.colorSelectedSegment)
                 SegmentedPicker(titles: ["Сух", "П. сух", "П. слад", "Слад"],
-                                selectedSegment: $sugarSelectedSegment)
+                                selectedSegment: $viewModel.sugarSelectedSegment)
                 SegmentedPicker(titles: ["Тихое", "Игристое", "Другое"],
-                                selectedSegment: $typeSelectedSegment)
+                                selectedSegment: $viewModel.typeSelectedSegment)
                 PickersModuleView(
-                    selectedCountry: $selectedCountry,
-                    selectedRegion: $selectedRegion,
-                    selectedGrapeVarieties: $selectedGrapeVarieties
+                    selectedCountry: $viewModel.selectedCountry,
+                    selectedRegion: $viewModel.selectedRegion,
+                    selectedGrapeVarieties: $viewModel.selectedGrapeVarieties
                 )
-                TextFieldStandart(header: "Место покупки", text: $placeOfPurchase)
-                TextFieldStandart(header: "Цена", text: $price)
+                TextFieldStandart(header: "Место покупки", text: $viewModel.placeOfPurchase)
+                TextFieldStandart(header: "Цена", text: $viewModel.price)
                     .keyboardType(.decimalPad)
-                TextEditorStandart(header: "Комментарий", text: $bottleDescription)
+                TextEditorStandart(header: "Комментарий", text: $viewModel.bottleDescription)
             }
             .hideKeyboard()
             .padding(.bottom, 20)
         }
         .navigationTitle("Добавить винишко")
-        .onAppear {
-            if editableBottle != nil {
-                if let imageData = editableBottle?.bottleImage {
-                    image = UIImage(data: imageData) ?? UIImage()
-                } else {
-                    image = UIImage()
-                }
-                
-                rating = editableBottle?.doubleRating ?? 0
-                bottleName = editableBottle?.name ?? ""
-                colorSelectedSegment = Int(editableBottle?.wineColor ?? 0)
-                sugarSelectedSegment = Int(editableBottle?.wineSugar ?? 0)
-                typeSelectedSegment =  Int(editableBottle?.wineType ?? 0)
-                selectedGrapeVarieties.append(editableBottle?.wineSort ?? "")
-                let country = Country(code: editableBottle?.wineCountry ?? "", regions: [])
-                selectedCountry = country
-                selectedRegion = editableBottle?.wineRegion
-                placeOfPurchase = editableBottle?.placeOfPurchase ?? ""
-                price = editableBottle?.price ?? ""
-                bottleDescription = editableBottle?.bottleDescription ?? ""
-            }
-        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    if editableBottle != nil {
-                        // Редактирование существующей записи
-                        
-                        // Проверяем, изменилось ли изображение
-                        if let currentImageData = editableBottle?.bottleImage,
-                           let newImageData = image.jpegData(compressionQuality: 1.0) {
-
-                            // Сравниваем данные текущего изображения и нового изображения
-                            if !currentImageData.elementsEqual(newImageData) {
-                                // Если изображения различаются, сохраняем новое изображение
-                                editableBottle?.bottleImage = newImageData
-                            }
-                        }
-
-                        editableBottle?.name = bottleName
-                        editableBottle?.wineSort = selectedGrapeVarieties.joined(separator: ", ")
-                        editableBottle?.wineCountry = checkCountryCode(selectedCountry)
-                        editableBottle?.wineRegion = checkRegion(selectedRegion)
-                        editableBottle?.placeOfPurchase = placeOfPurchase
-                        editableBottle?.price = price
-                        editableBottle?.bottleDescription = bottleDescription
-                        editableBottle?.wineColor = Int16(colorSelectedSegment)
-                        editableBottle?.wineSugar = Int16(sugarSelectedSegment)
-                        editableBottle?.wineType = Int16(typeSelectedSegment)
-                        editableBottle?.doubleRating = rating
-                                                
-                        CoreDataManager.shared.saveContext()
-                        
-                        viewModel.updateBottle(editableBottle!)
-
-                        presentationMode.wrappedValue.dismiss()
-                        HapticFeedbackService.generateFeedback(style: .medium)
-                    } else {
-                        CoreDataManager.saveBottleRecord(
-                            name: bottleName,
-                            wineSort: selectedGrapeVarieties,
-                            wineCountry: checkCountryCode(selectedCountry),
-                            wineRegion: checkRegion(selectedRegion),
-                            placeOfPurchase: placeOfPurchase,
-                            price: price,
-                            rating: 0,
-                            bottleDescription: bottleDescription,
-                            wineColor: colorSelectedSegment,
-                            wineSugar: sugarSelectedSegment,
-                            wineType: typeSelectedSegment,
-                            image: image,
-                            createDate: Date(),
-                            isOldRecord: false,
-                            doubleRating: rating
-                        )
-                        showSaveBanner = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            withAnimation {
-                                showSaveBanner = false
-                            }
-                        }
-                        presentationMode.wrappedValue.dismiss()
-                        HapticFeedbackService.generateFeedback(style: .success)
-                    }
+                    viewModel.save()
+                    presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "checkmark.circle")
                         .frame(width: 20, height: 20)
@@ -181,27 +83,3 @@ struct NewBottleScreen: View {
         }
     }
 }
-
-extension NewBottleScreen {
-    func checkCountryCode(_ selectedCountry: Country?) -> String {
-        if let countryCode = selectedCountry?.code {
-            return countryCode
-        } else {
-            return ""
-        }
-    }
-    
-    func checkRegion(_ selectedRegion: String?) -> String {
-        if let region = selectedRegion {
-            return region
-        } else {
-            return ""
-        }
-    }
-}
-
-//struct NewBottleScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewBottleScreen(showSaveBanner: .constant(false))
-//    }
-//}

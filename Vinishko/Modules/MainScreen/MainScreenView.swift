@@ -10,7 +10,7 @@ import SwiftUI
 struct MainScreenView: View {
     @State var showSaveBanner = false
     @State var offset: CGFloat = 300
-
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 25) {
@@ -19,12 +19,14 @@ struct MainScreenView: View {
                     .font(.title).bold()
                     .foregroundColor(Pallete.mainColor)
                     .padding(.bottom, 150)
-                NavigationButton(destination: NewBottleScreen(showSaveBanner: $showSaveBanner),
-                                            imageName: "plus")
+                NavigationButton(destination:
+                                    NewBottleScreen(viewModel: NewBottleViewModel(editableBottle: nil,
+                                                   context: CoreDataManager.managedContext)),
+                                 imageName: "plus")
                 NavigationButton(destination: BottlesCatalogueView()
                     .environmentObject(BottlesCatalogueViewModel(context: CoreDataManager.managedContext)),
-                                    imageName: "list.star")
-                    .padding(.bottom, 150)
+                                 imageName: "list.star")
+                .padding(.bottom, 150)
                 Spacer()
             }
             .overlay(
@@ -44,7 +46,7 @@ struct MainScreenView: View {
                     withAnimation {
                         offset = 0
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                         withAnimation {
                             offset = 300
                         }
@@ -52,6 +54,17 @@ struct MainScreenView: View {
                 } else {
                     withAnimation {
                         offset = 300
+                    }
+                }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .didSaveBottleNotification)) { _ in
+                withAnimation {
+                    self.showSaveBanner = true
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    withAnimation {
+                        self.showSaveBanner = false
                     }
                 }
             }

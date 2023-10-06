@@ -11,7 +11,7 @@ import CoreData
 struct BottleDetailsView: View {
     
     var bottle: Bottle
-    @StateObject var viewModel: BottleDetailsViewModel
+    @ObservedObject var viewModel: BottleDetailsViewModel
     @State private var showingSheet = false
     @State var showSaveBanner = false
     
@@ -61,12 +61,15 @@ struct BottleDetailsView: View {
         }
         .navigationTitle("Сведения о дегустации")
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: NewBottleScreen(viewModel: self.viewModel, editableBottle: bottle, showSaveBanner: $showSaveBanner)) {
-                    Text("Ред.")
-                }
-            }
-        }
+               ToolbarItem(placement: .navigationBarTrailing) {
+                   NavigationLink(destination: NewBottleScreen(viewModel: NewBottleViewModel(editableBottle: bottle, context: CoreDataManager.managedContext, onBottleSaved: { updatedBottle in
+                       self.viewModel.updateBottle(updatedBottle)
+                   }))) {
+                       Text("Ред.")
+                   }
+               }
+           }
+
         .sheet(isPresented: $showingSheet) {
             if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
                 BottlePhotoView(bottle: bottle,
