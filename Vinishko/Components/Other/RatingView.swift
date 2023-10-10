@@ -71,7 +71,7 @@ struct RatingView: View {
             )
             .frame(minHeight: 35)
         }
-        .padding(.horizontal, 24)
+        .padding(.horizontal, 16)
     }
 }
 

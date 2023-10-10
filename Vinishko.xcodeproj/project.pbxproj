@@ -17,6 +17,9 @@
 		DA0355A72AA0768C002EBA77 /* CountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = DA0355A62AA07354002EBA77 /* CountryList.json */; };
 		DA08B2962A9F1BFE00A8872A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA08B2952A9F1BFE00A8872A /* SearchBarView.swift */; };
 		DA195D212A9F4469000753B3 /* BubbleDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA195D202A9F4469000753B3 /* BubbleDetailsView.swift */; };
+		DA2600CD2AD2DE5F003AD868 /* StatisticsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2600CC2AD2DE5F003AD868 /* StatisticsScreen.swift */; };
+		DA2600CF2AD2E17B003AD868 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2600CE2AD2E17B003AD868 /* PieChartView.swift */; };
+		DA2600D22AD2E1A0003AD868 /* StatisticsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2600D12AD2E1A0003AD868 /* StatisticsScreenViewModel.swift */; };
 		DA2C2B362A9DE05200C6680D /* BottleDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B352A9DE05200C6680D /* BottleDetailsView.swift */; };
 		DA2C2B392A9DF30700C6680D /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B382A9DF30700C6680D /* FiltersView.swift */; };
 		DA2C2B3B2A9DF4E800C6680D /* SegmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */; };
@@ -69,6 +72,9 @@
 		DA0355A62AA07354002EBA77 /* CountryList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryList.json; sourceTree = "<group>"; };
 		DA08B2952A9F1BFE00A8872A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		DA195D202A9F4469000753B3 /* BubbleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleDetailsView.swift; sourceTree = "<group>"; };
+		DA2600CC2AD2DE5F003AD868 /* StatisticsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreen.swift; sourceTree = "<group>"; };
+		DA2600CE2AD2E17B003AD868 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		DA2600D12AD2E1A0003AD868 /* StatisticsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreenViewModel.swift; sourceTree = "<group>"; };
 		DA2C2B352A9DE05200C6680D /* BottleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleDetailsView.swift; sourceTree = "<group>"; };
 		DA2C2B382A9DF30700C6680D /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		DA2C2B3A2A9DF4E800C6680D /* SegmentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPicker.swift; sourceTree = "<group>"; };
@@ -166,6 +172,8 @@
 				DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */,
 				DA033DFD2A9CB00A004C847D /* KeyboardHide.swift */,
 				DA9BF1112AD0228C007A70A1 /* BannerNotifications.swift */,
+				DA6556AE2AA1ED0600D8427C /* String + Ext.swift */,
+				DA63D0A92AAC4A8E00161343 /* Double + Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,8 +234,18 @@
 				DA549CE52AB42EE500F6398D /* InfoBubbles.swift */,
 				DA3A2D652A9CC2B100FEFBE1 /* BottleCell.swift */,
 				DAE255892AACB1F50004C707 /* RatingView.swift */,
+				DA2600CE2AD2E17B003AD868 /* PieChartView.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		DA2600D02AD2E18F003AD868 /* StatisticsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DA2600CC2AD2DE5F003AD868 /* StatisticsScreen.swift */,
+				DA2600D12AD2E1A0003AD868 /* StatisticsScreenViewModel.swift */,
+			);
+			path = StatisticsScreen;
 			sourceTree = "<group>";
 		};
 		DA2C2B342A9DE03700C6680D /* BottleDetailsScreen */ = {
@@ -311,6 +329,7 @@
 				DA033DF32A9CAA11004C847D /* BottlesCatalogueScreen */,
 				DA2C2B342A9DE03700C6680D /* BottleDetailsScreen */,
 				DA2C2B372A9DF2FC00C6680D /* FiltersScreen */,
+				DA2600D02AD2E18F003AD868 /* StatisticsScreen */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -331,7 +350,6 @@
 		DA7CCBC32A54410500C5876D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				DA033DFC2A9CAFF4004C847D /* Extensions */,
 				DA7CCBC42A54410E00C5876D /* Pallete.swift */,
 				DA033DEE2A9CA0B3004C847D /* Fonts.swift */,
 				DA033DF82A9CAAD8004C847D /* Images.swift */,
@@ -342,10 +360,9 @@
 		DAB026232A9CE5BC00E5BF5C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */,
-				DA6556AE2AA1ED0600D8427C /* String + Ext.swift */,
 				DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */,
-				DA63D0A92AAC4A8E00161343 /* Double + Ext.swift */,
+				DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */,
+				DA033DFC2A9CAFF4004C847D /* Extensions */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -446,6 +463,7 @@
 				DA4D2DE42AA31A0500C78495 /* BottlesCatalogueViewModel.swift in Sources */,
 				DA033E002A9CBB83004C847D /* BottleModel.swift in Sources */,
 				DA6556AD2AA1DF5300D8427C /* GrapeVariatiesList.swift in Sources */,
+				DA2600D22AD2E1A0003AD868 /* StatisticsScreenViewModel.swift in Sources */,
 				DA9BF1122AD0228C007A70A1 /* BannerNotifications.swift in Sources */,
 				DAB026252A9CE5CF00E5BF5C /* HapticFeedbackService.swift in Sources */,
 				DA2C2B392A9DF30700C6680D /* FiltersView.swift in Sources */,
@@ -457,9 +475,11 @@
 				DAB026202A9CDFA000E5BF5C /* HideBackButtonText.swift in Sources */,
 				DA3A2D642A9CBE3D00FEFBE1 /* CoreDataManager.swift in Sources */,
 				DA6556AF2AA1ED0600D8427C /* String + Ext.swift in Sources */,
+				DA2600CD2AD2DE5F003AD868 /* StatisticsScreen.swift in Sources */,
 				DA8FF5EE2AA4AB2500DBAE6C /* MigrationService.swift in Sources */,
 				DA7CCBC52A54410E00C5876D /* Pallete.swift in Sources */,
 				DA0355A52AA072EA002EBA77 /* PickersModuleView.swift in Sources */,
+				DA2600CF2AD2E17B003AD868 /* PieChartView.swift in Sources */,
 				DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */,
 				DA2C2B3B2A9DF4E800C6680D /* SegmentPicker.swift in Sources */,
 				DAE4DA712AA2068B00853426 /* GrapeVarietiesPicker.swift in Sources */,
@@ -618,7 +638,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 41;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
@@ -656,7 +676,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 41;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;

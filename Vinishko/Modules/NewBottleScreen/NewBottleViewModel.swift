@@ -11,7 +11,7 @@ import CoreData
 class NewBottleViewModel: ObservableObject {
     
     var onBottleSaved: ((Bottle) -> Void)?
-
+    
     @Published var bottleName: String = ""
     @Published var selectedGrapeVarieties: [String] = []
     @Published var selectedCountry: Country?
@@ -23,7 +23,7 @@ class NewBottleViewModel: ObservableObject {
     @Published var sugarSelectedSegment = 0
     @Published var typeSelectedSegment = 0
     @Published var rating: Double = 0
-    @Published var image: UIImage = UIImage(named: "addImage") ?? UIImage()    
+    @Published var image: UIImage = UIImage(named: "addImage") ?? UIImage()
     
     private var editableBottle: Bottle?
     private var managedObjectContext: NSManagedObjectContext
@@ -56,8 +56,6 @@ class NewBottleViewModel: ObservableObject {
         placeOfPurchase = editableBottle.placeOfPurchase ?? ""
         price = editableBottle.price ?? ""
         bottleDescription = editableBottle.bottleDescription ?? ""
-        
-        print("EDITABLE BOTTLE INFO: \(editableBottle)")
     }
     
     func save() {
@@ -88,7 +86,10 @@ class NewBottleViewModel: ObservableObject {
             editableBottle.doubleRating = rating
             
             CoreDataManager.shared.saveContext()
+           
+            // update bottle details
             onBottleSaved?(editableBottle)
+            
             HapticFeedbackService.generateFeedback(style: .medium)
         } else {
             CoreDataManager.saveBottleRecord(
@@ -112,7 +113,8 @@ class NewBottleViewModel: ObservableObject {
             HapticFeedbackService.generateFeedback(style: .success)
         }
     }
-        
+    
+    // exclude empty records when filtering
     func checkCountryCode(_ selectedCountry: Country?) -> String {
         return selectedCountry?.code ?? ""
     }

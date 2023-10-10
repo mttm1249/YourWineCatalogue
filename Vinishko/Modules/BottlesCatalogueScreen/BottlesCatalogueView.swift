@@ -12,6 +12,7 @@ struct BottlesCatalogueView: View {
     @EnvironmentObject var viewModel: BottlesCatalogueViewModel
     @State private var showingAlert = false
     @State private var isFiltersViewActive: Bool = false
+    @State private var isStatisticsViewActive: Bool = false
     
     var body: some View {
         VStack {
@@ -100,32 +101,45 @@ struct BottlesCatalogueView: View {
         .navigationTitle("Каталог дегустаций")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Menu {
-                    Button(role: .destructive, action: {
-                        CoreDataManager.shared.deleteAllData()
-                    }) {
-                        HStack {
-                            Text("Удалить все записи CD")
-                            Image(systemName: "gear")
+                HStack {
+                    Menu {
+                        Button(role: .destructive, action: {
+//                            CoreDataManager.shared.deleteAllData()
+                        }) {
+                            HStack {
+                                Text("Удалить все записи CD")
+                                Image(systemName: "gear")
+                            }
                         }
-                    }
-                    Button(action: {}) {
-                        HStack {
-                            Text("Настройки QR")
-                            Image(systemName: "qrcode")
+                        Button(action: {}) {
+                            HStack {
+                                Text("Настройки QR")
+                                Image(systemName: "qrcode")
+                            }
                         }
-                    }
-                    Button(action: {}) {
-                        HStack {
-                            Text("Статистика")
-                            Image(systemName: "chart.pie.fill")
+                        Button(action: {
+                            self.isStatisticsViewActive = true
+                        }) {
+                            HStack {
+                                Text("Статистика")
+                                Image(systemName: "chart.pie.fill")
+                            }
                         }
+                    } label: {
+                        Image(systemName: "line.3.horizontal")
                     }
-                } label: {
-                    Image(systemName: "line.3.horizontal")
+
+                    NavigationLink(
+                        "",
+                        destination: StatisticsScreen(viewModel: StatisticsScreenViewModel(bottles: viewModel.allBottles)),
+                        isActive: $isStatisticsViewActive
+                    )
+                    .opacity(0)
+                    .frame(width: 0, height: 0)
                 }
             }
         }
+
     }
 }
 

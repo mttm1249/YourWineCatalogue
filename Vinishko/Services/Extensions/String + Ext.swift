@@ -22,7 +22,6 @@ extension String {
             }
             return NSLocalizedString(component, bundle: bundle, comment: "")
         }
-        
         return localizedComponents.joined(separator: ", ")
     }
 }

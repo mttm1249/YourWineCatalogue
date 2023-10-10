@@ -8,7 +8,7 @@
 import CoreData
 import UIKit
 
-class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
+final class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
     
     private var fetchedResultsController: NSFetchedResultsController<Bottle>!
     var managedObjectContext: NSManagedObjectContext
@@ -17,6 +17,10 @@ class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResultsCon
     @Published var searchText: String = ""
     @Published var selectedSegment: Int = -1
     @Published var bottleToDelete: Bottle? = nil
+    
+    var allBottles: [Bottle] {
+        return fetchedResultsController.fetchedObjects ?? []
+    }
     
     var wineSorts: [String] {
         Set(filteredBottles.compactMap { $0.wineSort }.filter { !$0.isEmpty }).sorted()

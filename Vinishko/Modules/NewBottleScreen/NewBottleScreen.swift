@@ -66,7 +66,6 @@ struct NewBottleScreen: View {
                     .keyboardType(.decimalPad)
                 TextEditorStandart(header: "Комментарий", text: $viewModel.bottleDescription)
             }
-            .hideKeyboard()
             .padding(.bottom, 20)
         }
         .navigationTitle("Добавить винишко")

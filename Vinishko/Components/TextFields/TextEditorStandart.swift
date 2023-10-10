@@ -27,7 +27,7 @@ struct TextEditorStandart: View {
                         .stroke(isEditing ? Pallete.borderColor : Color.gray, lineWidth: 1)
                 )
         }
-        .padding(.horizontal, 24)
+        .padding(.horizontal, 16)
     }
 }
 

@@ -53,7 +53,7 @@ struct OptionButton: View {
                     .stroke(Color.gray, lineWidth: 1)
             )
         }
-        .padding(.horizontal, 24)
+        .padding(.horizontal, 16)
     }
 }
 
@@ -156,7 +156,7 @@ struct FilterButton: View {
                     .stroke(Color.gray, lineWidth: 1)
             )
         }
-        .padding(.horizontal, 24)
+        .padding(.horizontal, 16)
     }
 }
 

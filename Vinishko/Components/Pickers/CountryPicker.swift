@@ -68,4 +68,3 @@ struct CountryPicker_Previews: PreviewProvider {
         return CountryPicker(countries: countries, selectedCountry: .constant(countries[0]))
     }
 }
-

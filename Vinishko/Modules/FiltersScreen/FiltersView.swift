@@ -26,7 +26,7 @@ struct FiltersView: View {
                 Text("Сортировать по")
                     .font(.system(size: 14)).bold()
                     .foregroundColor(.gray)
-                    .padding(.horizontal, 24)
+                    .padding(.horizontal, 16)
                     .padding(.top, 12)
                 SegmentedPicker(titles: ["Дате", "Рейтингу", "Цене"], selectedSegment: $selectedSorting)
                     .onChange(of: selectedSorting) { newValue in
