@@ -37,8 +37,11 @@ struct PieChartView: View {
                     .font(.system(size: 14)).bold()
                     .foregroundColor(Pallete.textColor)
                     .padding(10)
-                    .background(Pallete.ratingBg)
-                    .clipShape(Circle())
+                    .background(
+                        Circle()
+                            .fill(Pallete.ratingBg)
+                            .frame(width: geometry.size.width * 0.2, height: geometry.size.width * 0.2)
+                    )
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
         }
@@ -53,7 +56,7 @@ struct PieChartView: View {
     }
     
     private func color(for index: Int) -> Color {
-        let colors: [Color] = [Pallete.redWineColor, Pallete.whiteWineColor, Pallete.otherWineColor]  // Replace with your colors
+        let colors: [Color] = [Pallete.redWineColor, Pallete.whiteWineColor, Pallete.otherWineColor]
         return colors[index % colors.count]
     }
     
@@ -76,7 +79,6 @@ struct PieSlice: Shape {
         return path
     }
 }
-
 
 //struct PieChartView_Previews: PreviewProvider {
 //    static var previews: some View {

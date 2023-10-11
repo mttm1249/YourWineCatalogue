@@ -25,4 +25,21 @@ final class StatisticsScreenViewModel: ObservableObject {
         
         return [redWineCount, whiteWineCount, otherWineCount]
     }
+
+    // Метод для получения списка сортов вин с учетом разделения строк
+    var wineSorts: [String: Int] {
+        var sortsCount: [String: Int] = [:]
+
+        bottles.forEach { bottle in
+            // Разделение строки сортов на отдельные сорта
+            let sorts = bottle.wineSort?.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespacesAndNewlines) }
+            
+            // Подсчет количества каждого сорта
+            sorts?.forEach { sort in
+                sortsCount[sort, default: 0] += 1
+            }
+        }
+
+        return sortsCount
+    }
 }
