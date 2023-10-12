@@ -13,7 +13,7 @@ struct StatisticsScreen: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(spacing: 12) {
                 PieChartView(wineTypeCounts: viewModel.wineTypeCounts, totalBottles: viewModel.totalBottles)
                     .padding()
                     .frame(width: 200, height: 200)
@@ -21,21 +21,24 @@ struct StatisticsScreen: View {
                 // Преобразование словаря сортов вина в массив для сортировки
                 let sortedWineSorts = viewModel.wineSorts.sorted { $0.value > $1.value }
                 
-                // Добавление шкал для каждого сорта вина
-                ForEach(sortedWineSorts, id: \.key) { wineSort, count in
-                    VStack(alignment: .leading) {
-                        Text(wineSort.localize())
-                            .font(.headline)
-                            .padding(.leading)
-                        
+                // Получение максимального значения для сортов вина
+                let maxCount = sortedWineSorts.first?.value ?? 1
+                
+                Text("Топ 10 сортов")
+                    .font(.system(size: 28)).bold()
+                    .padding()
+                
+                // Добавление шкал для каждого сорта вина, ограничив количество десятью
+                ForEach(Array(sortedWineSorts.prefix(10)), id: \.key) { wineSort, count in
+                    VStack {
                         StatisticsBarView(
-                            progress: CGFloat(count) / CGFloat(viewModel.totalBottles),
-                            wineSortText: "\(count)"
+                            progress: CGFloat(count) / CGFloat(maxCount),
+                            sortsCount: "\(count)",
+                            wineSortName: wineSort.localize()
                         )
-                        .padding(.horizontal)
+                        .padding(.bottom, 12)
                     }
                 }
-                Spacer()
             }
             .navigationTitle("Статистика")
         }

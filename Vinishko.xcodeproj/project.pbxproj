@@ -54,7 +54,6 @@
 		DAB026252A9CE5CF00E5BF5C /* HapticFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */; };
 		DABDE2952AB62D8600DFC9ED /* BottlePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABDE2942AB62D8600DFC9ED /* BottlePhotoView.swift */; };
 		DADE85812AD71A6400C3F646 /* StatisticsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE85802AD71A6400C3F646 /* StatisticsBarView.swift */; };
-		DADE85832AD71B9700C3F646 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE85822AD71B9700C3F646 /* SwiftUIView.swift */; };
 		DAE2155E2A9E258A00131FE4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2155D2A9E258A00131FE4 /* ImagePicker.swift */; };
 		DAE2558A2AACB1F50004C707 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE255892AACB1F50004C707 /* RatingView.swift */; };
 		DAE4DA712AA2068B00853426 /* GrapeVarietiesPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4DA702AA2068B00853426 /* GrapeVarietiesPicker.swift */; };
@@ -114,7 +113,6 @@
 		DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackService.swift; sourceTree = "<group>"; };
 		DABDE2942AB62D8600DFC9ED /* BottlePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlePhotoView.swift; sourceTree = "<group>"; };
 		DADE85802AD71A6400C3F646 /* StatisticsBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsBarView.swift; sourceTree = "<group>"; };
-		DADE85822AD71B9700C3F646 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		DAE2155D2A9E258A00131FE4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DAE255892AACB1F50004C707 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		DAE4DA702AA2068B00853426 /* GrapeVarietiesPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeVarietiesPicker.swift; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 				DAE255892AACB1F50004C707 /* RatingView.swift */,
 				DA2600CE2AD2E17B003AD868 /* PieChartView.swift */,
 				DADE85802AD71A6400C3F646 /* StatisticsBarView.swift */,
-				DADE85822AD71B9700C3F646 /* SwiftUIView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -450,7 +447,6 @@
 			files = (
 				DA549CE42AB42C3900F6398D /* LocalizationManager.swift in Sources */,
 				DAE4DA752AA2079E00853426 /* CountryPicker.swift in Sources */,
-				DADE85832AD71B9700C3F646 /* SwiftUIView.swift in Sources */,
 				DA7CCBC22A543DCE00C5876D /* Buttons.swift in Sources */,
 				DA2C2B362A9DE05200C6680D /* BottleDetailsView.swift in Sources */,
 				DAE2558A2AACB1F50004C707 /* RatingView.swift in Sources */,

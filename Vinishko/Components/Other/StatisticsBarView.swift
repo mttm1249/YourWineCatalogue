@@ -10,25 +10,34 @@ import SwiftUI
 struct StatisticsBarView: View {
     @State private var currentProgress: CGFloat = 0.0
     var progress: CGFloat
-    var wineSortText: String
+    var sortsCount: String
+    var wineSortName: String  // Добавленный параметр для названия сорта вина
 
     var body: some View {
-        ZStack(alignment: .leading) {
-            ZStack(alignment: .leading) {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Pallete.segmentPickerBg)
-                    .frame(height: 20)
+        VStack(alignment: .leading, spacing: 8) {  // VStack используется для вертикального стека с отступом 8pt
+            Text(wineSortName)  // Этот текст будет отображаться над шкалой
+                .font(.system(size: 14)).bold()
+                .foregroundColor(.gray)
+                .padding(.leading, 16)  // Отступ слева для выравнивания с шкалой
 
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Pallete.redWineColor)
-                    .frame(width: self.currentProgress * UIScreen.main.bounds.width, height: 20)
-                    .animation(.linear, value: currentProgress)
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Pallete.segmentPickerBg)
+                        .frame(height: 20)
+
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Pallete.redWineColor)
+                        .frame(width: self.currentProgress * (geometry.size.width - 32), height: 20)
+                        .animation(.linear, value: currentProgress)
+
+                    Text(sortsCount)
+                        .font(.system(size: 12)).bold()
+                        .foregroundColor(.white)
+                        .padding(.leading)
+                }
+                .padding(.horizontal, 16)
             }
-            .frame(maxWidth: UIScreen.main.bounds.width)
-
-            Text(wineSortText)
-                .foregroundColor(.white)
-                .padding(.leading, 16)
         }
         .onAppear {
             self.currentProgress = progress
@@ -36,7 +45,3 @@ struct StatisticsBarView: View {
     }
 }
 
-#Preview {
-    StatisticsBarView(progress: 0.5, wineSortText: "test")
-        .padding()
-}

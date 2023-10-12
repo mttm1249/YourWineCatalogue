@@ -73,7 +73,7 @@ struct GrapeVarietiesPicker: View {
                     }
                 }) {
                     HStack {
-                        Text(variety)
+                        Text(variety.localize())
                             .foregroundColor(Pallete.textColor)
                         Spacer()
                         if selectedGrapeVarieties.contains(originalVariety) {
