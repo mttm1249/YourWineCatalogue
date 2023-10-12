@@ -17,7 +17,6 @@ struct StatisticsBarView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(wineSortName)
                 .font(.system(size: 14)).bold()
-                .foregroundColor(.gray)
                 .padding(.leading, 16)
 
             GeometryReader { geometry in

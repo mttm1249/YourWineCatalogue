@@ -23,9 +23,11 @@ final class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResu
     }
     
     var wineSorts: [String] {
-        Set(filteredBottles.compactMap { $0.wineSort }.filter { !$0.isEmpty }).sorted()
+        Set(filteredBottles.compactMap { $0.wineSort }.filter { !$0.isEmpty })
+        .map { $0.localize() }
+        .sorted()
     }
-    
+
     var placesOfPurchase: [String] {
         Set(filteredBottles.compactMap { $0.placeOfPurchase }.filter { !$0.isEmpty }).sorted()
     }
