@@ -11,14 +11,14 @@ struct StatisticsBarView: View {
     @State private var currentProgress: CGFloat = 0.0
     var progress: CGFloat
     var sortsCount: String
-    var wineSortName: String  // Добавленный параметр для названия сорта вина
+    var wineSortName: String 
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {  // VStack используется для вертикального стека с отступом 8pt
-            Text(wineSortName)  // Этот текст будет отображаться над шкалой
+        VStack(alignment: .leading, spacing: 8) {
+            Text(wineSortName)
                 .font(.system(size: 14)).bold()
                 .foregroundColor(.gray)
-                .padding(.leading, 16)  // Отступ слева для выравнивания с шкалой
+                .padding(.leading, 16)
 
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {

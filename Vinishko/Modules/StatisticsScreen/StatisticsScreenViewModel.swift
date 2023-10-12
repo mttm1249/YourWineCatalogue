@@ -32,7 +32,10 @@ final class StatisticsScreenViewModel: ObservableObject {
 
         bottles.forEach { bottle in
             // Разделение строки сортов на отдельные сорта
-            let sorts = bottle.wineSort?.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespacesAndNewlines) }
+            let sorts = bottle.wineSort?.split(separator: ",").compactMap {
+                String($0)
+                    .trimmingCharacters(in: .whitespacesAndNewlines)
+            }
             
             // Подсчет количества каждого сорта
             sorts?.forEach { sort in
@@ -42,4 +45,5 @@ final class StatisticsScreenViewModel: ObservableObject {
 
         return sortsCount
     }
+    
 }

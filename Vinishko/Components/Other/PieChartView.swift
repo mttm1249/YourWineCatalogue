@@ -21,15 +21,18 @@ struct PieChartView: View {
                         .fill(self.color(for: index))
                         .overlay(
                             GeometryReader { sliceGeometry in
-                                let midAngle = (start.radians + end.radians) / 2
-                                let labelRadius = min(sliceGeometry.size.width, sliceGeometry.size.height) / 4
-                                let x = sliceGeometry.size.width / 2 + labelRadius * CGFloat(cos(midAngle))
-                                let y = sliceGeometry.size.height / 2 + labelRadius * CGFloat(sin(midAngle))
-                                Text("\(self.wineTypeCounts[index])")
-                                    .position(x: x, y: y)
-                                    .font(.system(size: 14))
-                                    .foregroundColor(Pallete.ratingBg)
-                                    .zIndex(1)
+                                // Если количество записей больше 0, отображаем число
+                                if self.wineTypeCounts[index] > 0 {
+                                    let midAngle = (start.radians + end.radians) / 2
+                                    let labelRadius = min(sliceGeometry.size.width, sliceGeometry.size.height) / 4
+                                    let x = sliceGeometry.size.width / 2 + labelRadius * CGFloat(cos(midAngle))
+                                    let y = sliceGeometry.size.height / 2 + labelRadius * CGFloat(sin(midAngle))
+                                    Text("\(self.wineTypeCounts[index])")
+                                        .position(x: x, y: y)
+                                        .font(.system(size: 14))
+                                        .foregroundColor(Pallete.ratingBg)
+                                        .zIndex(1)
+                                }
                             }
                         )
                 }

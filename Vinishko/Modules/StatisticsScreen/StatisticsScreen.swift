@@ -24,9 +24,12 @@ struct StatisticsScreen: View {
                 // Получение максимального значения для сортов вина
                 let maxCount = sortedWineSorts.first?.value ?? 1
                 
-                Text("Топ 10 сортов")
-                    .font(.system(size: 28)).bold()
-                    .padding()
+                HStack {
+                    Text("Топ 10 сортов")
+                        .font(.system(size: 28)).bold()
+                        .padding()
+                    Spacer()
+                }
                 
                 // Добавление шкал для каждого сорта вина, ограничив количество десятью
                 ForEach(Array(sortedWineSorts.prefix(10)), id: \.key) { wineSort, count in
