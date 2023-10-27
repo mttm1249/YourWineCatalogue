@@ -103,14 +103,14 @@ struct BottlesCatalogueView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 HStack {
                     Menu {
-                        Button(role: .destructive, action: {
+//                        Button(role: .destructive, action: {
 //                            CoreDataManager.shared.deleteAllData()
-                        }) {
-                            HStack {
-                                Text("Удалить все записи CD")
-                                Image(systemName: "gear")
-                            }
-                        }
+//                        }) {
+//                            HStack {
+//                                Text("Удалить все записи CD")
+//                                Image(systemName: "gear")
+//                            }
+//                        }
                         Button(action: {}) {
                             HStack {
                                 Text("Настройки QR")
@@ -139,7 +139,6 @@ struct BottlesCatalogueView: View {
                 }
             }
         }
-
     }
 }
 

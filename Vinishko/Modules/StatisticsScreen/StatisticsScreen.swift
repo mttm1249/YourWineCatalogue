@@ -10,6 +10,7 @@ import SwiftUI
 struct StatisticsScreen: View {
     
     @StateObject var viewModel: StatisticsScreenViewModel
+    @State private var showingAllWineSorts = false
     
     var body: some View {
         ScrollView {
@@ -24,15 +25,16 @@ struct StatisticsScreen: View {
                 // Получение максимального значения для сортов вина
                 let maxCount = sortedWineSorts.first?.value ?? 1
                 
-                HStack {
-                    Text("Топ 10 сортов")
-                        .font(.system(size: 28)).bold()
-                        .padding()
-                    Spacer()
+                if !showingAllWineSorts {
+                    HStack {
+                        Text("Топ 10 сортов")
+                            .font(.system(size: 28)).bold()
+                            .padding()
+                        Spacer()
+                    }
                 }
                 
-                // Добавление шкал для каждого сорта вина, ограничив количество десятью
-                ForEach(Array(sortedWineSorts.prefix(10)), id: \.key) { wineSort, count in
+                ForEach(Array(sortedWineSorts.prefix(showingAllWineSorts ? sortedWineSorts.count : 10)), id: \.key) { wineSort, count in
                     VStack {
                         StatisticsBarView(
                             progress: CGFloat(count) / CGFloat(maxCount),
@@ -42,11 +44,19 @@ struct StatisticsScreen: View {
                         .padding(.bottom, 12)
                     }
                 }
+                
+                if !showingAllWineSorts {
+                    Button("Показать все") {
+                        showingAllWineSorts = true
+                    }
+                    .padding()
+                }
             }
             .navigationTitle("Статистика")
         }
     }
 }
+
 
 //#Preview {
 //    StatisticsScreen(viewModel: StatisticsScreenViewModel(bottles: <#[Bottle]#>))

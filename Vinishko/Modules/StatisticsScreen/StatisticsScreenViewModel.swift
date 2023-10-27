@@ -42,8 +42,6 @@ final class StatisticsScreenViewModel: ObservableObject {
                 sortsCount[sort, default: 0] += 1
             }
         }
-
         return sortsCount
     }
-    
 }

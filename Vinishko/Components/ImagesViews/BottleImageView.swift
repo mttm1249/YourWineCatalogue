@@ -20,7 +20,6 @@ struct BottleImageView: View {
                 .clipped()
             HStack(spacing: 2) {
                 Text(rating)
-//                    .foregroundColor(.white)
                     .font(.system(size: 12)).bold()
 
                 Image(systemName: "star.fill")

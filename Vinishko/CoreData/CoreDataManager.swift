@@ -89,7 +89,7 @@ extension CoreDataManager {
     }
     
     private static func processWineSortFor(_ bottle: Bottle, with wineSort: [String]) {
-        bottle.wineSort = wineSort.map( { $0.localize() } ).joined(separator: ", ")
+        bottle.wineSort = wineSort.map( { $0 } ).joined(separator: ", ")
     }
     
      func deleteAllData() {
