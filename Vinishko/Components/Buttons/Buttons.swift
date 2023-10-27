@@ -159,3 +159,32 @@ struct FilterButton: View {
         .padding(.horizontal, 16)
     }
 }
+
+struct SwitchButton: View {
+    
+    @State private var applySetting = false
+    var buttonLabelText = ""
+    
+    var body: some View {
+        VStack(spacing: 12) {
+            HStack {
+                Toggle(buttonLabelText, isOn: $applySetting)
+                    .toggleStyle(SwitchToggleStyle(tint: Pallete.redWineColor))
+                if applySetting {
+                    
+                }
+            }
+            .padding(.horizontal, 16)
+            Divider()
+                .padding(.leading, 16)
+        }
+    }
+}
+
+#Preview {
+    VStack {
+        SwitchButton(buttonLabelText: "Делиться фото")
+        SwitchButton(buttonLabelText: "Делиться рейтингом")
+        SwitchButton(buttonLabelText: "Делиться комментарием")
+    }
+}

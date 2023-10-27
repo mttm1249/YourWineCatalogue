@@ -43,12 +43,25 @@ struct BottleCell: View {
                             .foregroundColor(Pallete.textColor)
                             .multilineTextAlignment(.leading)
                         Spacer()
-                        Button(action: {
-                            action()
-                        }) {
-                            Image(systemName: "ellipsis")
-                                .foregroundColor(Pallete.textColor)
-                                .frame(width: 20, height: 20)
+                        Button(action: {}) {
+                            Menu {
+                                Button(action: {
+                                  //TODO: share action
+                                }) {
+                                    Label("Поделиться", systemImage: "square.and.arrow.up")
+                                }
+                                Button(role: .destructive, action: {
+                                    action()
+                                }) {
+                                    Label("Удалить", systemImage: "trash")
+                                }
+                            } label: {
+                                Image(systemName: "ellipsis")
+                                    .foregroundColor(Pallete.textColor)
+                                    .padding(10)
+                                    .background(Color.clear)
+                                    .clipShape(Circle())
+                            }
                         }
                     }
                     Text(wineSort.localize())

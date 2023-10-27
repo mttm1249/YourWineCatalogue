@@ -11,9 +11,10 @@ import CoreData
 struct BottlesCatalogueView: View {
     @EnvironmentObject var viewModel: BottlesCatalogueViewModel
     @State private var showingAlert = false
-    @State private var isFiltersViewActive: Bool = false
-    @State private var isStatisticsViewActive: Bool = false
-    
+    @State private var isFiltersViewActive = false
+    @State private var isStatisticsViewActive = false
+    @State private var isSettingsViewActive = false
+
     var body: some View {
         VStack {
             VStack {
@@ -101,49 +102,40 @@ struct BottlesCatalogueView: View {
         .navigationTitle("Каталог дегустаций")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                HStack {
-                    Menu {
-//                        Button(role: .destructive, action: {
-//                            CoreDataManager.shared.deleteAllData()
-//                        }) {
-//                            HStack {
-//                                Text("Удалить все записи CD")
-//                                Image(systemName: "gear")
-//                            }
-//                        }
-                        Button(action: {}) {
-                            HStack {
-                                Text("Настройки QR")
-                                Image(systemName: "qrcode")
-                            }
-                        }
-                        Button(action: {
-                            self.isStatisticsViewActive = true
-                        }) {
-                            HStack {
-                                Text("Статистика")
-                                Image(systemName: "chart.pie.fill")
-                            }
-                        }
-                    } label: {
-                        Image(systemName: "line.3.horizontal")
+                Menu {
+                    Button(action: {
+                        isSettingsViewActive = true
+                    }) {
+                        Label("Настройки QR", systemImage: "qrcode")
                     }
-
-                    NavigationLink(
-                        "",
-                        destination: StatisticsScreen(viewModel: StatisticsScreenViewModel(bottles: viewModel.allBottles)),
-                        isActive: $isStatisticsViewActive
-                    )
-                    .opacity(0)
-                    .frame(width: 0, height: 0)
+                    Button(action: {
+                        isStatisticsViewActive = true
+                    }) {
+                        Label("Статистика", systemImage: "chart.pie.fill")
+                    }
+                } label: {
+                    Image(systemName: "line.3.horizontal")
                 }
             }
         }
+        .background(
+            VStack {
+                NavigationLink(
+                    "",
+                    destination: SettingsScreenView(),
+                    isActive: $isSettingsViewActive
+                )
+                .opacity(0)
+                .frame(width: 0, height: 0)
+                
+                NavigationLink(
+                    "",
+                    destination: StatisticsScreen(viewModel: StatisticsScreenViewModel(bottles: viewModel.allBottles)),
+                    isActive: $isStatisticsViewActive
+                )
+                .opacity(0)
+                .frame(width: 0, height: 0)
+            }
+        )
     }
 }
-
-//struct BottlesCatalogueScreenView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BottlesCatalogueView(viewModel: BottlesCatalogueViewModel(context: CoreDataManager.managedContext))
-//    }
-//}
