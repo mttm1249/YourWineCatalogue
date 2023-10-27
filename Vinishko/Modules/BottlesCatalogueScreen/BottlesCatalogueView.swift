@@ -106,15 +106,15 @@ struct BottlesCatalogueView: View {
                     Button(action: {
                         isSettingsViewActive = true
                     }) {
-                        Label("Настройки QR", systemImage: "qrcode")
+                        Label("Настройки QR", systemImage: Images.qr)
                     }
                     Button(action: {
                         isStatisticsViewActive = true
                     }) {
-                        Label("Статистика", systemImage: "chart.pie.fill")
+                        Label("Статистика", systemImage: Images.chart)
                     }
                 } label: {
-                    Image(systemName: "line.3.horizontal")
+                    Image(systemName: Images.hamburger)
                 }
             }
         }

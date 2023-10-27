@@ -14,7 +14,7 @@ struct SearchBarView: View {
     var body: some View {
         HStack {
             HStack {
-                Image(systemName: "magnifyingglass")
+                Image(systemName: Images.magnifyingGlass)
                     .foregroundColor(.gray)
                     .padding(.leading, 8)
                 
@@ -28,7 +28,7 @@ struct SearchBarView: View {
                     Button(action: {
                         self.text = ""
                     }) {
-                        Image(systemName: "xmark.circle.fill")
+                        Image(systemName: Images.xMark)
                             .foregroundColor(.gray)
                     }
                     .padding(.trailing, 8)

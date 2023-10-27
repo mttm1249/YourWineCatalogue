@@ -75,7 +75,7 @@ struct NewBottleScreen: View {
                     viewModel.save()
                     presentationMode.wrappedValue.dismiss()
                 }) {
-                    Image(systemName: "checkmark.circle")
+                    Image(systemName: Images.checkMarkCircle)
                         .frame(width: 20, height: 20)
                 }
             }

@@ -42,7 +42,7 @@ struct OptionButton: View {
                     Text(text ?? "")
                         .foregroundColor(Pallete.textColor)
                     Spacer()
-                    Image(systemName: "chevron.down")
+                    Image(systemName: Images.arrowDown)
                         .padding(.trailing, 8)
                 }
             }
@@ -83,7 +83,7 @@ struct FilterButton: View {
                             HapticFeedbackService.generateFeedback(style: .light)
                             selectedFilter.wrappedValue = nil
                         }) {
-                            Image(systemName: "xmark.circle.fill")
+                            Image(systemName: Images.xMark)
                                 .foregroundColor(Pallete.mainColor)
                                 .padding(.trailing, 8)
                         }
@@ -94,7 +94,7 @@ struct FilterButton: View {
                             HapticFeedbackService.generateFeedback(style: .light)
                             selectedFilter.wrappedValue = nil
                         }) {
-                            Image(systemName: "xmark.circle.fill")
+                            Image(systemName: Images.xMark)
                                 .foregroundColor(Pallete.mainColor)
                                 .padding(.trailing, 8)
                         }
@@ -105,7 +105,7 @@ struct FilterButton: View {
                             HapticFeedbackService.generateFeedback(style: .light)
                             selectedFilter.wrappedValue = nil
                         }) {
-                            Image(systemName: "xmark.circle.fill")
+                            Image(systemName: Images.xMark)
                                 .foregroundColor(Pallete.mainColor)
                                 .padding(.trailing, 8)
                         }
@@ -116,7 +116,7 @@ struct FilterButton: View {
                             HapticFeedbackService.generateFeedback(style: .light)
                             selectedFilter.wrappedValue = nil
                         }) {
-                            Image(systemName: "xmark.circle.fill")
+                            Image(systemName: Images.xMark)
                                 .foregroundColor(Pallete.mainColor)
                                 .padding(.trailing, 8)
                         }
@@ -144,7 +144,7 @@ struct FilterButton: View {
                         }
                         
                         Spacer()
-                        Image(systemName: "chevron.down")
+                        Image(systemName: Images.arrowDown)
                             .padding(.trailing, 8)
                     }
                 }

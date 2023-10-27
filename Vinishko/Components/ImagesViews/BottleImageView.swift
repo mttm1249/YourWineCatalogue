@@ -22,7 +22,7 @@ struct BottleImageView: View {
                 Text(rating)
                     .font(.system(size: 12)).bold()
 
-                Image(systemName: "star.fill")
+                Image(systemName: Images.star)
                     .foregroundColor(.orange)
                     .font(.system(size: 12))
             }

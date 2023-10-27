@@ -27,7 +27,7 @@ struct BottleCell: View {
                     CircleImageView(image: bottleImage)
                         .frame(width: 80, height: 80)
                     HStack {
-                        Image(systemName: "star.fill")
+                        Image(systemName: Images.star)
                             .resizable()
                             .frame(width: 14, height: 14)
                             .foregroundColor(.orange)
@@ -48,15 +48,15 @@ struct BottleCell: View {
                                 Button(action: {
                                   //TODO: share action
                                 }) {
-                                    Label("Поделиться", systemImage: "square.and.arrow.up")
+                                    Label("Поделиться", systemImage: Images.share)
                                 }
                                 Button(role: .destructive, action: {
                                     action()
                                 }) {
-                                    Label("Удалить", systemImage: "trash")
+                                    Label("Удалить", systemImage: Images.trash)
                                 }
                             } label: {
-                                Image(systemName: "ellipsis")
+                                Image(systemName: Images.ellipsis)
                                     .foregroundColor(Pallete.textColor)
                                     .padding(10)
                                     .background(Color.clear)

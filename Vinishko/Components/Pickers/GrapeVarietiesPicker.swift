@@ -77,7 +77,7 @@ struct GrapeVarietiesPicker: View {
                             .foregroundColor(Pallete.textColor)
                         Spacer()
                         if selectedGrapeVarieties.contains(originalVariety) {
-                            Image(systemName: "checkmark")
+                            Image(systemName: Images.checkMark)
                         }
                     }
                 }
