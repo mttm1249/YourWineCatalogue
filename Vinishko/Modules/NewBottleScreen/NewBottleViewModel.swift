@@ -25,7 +25,8 @@ class NewBottleViewModel: ObservableObject {
     @Published var rating: Double = 0
     @Published var image: UIImage = UIImage(named: "addImage") ?? UIImage()
     
-    private var editableBottle: Bottle?
+    @Published var editableBottle: Bottle?
+    
     private var managedObjectContext: NSManagedObjectContext
     
     init(editableBottle: Bottle?, context: NSManagedObjectContext, onBottleSaved: ((Bottle) -> Void)? = nil) {
@@ -33,6 +34,8 @@ class NewBottleViewModel: ObservableObject {
         self.editableBottle = editableBottle
         self.managedObjectContext = context
         loadBottleDetails()
+        
+        print(editableBottle)
     }
     
     func loadBottleDetails() {
@@ -86,7 +89,7 @@ class NewBottleViewModel: ObservableObject {
             editableBottle.doubleRating = rating
             
             CoreDataManager.shared.saveContext()
-           
+            
             // update bottle details
             onBottleSaved?(editableBottle)
             

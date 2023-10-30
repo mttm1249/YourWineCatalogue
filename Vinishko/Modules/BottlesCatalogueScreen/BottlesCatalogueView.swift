@@ -10,11 +10,13 @@ import CoreData
 
 struct BottlesCatalogueView: View {
     @EnvironmentObject var viewModel: BottlesCatalogueViewModel
+    
     @State private var showingAlert = false
     @State private var isFiltersViewActive = false
     @State private var isStatisticsViewActive = false
     @State private var isSettingsViewActive = false
-
+    @State private var isEditViewActive = false
+    
     var body: some View {
         VStack {
             VStack {
@@ -78,13 +80,15 @@ struct BottlesCatalogueView: View {
                                         rating: bottle.doubleRating,
                                         editAction: {
                                             // код для редактирования
+                                            viewModel.selectedBottle = bottle
+                                            isEditViewActive = true
                                         },
                                         shareAction: {
                                             //код для показа QR
                                         },
                                         deleteAction: {
-                                            self.viewModel.bottleToDelete = bottle
-                                            self.showingAlert = true
+                                            viewModel.selectedBottle = bottle
+                                            showingAlert = true
                                         }
                                     )
                                 }
@@ -95,7 +99,7 @@ struct BottlesCatalogueView: View {
                         Alert(title: Text("Вы уверены?"),
                               message: Text("Вы действительно хотите удалить эту бутылку?"),
                               primaryButton: .destructive(Text("Удалить")) {
-                            if let bottle = viewModel.bottleToDelete {
+                            if let bottle = viewModel.selectedBottle {
                                 viewModel.deleteBottle(bottle)
                             }
                             HapticFeedbackService.generateFeedback(style: .success)
@@ -142,6 +146,16 @@ struct BottlesCatalogueView: View {
                 )
                 .opacity(0)
                 .frame(width: 0, height: 0)
+                
+                NavigationLink(
+                    "",
+                    destination: NewBottleScreen(viewModel: NewBottleViewModel(editableBottle: viewModel.selectedBottle,
+                                                                               context: CoreDataManager.managedContext)),
+                    isActive: $isEditViewActive
+                )
+                .opacity(0)
+                .frame(width: 0, height: 0)
+                
             }
         )
     }

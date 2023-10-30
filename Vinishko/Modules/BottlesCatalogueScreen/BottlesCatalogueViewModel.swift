@@ -16,7 +16,7 @@ final class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResu
     @Published var filteredBottles: [Bottle] = []
     @Published var searchText: String = ""
     @Published var selectedSegment: Int = -1
-    @Published var bottleToDelete: Bottle? = nil
+    @Published var selectedBottle: Bottle? = nil
     
     var allBottles: [Bottle] {
         return fetchedResultsController.fetchedObjects ?? []
