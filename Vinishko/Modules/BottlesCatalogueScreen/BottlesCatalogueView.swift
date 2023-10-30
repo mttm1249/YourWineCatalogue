@@ -75,11 +75,18 @@ struct BottlesCatalogueView: View {
                                         wineType: bottle.wineType,
                                         wineSugar: bottle.wineSugar,
                                         price: bottle.price ?? "",
-                                        rating: bottle.doubleRating
-                                    ) {
-                                        self.viewModel.bottleToDelete = bottle
-                                        self.showingAlert = true
-                                    }
+                                        rating: bottle.doubleRating,
+                                        editAction: {
+                                            // код для редактирования
+                                        },
+                                        shareAction: {
+                                            //код для показа QR
+                                        },
+                                        deleteAction: {
+                                            self.viewModel.bottleToDelete = bottle
+                                            self.showingAlert = true
+                                        }
+                                    )
                                 }
                             }
                         }

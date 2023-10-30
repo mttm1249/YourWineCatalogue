@@ -20,4 +20,5 @@ struct Images {
     static let ellipsis = "ellipsis"
     static let checkMarkCircle = "checkmark.circle"
     static let hamburger = "line.3.horizontal"
+    static let pencil = "pencil"
 }

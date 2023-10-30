@@ -209,7 +209,7 @@ final class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResu
     }
     
     private func isSortMatching(_ bottle: Bottle) -> Bool {
-        if let selectedSort = selectedWineSort, let wineSort = bottle.wineSort {
+        if let selectedSort = selectedWineSort, let wineSort = bottle.wineSort?.localize() {
             return wineSort.contains(selectedSort)
         } else {
             return true

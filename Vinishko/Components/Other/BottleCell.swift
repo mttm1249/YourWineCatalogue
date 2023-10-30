@@ -18,7 +18,9 @@ struct BottleCell: View {
     var wineSugar: Int16
     var price: String
     var rating: Double
-    var action: () -> Void
+    var editAction: () -> Void
+    var shareAction: () -> Void
+    var deleteAction: () -> Void
     
     var body: some View {
         VStack {
@@ -46,12 +48,17 @@ struct BottleCell: View {
                         Button(action: {}) {
                             Menu {
                                 Button(action: {
-                                  //TODO: share action
+                                    editAction()
                                 }) {
-                                    Label("Поделиться", systemImage: Images.share)
+                                    Label("Редактировать", systemImage: Images.pencil)
+                                }
+                                Button(action: {
+                                    shareAction()
+                                }) {
+                                    Label("Показать QR", systemImage: Images.qr)
                                 }
                                 Button(role: .destructive, action: {
-                                    action()
+                                    deleteAction()
                                 }) {
                                     Label("Удалить", systemImage: Images.trash)
                                 }
@@ -89,18 +96,18 @@ struct BottleCell: View {
     }
 }
 
-struct BottleCell_Previews: PreviewProvider {
-    static var previews: some View {
-        BottleCell(name: "Best Wine Ever 2023",
-                   bottleImage: UIImage(named: "wine")!,
-                   bottleDescription: "Bottle description text",
-                   wineCountry: "Italy",
-                   wineSort: "grape_sauvignon_blanc",
-                   wineColor: 0,
-                   wineType: 0,
-                   wineSugar: 0,
-                   price: "500",
-                   rating: 0.0,
-                   action: {})
-    }
-}
+//struct BottleCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BottleCell(name: "Best Wine Ever 2023",
+//                   bottleImage: UIImage(named: "wine")!,
+//                   bottleDescription: "Bottle description text",
+//                   wineCountry: "Italy",
+//                   wineSort: "grape_sauvignon_blanc",
+//                   wineColor: 0,
+//                   wineType: 0,
+//                   wineSugar: 0,
+//                   price: "500",
+//                   rating: 0.0,
+//                   action: {})
+//    }
+//}
