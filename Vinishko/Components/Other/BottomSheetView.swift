@@ -23,7 +23,7 @@ struct BottomSheet<Content: View>: View {
         ZStack(alignment: .bottom) {
             if isShowing {
                 Color.black
-                    .opacity(0.4)
+                    .opacity(0.5)
                     .ignoresSafeArea()
                     .onTapGesture {
                         withAnimation {

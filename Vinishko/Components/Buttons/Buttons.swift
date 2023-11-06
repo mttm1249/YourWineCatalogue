@@ -181,29 +181,10 @@ struct SwitchButton: View {
     }
 }
 
-//struct QRButton: View {
-//    
-//    var action: () -> Void
-//    
-//    var body: some View {
-//        Button {
-//            action()
-//        } label: {
-//            Text("Показать QR-код")
-//                .font(.system(size: 14))
-//                .foregroundColor(.white)
-//                .padding(8)
-//                .background(Pallete.redWineColor)
-//                .cornerRadius(100)
-//        }
-//    }
-//}
-
 #Preview {
     VStack {
         SwitchButton(buttonLabelText: "Делиться фото")
         SwitchButton(buttonLabelText: "Делиться рейтингом")
         SwitchButton(buttonLabelText: "Делиться комментарием")
-//        QRButton(action: {})
     }
 }
