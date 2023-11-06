@@ -48,6 +48,8 @@
 		DA7CCBC72A54445600C5876D /* NewBottleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC62A54445600C5876D /* NewBottleScreen.swift */; };
 		DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */; };
 		DA8FF5EE2AA4AB2500DBAE6C /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */; };
+		DA917C932AF8F34D00D8B72F /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA917C922AF8F34D00D8B72F /* QRGenerator.swift */; };
+		DA917C952AF8FBDD00D8B72F /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA917C942AF8FBDD00D8B72F /* BottomSheetView.swift */; };
 		DA9BF1122AD0228C007A70A1 /* BannerNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BF1112AD0228C007A70A1 /* BannerNotifications.swift */; };
 		DAB0261E2A9CDDD200E5BF5C /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0261D2A9CDDD200E5BF5C /* SegmentedControl.swift */; };
 		DAB026202A9CDFA000E5BF5C /* HideBackButtonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */; };
@@ -108,6 +110,8 @@
 		DA7CCBC62A54445600C5876D /* NewBottleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBottleScreen.swift; sourceTree = "<group>"; };
 		DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStandart.swift; sourceTree = "<group>"; };
 		DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationService.swift; sourceTree = "<group>"; };
+		DA917C922AF8F34D00D8B72F /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
+		DA917C942AF8FBDD00D8B72F /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		DA9BF1112AD0228C007A70A1 /* BannerNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerNotifications.swift; sourceTree = "<group>"; };
 		DAB0261D2A9CDDD200E5BF5C /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideBackButtonText.swift; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 				DAE255892AACB1F50004C707 /* RatingView.swift */,
 				DA2600CE2AD2E17B003AD868 /* PieChartView.swift */,
 				DADE85802AD71A6400C3F646 /* StatisticsBarView.swift */,
+				DA917C942AF8FBDD00D8B72F /* BottomSheetView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 			children = (
 				DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */,
 				DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */,
+				DA917C922AF8F34D00D8B72F /* QRGenerator.swift */,
 				DA033DFC2A9CAFF4004C847D /* Extensions */,
 			);
 			path = Services;
@@ -483,6 +489,7 @@
 				DA9BF1122AD0228C007A70A1 /* BannerNotifications.swift in Sources */,
 				DAB026252A9CE5CF00E5BF5C /* HapticFeedbackService.swift in Sources */,
 				DA2C2B392A9DF30700C6680D /* FiltersView.swift in Sources */,
+				DA917C932AF8F34D00D8B72F /* QRGenerator.swift in Sources */,
 				DA033DF92A9CAAD8004C847D /* Images.swift in Sources */,
 				DABDE2952AB62D8600DFC9ED /* BottlePhotoView.swift in Sources */,
 				DA2C2B3F2A9E119900C6680D /* TextEditorStandart.swift in Sources */,
@@ -496,6 +503,7 @@
 				DA7CCBC52A54410E00C5876D /* Pallete.swift in Sources */,
 				DA0355A52AA072EA002EBA77 /* PickersModuleView.swift in Sources */,
 				DA2600CF2AD2E17B003AD868 /* PieChartView.swift in Sources */,
+				DA917C952AF8FBDD00D8B72F /* BottomSheetView.swift in Sources */,
 				DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */,
 				DA2C2B3B2A9DF4E800C6680D /* SegmentPicker.swift in Sources */,
 				DAE4DA712AA2068B00853426 /* GrapeVarietiesPicker.swift in Sources */,
@@ -654,7 +662,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
@@ -692,7 +700,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;

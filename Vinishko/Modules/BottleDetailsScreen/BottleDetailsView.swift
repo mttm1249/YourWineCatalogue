@@ -13,7 +13,8 @@ struct BottleDetailsView: View {
     var bottle: Bottle
     @ObservedObject var viewModel: BottleDetailsViewModel
     @State private var showingSheet = false
-    @State var showSaveBanner = false
+    @State private var showSaveBanner = false
+    @State private var showQRSheet = false
     
     var body: some View {
         ScrollView {
@@ -55,21 +56,29 @@ struct BottleDetailsView: View {
                     
                     Text(bottle.bottleDescription ?? "")
                         .font(.system(size: 14))
+                    Divider()
                 }
                 .padding(.horizontal, 16)
             }
         }
         .navigationTitle("Сведения о дегустации")
         .toolbar {
-               ToolbarItem(placement: .navigationBarTrailing) {
-                   NavigationLink(destination: NewBottleScreen(viewModel: NewBottleViewModel(editableBottle: bottle, context: CoreDataManager.managedContext, onBottleSaved: { updatedBottle in
-                       self.viewModel.updateBottle(updatedBottle)
-                   }))) {
-                       Text("Ред.")
-                   }
-               }
-           }
-
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                NavigationLink(destination: NewBottleScreen(viewModel: NewBottleViewModel(editableBottle: bottle, context: CoreDataManager.managedContext, onBottleSaved: { updatedBottle in
+                    self.viewModel.updateBottle(updatedBottle)
+                }))) {
+                    Image(systemName: Images.pencil)
+                }
+                
+                Button {
+                    withAnimation {
+                        showQRSheet.toggle()
+                    }
+                } label: {
+                    Image(systemName: Images.qr)
+                }
+            }
+        }
         .sheet(isPresented: $showingSheet) {
             if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
                 BottlePhotoView(bottle: bottle,
@@ -77,5 +86,18 @@ struct BottleDetailsView: View {
                                 image: uiImage)
             }
         }
+        // Bottom Sheet для QR кода
+        .overlay(
+            BottomSheet(isShowing: $showQRSheet) {
+                VStack {
+                    Text("Сканируйте через Vinishko")
+                        .font(.system(size: 18)).bold()
+                    Spacer()
+                    ProgressView()
+                    Spacer()
+                }
+            }
+                .edgesIgnoringSafeArea(.all)
+        )
     }
 }

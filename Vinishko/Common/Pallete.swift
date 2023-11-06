@@ -22,4 +22,6 @@ struct Pallete {
     static let searchBarBg = Color("SearchBar")
     
     static let ratingBg = Color("RatingBg")
+    static let bgColor = Color("BgColor")
+
 }

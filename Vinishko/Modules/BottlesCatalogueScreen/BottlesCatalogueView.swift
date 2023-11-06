@@ -16,6 +16,7 @@ struct BottlesCatalogueView: View {
     @State private var isStatisticsViewActive = false
     @State private var isSettingsViewActive = false
     @State private var isEditViewActive = false
+    @State private var showQRSheet = false
     
     var body: some View {
         VStack {
@@ -79,12 +80,14 @@ struct BottlesCatalogueView: View {
                                         price: bottle.price ?? "",
                                         rating: bottle.doubleRating,
                                         editAction: {
-                                            // код для редактирования
                                             viewModel.selectedBottle = bottle
                                             isEditViewActive = true
                                         },
                                         shareAction: {
-                                            //код для показа QR
+                                            viewModel.selectedBottle = bottle
+                                            withAnimation {
+                                                showQRSheet = true
+                                            }
                                         },
                                         deleteAction: {
                                             viewModel.selectedBottle = bottle
@@ -157,6 +160,18 @@ struct BottlesCatalogueView: View {
                 .frame(width: 0, height: 0)
                 
             }
+        )
+        .overlay(
+            BottomSheet(isShowing: $showQRSheet) {
+                VStack {
+                    Text("Сканируйте через Vinishko")
+                        .font(.system(size: 18)).bold()
+                    Spacer()
+                    ProgressView()
+                    Spacer()
+                }
+            }
+                .edgesIgnoringSafeArea(.all)
         )
     }
 }

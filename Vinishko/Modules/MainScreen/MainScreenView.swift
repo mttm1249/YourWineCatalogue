@@ -28,6 +28,11 @@ struct MainScreenView: View {
                                  imageName: "list.star")
                 .padding(.bottom, 150)
                 Spacer()
+                if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+                   let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+                    Text("Версия приложения: \(version), сборка: \(build)")
+                        .font(.caption2)
+                }
             }
             .overlay(
                 VStack {
