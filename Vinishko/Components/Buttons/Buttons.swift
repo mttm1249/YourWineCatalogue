@@ -161,18 +161,25 @@ struct FilterButton: View {
 }
 
 struct SwitchButton: View {
+    var label: String
+    var udKey: UserDefaultsKey
     
-    @State private var applySetting = false
-    var buttonLabelText = ""
+    @State private var switchIsOn: Bool = false
+
+    init(label: String, udKey: UserDefaultsKey) {
+        self.label = label
+        self.udKey = udKey
+        _switchIsOn = State(initialValue: UserDefaults.standard.bool(forKey: udKey.rawValue))
+    }
     
     var body: some View {
         VStack(spacing: 12) {
             HStack {
-                Toggle(buttonLabelText, isOn: $applySetting)
+                Toggle(label, isOn: $switchIsOn)
                     .toggleStyle(SwitchToggleStyle(tint: Pallete.redWineColor))
-                if applySetting {
-                    
-                }
+                    .onChange(of: switchIsOn) { newValue in
+                        UserDefaults.standard.set(newValue, forKey: udKey.rawValue)
+                    }
             }
             .padding(.horizontal, 16)
             Divider()
@@ -181,10 +188,11 @@ struct SwitchButton: View {
     }
 }
 
+
 #Preview {
     VStack {
-        SwitchButton(buttonLabelText: "Делиться фото")
-        SwitchButton(buttonLabelText: "Делиться рейтингом")
-        SwitchButton(buttonLabelText: "Делиться комментарием")
+        SwitchButton(label: "Делиться фото", udKey: .photoShare)
+        SwitchButton(label: "Делиться рейтингом", udKey: .ratingShare)
+        SwitchButton(label: "Делиться комментарием", udKey: .commentShare)
     }
 }

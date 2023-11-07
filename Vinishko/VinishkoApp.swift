@@ -25,6 +25,7 @@ struct VinishkoApp: App {
     
     init() {
         MigrationService.performInitialMigration()
+        QRGenerator.setDefaultQRSettings()
     }
 
     var body: some Scene {

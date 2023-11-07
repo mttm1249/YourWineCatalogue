@@ -11,6 +11,19 @@ import FirebaseStorage
 
 final class QRGenerator {
     
+    static func setDefaultQRSettings() {
+        let defaults = UserDefaults.standard
+        let keys = [UserDefaultsKey.photoShare.rawValue, UserDefaultsKey.ratingShare.rawValue, UserDefaultsKey.commentShare.rawValue]
+        
+        if defaults.bool(forKey: "isFirstLaunch") == false {
+            defaults.set(true, forKey: "isFirstLaunch")
+            
+            keys.forEach { key in
+                defaults.set(true, forKey: key)
+            }
+        }
+    }
+
     static func upload(imageData: Data?, completion: @escaping (String?, Error?) -> Void) {
         guard let unwrappedImageData = imageData else {
             completion(nil, NSError(domain: "UploadError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Изображение отсутствует или данные некорректны."]))
@@ -48,15 +61,6 @@ final class QRGenerator {
         }
     }
     
-    //    private func checkPermissionForSharingRating(by key: String, value: Int) -> Int {
-    //        let result = userDefaults.bool(forKey: key)
-    //        if result == true {
-    //            return value
-    //        }
-    //        return 0
-    //    }
-    //
-    
     static func generateQR(imageURL: String,
                            name: String,
                            wineColor: Int,
@@ -70,9 +74,10 @@ final class QRGenerator {
                            bottleDescription: String,
                            rating: Double) -> UIImage? {
         
+        let userDefaults = UserDefaults.standard
         var jsonDict = [String: Any]()
+        
         jsonDict["verification"] = "VinishkoAPP"
-        jsonDict["imageURL"] = imageURL
         jsonDict["name"] = name
         jsonDict["wineColor"] = wineColor
         jsonDict["wineSugar"] = wineSugar
@@ -81,9 +86,19 @@ final class QRGenerator {
         jsonDict["wineCountry"] = wineCountry
         jsonDict["wineRegion"] = wineRegion
         jsonDict["placeOfPurchase"] = placeOfPurchase
-        jsonDict["bottleDescription"] = bottleDescription
         jsonDict["price"] = price
-        jsonDict["rating"] = rating
+        jsonDict["bottleDescription"] = bottleDescription
+        
+        // Проверка разрешений в UserDefaults и добавление данных в QR код
+        if userDefaults.bool(forKey: UserDefaultsKey.photoShare.rawValue) {
+            jsonDict["imageURL"] = imageURL
+        }
+        if userDefaults.bool(forKey: UserDefaultsKey.ratingShare.rawValue) {
+            jsonDict["rating"] = rating
+        }
+        if userDefaults.bool(forKey: UserDefaultsKey.commentShare.rawValue) {
+            jsonDict["bottleDescription"] = bottleDescription
+        }
         
         guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []) else {
             print("Ошибка при создании JSON")

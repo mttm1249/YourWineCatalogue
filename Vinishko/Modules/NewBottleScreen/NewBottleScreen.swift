@@ -70,7 +70,16 @@ struct NewBottleScreen: View {
         }
         .navigationTitle("Добавить винишко")
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button {
+                    viewModel.showingQRScanner = true
+                } label: {
+                    Image(systemName: Images.qr)
+                }
+                .sheet(isPresented: $viewModel.showingQRScanner) {
+                    QRCodeScannerView(isPresentingScanner: $viewModel.showingQRScanner, scannedCode: $viewModel.scannedCode)
+                }
+                
                 Button(action: {
                     viewModel.save()
                     presentationMode.wrappedValue.dismiss()
@@ -80,5 +89,6 @@ struct NewBottleScreen: View {
                 }
             }
         }
+
     }
 }

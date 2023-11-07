@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct BottlesCatalogueView: View {
-   
+    
     @EnvironmentObject var viewModel: BottlesCatalogueViewModel
     
     var body: some View {
