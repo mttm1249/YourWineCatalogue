@@ -19,6 +19,12 @@ final class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResu
     @Published var selectedBottle: Bottle? = nil
     @Published var qrCodeImage: UIImage?
     @Published var isUploading: Bool = false
+    @Published var showingAlert: Bool = false
+    @Published var isFiltersViewActive: Bool = false
+    @Published var isStatisticsViewActive: Bool = false
+    @Published var isSettingsViewActive: Bool = false
+    @Published var isEditViewActive: Bool = false
+    @Published var showQRSheet: Bool = false
     
     var allBottles: [Bottle] {
         return fetchedResultsController.fetchedObjects ?? []
@@ -289,6 +295,7 @@ final class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResu
         
         QRGenerator.upload(imageData: imageData) { [weak self] (urlString, error) in
             self?.isUploading = false
+            HapticFeedbackService.generateFeedback(style: .medium)
             if let error = error {
                 print("Ошибка при загрузке: \(error.localizedDescription)")
             } else if let urlString = urlString {

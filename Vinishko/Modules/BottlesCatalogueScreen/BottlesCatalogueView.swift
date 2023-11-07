@@ -9,14 +9,8 @@ import SwiftUI
 import CoreData
 
 struct BottlesCatalogueView: View {
+   
     @EnvironmentObject var viewModel: BottlesCatalogueViewModel
-    
-    @State private var showingAlert = false
-    @State private var isFiltersViewActive = false
-    @State private var isStatisticsViewActive = false
-    @State private var isSettingsViewActive = false
-    @State private var isEditViewActive = false
-    @State private var showQRSheet = false
     
     var body: some View {
         VStack {
@@ -27,7 +21,7 @@ struct BottlesCatalogueView: View {
                     }
                 HStack {
                     Button(action: {
-                        self.isFiltersViewActive = true
+                        viewModel.isFiltersViewActive = true
                     }) {
                         Text("Фильтры")
                             .font(.system(size: 14))
@@ -37,7 +31,7 @@ struct BottlesCatalogueView: View {
                             "",
                             destination: FiltersView()
                                 .environmentObject(viewModel),
-                            isActive: $isFiltersViewActive
+                            isActive: $viewModel.isFiltersViewActive
                         )
                         .opacity(0)
                     )
@@ -81,25 +75,25 @@ struct BottlesCatalogueView: View {
                                         rating: bottle.doubleRating,
                                         editAction: {
                                             viewModel.selectedBottle = bottle
-                                            isEditViewActive = true
+                                            viewModel.isEditViewActive = true
                                         },
                                         shareAction: {
                                             viewModel.selectedBottle = bottle
                                             viewModel.uploadImageAndGenerateQRCode(imageData: bottle.bottleImage)
                                             withAnimation {
-                                                showQRSheet = true
+                                                viewModel.showQRSheet = true
                                             }
                                         },
                                         deleteAction: {
                                             viewModel.selectedBottle = bottle
-                                            showingAlert = true
+                                            viewModel.showingAlert = true
                                         }
                                     )
                                 }
                             }
                         }
                     }
-                    .alert(isPresented: $showingAlert) {
+                    .alert(isPresented: $viewModel.showingAlert) {
                         Alert(title: Text("Вы уверены?"),
                               message: Text("Вы действительно хотите удалить эту бутылку?"),
                               primaryButton: .destructive(Text("Удалить")) {
@@ -119,12 +113,12 @@ struct BottlesCatalogueView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
                     Button(action: {
-                        isSettingsViewActive = true
+                        viewModel.isSettingsViewActive = true
                     }) {
                         Label("Настройки QR", systemImage: Images.qr)
                     }
                     Button(action: {
-                        isStatisticsViewActive = true
+                        viewModel.isStatisticsViewActive = true
                     }) {
                         Label("Статистика", systemImage: Images.chart)
                     }
@@ -138,7 +132,7 @@ struct BottlesCatalogueView: View {
                 NavigationLink(
                     "",
                     destination: SettingsScreenView(),
-                    isActive: $isSettingsViewActive
+                    isActive: $viewModel.isSettingsViewActive
                 )
                 .opacity(0)
                 .frame(width: 0, height: 0)
@@ -146,7 +140,7 @@ struct BottlesCatalogueView: View {
                 NavigationLink(
                     "",
                     destination: StatisticsScreen(viewModel: StatisticsScreenViewModel(bottles: viewModel.allBottles)),
-                    isActive: $isStatisticsViewActive
+                    isActive: $viewModel.isStatisticsViewActive
                 )
                 .opacity(0)
                 .frame(width: 0, height: 0)
@@ -155,7 +149,7 @@ struct BottlesCatalogueView: View {
                     "",
                     destination: NewBottleScreen(viewModel: NewBottleViewModel(editableBottle: viewModel.selectedBottle,
                                                                                context: CoreDataManager.managedContext)),
-                    isActive: $isEditViewActive
+                    isActive: $viewModel.isEditViewActive
                 )
                 .opacity(0)
                 .frame(width: 0, height: 0)
@@ -163,7 +157,7 @@ struct BottlesCatalogueView: View {
             }
         )
         .overlay(
-            BottomSheet(isShowing: $showQRSheet) {
+            BottomSheet(isShowing: $viewModel.showQRSheet) {
                 VStack {
                     Text("Сканируйте через Vinishko")
                         .font(.system(size: 18)).bold()

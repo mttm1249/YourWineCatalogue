@@ -43,6 +43,7 @@ final class BottleDetailsViewModel: ObservableObject {
         
         QRGenerator.upload(imageData: imageData) { [weak self] (urlString, error) in
             self?.isUploading = false
+            HapticFeedbackService.generateFeedback(style: .medium)
             if let error = error {
                 print("Ошибка при загрузке: \(error.localizedDescription)")
             } else if let urlString = urlString {
