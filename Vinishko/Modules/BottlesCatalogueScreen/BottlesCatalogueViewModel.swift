@@ -17,6 +17,8 @@ final class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResu
     @Published var searchText: String = ""
     @Published var selectedSegment: Int = -1
     @Published var selectedBottle: Bottle? = nil
+    @Published var qrCodeImage: UIImage?
+    @Published var isUploading: Bool = false
     
     var allBottles: [Bottle] {
         return fetchedResultsController.fetchedObjects ?? []
@@ -259,5 +261,40 @@ final class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResu
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         applyFilters()
+    }
+    
+    private func generateQRCode(with imageURL: String) {
+            self.qrCodeImage = QRGenerator.generateQR(imageURL: imageURL,
+                                                      name: self.selectedBottle?.name ?? "",
+                                                      wineColor: Int(self.selectedBottle?.wineColor ?? 0),
+                                                      wineSugar: Int(self.selectedBottle?.wineSugar ?? 0),
+                                                      wineType: Int(self.selectedBottle?.wineType ?? 0),
+                                                      wineSort: self.selectedBottle?.wineSort ?? "",
+                                                      wineCountry: self.selectedBottle?.wineCountry ?? "",
+                                                      wineRegion: self.selectedBottle?.wineRegion ?? "",
+                                                      placeOfPurchase: self.selectedBottle?.placeOfPurchase ?? "",
+                                                      price: self.selectedBottle?.price ?? "",
+                                                      bottleDescription: self.selectedBottle?.bottleDescription ?? "",
+                                                      rating: self.selectedBottle?.doubleRating ?? 0)
+    }
+    
+    func uploadImageAndGenerateQRCode(imageData: Data?) {
+        guard let imageData = imageData else {
+            print("Ошибка: изображение отсутствует.")
+            self.generateQRCode(with: "")
+            return
+        }
+        
+        isUploading = true
+        
+        QRGenerator.upload(imageData: imageData) { [weak self] (urlString, error) in
+            self?.isUploading = false
+            if let error = error {
+                print("Ошибка при загрузке: \(error.localizedDescription)")
+            } else if let urlString = urlString {
+                self?.generateQRCode(with: urlString)
+                print("URL изображения: \(urlString)")
+            }
+        }
     }
 }

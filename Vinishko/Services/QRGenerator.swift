@@ -7,77 +7,55 @@
 
 import UIKit
 import CoreImage.CIFilterBuiltins
+import FirebaseStorage
 
-class QRGenerator {
+final class QRGenerator {
     
-//    @IBAction func generateAction(_ sender: Any) {
-//        progressView.isHidden = false
-//        
-//        // Upload image to Firebase
-//        let randomID = UUID.init().uuidString
-//        let uploadRef = Storage.storage().reference(withPath: "images/\(randomID).jpg")
-//        guard let imageData = bottleImage.image?.jpegData(compressionQuality: 0.3) else { return }
-//        
-//        let uploadMetadata = StorageMetadata.init()
-//        uploadMetadata.contentType = "image/jpg"
-//        
-//        let taskReference = uploadRef.putData(imageData, metadata: uploadMetadata) { (downloadMetadata, error) in
-//            if let error = error {
-//                print("Oh no! Got an error! \(error.localizedDescription)")
-//                return
-//            }
-//            uploadRef.downloadURL(completion: { (url, error) in
-//                if let error = error {
-//                    print("Got an error generating URL: \(error.localizedDescription)")
-//                    return
-//                }
-//                if let url = url {
-//                    self.imageURL = url.absoluteString
-//                }
-//            })
-//        }
-//        // ProgressView
-//        taskReference.observe(.progress) { [weak self] (snapshot) in
-//            guard let progressValue = snapshot.progress?.fractionCompleted else { return }
-//            self?.progressView.progress = Float(progressValue)
-//        }
-//    }
-//    
-//    private func checkPermissionForSharing(by key: String, value: String) -> String {
-//        let result = userDefaults.bool(forKey: key)
-//        if result == true {
-//            return value
-//        }
-//        return ""
-//    }
-//    
-//    private func checkPermissionForSharingRating(by key: String, value: Int) -> Int {
-//        let result = userDefaults.bool(forKey: key)
-//        if result == true {
-//            return value
-//        }
-//        return 0
-//    }
-//    
-//    private func generateQR(with imageURL: String) {
-//        // Converting JSON string to UIImage
-//        qrImage = QRGenerator.generateQR(imageURL: checkPermissionForSharing(by: "shareImage", value: imageURL),
-//                                         name: currentBottle.name!,
-//                                         wineColor: currentBottle.wineColor!,
-//                                         wineSugar: currentBottle.wineSugar!,
-//                                         wineType: currentBottle.wineType!,
-//                                         wineSort: currentBottle.wineSort!,
-//                                         wineCountry: currentBottle.wineCountry!,
-//                                         wineRegion: currentBottle.wineRegion!,
-//                                         placeOfPurchase: currentBottle.placeOfPurchase!,
-//                                         price: currentBottle.price!,
-//                                         bottleDescription: checkPermissionForSharing(by: "shareComment", value: currentBottle.bottleDescription!),
-//                                         rating: checkPermissionForSharingRating(by: "shareRating", value: currentBottle.rating)) ?? UIImage()
-//    }
-//    
+    static func upload(imageData: Data?, completion: @escaping (String?, Error?) -> Void) {
+        guard let unwrappedImageData = imageData else {
+            completion(nil, NSError(domain: "UploadError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Изображение отсутствует или данные некорректны."]))
+            return
+        }
+        
+        guard let image = UIImage(data: unwrappedImageData) else {
+            completion(nil, NSError(domain: "UploadError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Не удалось преобразовать Data в UIImage."]))
+            return
+        }
+        
+        guard let compressedImageData = image.jpegData(compressionQuality: 0.3) else {
+            completion(nil, NSError(domain: "UploadError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Не удалось сжать изображение."]))
+            return
+        }
+        
+        let randomID = UUID.init().uuidString
+        let uploadRef = Storage.storage().reference(withPath: "images/\(randomID).jpg")
+        let uploadMetadata = StorageMetadata.init()
+        uploadMetadata.contentType = "image/jpeg"
+        
+        uploadRef.putData(compressedImageData, metadata: uploadMetadata) { (downloadMetadata, error) in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+            
+            uploadRef.downloadURL { (url, error) in
+                if let error = error {
+                    completion(nil, error)
+                } else if let url = url {
+                    completion(url.absoluteString, nil)
+                }
+            }
+        }
+    }
     
-    
-    
+    //    private func checkPermissionForSharingRating(by key: String, value: Int) -> Int {
+    //        let result = userDefaults.bool(forKey: key)
+    //        if result == true {
+    //            return value
+    //        }
+    //        return 0
+    //    }
+    //
     
     static func generateQR(imageURL: String,
                            name: String,
@@ -90,7 +68,8 @@ class QRGenerator {
                            placeOfPurchase: String,
                            price: String,
                            bottleDescription: String,
-                           rating: Int) -> UIImage? {
+                           rating: Double) -> UIImage? {
+        
         var jsonDict = [String: Any]()
         jsonDict["verification"] = "VinishkoAPP"
         jsonDict["imageURL"] = imageURL
@@ -106,23 +85,27 @@ class QRGenerator {
         jsonDict["price"] = price
         jsonDict["rating"] = rating
         
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonDict),
-              let jsonString = String(data: jsonData, encoding: .utf8),
-              let data = jsonString.data(using: .isoLatin1, allowLossyConversion: false) else {
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []) else {
+            print("Ошибка при создании JSON")
             return nil
         }
-
-        let filter = CIFilter.qrCodeGenerator()
-        filter.setValue(data, forKey: "inputMessage")
-        filter.correctionLevel = "H"
-
-        guard let outputImage = filter.outputImage else { return nil }
-        let scale = CGAffineTransform(scaleX: 12, y: 12)
-        let scaledImage = outputImage.transformed(by: scale)
         
-        let context = CIContext()
-        guard let cgImage = context.createCGImage(scaledImage, from: scaledImage.extent) else { return nil }
+        guard let filter = CIFilter(name: "CIQRCodeGenerator") else {
+            print("Ошибка при создании CIFilter")
+            return nil
+        }
         
-        return UIImage(cgImage: cgImage)
+        filter.setValue(jsonData, forKey: "inputMessage")
+        filter.setValue("H", forKey: "inputCorrectionLevel")
+        
+        let transform = CGAffineTransform(scaleX: 15, y: 15)
+        
+        if let output = filter.outputImage?.transformed(by: transform) {
+            let context = CIContext(options: nil)
+            if let cgImage = context.createCGImage(output, from: output.extent) {
+                return UIImage(cgImage: cgImage)
+            }
+        }
+        return nil
     }
 }

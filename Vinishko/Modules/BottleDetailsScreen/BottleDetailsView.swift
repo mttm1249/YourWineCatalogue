@@ -71,6 +71,7 @@ struct BottleDetailsView: View {
                 }
                 
                 Button {
+                    viewModel.uploadImageAndGenerateQRCode(imageData: bottle.bottleImage)
                     withAnimation {
                         showQRSheet.toggle()
                     }
@@ -93,7 +94,14 @@ struct BottleDetailsView: View {
                     Text("Сканируйте через Vinishko")
                         .font(.system(size: 18)).bold()
                     Spacer()
-                    ProgressView()
+                    if viewModel.isUploading {
+                        ProgressView()
+                    } else if let image = viewModel.qrCodeImage {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200, height: 200)
+                    }
                     Spacer()
                 }
             }
