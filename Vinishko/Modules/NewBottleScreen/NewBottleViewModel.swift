@@ -9,13 +9,13 @@ import SwiftUI
 import CoreData
 
 class NewBottleViewModel: ObservableObject {
-    
+
     var onBottleSaved: ((Bottle) -> Void)?
     
     @Published var bottleName: String = ""
     @Published var selectedGrapeVarieties: [String] = []
     @Published var selectedCountry: Country?
-    @Published var selectedRegion: String?
+    @Published var selectedRegion: String? = ""
     @Published var placeOfPurchase: String = ""
     @Published var price: String = ""
     @Published var bottleDescription: String = ""
@@ -25,7 +25,6 @@ class NewBottleViewModel: ObservableObject {
     @Published var rating: Double = 0
     @Published var image: UIImage = UIImage(named: "addImage") ?? UIImage()
     @Published var showingQRScanner = false
-    @Published var scannedCode: String?
 
     @Published var editableBottle: Bottle?
     

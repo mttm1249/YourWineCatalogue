@@ -76,6 +76,7 @@
 		DA7CCBC72A54445600C5876D /* NewBottleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC62A54445600C5876D /* NewBottleScreen.swift */; };
 		DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */; };
 		DA86EC1D2B039770002CEFBF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86EC1C2B039770002CEFBF /* UIColor.swift */; };
+		DA86EC1F2B03A927002CEFBF /* QRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86EC1E2B03A927002CEFBF /* QRModel.swift */; };
 		DA8FF5EE2AA4AB2500DBAE6C /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */; };
 		DA917C932AF8F34D00D8B72F /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA917C922AF8F34D00D8B72F /* QRGenerator.swift */; };
 		DA917C952AF8FBDD00D8B72F /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA917C942AF8FBDD00D8B72F /* BottomSheetView.swift */; };
@@ -141,6 +142,7 @@
 		DA7CCBC62A54445600C5876D /* NewBottleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBottleScreen.swift; sourceTree = "<group>"; };
 		DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStandart.swift; sourceTree = "<group>"; };
 		DA86EC1C2B039770002CEFBF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		DA86EC1E2B03A927002CEFBF /* QRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRModel.swift; sourceTree = "<group>"; };
 		DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationService.swift; sourceTree = "<group>"; };
 		DA917C922AF8F34D00D8B72F /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		DA917C942AF8FBDD00D8B72F /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				DA5F5BC52AFA8568006D056B /* QRCodeScannerView.swift */,
+				DA86EC1E2B03A927002CEFBF /* QRModel.swift */,
 			);
 			path = QRScannerScreen;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				DA2600CD2AD2DE5F003AD868 /* StatisticsScreen.swift in Sources */,
 				DA8FF5EE2AA4AB2500DBAE6C /* MigrationService.swift in Sources */,
 				DA7CCBC52A54410E00C5876D /* Pallete.swift in Sources */,
+				DA86EC1F2B03A927002CEFBF /* QRModel.swift in Sources */,
 				DA0355A52AA072EA002EBA77 /* PickersModuleView.swift in Sources */,
 				DA2600CF2AD2E17B003AD868 /* PieChartView.swift in Sources */,
 				DA917C952AF8FBDD00D8B72F /* BottomSheetView.swift in Sources */,

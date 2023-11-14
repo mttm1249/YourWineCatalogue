@@ -77,9 +77,10 @@ struct NewBottleScreen: View {
                     Image(systemName: Images.qr)
                 }
                 .sheet(isPresented: $viewModel.showingQRScanner) {
-                    QRCodeScannerView()
+                    QRCodeScanner(viewModel: viewModel)
                 }
-                
+
+
                 Button(action: {
                     viewModel.save()
                     presentationMode.wrappedValue.dismiss()

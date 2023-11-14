@@ -13,22 +13,60 @@ protocol UpdateFromQR: AnyObject {
 }
 
 struct QRCodeScannerView: View {
+    @ObservedObject var viewModel: NewBottleViewModel
+
     var body: some View {
-        // Create a QR code scanner view
-        QRCodeScanner()
+        QRCodeScanner(viewModel: viewModel)
     }
 }
 
 struct QRCodeScanner: UIViewControllerRepresentable {
-    func makeUIViewController(context: UIViewControllerRepresentableContext<QRCodeScanner>) -> UIViewController {
-        // Create a QR code scanner
+    @ObservedObject var viewModel: NewBottleViewModel
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(viewModel: viewModel)
+    }
+
+    func makeUIViewController(context: Context) -> QRCodeScannerViewController {
         let scannerViewController = QRCodeScannerViewController()
+        scannerViewController.delegate = context.coordinator
         return scannerViewController
     }
-    
-    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<QRCodeScanner>) {
-        // Update the view controller
+
+    func updateUIViewController(_ uiViewController: QRCodeScannerViewController, context: Context) {}
+
+    class Coordinator: NSObject, AVCaptureMetadataOutputObjectsDelegate, UpdateFromQR {
+        var viewModel: NewBottleViewModel
+
+        init(viewModel: NewBottleViewModel) {
+            self.viewModel = viewModel
+        }
+
+        func updateBottleInfo(string: String) {
+            if let result = try? JSONDecoder().decode(QRModel.self, from: Data(string.utf8)) {
+                DispatchQueue.main.async {
+//                    guard result.verification == "VinishkoAPP" else { return }
+                    print("TEST: \(result)")
+
+                    //TODO: Image
+                    
+                    self.viewModel.rating = result.rating
+                    self.viewModel.bottleName = result.name
+                    self.viewModel.colorSelectedSegment = result.wineColor
+                    self.viewModel.sugarSelectedSegment = result.wineSugar
+                    self.viewModel.typeSelectedSegment = result.wineType
+                    self.viewModel.selectedGrapeVarieties = [result.wineSort]
+                    let country = Country(code: result.wineCountry, regions: [result.wineRegion])
+                    self.viewModel.selectedCountry = country
+                    self.viewModel.selectedRegion = result.wineRegion
+                    self.viewModel.placeOfPurchase = result.placeOfPurchase
+                    self.viewModel.price = result.price
+                    self.viewModel.bottleDescription = result.bottleDescription                    
+                }
+            }
+        }
     }
+
 }
 
 class SemiTransparentOverlayView: UIView {
@@ -60,10 +98,12 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
     var overlayView: SemiTransparentOverlayView!
     let capsuleView = UIView()
     let questionButton = UIButton(type: .system)
+    
+    weak var delegate: UpdateFromQR?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Initialize the capture session
         captureSession = AVCaptureSession()
         guard let captureDevice = AVCaptureDevice.default(for: .video) else {
@@ -169,15 +209,14 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         if let metadataObj = metadataObjects.first as? AVMetadataMachineReadableCodeObject, metadataObj.type == .qr {
             if let stringValue = metadataObj.stringValue {
                 DispatchQueue.main.async { [weak self] in
-                    let alert = UIAlertController(title: "Добавить?", message: stringValue, preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Добавить?", message: "", preferredStyle: .alert)
                     
                     alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
                         self?.startRunningСaptureSession()
                     }))
                     
                     alert.addAction(UIAlertAction(title: "Да!", style: .default, handler: { _ in
-                        // TODO: Handle the confirmation action
-                        print(stringValue)
+                        self?.delegate?.updateBottleInfo(string: stringValue)
                         self?.dismiss(animated: true, completion: nil)
                     }))
                     
