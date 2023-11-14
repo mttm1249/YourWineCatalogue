@@ -36,8 +36,6 @@ class NewBottleViewModel: ObservableObject {
         self.editableBottle = editableBottle
         self.managedObjectContext = context
         loadBottleDetails()
-        
-        print(editableBottle)
     }
     
     func loadBottleDetails() {
