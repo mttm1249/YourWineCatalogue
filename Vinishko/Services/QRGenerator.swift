@@ -35,13 +35,13 @@ final class QRGenerator {
             return
         }
         
-        guard let compressedImageData = image.jpegData(compressionQuality: 0.3) else {
+        guard let compressedImageData = image.jpegData(compressionQuality: 0.2) else {
             completion(nil, NSError(domain: "UploadError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Не удалось сжать изображение."]))
             return
         }
         
         let randomID = UUID.init().uuidString
-        let uploadRef = Storage.storage().reference(withPath: "images/\(randomID).jpg")
+        let uploadRef = Storage.storage().reference(withPath: "images2/\(randomID).jpg")
         let uploadMetadata = StorageMetadata.init()
         uploadMetadata.contentType = "image/jpeg"
         
@@ -77,7 +77,6 @@ final class QRGenerator {
         let userDefaults = UserDefaults.standard
         var jsonDict = [String: Any]()
         
-        jsonDict["verification"] = "VinishkoAPP"
         jsonDict["name"] = name
         jsonDict["wineColor"] = wineColor
         jsonDict["wineSugar"] = wineSugar
@@ -87,7 +86,6 @@ final class QRGenerator {
         jsonDict["wineRegion"] = wineRegion
         jsonDict["placeOfPurchase"] = placeOfPurchase
         jsonDict["price"] = price
-        jsonDict["bottleDescription"] = bottleDescription
         
         // Проверка разрешений в UserDefaults и добавление данных в QR код
         if userDefaults.bool(forKey: UserDefaultsKey.photoShare.rawValue) {

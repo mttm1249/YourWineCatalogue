@@ -45,9 +45,9 @@ struct QRCodeScanner: UIViewControllerRepresentable {
         func updateBottleInfo(string: String) {
             if let result = try? JSONDecoder().decode(QRModel.self, from: Data(string.utf8)) {
                 DispatchQueue.main.async {
-                    guard result.verification == "VinishkoAPP" else { return }
+//                    guard result.verification == "VinishkoAPP" else { return }
                     
-                    NetworkService.downloadImage(url: result.imageURL) { result in
+                    NetworkService.downloadImage(url: result.imageURL ?? "") { result in
                         self.viewModel.isImageLoading = true
                         
                         switch result {
@@ -64,7 +64,7 @@ struct QRCodeScanner: UIViewControllerRepresentable {
                         }
                     }
                     
-                    self.viewModel.rating = result.rating
+                    self.viewModel.rating = result.rating ?? 0
                     self.viewModel.bottleName = result.name
                     self.viewModel.colorSelectedSegment = result.wineColor
                     self.viewModel.sugarSelectedSegment = result.wineSugar
@@ -75,7 +75,7 @@ struct QRCodeScanner: UIViewControllerRepresentable {
                     self.viewModel.selectedRegion = result.wineRegion
                     self.viewModel.placeOfPurchase = result.placeOfPurchase
                     self.viewModel.price = result.price
-                    self.viewModel.bottleDescription = result.bottleDescription
+                    self.viewModel.bottleDescription = result.bottleDescription ?? ""
                 }
             }
         }
