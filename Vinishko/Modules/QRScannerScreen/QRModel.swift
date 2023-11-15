@@ -9,6 +9,7 @@ import Foundation
 
 struct QRModel: Decodable {
     let verification: String
+    let rating: Double
     let imageURL: String
     let name: String
     let wineColor: Int
@@ -18,7 +19,6 @@ struct QRModel: Decodable {
     let wineCountry: String
     let wineRegion: String
     let placeOfPurchase: String
-    let bottleDescription: String
-    let rating: Double
     let price: String
+    let bottleDescription: String
 }

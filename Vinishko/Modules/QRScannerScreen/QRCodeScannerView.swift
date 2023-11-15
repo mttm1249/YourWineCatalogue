@@ -14,7 +14,7 @@ protocol UpdateFromQR: AnyObject {
 
 struct QRCodeScannerView: View {
     @ObservedObject var viewModel: NewBottleViewModel
-
+    
     var body: some View {
         QRCodeScanner(viewModel: viewModel)
     }
@@ -22,33 +22,47 @@ struct QRCodeScannerView: View {
 
 struct QRCodeScanner: UIViewControllerRepresentable {
     @ObservedObject var viewModel: NewBottleViewModel
-
+    
     func makeCoordinator() -> Coordinator {
         return Coordinator(viewModel: viewModel)
     }
-
+    
     func makeUIViewController(context: Context) -> QRCodeScannerViewController {
         let scannerViewController = QRCodeScannerViewController()
         scannerViewController.delegate = context.coordinator
         return scannerViewController
     }
-
+    
     func updateUIViewController(_ uiViewController: QRCodeScannerViewController, context: Context) {}
-
+    
     class Coordinator: NSObject, AVCaptureMetadataOutputObjectsDelegate, UpdateFromQR {
         var viewModel: NewBottleViewModel
-
+        
         init(viewModel: NewBottleViewModel) {
             self.viewModel = viewModel
         }
-
+        
         func updateBottleInfo(string: String) {
             if let result = try? JSONDecoder().decode(QRModel.self, from: Data(string.utf8)) {
                 DispatchQueue.main.async {
-//                    guard result.verification == "VinishkoAPP" else { return }
-                    print("TEST: \(result)")
-
-                    //TODO: Image
+                    guard result.verification == "VinishkoAPP" else { return }
+                    
+                    NetworkService.downloadImage(url: result.imageURL) { result in
+                        self.viewModel.isImageLoading = true
+                        
+                        switch result {
+                        case .success(let image):
+                            DispatchQueue.main.async {
+                                self.viewModel.isImageLoading = false
+                                self.viewModel.image = image
+                            }
+                        case .failure(let error):
+                            DispatchQueue.main.async {
+                                self.viewModel.isImageLoading = false
+                                print("Ошибка загрузки изображения: \(error)")
+                            }
+                        }
+                    }
                     
                     self.viewModel.rating = result.rating
                     self.viewModel.bottleName = result.name
@@ -61,25 +75,24 @@ struct QRCodeScanner: UIViewControllerRepresentable {
                     self.viewModel.selectedRegion = result.wineRegion
                     self.viewModel.placeOfPurchase = result.placeOfPurchase
                     self.viewModel.price = result.price
-                    self.viewModel.bottleDescription = result.bottleDescription                    
+                    self.viewModel.bottleDescription = result.bottleDescription
                 }
             }
         }
     }
-
 }
 
 class SemiTransparentOverlayView: UIView {
     var transparentRect: CGRect?
     var cornerRadius: CGFloat = 8
-
+    
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
-
+        
         // Draw a semi-transparent layer over the whole view
         context.setFillColor(UIColor.black.withAlphaComponent(0.5).cgColor)
         context.fill(rect)
-
+        
         // Clear the rounded square in the middle
         if let transparentRect = transparentRect {
             let clearPath = UIBezierPath(roundedRect: transparentRect, cornerRadius: cornerRadius)
@@ -100,7 +113,7 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
     let questionButton = UIButton(type: .system)
     
     weak var delegate: UpdateFromQR?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -110,7 +123,7 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
             print("Failed to get the camera device")
             return
         }
-
+        
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice)
             captureSession.addInput(input)
@@ -118,19 +131,19 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
             print("Error obtaining camera input: \(error)")
             return
         }
-
+        
         // Initialize the video preview layer
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer.frame = view.layer.bounds
         videoPreviewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(videoPreviewLayer)
-
+        
         // Initialize the overlay view
         overlayView = SemiTransparentOverlayView()
         overlayView.backgroundColor = .clear
         view.addSubview(overlayView)
         view.bringSubviewToFront(overlayView)
-
+        
         // Initialize QR Code Frame to highlight QR codes
         qrCodeFrameView = UIView()
         if let qrCodeFrameView = qrCodeFrameView {
@@ -140,7 +153,7 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
             view.addSubview(qrCodeFrameView)
             view.bringSubviewToFront(qrCodeFrameView)
         }
-
+        
         // Set up the metadata output
         let captureMetadataOutput = AVCaptureMetadataOutput()
         if captureSession.canAddOutput(captureMetadataOutput) {
@@ -151,48 +164,48 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
             print("Could not add metadata output")
             return
         }
-
+        
         // Start the capture session
         DispatchQueue.global(qos: .background).async {
             self.captureSession.startRunning()
         }
-
+        
         // Configure the capsule view
         capsuleView.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
         capsuleView.layer.cornerRadius = 2.5
         view.addSubview(capsuleView)
-
+        
         // Configure the question mark button
         let questionImage = UIImage(systemName: "questionmark.circle.fill")
         questionButton.setImage(questionImage, for: .normal)
         questionButton.addTarget(self, action: #selector(questionButtonTapped), for: .touchUpInside)
         view.addSubview(questionButton)
     }
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        
         videoPreviewLayer.frame = view.layer.bounds
         overlayView.frame = view.bounds
-
+        
         // Update frame size and position for qrCodeFrameView and overlayView
         let screenSize = view.bounds.size
         let scanSize = CGSize(width: screenSize.width * 0.6, height: screenSize.width * 0.6)
         let scanRect = CGRect(x: (screenSize.width - scanSize.width) / 2, y: (screenSize.height - scanSize.height) / 2, width: scanSize.width, height: scanSize.height)
-
+        
         qrCodeFrameView?.frame = scanRect
         overlayView.transparentRect = scanRect
         overlayView.setNeedsDisplay()
-
+        
         // Layout the capsule view
         capsuleView.frame = CGRect(x: (view.bounds.width - 40) / 2, y: 20, width: 40, height: 5)
-
+        
         // Layout the question mark button
         questionButton.frame = CGRect(x: view.bounds.width - 50, y: 20, width: 40, height: 40)
     }
-
+    
     @objc func questionButtonTapped() {
-        let alert = UIAlertController(title: "Информация", message: "Отсканируйте QR-код, отображаемый в приложении Vinishko, чтобы добавить информацию о дегустации в свой каталог. Убедитесь, что код полностью помещается в рамку сканера для точного считывания.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Информация", message: "Отсканируйте QR-код, отображаемый в приложении Vinishko, чтобы добавить информацию о дегустации в свой каталог.\nУбедитесь, что код полностью помещается в рамку сканера для точного считывания.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
@@ -209,7 +222,7 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         if let metadataObj = metadataObjects.first as? AVMetadataMachineReadableCodeObject, metadataObj.type == .qr {
             if let stringValue = metadataObj.stringValue {
                 DispatchQueue.main.async { [weak self] in
-                    let alert = UIAlertController(title: "Добавить?", message: "", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Добавить?", message: stringValue, preferredStyle: .alert)
                     
                     alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
                         self?.startRunningСaptureSession()

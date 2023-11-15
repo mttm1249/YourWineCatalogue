@@ -12,22 +12,26 @@ struct NewBottleScreen: View {
     @StateObject var viewModel: NewBottleViewModel
     @Environment(\.presentationMode) private var presentationMode
     @State private var imagePickerSourceType: UIImagePickerController.SourceType = .camera
-        
+    
     @State private var showImagePicker: Bool = false
     @State private var showActionSheet: Bool = false
     
     var body: some View {
         ScrollView {
             ZStack(alignment: .topTrailing) {
-                Button {
+                Button(action: {
                     self.showActionSheet = true
-                } label: {
-                    Image(uiImage: self.viewModel.image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 150, height: 150)
-                        .background(Pallete.segmentPickerBg)
-                        .clipShape(Circle())
+                }) {
+                    if viewModel.isImageLoading {
+                        ProgressView()
+                    } else {
+                        Image(uiImage: self.viewModel.image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 150, height: 150)
+                            .background(Pallete.segmentPickerBg)
+                            .clipShape(Circle())
+                    }
                 }
                 .actionSheet(isPresented: $showActionSheet) {
                     ActionSheet(title: Text("Выберите источник"), buttons: [
@@ -42,9 +46,9 @@ struct NewBottleScreen: View {
                         .cancel()
                     ])
                 }
-                .sheet(isPresented: $showImagePicker, content: {
+                .sheet(isPresented: $showImagePicker) {
                     ImagePicker(image: self.$viewModel.image, sourceType: self.imagePickerSourceType)
-                })
+                }
             }
             
             VStack(spacing: 12) {
@@ -71,16 +75,15 @@ struct NewBottleScreen: View {
         .navigationTitle("Добавить винишко")
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button {
+                Button(action: {
                     viewModel.showingQRScanner = true
-                } label: {
+                }) {
                     Image(systemName: Images.qr)
                 }
                 .sheet(isPresented: $viewModel.showingQRScanner) {
                     QRCodeScanner(viewModel: viewModel)
                 }
-
-
+                
                 Button(action: {
                     viewModel.save()
                     presentationMode.wrappedValue.dismiss()
@@ -90,6 +93,5 @@ struct NewBottleScreen: View {
                 }
             }
         }
-
     }
 }

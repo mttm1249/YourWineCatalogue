@@ -66,6 +66,7 @@
 		DA6556AF2AA1ED0600D8427C /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6556AE2AA1ED0600D8427C /* String + Ext.swift */; };
 		DA6556B22AA1ED7F00D8427C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA6556B42AA1ED7F00D8427C /* Localizable.strings */; };
 		DA6556B82AA1F13100D8427C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA6556BA2AA1F13100D8427C /* Localizable.strings */; };
+		DA75CD622B04B50900070E5E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA75CD612B04B50900070E5E /* NetworkService.swift */; };
 		DA7CCBA62A543B9D00C5876D /* VinishkoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBA52A543B9D00C5876D /* VinishkoApp.swift */; };
 		DA7CCBAA2A543B9E00C5876D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7CCBA92A543B9E00C5876D /* Assets.xcassets */; };
 		DA7CCBAD2A543B9E00C5876D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7CCBAC2A543B9E00C5876D /* Preview Assets.xcassets */; };
@@ -130,6 +131,7 @@
 		DA6556AE2AA1ED0600D8427C /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 		DA6556B32AA1ED7F00D8427C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA6556B92AA1F13100D8427C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DA75CD612B04B50900070E5E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DA7CCBA22A543B9D00C5876D /* Vinishko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vinishko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7CCBA52A543B9D00C5876D /* VinishkoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinishkoApp.swift; sourceTree = "<group>"; };
 		DA7CCBA92A543B9E00C5876D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */,
+				DA75CD612B04B50900070E5E /* NetworkService.swift */,
 				DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */,
 				DA917C922AF8F34D00D8B72F /* QRGenerator.swift */,
 				DA033DFC2A9CAFF4004C847D /* Extensions */,
@@ -568,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA75CD622B04B50900070E5E /* NetworkService.swift in Sources */,
 				DA549CE42AB42C3900F6398D /* LocalizationManager.swift in Sources */,
 				DAE4DA752AA2079E00853426 /* CountryPicker.swift in Sources */,
 				DA7CCBC22A543DCE00C5876D /* Buttons.swift in Sources */,

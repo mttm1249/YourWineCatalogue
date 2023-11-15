@@ -25,6 +25,7 @@ class NewBottleViewModel: ObservableObject {
     @Published var rating: Double = 0
     @Published var image: UIImage = UIImage(named: "addImage") ?? UIImage()
     @Published var showingQRScanner = false
+    @Published var isImageLoading: Bool = false
 
     @Published var editableBottle: Bottle?
     

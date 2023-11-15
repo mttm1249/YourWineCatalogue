@@ -74,18 +74,20 @@ struct PickersModuleView: View {
                 activeSheet = .countryPicker
             }
             .onChange(of: selectedCountry) { newValue in
-                if previousSelectedCountry != newValue {
-                    selectedRegion = nil
+                DispatchQueue.main.async {
+                    if self.previousSelectedCountry != newValue {
+                        self.selectedRegion = nil
+                    }
+                    self.selectedCountryName = newValue.map { Locale.current.localizedString(forRegionCode: $0.code) ?? $0.code }
+                    self.previousSelectedCountry = newValue
                 }
-                selectedCountryName = newValue.map { Locale.current.localizedString(forRegionCode: $0.code) ?? $0.code }
-                previousSelectedCountry = newValue 
             }
-            
+
             OptionButton(header: "Регион", text: $selectedRegion) {
                 activeSheet = .regionPicker
             }
             .onChange(of: selectedRegion) { newValue in
-                selectedRegion = newValue?.localize() ?? ""
+                self.selectedRegion = newValue?.localize() ?? ""
             }
             .disabled(selectedCountry == nil)
         }
