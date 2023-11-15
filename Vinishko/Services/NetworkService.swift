@@ -16,6 +16,8 @@ class NetworkService {
             return nil
         }
         
+        print("IMAGE URL HERE: \(url)")
+        
         let session = URLSession.shared
         let task = session.dataTask(with: url) { (data, response, error) in
             if let error = error {

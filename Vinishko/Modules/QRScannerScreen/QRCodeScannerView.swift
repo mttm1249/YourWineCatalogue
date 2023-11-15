@@ -45,25 +45,22 @@ struct QRCodeScanner: UIViewControllerRepresentable {
         func updateBottleInfo(string: String) {
             if let result = try? JSONDecoder().decode(QRModel.self, from: Data(string.utf8)) {
                 DispatchQueue.main.async {
-//                    guard result.verification == "VinishkoAPP" else { return }
+                    //                    guard result.verification == "VinishkoAPP" else { return }
                     
                     NetworkService.downloadImage(url: result.imageURL ?? "") { result in
                         self.viewModel.isImageLoading = true
-                        
+
                         switch result {
                         case .success(let image):
-                            DispatchQueue.main.async {
-                                self.viewModel.isImageLoading = false
-                                self.viewModel.image = image
-                            }
+                            self.viewModel.isImageLoading = false
+                            self.viewModel.image = image
                         case .failure(let error):
-                            DispatchQueue.main.async {
-                                self.viewModel.isImageLoading = false
-                                print("Ошибка загрузки изображения: \(error)")
-                            }
+                            self.viewModel.isImageLoading = false
+                            self.viewModel.alertMessage = "Ошибка загрузки изображения: \(error.localizedDescription)"
+                            self.viewModel.showAlert = true
                         }
                     }
-                    
+
                     self.viewModel.rating = result.rating ?? 0
                     self.viewModel.bottleName = result.name
                     self.viewModel.colorSelectedSegment = result.wineColor

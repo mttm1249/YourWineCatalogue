@@ -20,12 +20,19 @@ struct BottleDetailsView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
                 if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
+                    // Если изображение существует, отображаем его
                     BottleImageView(image: uiImage, rating: bottle.doubleRating.smartDescription)
                         .onTapGesture {
                             self.showingSheet = true
                         }
+                } else {
+                    // Если изображение отсутствует, отображаем запасное изображение
+                    BottleImageView(image: UIImage(named: "wine")!, rating: bottle.doubleRating.smartDescription)
+                        .onTapGesture {
+                            self.showingSheet = true
+                        }
                 }
-                
+
                 Text(bottle.name ?? "")
                     .font(.system(size: 28)).bold()
                     .padding(.horizontal, 16)
@@ -81,6 +88,7 @@ struct BottleDetailsView: View {
             }
         }
         .sheet(isPresented: $showingSheet) {
+            //TODO: ситуация если изображение не было добавлено
             if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
                 BottlePhotoView(bottle: bottle,
                                 tastingDate: viewModel.getCreateDateString(bottle: bottle),

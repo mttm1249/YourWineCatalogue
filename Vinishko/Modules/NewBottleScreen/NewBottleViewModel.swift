@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 class NewBottleViewModel: ObservableObject {
-
+    
     var onBottleSaved: ((Bottle) -> Void)?
     
     @Published var bottleName: String = ""
@@ -26,7 +26,9 @@ class NewBottleViewModel: ObservableObject {
     @Published var image: UIImage = UIImage(named: "addImage") ?? UIImage()
     @Published var showingQRScanner = false
     @Published var isImageLoading: Bool = false
-
+    @Published var showAlert = false
+    @Published var alertMessage = ""
+    
     @Published var editableBottle: Bottle?
     
     private var managedObjectContext: NSManagedObjectContext
@@ -65,16 +67,13 @@ class NewBottleViewModel: ObservableObject {
         if let editableBottle = editableBottle {
             // Редактирование существующей записи
             
-            // Проверяем, изменилось ли изображение
-            if let currentImageData = editableBottle.bottleImage,
-               let newImageData = image.jpegData(compressionQuality: 1.0) {
-                
-                // Сравниваем данные текущего изображения и нового изображения
-                if !currentImageData.elementsEqual(newImageData) {
-                    // Если изображения различаются, сохраняем новое изображение
-                    editableBottle.bottleImage = newImageData
-                }
-            }
+            // Проверяем, изменилось ли изображение или оно отсутствует
+              if let newImageData = image.jpegData(compressionQuality: 1.0) {
+                  if editableBottle.bottleImage == nil || !editableBottle.bottleImage!.elementsEqual(newImageData) {
+                      // Если изображения различаются или отсутствует, сохраняем новое изображение
+                      editableBottle.bottleImage = newImageData
+                  }
+              }
             
             editableBottle.name = bottleName
             editableBottle.wineSort = selectedGrapeVarieties.joined(separator: ", ")

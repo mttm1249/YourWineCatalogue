@@ -74,11 +74,11 @@ struct PickersModuleView: View {
                 activeSheet = .countryPicker
             }
             .onChange(of: selectedCountry) { newValue in
-                if previousSelectedCountry != newValue {
-                    selectedRegion = nil
-                }
+//                if previousSelectedCountry != newValue {
+//                    selectedRegion = nil
+//                }
                 selectedCountryName = newValue.map { Locale.current.localizedString(forRegionCode: $0.code) ?? $0.code }
-                previousSelectedCountry = newValue
+//                previousSelectedCountry = newValue
             }
 
             OptionButton(header: "Регион", text: $selectedRegion) {
@@ -87,7 +87,7 @@ struct PickersModuleView: View {
             .onChange(of: selectedRegion) { newValue in
                 self.selectedRegion = newValue?.localize()
             }
-            .disabled(selectedCountry == nil)
+//            .disabled(selectedCountry == nil)
         }
         .sheet(item: $activeSheet) { item in
             switch item {

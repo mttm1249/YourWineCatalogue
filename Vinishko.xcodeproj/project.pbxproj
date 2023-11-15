@@ -78,6 +78,7 @@
 		DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */; };
 		DA86EC1D2B039770002CEFBF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86EC1C2B039770002CEFBF /* UIColor.swift */; };
 		DA86EC1F2B03A927002CEFBF /* QRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86EC1E2B03A927002CEFBF /* QRModel.swift */; };
+		DA896D7A2B052D0D006DC8FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA896D792B052D0D006DC8FE /* GoogleService-Info.plist */; };
 		DA8FF5EE2AA4AB2500DBAE6C /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */; };
 		DA917C932AF8F34D00D8B72F /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA917C922AF8F34D00D8B72F /* QRGenerator.swift */; };
 		DA917C952AF8FBDD00D8B72F /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA917C942AF8FBDD00D8B72F /* BottomSheetView.swift */; };
@@ -86,7 +87,6 @@
 		DAB026202A9CDFA000E5BF5C /* HideBackButtonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */; };
 		DAB026252A9CE5CF00E5BF5C /* HapticFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */; };
 		DABDE2952AB62D8600DFC9ED /* BottlePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABDE2942AB62D8600DFC9ED /* BottlePhotoView.swift */; };
-		DACB14EE2AFA1D5700A20D52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACB14ED2AFA1D5700A20D52 /* GoogleService-Info.plist */; };
 		DADA49BF2AEBA49A0048028D /* SettingsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA49BE2AEBA49A0048028D /* SettingsScreenView.swift */; };
 		DADE85812AD71A6400C3F646 /* StatisticsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE85802AD71A6400C3F646 /* StatisticsBarView.swift */; };
 		DAE2155E2A9E258A00131FE4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2155D2A9E258A00131FE4 /* ImagePicker.swift */; };
@@ -145,6 +145,7 @@
 		DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStandart.swift; sourceTree = "<group>"; };
 		DA86EC1C2B039770002CEFBF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		DA86EC1E2B03A927002CEFBF /* QRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRModel.swift; sourceTree = "<group>"; };
+		DA896D792B052D0D006DC8FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationService.swift; sourceTree = "<group>"; };
 		DA917C922AF8F34D00D8B72F /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		DA917C942AF8FBDD00D8B72F /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
@@ -153,7 +154,6 @@
 		DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideBackButtonText.swift; sourceTree = "<group>"; };
 		DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackService.swift; sourceTree = "<group>"; };
 		DABDE2942AB62D8600DFC9ED /* BottlePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlePhotoView.swift; sourceTree = "<group>"; };
-		DACB14ED2AFA1D5700A20D52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DADA49BE2AEBA49A0048028D /* SettingsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenView.swift; sourceTree = "<group>"; };
 		DADE85802AD71A6400C3F646 /* StatisticsBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsBarView.swift; sourceTree = "<group>"; };
 		DAE2155D2A9E258A00131FE4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -381,7 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				DA4D2DE22AA3099E00C78495 /* Vinishko.entitlements */,
-				DACB14ED2AFA1D5700A20D52 /* GoogleService-Info.plist */,
+				DA896D792B052D0D006DC8FE /* GoogleService-Info.plist */,
 				DA7CCBB32A543B9E00C5876D /* Info.plist */,
 				DA7CCBA52A543B9D00C5876D /* VinishkoApp.swift */,
 				DA7CCBC32A54410500C5876D /* Common */,
@@ -560,7 +560,7 @@
 				DA7CCBAA2A543B9E00C5876D /* Assets.xcassets in Resources */,
 				DA6556B82AA1F13100D8427C /* Localizable.strings in Resources */,
 				DA0355A72AA0768C002EBA77 /* CountryList.json in Resources */,
-				DACB14EE2AFA1D5700A20D52 /* GoogleService-Info.plist in Resources */,
+				DA896D7A2B052D0D006DC8FE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,7 +776,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 49;
+				CURRENT_PROJECT_VERSION = 50;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
@@ -814,7 +814,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 49;
+				CURRENT_PROJECT_VERSION = 50;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
