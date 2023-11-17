@@ -11,19 +11,20 @@ struct NewBottleScreen: View {
     
     @StateObject var viewModel: NewBottleViewModel
     @Environment(\.presentationMode) private var presentationMode
-    @State private var imagePickerSourceType: UIImagePickerController.SourceType = .camera
-    
-    @State private var showImagePicker: Bool = false
-    @State private var showActionSheet: Bool = false
     
     var body: some View {
         ScrollView {
             ZStack(alignment: .topTrailing) {
+     
+                
                 Button(action: {
-                    self.showActionSheet = true
+                    self.viewModel.showImagePickerSheet = true
                 }) {
                     if viewModel.isImageLoading {
                         ProgressView()
+                            .onAppear {
+                                print("isImageLoading: true")
+                            }
                     } else {
                         Image(uiImage: self.viewModel.image)
                             .resizable()
@@ -31,23 +32,28 @@ struct NewBottleScreen: View {
                             .frame(width: 150, height: 150)
                             .background(Pallete.segmentPickerBg)
                             .clipShape(Circle())
+                            .onAppear {
+                                print("isImageLoading: false")
+                            }
                     }
                 }
-                .actionSheet(isPresented: $showActionSheet) {
+
+
+                .actionSheet(isPresented: $viewModel.showImagePickerSheet) {
                     ActionSheet(title: Text("Выберите источник"), buttons: [
                         .default(Text("Камера").foregroundColor(Pallete.textColor), action: {
-                            self.imagePickerSourceType = .camera
-                            self.showImagePicker = true
+                            self.viewModel.imagePickerSourceType = .camera
+                            self.viewModel.showImagePicker = true
                         }),
                         .default(Text("Галерея").foregroundColor(Pallete.textColor), action: {
-                            self.imagePickerSourceType = .photoLibrary
-                            self.showImagePicker = true
+                            self.viewModel.imagePickerSourceType = .photoLibrary
+                            self.viewModel.showImagePicker = true
                         }),
                         .cancel()
                     ])
                 }
-                .sheet(isPresented: $showImagePicker) {
-                    ImagePicker(image: self.$viewModel.image, sourceType: self.imagePickerSourceType)
+                .sheet(isPresented: $viewModel.showImagePicker) {
+                    ImagePicker(image: self.$viewModel.image, sourceType: self.viewModel.imagePickerSourceType)
                 }
             }
             

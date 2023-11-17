@@ -45,7 +45,6 @@ struct QRCodeScanner: UIViewControllerRepresentable {
         func updateBottleInfo(string: String) {
             if let result = try? JSONDecoder().decode(QRModel.self, from: Data(string.utf8)) {
                 DispatchQueue.main.async {
-                    //                    guard result.verification == "VinishkoAPP" else { return }
                     
                     NetworkService.downloadImage(url: result.imageURL ?? "") { result in
                         self.viewModel.isImageLoading = true

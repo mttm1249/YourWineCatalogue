@@ -28,7 +28,9 @@ class NewBottleViewModel: ObservableObject {
     @Published var isImageLoading: Bool = false
     @Published var showAlert = false
     @Published var alertMessage = ""
-    
+    @Published var showImagePicker: Bool = false
+    @Published var showImagePickerSheet: Bool = false
+    @Published var imagePickerSourceType: UIImagePickerController.SourceType = .camera
     @Published var editableBottle: Bottle?
     
     private var managedObjectContext: NSManagedObjectContext

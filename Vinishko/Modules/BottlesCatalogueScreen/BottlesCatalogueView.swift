@@ -164,6 +164,7 @@ struct BottlesCatalogueView: View {
                     Spacer()
                     if viewModel.isUploading {
                         ProgressView()
+                            .scaleEffect(1.5)
                     } else if let image = viewModel.qrCodeImage {
                         Image(uiImage: image)
                             .resizable()
