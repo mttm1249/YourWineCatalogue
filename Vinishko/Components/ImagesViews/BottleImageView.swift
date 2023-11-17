@@ -10,7 +10,8 @@ import SwiftUI
 struct BottleImageView: View {
     var image: UIImage
     var rating: String
-    
+    var onImageTap: () -> Void
+
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             Image(uiImage: image)
@@ -18,10 +19,14 @@ struct BottleImageView: View {
                 .scaledToFill()
                 .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 250)
                 .clipped()
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    onImageTap()
+                }
+
             HStack(spacing: 2) {
                 Text(rating)
                     .font(.system(size: 12)).bold()
-
                 Image(systemName: Images.star)
                     .foregroundColor(.orange)
                     .font(.system(size: 12))
@@ -30,11 +35,5 @@ struct BottleImageView: View {
             .background(Capsule().fill(Pallete.ratingBg))
             .padding(8)
         }
-    }
-}
-
-struct BottleImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        BottleImageView(image: UIImage(named: "wine")!, rating: "4.25")
     }
 }

@@ -18,16 +18,14 @@ struct BottleDetailsView: View {
             VStack(alignment: .leading, spacing: 10) {
                 if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
                     // Если изображение существует, отображаем его
-                    BottleImageView(image: uiImage, rating: bottle.doubleRating.smartDescription)
-                        .onTapGesture {
-                            self.viewModel.showingSheet = true
-                        }
+                    BottleImageView(image: uiImage, rating: bottle.doubleRating.smartDescription, onImageTap: {
+                        self.viewModel.showingSheet = true
+                    })
                 } else {
                     // Если изображение отсутствует, отображаем запасное изображение
-                    BottleImageView(image: UIImage(named: "wine")!, rating: bottle.doubleRating.smartDescription)
-                        .onTapGesture {
-                            self.viewModel.showingSheet = true
-                        }
+                    BottleImageView(image: UIImage(named: "wine")!, rating: bottle.doubleRating.smartDescription, onImageTap: {
+                        self.viewModel.showingSheet = true
+                    })
                 }
 
                 Text(bottle.name ?? "")
