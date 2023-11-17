@@ -12,10 +12,7 @@ struct BottleDetailsView: View {
     
     var bottle: Bottle
     @ObservedObject var viewModel: BottleDetailsViewModel
-    @State private var showingSheet = false
-    @State private var showSaveBanner = false
-    @State private var showQRSheet = false
-    
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
@@ -23,13 +20,13 @@ struct BottleDetailsView: View {
                     // Если изображение существует, отображаем его
                     BottleImageView(image: uiImage, rating: bottle.doubleRating.smartDescription)
                         .onTapGesture {
-                            self.showingSheet = true
+                            self.viewModel.showingSheet = true
                         }
                 } else {
                     // Если изображение отсутствует, отображаем запасное изображение
                     BottleImageView(image: UIImage(named: "wine")!, rating: bottle.doubleRating.smartDescription)
                         .onTapGesture {
-                            self.showingSheet = true
+                            self.viewModel.showingSheet = true
                         }
                 }
 
@@ -80,14 +77,14 @@ struct BottleDetailsView: View {
                 Button {
                     viewModel.uploadImageAndGenerateQRCode(imageData: bottle.bottleImage)
                     withAnimation {
-                        showQRSheet.toggle()
+                        self.viewModel.showQRSheet.toggle()
                     }
                 } label: {
                     Image(systemName: Images.qr)
                 }
             }
         }
-        .sheet(isPresented: $showingSheet) {
+        .sheet(isPresented: $viewModel.showingSheet) {
             //TODO: ситуация если изображение не было добавлено
             if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
                 BottlePhotoView(bottle: bottle,
@@ -97,14 +94,14 @@ struct BottleDetailsView: View {
         }
         // Bottom Sheet для QR кода
         .overlay(
-            BottomSheet(isShowing: $showQRSheet) {
+            BottomSheet(isShowing: $viewModel.showQRSheet) {
                 VStack {
                     Text("Сканируйте через Vinishko")
                         .font(.system(size: 18)).bold()
                     Spacer()
                     if viewModel.isUploading {
                         ProgressView()
-                            .scaleEffect(1.5)
+                            .scaleEffect(1.2)
                     } else if let image = viewModel.qrCodeImage {
                         Image(uiImage: image)
                             .resizable()

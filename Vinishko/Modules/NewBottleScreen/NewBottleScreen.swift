@@ -16,15 +16,15 @@ struct NewBottleScreen: View {
         ScrollView {
             ZStack(alignment: .topTrailing) {
      
-                
                 Button(action: {
                     self.viewModel.showImagePickerSheet = true
                 }) {
                     if viewModel.isImageLoading {
                         ProgressView()
-                            .onAppear {
-                                print("isImageLoading: true")
-                            }
+                            .scaleEffect(1.2)
+                            .frame(width: 150, height: 150)
+                            .background(Pallete.segmentPickerBg)
+                            .clipShape(Circle())
                     } else {
                         Image(uiImage: self.viewModel.image)
                             .resizable()
@@ -32,12 +32,8 @@ struct NewBottleScreen: View {
                             .frame(width: 150, height: 150)
                             .background(Pallete.segmentPickerBg)
                             .clipShape(Circle())
-                            .onAppear {
-                                print("isImageLoading: false")
-                            }
                     }
                 }
-
 
                 .actionSheet(isPresented: $viewModel.showImagePickerSheet) {
                     ActionSheet(title: Text("Выберите источник"), buttons: [
@@ -105,6 +101,12 @@ struct NewBottleScreen: View {
                 message: Text(viewModel.alertMessage),
                 dismissButton: .default(Text("OK"))
             )
+        }
+        .onAppear {
+            print("View appeared. isImageLoading: \(viewModel.isImageLoading)")
+        }
+        .onChange(of: viewModel.isImageLoading) { newValue in
+            print("isImageLoading changed to: \(newValue)")
         }
     }
 }

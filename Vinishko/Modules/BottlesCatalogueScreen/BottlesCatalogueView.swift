@@ -113,14 +113,14 @@ struct BottlesCatalogueView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
                     Button(action: {
-                        viewModel.isSettingsViewActive = true
-                    }) {
-                        Label("Настройки QR", systemImage: Images.qr)
-                    }
-                    Button(action: {
                         viewModel.isStatisticsViewActive = true
                     }) {
                         Label("Статистика", systemImage: Images.chart)
+                    }
+                    Button(action: {
+                        viewModel.isSettingsViewActive = true
+                    }) {
+                        Label("Настройки QR", systemImage: Images.qr)
                     }
                 } label: {
                     Image(systemName: Images.hamburger)
@@ -164,7 +164,7 @@ struct BottlesCatalogueView: View {
                     Spacer()
                     if viewModel.isUploading {
                         ProgressView()
-                            .scaleEffect(1.5)
+                            .scaleEffect(1.2)
                     } else if let image = viewModel.qrCodeImage {
                         Image(uiImage: image)
                             .resizable()

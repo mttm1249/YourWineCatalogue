@@ -32,10 +32,10 @@ final class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResu
     
     var wineSorts: [String] {
         Set(filteredBottles.compactMap { $0.wineSort }.filter { !$0.isEmpty })
-        .map { $0.localize() }
-        .sorted()
+            .map { $0.localize() }
+            .sorted()
     }
-
+    
     var placesOfPurchase: [String] {
         Set(filteredBottles.compactMap { $0.placeOfPurchase }.filter { !$0.isEmpty }).sorted()
     }
@@ -270,18 +270,18 @@ final class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResu
     }
     
     private func generateQRCode(with imageURL: String) {
-            self.qrCodeImage = QRGenerator.generateQR(imageURL: imageURL,
-                                                      name: self.selectedBottle?.name ?? "",
-                                                      wineColor: Int(self.selectedBottle?.wineColor ?? 0),
-                                                      wineSugar: Int(self.selectedBottle?.wineSugar ?? 0),
-                                                      wineType: Int(self.selectedBottle?.wineType ?? 0),
-                                                      wineSort: self.selectedBottle?.wineSort ?? "",
-                                                      wineCountry: self.selectedBottle?.wineCountry ?? "",
-                                                      wineRegion: self.selectedBottle?.wineRegion ?? "",
-                                                      placeOfPurchase: self.selectedBottle?.placeOfPurchase ?? "",
-                                                      price: self.selectedBottle?.price ?? "",
-                                                      bottleDescription: self.selectedBottle?.bottleDescription ?? "",
-                                                      rating: self.selectedBottle?.doubleRating ?? 0)
+        self.qrCodeImage = QRGenerator.generateQR(imageURL: imageURL,
+                                                  name: self.selectedBottle?.name ?? "",
+                                                  wineColor: Int(self.selectedBottle?.wineColor ?? 0),
+                                                  wineSugar: Int(self.selectedBottle?.wineSugar ?? 0),
+                                                  wineType: Int(self.selectedBottle?.wineType ?? 0),
+                                                  wineSort: self.selectedBottle?.wineSort ?? "",
+                                                  wineCountry: self.selectedBottle?.wineCountry ?? "",
+                                                  wineRegion: self.selectedBottle?.wineRegion ?? "",
+                                                  placeOfPurchase: self.selectedBottle?.placeOfPurchase ?? "",
+                                                  price: self.selectedBottle?.price ?? "",
+                                                  bottleDescription: self.selectedBottle?.bottleDescription ?? "",
+                                                  rating: self.selectedBottle?.doubleRating ?? 0)
     }
     
     func uploadImageAndGenerateQRCode(imageData: Data?) {

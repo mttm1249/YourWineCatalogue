@@ -31,7 +31,6 @@ struct BottleImageView: View {
             .padding(8)
         }
     }
-
 }
 
 struct BottleImageView_Previews: PreviewProvider {

@@ -51,12 +51,12 @@ struct QRCodeScanner: UIViewControllerRepresentable {
 
                         switch result {
                         case .success(let image):
-                            self.viewModel.isImageLoading = false
                             self.viewModel.image = image
-                        case .failure(let error):
                             self.viewModel.isImageLoading = false
+                        case .failure(let error):
                             self.viewModel.alertMessage = "Ошибка загрузки изображения: \(error.localizedDescription)"
                             self.viewModel.showAlert = true
+                            self.viewModel.isImageLoading = false
                         }
                     }
 

@@ -12,6 +12,9 @@ final class BottleDetailsViewModel: ObservableObject {
     var bottle: Bottle
     @Published var qrCodeImage: UIImage?
     @Published var isUploading: Bool = false
+    @Published var showingSheet = false
+    @Published var showSaveBanner = false
+    @Published var showQRSheet = false
     
     init(bottle: Bottle) {
         self.bottle = bottle
