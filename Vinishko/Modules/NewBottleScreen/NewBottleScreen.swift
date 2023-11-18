@@ -99,11 +99,5 @@ struct NewBottleScreen: View {
                 dismissButton: .default(Text("OK"))
             )
         }
-        .onAppear {
-            print("View appeared. isImageLoading: \(viewModel.isImageLoading)")
-        }
-        .onChange(of: viewModel.isImageLoading) { newValue in
-            print("isImageLoading changed to: \(newValue)")
-        }
     }
 }

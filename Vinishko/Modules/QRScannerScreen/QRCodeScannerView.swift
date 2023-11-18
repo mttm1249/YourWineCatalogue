@@ -220,13 +220,26 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         }
     }
     
+    private func extractName(from string: String) -> String {
+        let decoder = JSONDecoder()
+        if let data = string.data(using: .utf8) {
+            do {
+                let decodedData = try decoder.decode(QRModel.self, from: data)
+                return decodedData.name
+            } catch {
+                print("Ошибка декодирования: \(error)")
+            }
+        }
+        return ""
+    }
+    
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         captureSession.stopRunning()
         
         if let metadataObj = metadataObjects.first as? AVMetadataMachineReadableCodeObject, metadataObj.type == .qr {
             if let stringValue = metadataObj.stringValue {
                 DispatchQueue.main.async { [weak self] in
-                    let alert = UIAlertController(title: "Добавить?", message: stringValue, preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Добавить?", message: self?.extractName(from: stringValue), preferredStyle: .alert)
                     
                     alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
                         self?.startRunningСaptureSession()
