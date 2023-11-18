@@ -31,13 +31,25 @@ struct CountryPicker: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                Button("Закрыть") {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            }
+            .padding()
             SearchBarView(text: $searchText)
                 .padding(.top, 20)
             
             if filteredCountries.isEmpty {
-                Button("Добавить \(searchText)") {
+                Button(action: {
                     selectedCountry = Country(code: searchText, regions: [])
                     presentationMode.wrappedValue.dismiss()
+                }) {
+                    HStack {
+                        Text("Добавить")
+                        Text(searchText).underline()
+                    }
                 }
                 .padding()
             }

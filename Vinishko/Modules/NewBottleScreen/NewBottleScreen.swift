@@ -20,11 +20,8 @@ struct NewBottleScreen: View {
                     self.viewModel.showImagePickerSheet = true
                 }) {
                     if viewModel.isImageLoading {
-                        ProgressView()
-                            .scaleEffect(1.2)
+                        DownloadProgressView(progress: self.viewModel.downloadProgress)
                             .frame(width: 150, height: 150)
-                            .background(Pallete.segmentPickerBg)
-                            .clipShape(Circle())
                     } else {
                         Image(uiImage: self.viewModel.image)
                             .resizable()

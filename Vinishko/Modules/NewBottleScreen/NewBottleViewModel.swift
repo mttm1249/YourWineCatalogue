@@ -32,6 +32,7 @@ class NewBottleViewModel: ObservableObject {
     @Published var showImagePickerSheet: Bool = false
     @Published var imagePickerSourceType: UIImagePickerController.SourceType = .camera
     @Published var editableBottle: Bottle?
+    @Published var downloadProgress: Double = 0
     
     private var managedObjectContext: NSManagedObjectContext
     

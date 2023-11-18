@@ -7,44 +7,55 @@
 
 import UIKit
 
-class NetworkService {
+class NetworkService: NSObject, URLSessionDownloadDelegate {
     
-    @discardableResult
-    static func downloadImage(url: String, completion: @escaping (Result<UIImage, Error>) -> ()) -> URLSessionDataTask? {
+    static let shared = NetworkService()
+    var onProgress: ((Double) -> Void)?
+    var onCompletion: ((Result<UIImage, Error>) -> Void)?
+
+    private lazy var session: URLSession = {
+        let configuration = URLSessionConfiguration.default
+        return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+    }()
+    
+    func downloadImage(url: String, onProgress: @escaping (Double) -> Void, onCompletion: @escaping (Result<UIImage, Error>) -> Void) -> URLSessionDownloadTask? {
         guard let url = URL(string: url) else {
-            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
+            onCompletion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
             return nil
         }
         
-        print("IMAGE URL HERE: \(url)")
-        
-        let session = URLSession.shared
-        let task = session.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                DispatchQueue.main.async {
-                    completion(.failure(error))
-                }
-                return
-            }
+        self.onProgress = onProgress
+        self.onCompletion = onCompletion
 
-            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
-                DispatchQueue.main.async {
-                    completion(.failure(NSError(domain: "", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: "HTTP Error: \(httpResponse.statusCode)"])))
-                }
-                return
-            }
-
-            if let data = data, let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    completion(.success(image))
-                }
-            } else {
-                DispatchQueue.main.async {
-                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Image data could not be decoded"])))
-                }
-            }
-        }
+        let task = session.downloadTask(with: url)
         task.resume()
         return task
+    }
+
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        let progress = Double(totalBytesWritten) / Double(totalBytesExpectedToWrite)
+        DispatchQueue.main.async {
+            self.onProgress?(progress)
+        }
+    }
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        do {
+            let data = try Data(contentsOf: location)
+            if let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.onCompletion?(.success(image))
+                }
+            } else {
+                let error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Image data could not be decoded"])
+                DispatchQueue.main.async {
+                    self.onCompletion?(.failure(error))
+                }
+            }
+        } catch {
+            DispatchQueue.main.async {
+                self.onCompletion?(.failure(error))
+            }
+        }
     }
 }

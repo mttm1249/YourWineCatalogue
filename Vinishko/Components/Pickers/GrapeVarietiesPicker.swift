@@ -31,7 +31,7 @@ struct GrapeVarietiesPicker: View {
         VStack(spacing: 10) {
             HStack {
                 Spacer()
-                Button("Готово") {
+                Button("Закрыть") {
                     presentationMode.wrappedValue.dismiss()
                 }
             }
@@ -53,9 +53,14 @@ struct GrapeVarietiesPicker: View {
             .padding(.horizontal)
             
             if filteredVarieties.isEmpty && !searchText.isEmpty {
-                Button("Добавить \(searchText)") {
+                Button(action: {
                     if selectedGrapeVarieties.count < 10 {
                         selectedGrapeVarieties.append(searchText)
+                    }
+                }) {
+                    HStack {
+                        Text("Добавить")
+                        Text(searchText).underline()
                     }
                 }
                 .padding()

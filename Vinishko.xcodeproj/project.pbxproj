@@ -86,6 +86,7 @@
 		DAB0261E2A9CDDD200E5BF5C /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0261D2A9CDDD200E5BF5C /* SegmentedControl.swift */; };
 		DAB026202A9CDFA000E5BF5C /* HideBackButtonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */; };
 		DAB026252A9CE5CF00E5BF5C /* HapticFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */; };
+		DAB72E092B08AF9300898010 /* DownloadProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB72E082B08AF9300898010 /* DownloadProgressView.swift */; };
 		DABDE2952AB62D8600DFC9ED /* BottlePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABDE2942AB62D8600DFC9ED /* BottlePhotoView.swift */; };
 		DADA49BF2AEBA49A0048028D /* SettingsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA49BE2AEBA49A0048028D /* SettingsScreenView.swift */; };
 		DADE85812AD71A6400C3F646 /* StatisticsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE85802AD71A6400C3F646 /* StatisticsBarView.swift */; };
@@ -153,6 +154,7 @@
 		DAB0261D2A9CDDD200E5BF5C /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideBackButtonText.swift; sourceTree = "<group>"; };
 		DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackService.swift; sourceTree = "<group>"; };
+		DAB72E082B08AF9300898010 /* DownloadProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressView.swift; sourceTree = "<group>"; };
 		DABDE2942AB62D8600DFC9ED /* BottlePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlePhotoView.swift; sourceTree = "<group>"; };
 		DADA49BE2AEBA49A0048028D /* SettingsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenView.swift; sourceTree = "<group>"; };
 		DADE85802AD71A6400C3F646 /* StatisticsBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsBarView.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				DA2600CE2AD2E17B003AD868 /* PieChartView.swift */,
 				DADE85802AD71A6400C3F646 /* StatisticsBarView.swift */,
 				DA917C942AF8FBDD00D8B72F /* BottomSheetView.swift */,
+				DAB72E082B08AF9300898010 /* DownloadProgressView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				DADE85812AD71A6400C3F646 /* StatisticsBarView.swift in Sources */,
 				DA033DFE2A9CB00A004C847D /* KeyboardHide.swift in Sources */,
 				DA195D212A9F4469000753B3 /* BubbleDetailsView.swift in Sources */,
+				DAB72E092B08AF9300898010 /* DownloadProgressView.swift in Sources */,
 				DAE4DA732AA2074F00853426 /* RegionPicker.swift in Sources */,
 				DA451F972ACF113B005FB7DE /* NewBottleViewModel.swift in Sources */,
 				DA08B2962A9F1BFE00A8872A /* SearchBarView.swift in Sources */,

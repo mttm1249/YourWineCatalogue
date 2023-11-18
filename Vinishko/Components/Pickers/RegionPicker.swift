@@ -26,13 +26,25 @@ struct RegionPicker: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                Button("Закрыть") {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            }
+            .padding()
             SearchBarView(text: $searchText)
                 .padding(.top, 20)
             
             if filteredRegions.isEmpty {
-                Button("Добавить \(searchText)") {
+                Button(action: {
                     selectedRegion = searchText
                     presentationMode.wrappedValue.dismiss()
+                }) {
+                    HStack {
+                        Text("Добавить")
+                        Text(searchText).underline()
+                    }
                 }
                 .padding()
             }

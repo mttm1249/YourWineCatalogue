@@ -46,20 +46,27 @@ struct QRCodeScanner: UIViewControllerRepresentable {
             if let result = try? JSONDecoder().decode(QRModel.self, from: Data(string.utf8)) {
                 DispatchQueue.main.async {
                     
-                    NetworkService.downloadImage(url: result.imageURL ?? "") { result in
-                        self.viewModel.isImageLoading = true
-
+                    // Начало загрузки изображения
+                    self.viewModel.isImageLoading = true
+                    
+                    _ = NetworkService.shared.downloadImage(url: result.imageURL ?? "",
+                                                            onProgress: { progress in
+                        self.viewModel.downloadProgress = progress
+                        
+                    }, onCompletion: { result in
                         switch result {
                         case .success(let image):
                             self.viewModel.image = image
-                            self.viewModel.isImageLoading = false
                         case .failure(let error):
                             self.viewModel.alertMessage = "Ошибка загрузки изображения: \(error.localizedDescription)"
                             self.viewModel.showAlert = true
-                            self.viewModel.isImageLoading = false
                         }
+                        // Завершение загрузки изображения
+                        self.viewModel.isImageLoading = false
                     }
-
+                    )
+                    
+                    // Обновление остальной информации о бутылке
                     self.viewModel.rating = result.rating ?? 0
                     self.viewModel.bottleName = result.name
                     self.viewModel.colorSelectedSegment = result.wineColor
@@ -75,6 +82,7 @@ struct QRCodeScanner: UIViewControllerRepresentable {
                 }
             }
         }
+        
     }
 }
 
