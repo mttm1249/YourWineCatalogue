@@ -183,9 +183,9 @@
 "without_rating" = "Без рейтинга";
 "currency" = "₽";
 // menu
-"edit_menu" = "Edit";
-"show_qr_menu" = "Show QR code";
-"delete_menu" = "Delete";
+"edit_menu" = "Редактировать";
+"show_qr_menu" = "Показать QR";
+"delete_menu" = "Удалить";
 
 /* WineColors - RU */
 "red_wineColor" = "Красное";
@@ -237,6 +237,7 @@
 "comment" = "Комментарий";
 "details" = "Сведения о дегустации";
 "scan_text" = "Сканируйте через Vinishko";
+"tasting_date" = "Дата дегустации";
 
 /* FiltersModule - RU */
 "sort_by" = "Сортировать по";

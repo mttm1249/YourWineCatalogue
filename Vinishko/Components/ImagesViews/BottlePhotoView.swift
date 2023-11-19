@@ -23,7 +23,7 @@ struct BottlePhotoView: View {
             Spacer()
             VStack(alignment: .leading) {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Дата дегустации")
+                    Text(Localizable.BottleDetailsModule.tastingDate)
                         .font(.system(size: 14)).bold()
                         .foregroundColor(.gray)
                     Text(tastingDate)

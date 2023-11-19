@@ -238,6 +238,7 @@
 "comment" = "Comment";
 "details" = "Tasting Details";
 "scan_text" = "Scan the QR code using Vinishko";
+"tasting_date" = "Дата дегустации";
 
 /* FiltersModule - EN */
 "sort_by" = "Sort by";

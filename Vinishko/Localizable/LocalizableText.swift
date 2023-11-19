@@ -83,6 +83,7 @@ enum Localizable {
         static let comment = NSLocalizedString("comment", comment: "")
         static let details = NSLocalizedString("details", comment: "")
         static let scan = NSLocalizedString("scan_text", comment: "")
+        static let tastingDate = NSLocalizedString("tasting_date", comment: "")
     }
     
     enum FiltersModule {
