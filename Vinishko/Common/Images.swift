@@ -16,9 +16,13 @@ struct Images {
     static let checkMark = "checkmark"
     static let magnifyingGlass = "magnifyingglass"
     static let star = "star.fill"
-    
+    static let listStar = "list.star"
+
     static let ellipsis = "ellipsis"
     static let checkMarkCircle = "checkmark.circle"
     static let hamburger = "line.3.horizontal"
     static let pencil = "pencil"
+    static let plus = "plus"
+    static let questionmark = "questionmark.circle.fill"
+
 }

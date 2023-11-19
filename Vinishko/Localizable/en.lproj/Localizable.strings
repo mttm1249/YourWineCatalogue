@@ -169,3 +169,106 @@
 "region_valle_de_guadalupe" = "Valle de Guadalupe";
 "region_valle_de_parras" = "Valle de Parras";
 "region_queretaro" = "Queretaro";
+
+/* UIComponents - EN */
+"search_text" = "Search";
+"cancel_text" = "Cancel";
+"close_button" = "Close";
+"add_button" = "Add";
+"clear_button" = "Clear";
+"grape_sort_button" = "Grape";
+"country_button" = "Country";
+"region_button" = "Region";
+"rating_bar" = "Rating";
+"without_rating" = "Without rating";
+"currency" = "$";
+
+// menu
+"edit_menu" = "Edit";
+"show_qr_menu" = "Show QR code";
+"delete_menu" = "Delete";
+
+/* WineColors - EN */
+"red_wineColor" = "Red";
+"white_wineColor" = "White";
+"other_wineColor" = "Other";
+
+/* WineSugar - EN */
+"dry_wineSugar" = "Dry";
+"semiDry_wineSugar" = "S. dry";
+"semiSweet_wineSugar" = "S. sweet";
+"sweet_wineSugar" = "Sweet";
+
+/* WineType - EN */
+"still_wineType" = "Still";
+"sparkling_wineType" = "Sparkling";
+"other_wineType" = "Other";
+
+/* MainScreenModule - EN */
+"saved_text" = "Saved!";
+
+/* NewBottleScreenModule - EN */
+"select_source" = "Select source";
+"camera" = "Camera";
+"gallery" = "Gallery";
+"name_title" = "Name";
+"place_title" = "Place of purchase";
+"price_title" = "Price";
+"comment_title" = "Comment";
+"add_wine" = "Add Wine";
+"error" = "Error";
+"ok" = "OK";
+
+/* BottlesCatalogueModule - EN */
+"filters" = "Filters";
+"empty" = "No entries";
+"deleting" = "Deleting";
+"message_alert" = "Are you sure you want to delete this entry?";
+"delete" = "Delete";
+"cancel" = "Cancel";
+"catalogue" = "Tasting Catalogue";
+"statistics_menu" = "Statistics";
+"settingsQR_menu" = "QR Settings";
+"scan_text" = "Scan the QR code using Vinishko";
+
+/* BottleDetailsModule - EN */
+"description" = "Description";
+"wine_origin" = "Origin";
+"purchase" = "Purchase";
+"comment" = "Comment";
+"details" = "Tasting Details";
+"scan_text" = "Scan the QR code using Vinishko";
+
+/* FiltersModule - EN */
+"sort_by" = "Sort by";
+"by_date" = "Date";
+"by_rating" = "Rating";
+"by_price" = "Price";
+"sort_by_sugar" = "By sugar content";
+"sort_by_type" = "By type";
+"sort_by_grapeSort" = "By grape variety";
+"sort_by_country" = "By country";
+"sort_by_region" = "By region";
+"sort_by_purchasePlace" = "By place of purchase";
+"clear_all" = "Clear all";
+"sorting_and_filters_title" = "Sorting and Filters";
+
+/* SettingsScreenModule - EN */
+"share_photo" = "Share photo";
+"share_rating" = "Share rating";
+"share_comment" = "Share comment";
+"settings_qr_title" = "QR Settings";
+
+/* QRCodeScannerModule - EN */
+"image_error" = "Image loading error:";
+"information" = "Information";
+"message_text" = "Scan the QR code displayed in the Vinishko app to add tasting information to your catalog.\nEnsure the code fully fits in the scanner frame for accurate reading.";
+"ok_button" = "OK";
+"add" = "Add?";
+"cancel_button" = "Cancel";
+"yes_button" = "Yes!";
+
+/* StatisticsScreenModule - EN */
+"top" = "Top 10";
+"show_all" = "Show all";
+"statistics_title" = "Statistics";

@@ -50,17 +50,17 @@ struct BottleCell: View {
                                 Button(action: {
                                     editAction()
                                 }) {
-                                    Label("Редактировать", systemImage: Images.pencil)
+                                    Label(Localizable.UIComponents.edit, systemImage: Images.pencil)
                                 }
                                 Button(action: {
                                     shareAction()
                                 }) {
-                                    Label("Показать QR", systemImage: Images.qr)
+                                    Label(Localizable.UIComponents.showQR, systemImage: Images.qr)
                                 }
                                 Button(role: .destructive, action: {
                                     deleteAction()
                                 }) {
-                                    Label("Удалить", systemImage: Images.trash)
+                                    Label(Localizable.UIComponents.delete, systemImage: Images.trash)
                                 }
                             } label: {
                                 Image(systemName: Images.ellipsis)

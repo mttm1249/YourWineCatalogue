@@ -33,12 +33,12 @@ struct NewBottleScreen: View {
                 }
 
                 .actionSheet(isPresented: $viewModel.showImagePickerSheet) {
-                    ActionSheet(title: Text("Выберите источник"), buttons: [
-                        .default(Text("Камера").foregroundColor(Pallete.textColor), action: {
+                    ActionSheet(title: Text(Localizable.NewBottleScreenModule.selectSource), buttons: [
+                        .default(Text(Localizable.NewBottleScreenModule.camera).foregroundColor(Pallete.textColor), action: {
                             self.viewModel.imagePickerSourceType = .camera
                             self.viewModel.showImagePicker = true
                         }),
-                        .default(Text("Галерея").foregroundColor(Pallete.textColor), action: {
+                        .default(Text(Localizable.NewBottleScreenModule.gallery).foregroundColor(Pallete.textColor), action: {
                             self.viewModel.imagePickerSourceType = .photoLibrary
                             self.viewModel.showImagePicker = true
                         }),
@@ -52,26 +52,27 @@ struct NewBottleScreen: View {
             
             VStack(spacing: 12) {
                 RatingView(selectedRating: $viewModel.rating)
-                TextFieldStandart(header: "Название", text: $viewModel.bottleName)
-                SegmentedPicker(titles: ["Красное", "Белое", "Другое"],
+                TextFieldStandart(header: Localizable.NewBottleScreenModule.nameTitle, text: $viewModel.bottleName)
+                SegmentedPicker(titles: [Localizable.WineColors.red, Localizable.WineColors.white, Localizable.WineColors.other],
                                 selectedSegment: $viewModel.colorSelectedSegment)
-                SegmentedPicker(titles: ["Сух", "П. сух", "П. слад", "Слад"],
+                SegmentedPicker(titles: [Localizable.WineSugar.dry, Localizable.WineSugar.semiDry, Localizable.WineSugar.semiSweet, Localizable.WineSugar.sweet],
                                 selectedSegment: $viewModel.sugarSelectedSegment)
-                SegmentedPicker(titles: ["Тихое", "Игристое", "Другое"],
+                SegmentedPicker(titles: [Localizable.WineType
+                    .still, Localizable.WineType.sparkling, Localizable.WineType.other],
                                 selectedSegment: $viewModel.typeSelectedSegment)
                 PickersModuleView(
                     selectedCountry: $viewModel.selectedCountry,
                     selectedRegion: $viewModel.selectedRegion,
                     selectedGrapeVarieties: $viewModel.selectedGrapeVarieties
                 )
-                TextFieldStandart(header: "Место покупки", text: $viewModel.placeOfPurchase)
-                TextFieldStandart(header: "Цена", text: $viewModel.price)
+                TextFieldStandart(header: Localizable.NewBottleScreenModule.place, text: $viewModel.placeOfPurchase)
+                TextFieldStandart(header: Localizable.NewBottleScreenModule.price, text: $viewModel.price)
                     .keyboardType(.decimalPad)
-                TextEditorStandart(header: "Комментарий", text: $viewModel.bottleDescription)
+                TextEditorStandart(header: Localizable.NewBottleScreenModule.comment, text: $viewModel.bottleDescription)
             }
             .padding(.bottom, 20)
         }
-        .navigationTitle("Добавить винишко")
+        .navigationTitle(Localizable.NewBottleScreenModule.addWine)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button(action: {
@@ -94,9 +95,9 @@ struct NewBottleScreen: View {
         }
         .alert(isPresented: $viewModel.showAlert) {
             Alert(
-                title: Text("Ошибка"),
+                title: Text(Localizable.NewBottleScreenModule.error),
                 message: Text(viewModel.alertMessage),
-                dismissButton: .default(Text("OK"))
+                dismissButton: .default(Text(Localizable.NewBottleScreenModule.ok))
             )
         }
     }

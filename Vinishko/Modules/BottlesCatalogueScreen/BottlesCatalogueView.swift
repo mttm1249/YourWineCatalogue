@@ -23,7 +23,7 @@ struct BottlesCatalogueView: View {
                     Button(action: {
                         viewModel.isFiltersViewActive = true
                     }) {
-                        Text("Фильтры")
+                        Text(Localizable.BottlesCatalogueModule.filters)
                             .font(.system(size: 14))
                     }
                     .background(
@@ -37,7 +37,7 @@ struct BottlesCatalogueView: View {
                     )
                     Text("|")
                         .foregroundColor(.gray)
-                    SegmentedControl(selectedSegment: $viewModel.selectedSegment, titles: ["Красное", "Белое", "Другие"])
+                    SegmentedControl(selectedSegment: $viewModel.selectedSegment, titles: [Localizable.WineColors.red, Localizable.WineColors.white, Localizable.WineColors.other])
                 }
                 .onChange(of: viewModel.selectedSegment) { _ in
                     viewModel.applyFilters()
@@ -51,7 +51,7 @@ struct BottlesCatalogueView: View {
                     VStack {
                         Spacer()
                         HStack {
-                            Text("Записи отсутствуют")
+                            Text(Localizable.BottlesCatalogueModule.empty)
                                 .font(.headline)
                                 .foregroundColor(.gray)
                         }
@@ -94,33 +94,33 @@ struct BottlesCatalogueView: View {
                         }
                     }
                     .alert(isPresented: $viewModel.showingAlert) {
-                        Alert(title: Text("Вы уверены?"),
-                              message: Text("Вы действительно хотите удалить эту бутылку?"),
-                              primaryButton: .destructive(Text("Удалить")) {
+                        Alert(title: Text(Localizable.BottlesCatalogueModule.deleting),
+                              message: Text(Localizable.BottlesCatalogueModule.message),
+                              primaryButton: .destructive(Text(Localizable.BottlesCatalogueModule.delete)) {
                             if let bottle = viewModel.selectedBottle {
                                 viewModel.deleteBottle(bottle)
                             }
                             HapticFeedbackService.generateFeedback(style: .success)
                         },
-                              secondaryButton: .cancel(Text("Отмена"))
+                              secondaryButton: .cancel(Text(Localizable.BottlesCatalogueModule.cancel))
                         )
                     }
                 }
             }
         }
-        .navigationTitle("Каталог дегустаций")
+        .navigationTitle(Localizable.BottlesCatalogueModule.catalogue)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
                     Button(action: {
                         viewModel.isStatisticsViewActive = true
                     }) {
-                        Label("Статистика", systemImage: Images.chart)
+                        Label(Localizable.BottlesCatalogueModule.statistics, systemImage: Images.chart)
                     }
                     Button(action: {
                         viewModel.isSettingsViewActive = true
                     }) {
-                        Label("Настройки QR", systemImage: Images.qr)
+                        Label(Localizable.BottlesCatalogueModule.settingsQR, systemImage: Images.qr)
                     }
                 } label: {
                     Image(systemName: Images.hamburger)
@@ -159,7 +159,7 @@ struct BottlesCatalogueView: View {
         .overlay(
             BottomSheet(isShowing: $viewModel.showQRSheet) {
                 VStack {
-                    Text("Сканируйте через Vinishko")
+                    Text(Localizable.BottlesCatalogueModule.scan)
                         .font(.system(size: 18)).bold()
                     Spacer()
                     if viewModel.isUploading {

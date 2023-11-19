@@ -27,7 +27,7 @@ struct StatisticsScreen: View {
                 
                 if !showingAllWineSorts {
                     HStack {
-                        Text("Топ 10 сортов")
+                        Text(Localizable.StatisticsScreenModule.top)
                             .font(.system(size: 28)).bold()
                             .padding()
                         Spacer()
@@ -46,18 +46,13 @@ struct StatisticsScreen: View {
                 }
                 
                 if !showingAllWineSorts {
-                    Button("Показать все") {
+                    Button(Localizable.StatisticsScreenModule.showAll) {
                         showingAllWineSorts = true
                     }
                     .padding()
                 }
             }
-            .navigationTitle("Статистика")
+            .navigationTitle(Localizable.StatisticsScreenModule.statisticsTitle)
         }
     }
 }
-
-
-//#Preview {
-//    StatisticsScreen(viewModel: StatisticsScreenViewModel(bottles: <#[Bottle]#>))
-//}

@@ -28,5 +28,5 @@ struct DownloadProgressView: View {
 }
 
 #Preview {
-    DownloadProgressView(progress: 0.6)
+    DownloadProgressView(progress: 0.9)
 }

@@ -169,3 +169,105 @@
 "region_valle_de_guadalupe" = "Гвадалупе";
 "region_valle_de_parras" = "Паррас";
 "region_queretaro" = "Керетаро";
+
+/* UIComponents - RU */
+"search_text" = "Поиск";
+"cancel_text" = "Отменить";
+"close_button" = "Закрыть";
+"add_button" = "Добавить";
+"clear_button" = "Очистить";
+"grape_sort_button" = "Сорт";
+"country_button" = "Страна";
+"region_button" = "Регион";
+"rating_bar" = "Рейтинг";
+"without_rating" = "Без рейтинга";
+"currency" = "₽";
+// menu
+"edit_menu" = "Edit";
+"show_qr_menu" = "Show QR code";
+"delete_menu" = "Delete";
+
+/* WineColors - RU */
+"red_wineColor" = "Красное";
+"white_wineColor" = "Белое";
+"other_wineColor" = "Другое";
+
+/* WineSugar - RU */
+"dry_wineSugar" = "Сух";
+"semiDry_wineSugar" = "П. сух";
+"semiSweet_wineSugar" = "П. слад";
+"sweet_wineSugar" = "Слад";
+
+/* WineType - RU */
+"still_wineType" = "Тихое";
+"sparkling_wineType" = "Игристое";
+"other_wineType" = "Другое";
+
+/* MainScreenModule - RU */
+"saved_text" = "Сохранено!";
+
+/* NewBottleScreenModule - RU */
+"select_source" = "Выберите источник";
+"camera" = "Камера";
+"gallery" = "Галерея";
+"name_title" = "Название";
+"place_title" = "Место покупки";
+"price_title" = "Цена";
+"comment_title" = "Комментарий";
+"add_wine" = "Добавить винишко";
+"error" = "Ошибка";
+"ok" = "OK";
+
+/* BottlesCatalogueModule - RU */
+"filters" = "Фильтры";
+"empty" = "Записи отсутствуют";
+"deleting" = "Удаление";
+"message_alert" = "Вы действительно хотите удалить эту запись?";
+"delete" = "Удалить";
+"cancel" = "Отмена";
+"catalogue" = "Каталог дегустаций";
+"statistics_menu" = "Статистика";
+"settingsQR_menu" = "Настройки QR";
+"scan_text" = "Сканируйте через Vinishko";
+
+/* BottleDetailsModule - RU */
+"description" = "Описание";
+"wine_origin" = "Происхождение";
+"purchase" = "Покупка";
+"comment" = "Комментарий";
+"details" = "Сведения о дегустации";
+"scan_text" = "Сканируйте через Vinishko";
+
+/* FiltersModule - RU */
+"sort_by" = "Сортировать по";
+"by_date" = "Дате";
+"by_rating" = "Рейтингу";
+"by_price" = "Цене";
+"sort_by_sugar" = "По содержанию сахара";
+"sort_by_type" = "По типу";
+"sort_by_grapeSort" = "По сорту";
+"sort_by_country" = "По стране";
+"sort_by_region" = "По региону";
+"sort_by_purchasePlace" = "По месту покупки";
+"clear_all" = "Сбросить";
+"sorting_and_filters_title" = "Сортировка и фильтры";
+
+/* SettingsScreenModule - RU */
+"share_photo" = "Делиться фото";
+"share_rating" = "Делиться рейтингом";
+"share_comment" = "Делиться комментарием";
+"settings_qr_title" = "Настройки QR";
+
+/* QRCodeScannerModule - RU */
+"image_error" = "Ошибка загрузки изображения:";
+"information" = "Информация";
+"message_text" = "Отсканируйте QR-код, отображаемый в приложении Vinishko, чтобы добавить информацию о дегустации в свой каталог.\nУбедитесь, что код полностью помещается в рамку сканера для точного считывания.";
+"ok_button" = "OK";
+"add" = "Добавить?";
+"cancel_button" = "Отмена";
+"yes_button" = "Да!";
+
+/* StatisticsScreenModule - RU */
+"top" = "Топ 10 сортов";
+"show_all" = "Показать все";
+"statistics_title" = "Статистика";

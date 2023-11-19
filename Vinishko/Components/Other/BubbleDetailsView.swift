@@ -40,13 +40,13 @@ struct BubbleDetailsView: View {
     private func getWineSugar() -> String {
         switch wineSugar {
         case 0:
-            return "Сух"
+            return Localizable.WineSugar.dry
         case 1:
-            return "П. сух"
+            return Localizable.WineSugar.semiDry
         case 2:
-            return "П. слад"
+            return Localizable.WineSugar.semiSweet
         case 3:
-            return "Слад"
+            return Localizable.WineSugar.sweet
         default:
             return ""
         }
@@ -55,11 +55,11 @@ struct BubbleDetailsView: View {
     private func getWineType() -> String {
         switch wineType {
         case 0:
-            return "Тихое"
+            return Localizable.WineType.still
         case 1:
-            return "Игристое"
+            return Localizable.WineType.sparkling
         case 2:
-            return "Другое"
+            return Localizable.WineType.other
         default:
             return ""
         }

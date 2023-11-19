@@ -78,6 +78,9 @@
 		DA7CCBC92A5446B200C5876D /* TextFieldStandart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */; };
 		DA86EC1D2B039770002CEFBF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86EC1C2B039770002CEFBF /* UIColor.swift */; };
 		DA86EC1F2B03A927002CEFBF /* QRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86EC1E2B03A927002CEFBF /* QRModel.swift */; };
+		DA871A702B09E7EF00621578 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA871A6F2B09E7EF00621578 /* MainScreenViewModel.swift */; };
+		DA871A722B09FC2900621578 /* LocalizableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA871A712B09FC2900621578 /* LocalizableText.swift */; };
+		DA871A762B0A18EE00621578 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA871A752B0A18EE00621578 /* InfoPlist.strings */; };
 		DA896D7A2B052D0D006DC8FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA896D792B052D0D006DC8FE /* GoogleService-Info.plist */; };
 		DA8FF5EE2AA4AB2500DBAE6C /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */; };
 		DA917C932AF8F34D00D8B72F /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA917C922AF8F34D00D8B72F /* QRGenerator.swift */; };
@@ -87,7 +90,7 @@
 		DAB026202A9CDFA000E5BF5C /* HideBackButtonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */; };
 		DAB026252A9CE5CF00E5BF5C /* HapticFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */; };
 		DAB72E092B08AF9300898010 /* DownloadProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB72E082B08AF9300898010 /* DownloadProgressView.swift */; };
-		DAB72E0B2B08B8A300898010 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB72E0A2B08B8A300898010 /* WaveView.swift */; };
+		DAB72E0B2B08B8A300898010 /* MainScreenAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB72E0A2B08B8A300898010 /* MainScreenAnimationView.swift */; };
 		DABDE2952AB62D8600DFC9ED /* BottlePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABDE2942AB62D8600DFC9ED /* BottlePhotoView.swift */; };
 		DADA49BF2AEBA49A0048028D /* SettingsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA49BE2AEBA49A0048028D /* SettingsScreenView.swift */; };
 		DADE85812AD71A6400C3F646 /* StatisticsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE85802AD71A6400C3F646 /* StatisticsBarView.swift */; };
@@ -147,6 +150,9 @@
 		DA7CCBC82A5446B200C5876D /* TextFieldStandart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStandart.swift; sourceTree = "<group>"; };
 		DA86EC1C2B039770002CEFBF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		DA86EC1E2B03A927002CEFBF /* QRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRModel.swift; sourceTree = "<group>"; };
+		DA871A6F2B09E7EF00621578 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
+		DA871A712B09FC2900621578 /* LocalizableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableText.swift; sourceTree = "<group>"; };
+		DA871A752B0A18EE00621578 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DA896D792B052D0D006DC8FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA8FF5ED2AA4AB2500DBAE6C /* MigrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationService.swift; sourceTree = "<group>"; };
 		DA917C922AF8F34D00D8B72F /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
@@ -156,7 +162,7 @@
 		DAB0261F2A9CDFA000E5BF5C /* HideBackButtonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideBackButtonText.swift; sourceTree = "<group>"; };
 		DAB026242A9CE5CF00E5BF5C /* HapticFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackService.swift; sourceTree = "<group>"; };
 		DAB72E082B08AF9300898010 /* DownloadProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressView.swift; sourceTree = "<group>"; };
-		DAB72E0A2B08B8A300898010 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		DAB72E0A2B08B8A300898010 /* MainScreenAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenAnimationView.swift; sourceTree = "<group>"; };
 		DABDE2942AB62D8600DFC9ED /* BottlePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlePhotoView.swift; sourceTree = "<group>"; };
 		DADA49BE2AEBA49A0048028D /* SettingsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenView.swift; sourceTree = "<group>"; };
 		DADE85802AD71A6400C3F646 /* StatisticsBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsBarView.swift; sourceTree = "<group>"; };
@@ -219,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				DA7CCBBF2A543DBA00C5876D /* MainScreenView.swift */,
+				DA871A6F2B09E7EF00621578 /* MainScreenViewModel.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -314,7 +321,7 @@
 				DADE85802AD71A6400C3F646 /* StatisticsBarView.swift */,
 				DA917C942AF8FBDD00D8B72F /* BottomSheetView.swift */,
 				DAB72E082B08AF9300898010 /* DownloadProgressView.swift */,
-				DAB72E0A2B08B8A300898010 /* WaveView.swift */,
+				DAB72E0A2B08B8A300898010 /* MainScreenAnimationView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -360,8 +367,10 @@
 			children = (
 				DA549CE32AB42C3900F6398D /* LocalizationManager.swift */,
 				DA6556AC2AA1DF5300D8427C /* GrapeVariatiesList.swift */,
+				DA871A712B09FC2900621578 /* LocalizableText.swift */,
 				DA0355A62AA07354002EBA77 /* CountryList.json */,
 				DA6556B42AA1ED7F00D8427C /* Localizable.strings */,
+				DA871A752B0A18EE00621578 /* InfoPlist.strings */,
 				DA6556BA2AA1F13100D8427C /* Localizable.strings */,
 			);
 			path = Localizable;
@@ -562,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA7CCBAD2A543B9E00C5876D /* Preview Assets.xcassets in Resources */,
+				DA871A762B0A18EE00621578 /* InfoPlist.strings in Resources */,
 				DA6556B22AA1ED7F00D8427C /* Localizable.strings in Resources */,
 				DA7CCBAA2A543B9E00C5876D /* Assets.xcassets in Resources */,
 				DA6556B82AA1F13100D8427C /* Localizable.strings in Resources */,
@@ -584,6 +594,7 @@
 				DA2C2B362A9DE05200C6680D /* BottleDetailsView.swift in Sources */,
 				DAE2558A2AACB1F50004C707 /* RatingView.swift in Sources */,
 				DA5F5BC32AFA7D57006D056B /* UserDefaults.swift in Sources */,
+				DA871A702B09E7EF00621578 /* MainScreenViewModel.swift in Sources */,
 				DA549CE62AB42EE500F6398D /* InfoBubbles.swift in Sources */,
 				DA033DEF2A9CA0B3004C847D /* Fonts.swift in Sources */,
 				DA7CCBC02A543DBA00C5876D /* MainScreenView.swift in Sources */,
@@ -592,6 +603,7 @@
 				DA195D212A9F4469000753B3 /* BubbleDetailsView.swift in Sources */,
 				DAB72E092B08AF9300898010 /* DownloadProgressView.swift in Sources */,
 				DAE4DA732AA2074F00853426 /* RegionPicker.swift in Sources */,
+				DA871A722B09FC2900621578 /* LocalizableText.swift in Sources */,
 				DA451F972ACF113B005FB7DE /* NewBottleViewModel.swift in Sources */,
 				DA08B2962A9F1BFE00A8872A /* SearchBarView.swift in Sources */,
 				DAB0261E2A9CDDD200E5BF5C /* SegmentedControl.swift in Sources */,
@@ -611,7 +623,7 @@
 				DA2C2B392A9DF30700C6680D /* FiltersView.swift in Sources */,
 				DA917C932AF8F34D00D8B72F /* QRGenerator.swift in Sources */,
 				DA033DF92A9CAAD8004C847D /* Images.swift in Sources */,
-				DAB72E0B2B08B8A300898010 /* WaveView.swift in Sources */,
+				DAB72E0B2B08B8A300898010 /* MainScreenAnimationView.swift in Sources */,
 				DABDE2952AB62D8600DFC9ED /* BottlePhotoView.swift in Sources */,
 				DA2C2B3F2A9E119900C6680D /* TextEditorStandart.swift in Sources */,
 				DA7CCBA62A543B9D00C5876D /* VinishkoApp.swift in Sources */,
@@ -784,7 +796,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 54;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
@@ -822,7 +834,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 54;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;

@@ -10,13 +10,13 @@ import SwiftUI
 struct SettingsScreenView: View {
     var body: some View {
         VStack {
-            SwitchButton(label: "Делиться фото", udKey: .photoShare)
-            SwitchButton(label: "Делиться рейтингом", udKey: .ratingShare)
-            SwitchButton(label: "Делиться комментарием", udKey: .commentShare)
+            SwitchButton(label: Localizable.SettingsScreenModule.sharePhoto, udKey: .photoShare)
+            SwitchButton(label: Localizable.SettingsScreenModule.shareRating, udKey: .ratingShare)
+            SwitchButton(label: Localizable.SettingsScreenModule.shareComment, udKey: .commentShare)
             Spacer()
         }
         .padding(.vertical)
-        .navigationTitle("Настройки QR")
+        .navigationTitle(Localizable.SettingsScreenModule.settingsTitle)
     }
 }
 

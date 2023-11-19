@@ -37,22 +37,22 @@ struct BottleDetailsView: View {
                     .padding(.horizontal, 16)
                     .padding(.bottom, 8)
                 
-                InfoBubbles(header: "Описание",
+                InfoBubbles(header: Localizable.BottleDetailsModule.description,
                             content: [viewModel.getWineColorName(for: bottle),
                                       viewModel.getWineSugar(for: bottle),
                                       viewModel.getWineType(for: bottle)],
                             firstItemBorderStyle: .thick(viewModel.getWineColor(for: bottle)))
                 
-                InfoBubbles(header: "Происхождение",
+                InfoBubbles(header: Localizable.BottleDetailsModule.origin,
                             content: [LocalizationManager.shared.getWineCountry(from: bottle.wineCountry),
                                       bottle.wineRegion ?? ""])
                 
-                InfoBubbles(header: "Покупка",
+                InfoBubbles(header: Localizable.BottleDetailsModule.purchase,
                             content: [bottle.placeOfPurchase ?? "",
-                                      "\(bottle.price ?? "")₽"])
+                                      "\(bottle.price ?? "")\(Localizable.UIComponents.currency)"])
                 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Комментарий")
+                    Text(Localizable.BottleDetailsModule.comment)
                         .font(.system(size: 14)).bold()
                         .foregroundColor(.gray)
                     
@@ -63,7 +63,7 @@ struct BottleDetailsView: View {
                 .padding(.horizontal, 16)
             }
         }
-        .navigationTitle("Сведения о дегустации")
+        .navigationTitle(Localizable.BottleDetailsModule.details)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 NavigationLink(destination: NewBottleScreen(viewModel: NewBottleViewModel(editableBottle: bottle, context: CoreDataManager.managedContext, onBottleSaved: { updatedBottle in
@@ -94,7 +94,7 @@ struct BottleDetailsView: View {
         .overlay(
             BottomSheet(isShowing: $viewModel.showQRSheet) {
                 VStack {
-                    Text("Сканируйте через Vinishko")
+                    Text(Localizable.BottleDetailsModule.scan)
                         .font(.system(size: 18)).bold()
                     Spacer()
                     if viewModel.isUploading {

@@ -18,7 +18,7 @@ struct SearchBarView: View {
                     .foregroundColor(.gray)
                     .padding(.leading, 8)
                 
-                TextField("Поиск", text: $text, onEditingChanged: { editingChanged in
+                TextField(Localizable.UIComponents.searchBar, text: $text, onEditingChanged: { editingChanged in
                     withAnimation {
                         self.isEditing = editingChanged
                     }
@@ -42,7 +42,7 @@ struct SearchBarView: View {
             .padding(.horizontal, 16)
             
             if isEditing {
-                Button("Отменить") {
+                Button(Localizable.UIComponents.cancelButton) {
                     withAnimation {
                         self.isEditing = false
                         self.text = ""

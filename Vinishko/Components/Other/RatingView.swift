@@ -28,11 +28,11 @@ struct RatingView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Рейтинг")
+                Text(Localizable.UIComponents.ratingBar)
                     .font(.system(size: 14)).bold()
                 Spacer()
                 if selectedRating <= 0 {
-                    Text("Без рейтинга")
+                    Text(Localizable.UIComponents.withoutRating)
                         .font(.system(size: 14)).bold()
                         .foregroundColor(.gray)
                 } else {

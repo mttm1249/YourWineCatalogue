@@ -23,18 +23,18 @@ struct FiltersView: View {
         ScrollView {
             VStack(spacing: 12) {
                 VStack(alignment: .leading) {
-                    Text("Сортировать по")
+                    Text(Localizable.FiltersModule.sortBy)
                         .font(.system(size: 14)).bold()
                         .foregroundColor(.gray)
                         .padding(.horizontal, 16)
                         .padding(.top, 12)
-                    SegmentedPicker(titles: ["Дате", "Рейтингу", "Цене"], selectedSegment: $selectedSorting)
+                    SegmentedPicker(titles: [Localizable.FiltersModule.byDate, Localizable.FiltersModule.byRating, Localizable.FiltersModule.byPrice], selectedSegment: $selectedSorting)
                         .onChange(of: selectedSorting) { newValue in
                             selectedSorting = newValue
                         }
                 }
                 
-                FilterButton(header: "По содержанию сахара", filterType: .wineSugarInt($selectedWineSugarAmount)) {
+                FilterButton(header: Localizable.FiltersModule.bySugar, filterType: .wineSugarInt($selectedWineSugarAmount)) {
                     selectedPicker = .wineSugar
                     showingPicker = true
                 }
@@ -42,7 +42,7 @@ struct FiltersView: View {
                     selectedWineSugarAmount = newValue
                 }
                 
-                FilterButton(header: "По типу", filterType: .wineTypeInt($selectedWineType)) {
+                FilterButton(header: Localizable.FiltersModule.byType, filterType: .wineTypeInt($selectedWineType)) {
                     selectedPicker = .wineType
                     showingPicker = true
                 }
@@ -50,7 +50,7 @@ struct FiltersView: View {
                     selectedWineType = newValue
                 }
                 
-                FilterButton(header: "По сорту", filterType: .string($selectedWineSort)) {
+                FilterButton(header: Localizable.FiltersModule.byGrape, filterType: .string($selectedWineSort)) {
                     selectedPicker = .wineSort
                     showingPicker = true
                 }
@@ -58,7 +58,7 @@ struct FiltersView: View {
                     selectedWineSort = newValue
                 }
                 
-                FilterButton(header: "По стране", filterType: .countryCode($selectedWineCountry)) {
+                FilterButton(header: Localizable.FiltersModule.byCountry, filterType: .countryCode($selectedWineCountry)) {
                     selectedPicker = .wineCountry
                     showingPicker = true
                 }
@@ -66,7 +66,7 @@ struct FiltersView: View {
                     selectedWineCountry = newValue
                 }
                 
-                FilterButton(header: "По региону", filterType: .string($selectedWineRegion)) {
+                FilterButton(header: Localizable.FiltersModule.byRegion, filterType: .string($selectedWineRegion)) {
                     selectedPicker = .wineRegion
                     showingPicker = true
                 }
@@ -74,7 +74,7 @@ struct FiltersView: View {
                     selectedWineRegion = newValue
                 }
                 
-                FilterButton(header: "По месту покупки", filterType: .string($selectedPlaceOfPurchase)) {
+                FilterButton(header: Localizable.FiltersModule.byPurchasePlace, filterType: .string($selectedPlaceOfPurchase)) {
                     selectedPicker = .placeOfPurchase
                     showingPicker = true
                 }
@@ -102,10 +102,10 @@ struct FiltersView: View {
                     viewModel.selectedWineRegion = nil
                     viewModel.selectedWineSugar = nil
                 }) {
-                    Text("Сбросить")
+                    Text(Localizable.FiltersModule.clearAll)
                         .foregroundColor(.red)
                 }
-                .navigationTitle("Сортировка и фильтры")
+                .navigationTitle(Localizable.FiltersModule.sortingAndFiltersTitle)
                 .sheet(item: $selectedPicker) { item in
                     switch item {
                     case .wineSort:

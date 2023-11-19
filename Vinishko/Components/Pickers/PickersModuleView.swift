@@ -62,14 +62,14 @@ struct PickersModuleView: View {
 
     var body: some View {
         VStack(spacing: 15) {
-            OptionButton(header: "Сорт", text: $selectedGrapeVarietiesString) {
+            OptionButton(header: Localizable.UIComponents.grapeSortButton, text: $selectedGrapeVarietiesString) {
                 activeSheet = .grapeVarietiesPicker
             }
             .onChange(of: selectedGrapeVarieties) { newValue in
                 selectedGrapeVarietiesString = newValue.map { $0.localize() }.joined(separator: ", ")
             }
             
-            OptionButton(header: "Страна", text: $selectedCountryName) {
+            OptionButton(header: Localizable.UIComponents.countryButton, text: $selectedCountryName) {
                 previousSelectedCountry = selectedCountry
                 activeSheet = .countryPicker
             }
@@ -81,7 +81,7 @@ struct PickersModuleView: View {
 //                previousSelectedCountry = newValue
             }
 
-            OptionButton(header: "Регион", text: $selectedRegion) {
+            OptionButton(header: Localizable.UIComponents.regionButton, text: $selectedRegion) {
                 activeSheet = .regionPicker
             }
             .onChange(of: selectedRegion) { newValue in

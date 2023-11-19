@@ -31,7 +31,7 @@ struct GrapeVarietiesPicker: View {
         VStack(spacing: 10) {
             HStack {
                 Spacer()
-                Button("Закрыть") {
+                Button(Localizable.UIComponents.сloseButton) {
                     presentationMode.wrappedValue.dismiss()
                 }
             }
@@ -42,7 +42,7 @@ struct GrapeVarietiesPicker: View {
                     .lineLimit(3)
                 Spacer()
                 if !selectedGrapeVarieties.isEmpty {
-                    Button("Очистить") {
+                    Button(Localizable.UIComponents.clear) {
                         selectedGrapeVarieties.removeAll()
                     }
                 }
@@ -59,7 +59,7 @@ struct GrapeVarietiesPicker: View {
                     }
                 }) {
                     HStack {
-                        Text("Добавить")
+                        Text(Localizable.UIComponents.addButton)
                         Text(searchText).underline()
                     }
                 }

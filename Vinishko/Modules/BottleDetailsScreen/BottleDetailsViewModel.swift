@@ -77,11 +77,11 @@ final class BottleDetailsViewModel: ObservableObject {
     func getWineColorName(for bottle: Bottle) -> String {
         switch bottle.wineColor {
         case 0:
-            return "Красное"
+            return Localizable.WineColors.red
         case 1:
-            return "Белое"
+            return Localizable.WineColors.white
         case 2:
-            return "Другое"
+            return Localizable.WineColors.other
         default:
             return ""
         }
@@ -90,13 +90,13 @@ final class BottleDetailsViewModel: ObservableObject {
     func getWineSugar(for bottle: Bottle) -> String {
         switch bottle.wineSugar {
         case 0:
-            return "Сухое"
+            return Localizable.WineSugar.dry
         case 1:
-            return "Полусухое"
+            return Localizable.WineSugar.semiDry
         case 2:
-            return "Полусладкое"
+            return Localizable.WineSugar.semiSweet
         case 3:
-            return "Сладкое"
+            return Localizable.WineSugar.sweet
         default:
             return ""
         }
@@ -105,11 +105,11 @@ final class BottleDetailsViewModel: ObservableObject {
     func getWineType(for bottle: Bottle) -> String {
         switch bottle.wineType {
         case 0:
-            return "Тихое"
+            return Localizable.WineType.still
         case 1:
-            return "Игристое"
+            return Localizable.WineType.sparkling
         case 2:
-            return "Другое"
+            return Localizable.WineType.other
         default:
             return ""
         }

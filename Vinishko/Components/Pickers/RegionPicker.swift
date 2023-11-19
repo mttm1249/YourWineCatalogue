@@ -28,7 +28,7 @@ struct RegionPicker: View {
         VStack {
             HStack {
                 Spacer()
-                Button("Закрыть") {
+                Button(Localizable.UIComponents.сloseButton) {
                     presentationMode.wrappedValue.dismiss()
                 }
             }
@@ -42,7 +42,7 @@ struct RegionPicker: View {
                     presentationMode.wrappedValue.dismiss()
                 }) {
                     HStack {
-                        Text("Добавить")
+                        Text(Localizable.UIComponents.addButton)
                         Text(searchText).underline()
                     }
                 }

@@ -58,7 +58,7 @@ struct QRCodeScanner: UIViewControllerRepresentable {
                         case .success(let image):
                             self.viewModel.image = image
                         case .failure(let error):
-                            self.viewModel.alertMessage = "Ошибка загрузки изображения: \(error.localizedDescription)"
+                            self.viewModel.alertMessage = "\(Localizable.QRCodeScannerModule.imageError) \(error.localizedDescription)"
                             self.viewModel.showAlert = true
                         }
                         // Завершение загрузки изображения
@@ -180,7 +180,7 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         view.addSubview(capsuleView)
         
         // Configure the question mark button
-        let questionImage = UIImage(systemName: "questionmark.circle.fill")
+        let questionImage = UIImage(systemName: Images.questionmark)
         questionButton.setImage(questionImage, for: .normal)
         questionButton.addTarget(self, action: #selector(questionButtonTapped), for: .touchUpInside)
         view.addSubview(questionButton)
@@ -209,8 +209,8 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
     }
     
     @objc func questionButtonTapped() {
-        let alert = UIAlertController(title: "Информация", message: "Отсканируйте QR-код, отображаемый в приложении Vinishko, чтобы добавить информацию о дегустации в свой каталог.\nУбедитесь, что код полностью помещается в рамку сканера для точного считывания.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let alert = UIAlertController(title: Localizable.QRCodeScannerModule.information, message: Localizable.QRCodeScannerModule.messageText, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Localizable.QRCodeScannerModule.ok, style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
@@ -239,13 +239,13 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         if let metadataObj = metadataObjects.first as? AVMetadataMachineReadableCodeObject, metadataObj.type == .qr {
             if let stringValue = metadataObj.stringValue {
                 DispatchQueue.main.async { [weak self] in
-                    let alert = UIAlertController(title: "Добавить?", message: self?.extractName(from: stringValue), preferredStyle: .alert)
+                    let alert = UIAlertController(title: Localizable.QRCodeScannerModule.add, message: self?.extractName(from: stringValue), preferredStyle: .alert)
                     
-                    alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
+                    alert.addAction(UIAlertAction(title: Localizable.QRCodeScannerModule.cancel, style: .cancel, handler: { _ in
                         self?.startRunningСaptureSession()
                     }))
                     
-                    alert.addAction(UIAlertAction(title: "Да!", style: .default, handler: { _ in
+                    alert.addAction(UIAlertAction(title: Localizable.QRCodeScannerModule.yes, style: .default, handler: { _ in
                         self?.delegate?.updateBottleInfo(string: stringValue)
                         self?.dismiss(animated: true, completion: nil)
                     }))

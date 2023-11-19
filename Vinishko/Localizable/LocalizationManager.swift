@@ -31,11 +31,11 @@ class LocalizationManager {
         
         switch name {
         case 0:
-            return "Тихое"
+            return Localizable.WineType.still
         case 1:
-            return "Игристое"
+            return Localizable.WineType.sparkling
         case 2:
-            return "Другое"
+            return Localizable.WineType.other
         default:
             return ""
         }
@@ -48,13 +48,13 @@ class LocalizationManager {
         
         switch amount {
         case 0:
-            return "Сухое"
+            return Localizable.WineSugar.dry
         case 1:
-            return "Полусухое"
+            return Localizable.WineSugar.semiDry
         case 2:
-            return "Полусладкое"
+            return Localizable.WineSugar.semiSweet
         case 3:
-            return "Сладкое"
+            return Localizable.WineSugar.sweet
         default:
             return ""
         }
