@@ -13,14 +13,69 @@ class MigrationService {
     private static let privateCloudDatabase = CKContainer(identifier: "iCloud.userContainer.Vinishko").privateCloudDatabase
     private static var records: [CKRecord] = []
     
-    static func performInitialMigration() {
+    static func checkForExistingRecords(completion: @escaping (Bool) -> Void) {
+        let query = CKQuery(recordType: "Bottle", predicate: NSPredicate(value: true))
+        let queryOperation = CKQueryOperation(query: query)
+
+        var recordsExist = false
+
+        queryOperation.recordMatchedBlock = { (recordID, result) in
+            switch result {
+            case .success(_):
+                // Если найдена хотя бы одна запись, устанавливаем флаг
+                recordsExist = true
+            case .failure(let error):
+                print("Error fetching record: \(error)")
+            }
+        }
+
+        queryOperation.queryResultBlock = { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    // Вызываем completion с true, если найдены записи
+                    completion(recordsExist)
+                case .failure(let error):
+                    print("Error completing query: \(error)")
+                    completion(false)
+                }
+            }
+        }
+
+        privateCloudDatabase.add(queryOperation)
+    }
+
+
+    static func performInitialMigration(userCancelled: Bool = false, completion: ((Bool) -> Void)? = nil) {
         let defaults = UserDefaults.standard
-        if !defaults.bool(forKey: "InitialMigrationPerformed") {
-            fetchDataFromCloud()
-            defaults.set(true, forKey: "InitialMigrationPerformed")
+
+        // Проверяем, была ли миграция уже выполнена или пользователь отменил её
+        if defaults.bool(forKey: "InitialMigrationPerformed") || defaults.bool(forKey: "UserDeclinedMigration") {
+            return
+        }
+
+        // Если пользователь отменил миграцию, устанавливаем соответствующий флаг
+        if userCancelled {
+            defaults.set(true, forKey: "UserDeclinedMigration")
+            return
+        }
+
+        checkForExistingRecords { exists in
+            DispatchQueue.main.async {
+                if exists {
+                    // Записи есть, нужно показать alert
+                    completion?(true)
+                } else {
+                    // Записей нет, делаем миграцию и устанавливаем флаг
+                    fetchDataFromCloud()
+                    defaults.set(true, forKey: "InitialMigrationPerformed")
+                    completion?(false)
+                }
+            }
         }
     }
-    
+
+
     static private func convertStringToDate(_ dateString: String?) -> Date? {
         guard let dateString = dateString else { return nil }        
         let dateFormatter = DateFormatter()

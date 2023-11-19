@@ -9,7 +9,24 @@ import SwiftUI
 
 class MainScreenViewModel: ObservableObject {
     @Published var showSaveBanner = false
+    @Published var showMigrationAlert = false
     var offset: CGFloat = 300
+
+    func checkRecordsAndMigrate() {
+        MigrationService.performInitialMigration { [weak self] needsMigration in
+            DispatchQueue.main.async {
+                if needsMigration {
+                    // Если нужна миграция, показываем предупреждение
+                    self?.showMigrationAlert = true
+                }
+            }
+        }
+    }
+    
+    func userCancelledMigration() {
+        MigrationService.performInitialMigration(userCancelled: true)
+    }
+
 
     func toggleSaveBanner(shouldShow: Bool) {
         if shouldShow {

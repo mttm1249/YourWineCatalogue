@@ -24,7 +24,6 @@ struct VinishkoApp: App {
     @StateObject var bottlesCatalogueViewModel = BottlesCatalogueViewModel(context: CoreDataManager.shared.persistentContainer.viewContext)
     
     init() {
-        MigrationService.performInitialMigration()
         QRGenerator.setDefaultQRSettings()
     }
 

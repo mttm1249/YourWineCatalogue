@@ -205,6 +205,9 @@
 
 /* MainScreenModule - RU */
 "saved_text" = "Сохранено!";
+"records_found" = "Найдены записи";
+"migration_text" = "Восстановить записи из прошлой версии приложения?";
+"yes" = "Да!";
 
 /* NewBottleScreenModule - RU */
 "select_source" = "Выберите источник";

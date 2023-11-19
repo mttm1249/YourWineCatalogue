@@ -206,6 +206,9 @@
 
 /* MainScreenModule - EN */
 "saved_text" = "Saved!";
+"records_found" = "Records Found";
+"migration_text" = "Restore records from the previous version of the app?";
+"yes" = "Yes!";
 
 /* NewBottleScreenModule - EN */
 "select_source" = "Select source";

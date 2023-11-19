@@ -53,8 +53,23 @@ struct MainScreenView: View {
             }
         }
         .onAppear {
+            viewModel.checkRecordsAndMigrate()
             viewModel.listenForSaveNotification()
         }
+
+        .alert(isPresented: $viewModel.showMigrationAlert) {
+            Alert(
+                title: Text(Localizable.MainScreenModule.alertMigration),
+                message: Text(Localizable.MainScreenModule.messageText),
+                primaryButton: .default(Text(Localizable.MainScreenModule.yes), action: {
+                    MigrationService.performInitialMigration()
+                }),
+                secondaryButton: .cancel {
+                    viewModel.userCancelledMigration()
+                }
+            )
+        }
+
     }
 }
 

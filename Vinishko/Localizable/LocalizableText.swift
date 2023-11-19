@@ -48,6 +48,9 @@ enum Localizable {
     
     enum MainScreenModule {
         static let saved = NSLocalizedString("saved_text", comment: "")
+        static let alertMigration = NSLocalizedString("records_found", comment: "")
+        static let messageText = NSLocalizedString("migration_text", comment: "")
+        static let yes = NSLocalizedString("yes", comment: "")
     }
     
     enum NewBottleScreenModule {
