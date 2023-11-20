@@ -27,7 +27,7 @@ struct WineSortPicker: View {
     
     var body: some View {
         if wineSorts.isEmpty {
-            Text("Список сортов пуст")
+            Text(Localizable.FiltersPickers.grapeList)
                 .padding()
                 .foregroundColor(.gray)
         } else {
@@ -53,7 +53,7 @@ struct WineRegionPicker: View {
     
     var body: some View {
         if wineRegions.isEmpty {
-            Text("Список регионов пуст")
+            Text(Localizable.FiltersPickers.regionsList)
                 .padding()
                 .foregroundColor(.gray)
         } else {
@@ -79,7 +79,7 @@ struct PlaceOfPurchasePicker: View {
     
     var body: some View {
         if placesOfPurchase.isEmpty {
-            Text("Список мест пуст")
+            Text(Localizable.FiltersPickers.purchaseList)
                 .padding()
                 .foregroundColor(.gray)
         } else {
@@ -105,7 +105,7 @@ struct WineCountryPicker: View {
     
     var body: some View {
         if wineCountries.isEmpty {
-            Text("Список стран пуст")
+            Text(Localizable.FiltersPickers.countriesList)
                 .padding()
                 .foregroundColor(.gray)
         } else {
@@ -131,7 +131,7 @@ struct WineTypePicker: View {
     
     var body: some View {
         if wineTypes.isEmpty {
-            Text("Список типов пуст")
+            Text(Localizable.FiltersPickers.typesList)
                 .padding()
                 .foregroundColor(.gray)
         } else {
@@ -157,7 +157,7 @@ struct WineSugarPicker: View {
     
     var body: some View {
         if wineSugarAmount.isEmpty {
-            Text("Список содержания сахара пуст")
+            Text(Localizable.FiltersPickers.sugarAmountList)
                 .padding()
                 .foregroundColor(.gray)
         } else {

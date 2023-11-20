@@ -241,16 +241,16 @@
 "comment" = "Comment";
 "details" = "Tasting Details";
 "scan_text" = "Scan the QR code using Vinishko";
-"tasting_date" = "Дата дегустации";
+"tasting_date" = "Tasting date";
 
 /* FiltersModule - EN */
 "sort_by" = "Sort by";
 "by_date" = "Date";
 "by_rating" = "Rating";
 "by_price" = "Price";
-"sort_by_sugar" = "By sugar content";
+"sort_by_sugar" = "By sugar";
 "sort_by_type" = "By type";
-"sort_by_grapeSort" = "By grape variety";
+"sort_by_grapeSort" = "By grape";
 "sort_by_country" = "By country";
 "sort_by_region" = "By region";
 "sort_by_purchasePlace" = "By place of purchase";

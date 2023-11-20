@@ -400,7 +400,7 @@
 				DA7CCBB32A543B9E00C5876D /* Info.plist */,
 				DA7CCBA52A543B9D00C5876D /* VinishkoApp.swift */,
 				DA7CCBC32A54410500C5876D /* Common */,
-				DA7CCBBC2A543D2600C5876D /* Components */,
+				DA7CCBBC2A543D2600C5876D /* UIComponents */,
 				DA7CCBB92A543D1D00C5876D /* Modules */,
 				DA7CCBA92A543B9E00C5876D /* Assets.xcassets */,
 				DA6556B52AA1F0BF00D8427C /* Localizable */,
@@ -434,7 +434,7 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		DA7CCBBC2A543D2600C5876D /* Components */ = {
+		DA7CCBBC2A543D2600C5876D /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
 				DA08868B2AB75BFB00743CE7 /* ImagesViews */,
@@ -444,7 +444,7 @@
 				DA08868C2AB75C0B00743CE7 /* Pickers */,
 				DA08868E2AB75CAD00743CE7 /* Other */,
 			);
-			path = Components;
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		DA7CCBC32A54410500C5876D /* Common */ = {
@@ -796,7 +796,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 57;
+				CURRENT_PROJECT_VERSION = 60;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
@@ -834,7 +834,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 57;
+				CURRENT_PROJECT_VERSION = 60;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
