@@ -46,15 +46,13 @@ class MigrationService {
     }
 
 
-    static func performInitialMigration(userCancelled: Bool = false, completion: ((Bool) -> Void)? = nil) {
+    static func performInitialMigration(userCancelled: Bool = false, userChoseToMigrate: Bool = false, completion: ((Bool) -> Void)? = nil) {
         let defaults = UserDefaults.standard
 
-        // Проверяем, была ли миграция уже выполнена или пользователь отменил её
         if defaults.bool(forKey: "InitialMigrationPerformed") || defaults.bool(forKey: "UserDeclinedMigration") {
             return
         }
 
-        // Если пользователь отменил миграцию, устанавливаем соответствующий флаг
         if userCancelled {
             defaults.set(true, forKey: "UserDeclinedMigration")
             return
@@ -62,19 +60,21 @@ class MigrationService {
 
         checkForExistingRecords { exists in
             DispatchQueue.main.async {
-                if exists {
-                    // Записи есть, нужно показать alert
+                if exists && userChoseToMigrate {
+                    // Запускаем миграцию только если пользователь выбрал миграцию
+                    fetchDataFromCloud()
+                    defaults.set(true, forKey: "InitialMigrationPerformed")
+                } else if exists {
+                    // Если записи есть, но пользователь не выбрал миграцию
                     completion?(true)
                 } else {
-                    // Записей нет, делаем миграцию и устанавливаем флаг
-                    fetchDataFromCloud()
+                    // Если записей нет
                     defaults.set(true, forKey: "InitialMigrationPerformed")
                     completion?(false)
                 }
             }
         }
     }
-
 
     static private func convertStringToDate(_ dateString: String?) -> Date? {
         guard let dateString = dateString else { return nil }        
@@ -91,47 +91,65 @@ class MigrationService {
         query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         
         let queryOperation = CKQueryOperation(query: query)
-        queryOperation.recordFetchedBlock = { record in
-            // Добавляем запись в массив
-            self.records.append(record)
-            
-            // Извлекаем данные из CKRecord и сохраняем в CoreData
-            let name = record["name"] as? String
-            let wineSort = (record["wineSort"] as? String)?.components(separatedBy: ", ") ?? []
-            let wineCountry = record["wineCountry"] as? String
-            let wineRegion = record["wineRegion"] as? String
-            let placeOfPurchase = record["placeOfPurchase"] as? String
-            let price = record["price"] as? String
-            let rating = record["rating"] as? Int
-            let bottleDescription = record["bottleDescription"] as? String
-            let wineColor = record["wineColor"] as? Int
-            let wineSugar = record["wineSugar"] as? Int
-            let wineType = record["wineType"] as? Int
-            let date = record["date"] as? String
-            
-            var uiImage: UIImage? = nil
-            if let asset = record["bottleImage"] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!), let image = UIImage(data: data) {
-                uiImage = image
+
+        queryOperation.recordMatchedBlock = { (recordID, result) in
+            switch result {
+            case .success(let record):
+                // Добавляем запись в массив
+                self.records.append(record)
+                
+                // Извлекаем данные из CKRecord и сохраняем в CoreData
+                let name = record["name"] as? String
+                let wineSort = (record["wineSort"] as? String)?.components(separatedBy: ", ") ?? []
+                let wineCountry = record["wineCountry"] as? String
+                let wineRegion = record["wineRegion"] as? String
+                let placeOfPurchase = record["placeOfPurchase"] as? String
+                let price = record["price"] as? String
+                let rating = record["rating"] as? Int
+                let bottleDescription = record["bottleDescription"] as? String
+                let wineColor = record["wineColor"] as? Int
+                let wineSugar = record["wineSugar"] as? Int
+                let wineType = record["wineType"] as? Int
+                let date = record["date"] as? String
+                
+                var uiImage: UIImage? = nil
+                if let asset = record["bottleImage"] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!), let image = UIImage(data: data) {
+                    uiImage = image
+                }
+                
+                // Сохраняем в CoreData
+                CoreDataManager.saveBottleRecord(name: name,
+                                                 wineSort: wineSort,
+                                                 wineCountry: wineCountry,
+                                                 wineRegion: wineRegion,
+                                                 placeOfPurchase: placeOfPurchase,
+                                                 price: price,
+                                                 rating: rating,
+                                                 bottleDescription: bottleDescription,
+                                                 wineColor: wineColor,
+                                                 wineSugar: wineSugar,
+                                                 wineType: wineType,
+                                                 image: uiImage,
+                                                 createDate: convertStringToDate(date),
+                                                 isOldRecord: true,
+                                                 doubleRating: Double(rating ?? 0))
+
+            case .failure(let error):
+                print("Error fetching record: \(error)")
             }
-            
-            // Сохраняем в CoreData
-            CoreDataManager.saveBottleRecord(name: name,
-                                             wineSort: wineSort,
-                                             wineCountry: wineCountry,
-                                             wineRegion: wineRegion,
-                                             placeOfPurchase: placeOfPurchase,
-                                             price: price,
-                                             rating: rating,
-                                             bottleDescription: bottleDescription,
-                                             wineColor: wineColor,
-                                             wineSugar: wineSugar,
-                                             wineType: wineType,
-                                             image: uiImage,
-                                             createDate: convertStringToDate(date),
-                                             isOldRecord: true,
-                                             doubleRating: Double(rating ?? 0))
-            
         }
+
+        queryOperation.queryResultBlock = { result in
+            switch result {
+            case .success(_):
+                // Обработка успешного завершения запроса
+                print("All records fetched successfully")
+            case .failure(let error):
+                print("Error completing query: \(error)")
+            }
+        }
+
         privateCloudDatabase.add(queryOperation)
     }
+
 }

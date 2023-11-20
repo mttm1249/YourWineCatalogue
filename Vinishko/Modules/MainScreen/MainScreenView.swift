@@ -62,7 +62,8 @@ struct MainScreenView: View {
                 title: Text(Localizable.MainScreenModule.alertMigration),
                 message: Text(Localizable.MainScreenModule.messageText),
                 primaryButton: .default(Text(Localizable.MainScreenModule.yes), action: {
-                    MigrationService.performInitialMigration()
+                    // Пользователь выбрал миграцию
+                    MigrationService.performInitialMigration(userChoseToMigrate: true)
                 }),
                 secondaryButton: .cancel {
                     viewModel.userCancelledMigration()

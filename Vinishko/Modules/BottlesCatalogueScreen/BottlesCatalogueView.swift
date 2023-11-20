@@ -170,6 +170,8 @@ struct BottlesCatalogueView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 200, height: 200)
+                        Text(viewModel.selectedBottle?.name ?? "")
+                            .font(.system(size: 14))
                     }
                     Spacer()
                 }

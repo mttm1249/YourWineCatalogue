@@ -105,6 +105,8 @@ struct BottleDetailsView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 200, height: 200)
+                        Text(bottle.name ?? "")
+                            .font(.system(size: 14))
                     }
                     Spacer()
                 }

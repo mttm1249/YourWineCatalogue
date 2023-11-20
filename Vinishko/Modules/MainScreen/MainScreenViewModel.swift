@@ -27,7 +27,6 @@ class MainScreenViewModel: ObservableObject {
         MigrationService.performInitialMigration(userCancelled: true)
     }
 
-
     func toggleSaveBanner(shouldShow: Bool) {
         if shouldShow {
             showSaveBanner = true
