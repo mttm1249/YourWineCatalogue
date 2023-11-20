@@ -18,7 +18,6 @@ struct BubbleDetailsView: View {
     
     private struct Constants {
         static let circleDiameter: CGFloat = 20
-        static let fontSize: CGFloat = 12
         static let frameHeight: CGFloat = 20
         static let padding: CGFloat = 5
         static let cornerRadius: CGFloat = 10
@@ -32,7 +31,7 @@ struct BubbleDetailsView: View {
                 .frame(width: Constants.circleDiameter, height: Constants.circleDiameter)
                 .foregroundColor(Pallete.getWineColor(wineColor))
             Text(lm.getWineSugar(wineSugar))
-                .font(.system(size: Constants.fontSize))
+                .font(Fonts.regular12)
                 .foregroundColor(Pallete.textColor)
                 .frame(height: Constants.frameHeight)
                 .padding(.horizontal, Constants.padding)
@@ -42,7 +41,7 @@ struct BubbleDetailsView: View {
                 )
             
             Text(lm.getWineType(wineType))
-                .font(.system(size: Constants.fontSize))
+                .font(Fonts.regular12)
                 .foregroundColor(Pallete.textColor)
                 .frame(height: Constants.frameHeight)
                 .padding(.horizontal, Constants.padding)
@@ -53,7 +52,7 @@ struct BubbleDetailsView: View {
             
             if wineCountry != "" {
                 Text(wineCountry)
-                    .font(.system(size: Constants.fontSize))
+                    .font(Fonts.regular12)
                     .foregroundColor(Pallete.textColor)
                     .frame(height: Constants.frameHeight)
                     .padding(.horizontal, Constants.padding)

@@ -27,7 +27,7 @@ struct InfoBubbles: View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 8) {
                 Text(header)
-                    .font(.system(size: 14)).bold()
+                    .font(Fonts.bold14)
                     .foregroundColor(.gray)
                 
                 HStack(spacing: 8) {
@@ -47,7 +47,7 @@ struct InfoBubbles: View {
                         }()
                         
                         Text(item)
-                            .font(.system(size: 14))
+                            .font(Fonts.regular14)
                             .padding(.vertical, 5)
                             .padding(.horizontal, 12)
                             .overlay(

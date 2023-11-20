@@ -247,7 +247,7 @@
 "by_date" = "Дате";
 "by_rating" = "Рейтингу";
 "by_price" = "Цене";
-"sort_by_sugar" = "По содержанию сахара";
+"sort_by_sugar" = "По сахару";
 "sort_by_type" = "По типу";
 "sort_by_grapeSort" = "По сорту";
 "sort_by_country" = "По стране";

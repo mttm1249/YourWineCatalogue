@@ -24,7 +24,7 @@ struct FiltersView: View {
             VStack(spacing: 12) {
                 VStack(alignment: .leading) {
                     Text(Localizable.FiltersModule.sortBy)
-                        .font(.system(size: 14)).bold()
+                        .font(Fonts.bold14)
                         .foregroundColor(.gray)
                         .padding(.horizontal, 16)
                         .padding(.top, 12)

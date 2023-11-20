@@ -15,7 +15,7 @@ struct TextEditorStandart: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(header)
-                .font(.system(size: 14)).bold()
+                .font(Fonts.bold14)
                 .foregroundColor(isEditing ? Pallete.borderColor : .gray)
             
             TextEditor(text: $text)

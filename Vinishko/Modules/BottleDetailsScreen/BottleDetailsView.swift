@@ -30,11 +30,11 @@ struct BottleDetailsView: View {
                 }
                 
                 Text(bottle.name ?? "")
-                    .font(.system(size: 28)).bold()
+                    .font(Fonts.bold28)
                     .padding(.horizontal, 16)
                 
                 Text(bottle.wineSort?.localize() ?? "")
-                    .font(.system(size: 18)).bold()
+                    .font(Fonts.bold18)
                     .padding(.horizontal, 16)
                     .padding(.bottom, 8)
                 
@@ -54,11 +54,11 @@ struct BottleDetailsView: View {
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text(Localizable.BottleDetailsModule.comment)
-                        .font(.system(size: 14)).bold()
+                        .font(Fonts.bold14)
                         .foregroundColor(.gray)
                     
                     Text(bottle.bottleDescription ?? "")
-                        .font(.system(size: 14))
+                        .font(Fonts.regular14)
                     Divider()
                 }
                 .padding(.horizontal, 16)
@@ -84,7 +84,6 @@ struct BottleDetailsView: View {
             }
         }
         .sheet(isPresented: $viewModel.showingSheet) {
-            //TODO: ситуация если изображение не было добавлено
             if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {
                 BottlePhotoView(bottle: bottle,
                                 tastingDate: viewModel.getCreateDateString(bottle: bottle),
@@ -96,7 +95,7 @@ struct BottleDetailsView: View {
             BottomSheet(isShowing: $viewModel.showQRSheet) {
                 VStack {
                     Text(Localizable.BottleDetailsModule.scan)
-                        .font(.system(size: 18)).bold()
+                        .font(Fonts.bold18)
                     Spacer()
                     if viewModel.isUploading {
                         ProgressView()
@@ -107,7 +106,7 @@ struct BottleDetailsView: View {
                             .scaledToFit()
                             .frame(width: 200, height: 200)
                         Text(bottle.name ?? "")
-                            .font(.system(size: 14))
+                            .font(Fonts.regular14)
                     }
                     Spacer()
                 }

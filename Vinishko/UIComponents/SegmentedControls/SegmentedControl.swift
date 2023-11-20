@@ -55,7 +55,7 @@ struct SegmentedControl: View {
                     HapticFeedbackService.generateFeedback(style: .light)
                 }) {
                     Text(titles[index])
-                        .font(.system(size: 12))
+                        .font(Fonts.regular12)
                         .frame(minWidth: Constants.frameMinWidth, maxWidth: .infinity)
                         .padding(.vertical, Constants.verticalPadding)
                         .background(

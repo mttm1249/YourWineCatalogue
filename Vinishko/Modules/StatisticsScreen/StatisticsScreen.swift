@@ -28,7 +28,7 @@ struct StatisticsScreen: View {
                 if !showingAllWineSorts {
                     HStack {
                         Text(Localizable.StatisticsScreenModule.top)
-                            .font(.system(size: 28)).bold()
+                            .font(Fonts.bold28)
                             .padding()
                         Spacer()
                     }

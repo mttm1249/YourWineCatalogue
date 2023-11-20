@@ -16,7 +16,7 @@ struct StatisticsBarView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(wineSortName)
-                .font(.system(size: 14)).bold()
+                .font(Fonts.bold14)
                 .padding(.leading, 16)
 
             GeometryReader { geometry in
@@ -31,7 +31,7 @@ struct StatisticsBarView: View {
                         .animation(.linear, value: currentProgress)
 
                     Text(sortsCount)
-                        .font(.system(size: 12)).bold()
+                        .font(Fonts.bold12)
                         .foregroundColor(.white)
                         .padding(.leading)
                 }

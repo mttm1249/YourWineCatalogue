@@ -41,7 +41,7 @@ struct SegmentedPicker: View {
                             }
                         }) {
                             Text(titles[index])
-                                .font(.callout)
+                                .font(Fonts.regular14)
                                 .frame(minWidth: 0, maxWidth: .infinity)
                                 .frame(height: 30)
                                 .foregroundColor(selectedSegment == index ? selectedItemFontColor : defaultItemFontColor)
@@ -60,21 +60,5 @@ struct SegmentedPicker: View {
         }
         .frame(height: 30)
         .padding(.horizontal, 16)
-    }
-}
-
-struct SegmentedPickerView: View {
-    var body: some View {
-        VStack {
-            Spacer()
-            SegmentedPicker(titles: ["1", "2", "3"], selectedSegment: .constant(0))
-            Spacer()
-        }
-    }
-    
-    struct SegmentedPicker_Previews: PreviewProvider {
-        static var previews: some View {
-            SegmentedPickerView()
-        }
     }
 }

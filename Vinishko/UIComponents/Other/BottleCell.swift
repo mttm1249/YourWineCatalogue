@@ -35,13 +35,13 @@ struct BottleCell: View {
                             .foregroundColor(.orange)
                         Text(rating.stringWithoutTrailingZeroes)
                             .foregroundColor(Pallete.textColor)
-                            .font(.system(size: 14)).bold()
+                            .font(Fonts.bold14)
                     }
                 }
                 VStack(alignment: .leading, spacing: 8) {
                     HStack(alignment: .top, spacing: 8) {
                         Text(name)
-                            .font(.system(size: 19)).bold()
+                            .font(Fonts.bold19)
                             .foregroundColor(Pallete.textColor)
                             .multilineTextAlignment(.leading)
                         Spacer()
@@ -72,11 +72,11 @@ struct BottleCell: View {
                         }
                     }
                     Text(wineSort.localize())
-                        .font(.system(size: 17)).bold()
+                        .font(Fonts.bold17)
                         .foregroundColor(Pallete.textColor)
                         .multilineTextAlignment(.leading)
                     Text(bottleDescription)
-                        .font(.system(size: 14))
+                        .font(Fonts.regular14)
                         .foregroundColor(Pallete.textColor)
                         .multilineTextAlignment(.leading)
                     HStack {

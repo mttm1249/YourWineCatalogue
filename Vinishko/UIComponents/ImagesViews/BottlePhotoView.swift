@@ -24,10 +24,10 @@ struct BottlePhotoView: View {
             VStack(alignment: .leading) {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(Localizable.BottleDetailsModule.tastingDate)
-                        .font(.system(size: 14)).bold()
+                        .font(Fonts.bold14)
                         .foregroundColor(.gray)
                     Text(tastingDate)
-                        .font(.system(size: 14))
+                        .font(Fonts.regular14)
                 }
                 .padding(.horizontal, 16)
                 if let imageData = bottle.bottleImage, let uiImage = UIImage(data: imageData) {

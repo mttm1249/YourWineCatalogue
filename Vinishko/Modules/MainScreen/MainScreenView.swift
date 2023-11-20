@@ -15,8 +15,8 @@ struct MainScreenView: View {
             MainScreenAnimationView {
                 VStack(spacing: 25) {
                     Spacer()
-                    Text("Vinishko")
-                        .font(.title).bold()
+                    Text(MainLogo.logoText)
+                        .font(Fonts.logo)
                         .foregroundColor(Pallete.mainColor)
                         .padding(.bottom, 150)
                     
@@ -28,22 +28,16 @@ struct MainScreenView: View {
                     NavigationButton(destination: BottlesCatalogueView()
                         .environmentObject(BottlesCatalogueViewModel(context: CoreDataManager.managedContext)),
                                      imageName: Images.listStar)
-                    .padding(.bottom, 150)
+                    .padding(.bottom, 180)
                     
                     Spacer()
                     
-                    // Версия и сборка приложения
-                    if let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
-                        Text("v. 2.0.\(build)")
-                            .font(.caption2)
-                            .foregroundStyle(.white)
-                    }
                 }
                 .overlay(
                     VStack {
                         Spacer()
                         Text(Localizable.MainScreenModule.saved)
-                            .font(.headline)
+                            .font(Fonts.bold18)
                             .foregroundColor(.white)
                             .frame(width: 200, height: 50)
                             .background(Color.green)
@@ -62,7 +56,7 @@ struct MainScreenView: View {
                 title: Text(Localizable.MainScreenModule.alertMigration),
                 message: Text(Localizable.MainScreenModule.messageText),
                 primaryButton: .default(Text(Localizable.MainScreenModule.yes), action: {
-                    // Пользователь выбрал миграцию
+                    // Пользователь согласился на миграцию
                     MigrationService.performInitialMigration(userChoseToMigrate: true)
                 }),
                 secondaryButton: .cancel {

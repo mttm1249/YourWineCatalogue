@@ -32,7 +32,7 @@ struct OptionButton: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(header)
-                .font(.system(size: 14)).bold()
+                .font(Fonts.bold14)
                 .foregroundColor(.gray)
             Button(action: {
                 action()
@@ -72,7 +72,7 @@ struct FilterButton: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(header)
-                .font(.system(size: 14)).bold()
+                .font(Fonts.bold14)
                 .foregroundColor(.gray)
             
             HStack {

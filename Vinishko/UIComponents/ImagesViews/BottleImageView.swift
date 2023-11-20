@@ -26,10 +26,10 @@ struct BottleImageView: View {
 
             HStack(spacing: 2) {
                 Text(rating)
-                    .font(.system(size: 12)).bold()
+                    .font(Fonts.bold12)
                 Image(systemName: Images.star)
                     .foregroundColor(.orange)
-                    .font(.system(size: 12))
+                    .font(Fonts.regular12)
             }
             .padding(8)
             .background(Capsule().fill(Pallete.ratingBg))

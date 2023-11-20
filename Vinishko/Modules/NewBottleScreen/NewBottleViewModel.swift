@@ -57,7 +57,13 @@ class NewBottleViewModel: ObservableObject {
         colorSelectedSegment = Int(editableBottle.wineColor)
         sugarSelectedSegment = Int(editableBottle.wineSugar)
         typeSelectedSegment =  Int(editableBottle.wineType)
-        selectedGrapeVarieties = editableBottle.wineSort?.components(separatedBy: ", ") ?? []
+       
+        if editableBottle.wineSort?.isEmpty == true {
+            selectedGrapeVarieties = []
+        } else {
+            selectedGrapeVarieties = editableBottle.wineSort?.components(separatedBy: ", ") ?? []
+        }
+    
         let country = Country(code: editableBottle.wineCountry ?? "", regions: [])
         selectedCountry = country
         selectedRegion = editableBottle.wineRegion

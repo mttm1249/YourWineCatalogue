@@ -24,7 +24,7 @@ struct BottlesCatalogueView: View {
                         viewModel.isFiltersViewActive = true
                     }) {
                         Text(Localizable.BottlesCatalogueModule.filters)
-                            .font(.system(size: 14))
+                            .font(Fonts.regular14)
                     }
                     .background(
                         NavigationLink(
@@ -52,7 +52,7 @@ struct BottlesCatalogueView: View {
                         Spacer()
                         HStack {
                             Text(Localizable.BottlesCatalogueModule.empty)
-                                .font(.headline)
+                                .font(Fonts.bold14)
                                 .foregroundColor(.gray)
                         }
                         Spacer()
@@ -160,7 +160,7 @@ struct BottlesCatalogueView: View {
             BottomSheet(isShowing: $viewModel.showQRSheet) {
                 VStack {
                     Text(Localizable.BottlesCatalogueModule.scan)
-                        .font(.system(size: 18)).bold()
+                        .font(Fonts.bold18)
                     Spacer()
                     if viewModel.isUploading {
                         ProgressView()
@@ -171,7 +171,7 @@ struct BottlesCatalogueView: View {
                             .scaledToFit()
                             .frame(width: 200, height: 200)
                         Text(viewModel.selectedBottle?.name ?? "")
-                            .font(.system(size: 14))
+                            .font(Fonts.regular14)
                     }
                     Spacer()
                 }

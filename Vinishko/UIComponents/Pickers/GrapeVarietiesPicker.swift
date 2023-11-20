@@ -43,6 +43,7 @@ struct GrapeVarietiesPicker: View {
                 Spacer()
                 if !selectedGrapeVarieties.isEmpty {
                     Button(Localizable.UIComponents.clear) {
+                        HapticFeedbackService.generateFeedback(style: .medium)
                         selectedGrapeVarieties.removeAll()
                     }
                 }

@@ -29,15 +29,15 @@ struct RatingView: View {
         VStack {
             HStack {
                 Text(Localizable.UIComponents.ratingBar)
-                    .font(.system(size: 14)).bold()
+                    .font(Fonts.bold14)
                 Spacer()
                 if selectedRating <= 0 {
                     Text(Localizable.UIComponents.withoutRating)
-                        .font(.system(size: 14)).bold()
+                        .font(Fonts.bold14)
                         .foregroundColor(.gray)
                 } else {
                     Text("\(selectedRating, specifier: "%.1f")")
-                        .font(.system(size: 14)).bold()
+                        .font(Fonts.bold14)
                 }
             }
             
