@@ -60,61 +60,7 @@ final class BottleDetailsViewModel: ObservableObject {
         self.bottle = newBottle
         self.objectWillChange.send()
     }
-    
-    func getWineColor(for bottle: Bottle) -> Color {
-        switch bottle.wineColor {
-        case 0:
-            return Pallete.redWineColor
-        case 1:
-            return Pallete.whiteWineColor
-        case 2:
-            return Pallete.otherWineColor
-        default:
-            return .clear
-        }
-    }
-    
-    func getWineColorName(for bottle: Bottle) -> String {
-        switch bottle.wineColor {
-        case 0:
-            return Localizable.WineColors.red
-        case 1:
-            return Localizable.WineColors.white
-        case 2:
-            return Localizable.WineColors.other
-        default:
-            return ""
-        }
-    }
-    
-    func getWineSugar(for bottle: Bottle) -> String {
-        switch bottle.wineSugar {
-        case 0:
-            return Localizable.WineSugar.dry
-        case 1:
-            return Localizable.WineSugar.semiDry
-        case 2:
-            return Localizable.WineSugar.semiSweet
-        case 3:
-            return Localizable.WineSugar.sweet
-        default:
-            return ""
-        }
-    }
-    
-    func getWineType(for bottle: Bottle) -> String {
-        switch bottle.wineType {
-        case 0:
-            return Localizable.WineType.still
-        case 1:
-            return Localizable.WineType.sparkling
-        case 2:
-            return Localizable.WineType.other
-        default:
-            return ""
-        }
-    }
-    
+        
     func getCreateDateString(bottle: Bottle) -> String {
         guard let unwrappedDate = bottle.createDate else {
             return ""

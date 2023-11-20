@@ -14,6 +14,8 @@ struct BubbleDetailsView: View {
     var wineSugar: Int16
     var wineCountry: String
     
+    private let lm = LocalizationManager.shared
+    
     private struct Constants {
         static let circleDiameter: CGFloat = 20
         static let fontSize: CGFloat = 12
@@ -23,54 +25,13 @@ struct BubbleDetailsView: View {
         static let lineWidth: CGFloat = 1
         static let spacing: CGFloat = 8
     }
-    
-    private func getWineColor() -> Color {
-        switch wineColor {
-        case 0:
-            return Pallete.redWineColor
-        case 1:
-            return Pallete.whiteWineColor
-        case 2:
-            return Pallete.otherWineColor
-        default:
-            return .clear
-        }
-    }
-    
-    private func getWineSugar() -> String {
-        switch wineSugar {
-        case 0:
-            return Localizable.WineSugar.dry
-        case 1:
-            return Localizable.WineSugar.semiDry
-        case 2:
-            return Localizable.WineSugar.semiSweet
-        case 3:
-            return Localizable.WineSugar.sweet
-        default:
-            return ""
-        }
-    }
-    
-    private func getWineType() -> String {
-        switch wineType {
-        case 0:
-            return Localizable.WineType.still
-        case 1:
-            return Localizable.WineType.sparkling
-        case 2:
-            return Localizable.WineType.other
-        default:
-            return ""
-        }
-    }
-    
+                
     var body: some View {
         HStack(spacing: Constants.spacing) {
             Circle()
                 .frame(width: Constants.circleDiameter, height: Constants.circleDiameter)
-                .foregroundColor(getWineColor())
-            Text(getWineSugar())
+                .foregroundColor(Pallete.getWineColor(wineColor))
+            Text(lm.getWineSugar(wineSugar))
                 .font(.system(size: Constants.fontSize))
                 .foregroundColor(Pallete.textColor)
                 .frame(height: Constants.frameHeight)
@@ -80,7 +41,7 @@ struct BubbleDetailsView: View {
                         .stroke(.gray, lineWidth: Constants.lineWidth)
                 )
             
-            Text(getWineType())
+            Text(lm.getWineType(wineType))
                 .font(.system(size: Constants.fontSize))
                 .foregroundColor(Pallete.textColor)
                 .frame(height: Constants.frameHeight)
@@ -105,11 +66,9 @@ struct BubbleDetailsView: View {
     }
 }
 
-struct BubbleDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        BubbleDetailsView(wineColor: 2,
-                          wineType: 1,
-                          wineSugar: 3,
-                          wineCountry: "Испания")
-    }
+#Preview {
+    BubbleDetailsView(wineColor: 2,
+                      wineType: 1,
+                      wineSugar: 3,
+                      wineCountry: "Испания")
 }

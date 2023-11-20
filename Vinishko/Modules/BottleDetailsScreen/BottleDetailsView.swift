@@ -10,9 +10,10 @@ import CoreData
 
 struct BottleDetailsView: View {
     
+    private let lm = LocalizationManager.shared
     var bottle: Bottle
     @ObservedObject var viewModel: BottleDetailsViewModel
-
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
@@ -27,7 +28,7 @@ struct BottleDetailsView: View {
                         self.viewModel.showingSheet = true
                     })
                 }
-
+                
                 Text(bottle.name ?? "")
                     .font(.system(size: 28)).bold()
                     .padding(.horizontal, 16)
@@ -38,10 +39,10 @@ struct BottleDetailsView: View {
                     .padding(.bottom, 8)
                 
                 InfoBubbles(header: Localizable.BottleDetailsModule.description,
-                            content: [viewModel.getWineColorName(for: bottle),
-                                      viewModel.getWineSugar(for: bottle),
-                                      viewModel.getWineType(for: bottle)],
-                            firstItemBorderStyle: .thick(viewModel.getWineColor(for: bottle)))
+                            content: [lm.getWineColorName(for: bottle),
+                                      lm.getWineSugar(bottle.wineSugar),
+                                      lm.getWineType(bottle.wineType)],
+                            firstItemBorderStyle: .thick(Pallete.getWineColor(bottle.wineColor)))
                 
                 InfoBubbles(header: Localizable.BottleDetailsModule.origin,
                             content: [LocalizationManager.shared.getWineCountry(from: bottle.wineCountry),

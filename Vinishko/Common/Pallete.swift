@@ -24,4 +24,16 @@ struct Pallete {
     static let ratingBg = Color("RatingBg")
     static let bgColor = Color("BgColor")
 
+    static func getWineColor(_ colorNumber: Int16) -> Color {
+        switch colorNumber {
+        case 0:
+            return Pallete.redWineColor
+        case 1:
+            return Pallete.whiteWineColor
+        case 2:
+            return Pallete.otherWineColor
+        default:
+            return .clear
+        }
+    }
 }

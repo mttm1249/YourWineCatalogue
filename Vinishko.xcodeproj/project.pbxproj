@@ -305,6 +305,7 @@
 				DAE4DA742AA2079E00853426 /* CountryPicker.swift */,
 				DAE4DA722AA2074F00853426 /* RegionPicker.swift */,
 				DAE4DA702AA2068B00853426 /* GrapeVarietiesPicker.swift */,
+				DA631AEB2AC97D910033BA12 /* FiltersPickers.swift */,
 			);
 			path = Pickers;
 			sourceTree = "<group>";
@@ -348,7 +349,6 @@
 			isa = PBXGroup;
 			children = (
 				DA2C2B382A9DF30700C6680D /* FiltersView.swift */,
-				DA631AEB2AC97D910033BA12 /* FiltersPickers.swift */,
 			);
 			path = FiltersScreen;
 			sourceTree = "<group>";

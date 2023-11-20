@@ -275,3 +275,11 @@
 "top" = "Топ 10 сортов";
 "show_all" = "Показать все";
 "statistics_title" = "Статистика";
+
+/* FiltersPickers - RU */
+"grape_list_empty" = "Список сортов пуст";
+"regions_list_empty" = "Список регионов пуст";
+"purchase_list_empty" = "Список мест пуст";
+"countries_list_empty" = "Список стран пуст";
+"types_list_empty" = "Список типов пуст";
+"sugar_amount_list_empty" = "Список содержания сахара пуст";

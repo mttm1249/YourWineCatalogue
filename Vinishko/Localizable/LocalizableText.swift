@@ -126,4 +126,13 @@ enum Localizable {
         static let showAll = NSLocalizedString("show_all", comment: "")
         static let statisticsTitle = NSLocalizedString("statistics_title", comment: "")
     }
+    
+    enum FiltersPickers {
+        static let grapeList = NSLocalizedString("grape_list_empty", comment: "")
+        static let regionsList = NSLocalizedString("regions_list_empty", comment: "")
+        static let purchaseList = NSLocalizedString("purchase_list_empty", comment: "")
+        static let countriesList = NSLocalizedString("countries_list_empty", comment: "")
+        static let typesList = NSLocalizedString("types_list_empty", comment: "")
+        static let sugarAmountList = NSLocalizedString("sugar_amount_list_empty", comment: "")
+    }
 }

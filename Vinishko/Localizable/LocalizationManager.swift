@@ -13,6 +13,19 @@ class LocalizationManager {
     
     private init() {}
     
+    func getWineColorName(for bottle: Bottle) -> String {
+        switch bottle.wineColor {
+        case 0:
+            return Localizable.WineColors.red
+        case 1:
+            return Localizable.WineColors.white
+        case 2:
+            return Localizable.WineColors.other
+        default:
+            return ""
+        }
+    }
+    
     func getWineCountry(from country: String?) -> String {
         if let countryCode = country {
             if let localizedCountry = Locale.current.localizedString(forRegionCode: countryCode) {

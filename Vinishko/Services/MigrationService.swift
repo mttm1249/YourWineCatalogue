@@ -16,9 +16,9 @@ class MigrationService {
     static func checkForExistingRecords(completion: @escaping (Bool) -> Void) {
         let query = CKQuery(recordType: "Bottle", predicate: NSPredicate(value: true))
         let queryOperation = CKQueryOperation(query: query)
-
+        
         var recordsExist = false
-
+        
         queryOperation.recordMatchedBlock = { (recordID, result) in
             switch result {
             case .success(_):
@@ -28,7 +28,7 @@ class MigrationService {
                 print("Error fetching record: \(error)")
             }
         }
-
+        
         queryOperation.queryResultBlock = { result in
             DispatchQueue.main.async {
                 switch result {
@@ -41,23 +41,23 @@ class MigrationService {
                 }
             }
         }
-
+        
         privateCloudDatabase.add(queryOperation)
     }
-
-
+    
+    
     static func performInitialMigration(userCancelled: Bool = false, userChoseToMigrate: Bool = false, completion: ((Bool) -> Void)? = nil) {
         let defaults = UserDefaults.standard
-
+        
         if defaults.bool(forKey: "InitialMigrationPerformed") || defaults.bool(forKey: "UserDeclinedMigration") {
             return
         }
-
+        
         if userCancelled {
             defaults.set(true, forKey: "UserDeclinedMigration")
             return
         }
-
+        
         checkForExistingRecords { exists in
             DispatchQueue.main.async {
                 if exists && userChoseToMigrate {
@@ -75,9 +75,9 @@ class MigrationService {
             }
         }
     }
-
+    
     static private func convertStringToDate(_ dateString: String?) -> Date? {
-        guard let dateString = dateString else { return nil }        
+        guard let dateString = dateString else { return nil }
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         
@@ -91,7 +91,7 @@ class MigrationService {
         query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         
         let queryOperation = CKQueryOperation(query: query)
-
+        
         queryOperation.recordMatchedBlock = { (recordID, result) in
             switch result {
             case .success(let record):
@@ -133,12 +133,12 @@ class MigrationService {
                                                  createDate: convertStringToDate(date),
                                                  isOldRecord: true,
                                                  doubleRating: Double(rating ?? 0))
-
+                
             case .failure(let error):
                 print("Error fetching record: \(error)")
             }
         }
-
+        
         queryOperation.queryResultBlock = { result in
             switch result {
             case .success(_):
@@ -148,8 +148,7 @@ class MigrationService {
                 print("Error completing query: \(error)")
             }
         }
-
+        
         privateCloudDatabase.add(queryOperation)
     }
-
 }
