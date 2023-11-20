@@ -1,0 +1,285 @@
+/* Grapes - RU */
+"grape_cabernet_sauvignon" = "Каберне Совиньон";
+"grape_merlot" = "Мерло";
+"grape_chardonnay" = "Шардоне";
+"grape_pinot_noir" = "Пино Нуар";
+"grape_sauvignon_blanc" = "Совиньон Блан";
+"grape_syrah" = "Сира";
+"grape_riesling" = "Рислинг";
+"grape_zinfandel" = "Зинфандель";
+"grape_sangiovese" = "Санджовезе";
+"grape_gewurztraminer" = "Гевюрцтраминер";
+"grape_viognier" = "Вионье";
+"grape_malbec" = "Мальбек";
+"grape_barbera" = "Барбера";
+"grape_pinot_gris" = "Пино Гри";
+"grape_pinot_blanc" = "Пино Блан";
+"grape_nebbiolo" = "Неббиоло";
+"grape_tempranillo" = "Темпранильо";
+"grape_grenache" = "Гренаш";
+"grape_petit_verdot" = "Пти Вердо";
+"grape_mourvedre" = "Мурведр";
+"grape_chenin_blanc" = "Шенин Блан";
+"grape_albarino" = "Альбариньо";
+"grape_semillon" = "Семильон";
+"grape_trebbiano" = "Треббьяно";
+"grape_torrontes" = "Торронтес";
+"grape_verdejo" = "Вердехо";
+"grape_muscat" = "Мускат";
+"grape_garganega" = "Гарганега";
+"grape_gruner_veltliner" = "Грюнер Вельтлинер";
+"grape_saperavi" = "Саперави";
+"grape_tannat" = "Танна";
+"grape_norton" = "Нортон";
+"grape_agiorgitiko" = "Агиоргитико";
+"grape_xinomavro" = "Ксиномавро";
+"grape_vermentino" = "Верментино";
+"grape_fiano" = "Фиано";
+"grape_touriga_nacional" = "Турига Насьонал";
+"grape_assyrtiko" = "Ассиртико";
+"grape_carmenere" = "Карменер";
+"grape_tinta_roriz" = "Тинта Рориз";
+"grape_melon_de_bourgogne" = "Мелон де Бургонь";
+"grape_verdelho" = "Вердельо";
+"grape_moscato" = "Москато";
+"grape_macabeo" = "Макабео";
+"grape_dolcetto" = "Дольчетто";
+"grape_marsanne" = "Марсанн";
+"grape_bonarda" = "Бонарда";
+"grape_falanghina" = "Фалангина";
+"grape_lambrusco" = "Ламбруско";
+"grape_cinsault" = "Синсо";
+"grape_picpoul" = "Пикпуль";
+"grape_cannonau" = "Каннонау";
+"grape_arinto" = "Аринто";
+"grape_aligote" = "Алиготе";
+"grape_pedro_ximenez" = "Педро Хименес";
+"grape_carignan" = "Кариньян";
+"grape_mencia" = "Менсия";
+"grape_furmint" = "Фурминт";
+"grape_arneis" = "Арнейс";
+"grape_auxerrois" = "Осеруа";
+"grape_godello" = "Годельо";
+"grape_nerello_mascalese" = "Нерелло Маскалезе";
+"grape_counoise" = "Куануаз";
+"grape_roussanne" = "Русан";
+"grape_friulano" = "Фриулано";
+"grape_vernaccia" = "Верначча";
+"grape_dornfelder" = "Дорнфельдер";
+"grape_insolia" = "Инзолия";
+"grape_aglianico" = "Альянико";
+"grape_corvina" = "Корвина";
+"grape_antao_vaz" = "Антао Ваз";
+"grape_rolle" = "Роль";
+
+/* Regions - RU */
+"region_bordeaux" = "Бордо";
+"region_burgundy" = "Бургундия";
+"region_champagne" = "Шампань";
+"region_tuscany" = "Тоскана";
+"region_piedmont" = "Пьемонт";
+"region_veneto" = "Венето";
+"region_rioja" = "Риоха";
+"region_priorat" = "Приорат";
+"region_jerez" = "Херес";
+"region_california" = "Калифорния";
+"region_oregon" = "Орегон";
+"region_washington" = "Вашингтон";
+"region_barossa" = "Баросса";
+"region_margaret_river" = "Маргарет Ривер";
+"region_coonawarra" = "Кунаварра";
+"region_mendoza" = "Мендоса";
+"region_patagonia" = "Патагония";
+"region_salta" = "Сальта";
+"region_stellenbosch" = "Стелленбош";
+"region_paarl" = "Паарль";
+"region_swartland" = "Свартланд";
+"region_maule" = "Мауле";
+"region_colchagua" = "Колчагуа";
+"region_aconcagua" = "Аконкагуа";
+"region_douro" = "Дору";
+"region_vinho_verde" = "Винью Верде";
+"region_alentejo" = "Алентежу";
+"region_marlborough" = "Марлборо";
+"region_hawkes_bay" = "Хоукс Бэй";
+"region_central_otago" = "Центральный Отаго";
+"region_mosel" = "Мозель";
+"region_rheingau" = "Райнгау";
+"region_baden" = "Баден";
+"region_rheinhessen" = "Рейнгессен";
+"region_burgenland" = "Бургенланд";
+"region_lower_austria" = "Нижняя Австрия";
+"region_styria" = "Штирия";
+"region_valais" = "Вале";
+"region_vaud" = "Во";
+"region_ticino" = "Тичино";
+"region_vale_dos_vinhedos" = "Долина Винедос";
+"region_sao_francisco_valley" = "Долина Сан-Франциско";
+"region_campanha" = "Кампанья";
+"region_okanagan_valley" = "Оканаган";
+"region_niagara_peninsula" = "Ниагарский полуостров";
+"region_nova_scotia" = "Новая Шотландия";
+"region_sussex" = "Сассекс";
+"region_kent" = "Кент";
+"region_cornwall" = "Корнуолл";
+"region_krasnodar" = "Краснодар";
+"region_stavropol" = "Ставрополь";
+"region_kakheti" = "Кахетия";
+"region_imereti" = "Имеретия";
+"region_racha" = "Рача";
+"region_ararat" = "Арарат";
+"region_tavush" = "Тавуш";
+"region_vayots_dzor" = "Вайоц Дзор";
+"region_ganja" = "Гянджа";
+"region_sheki" = "Шеки";
+"region_guba" = "Губа";
+"region_peloponnese" = "Пелопоннес";
+"region_macedonia" = "Македония";
+"region_crete" = "Крит";
+"region_thrace" = "Фракия";
+"region_mizia" = "Мизия";
+"region_strandzha" = "Странджа";
+"region_limassol" = "Лимассол";
+"region_paphos" = "Пафос";
+"region_larnaca" = "Ларнака";
+"region_nistreana" = "Нистрянская";
+"region_codru" = "Кодру";
+"region_valyaluy" = "Валялуй";
+"region_vojvodina" = "Воеводина";
+"region_metohija" = "Метохия";
+"region_sumadija" = "Шумадия";
+"region_canelones" = "Канелонес";
+"region_montevideo" = "Монтевидео";
+"region_carmelo" = "Кармело";
+"region_san_jose" = "Сан-Хосе";
+"region_puntarenas" = "Пунтаренас";
+"region_limon" = "Лимон";
+"region_tokaj" = "Токай";
+"region_eger" = "Эгер";
+"region_balaton" = "Балатон";
+"region_nashik" = "Нашик";
+"region_nandi_hills" = "Нанди-Хиллс";
+"region_pune" = "Пуна";
+"region_yamanashi" = "Яманаши";
+"region_nagano" = "Нагано";
+"region_hokkaido" = "Хоккайдо";
+"region_bekaa_valley" = "Долина Бекаа";
+"region_batroun" = "Батрун";
+"region_jezzine" = "Джеззин";
+"region_valle_de_guadalupe" = "Гвадалупе";
+"region_valle_de_parras" = "Паррас";
+"region_queretaro" = "Керетаро";
+
+/* UIComponents - RU */
+"search_text" = "Поиск";
+"cancel_text" = "Отменить";
+"close_button" = "Закрыть";
+"add_button" = "Добавить";
+"clear_button" = "Очистить";
+"grape_sort_button" = "Сорт";
+"country_button" = "Страна";
+"region_button" = "Регион";
+"rating_bar" = "Рейтинг";
+"without_rating" = "Без рейтинга";
+"currency" = "₽";
+// menu
+"edit_menu" = "Редактировать";
+"show_qr_menu" = "Показать QR";
+"delete_menu" = "Удалить";
+
+/* WineColors - RU */
+"red_wineColor" = "Красное";
+"white_wineColor" = "Белое";
+"other_wineColor" = "Другое";
+
+/* WineSugar - RU */
+"dry_wineSugar" = "Сух";
+"semiDry_wineSugar" = "П. сух";
+"semiSweet_wineSugar" = "П. слад";
+"sweet_wineSugar" = "Слад";
+
+/* WineType - RU */
+"still_wineType" = "Тихое";
+"sparkling_wineType" = "Игристое";
+"other_wineType" = "Другое";
+
+/* MainScreenModule - RU */
+"saved_text" = "Сохранено!";
+"records_found" = "Найдены записи";
+"migration_text" = "Восстановить записи из прошлой версии приложения?";
+"yes" = "Да!";
+
+/* NewBottleScreenModule - RU */
+"select_source" = "Выберите источник";
+"camera" = "Камера";
+"gallery" = "Галерея";
+"name_title" = "Название";
+"place_title" = "Место покупки";
+"price_title" = "Цена";
+"comment_title" = "Комментарий";
+"add_wine" = "Добавить винишко";
+"error" = "Ошибка";
+"ok" = "OK";
+
+/* BottlesCatalogueModule - RU */
+"filters" = "Фильтры";
+"empty" = "Записи отсутствуют";
+"deleting" = "Удаление";
+"message_alert" = "Вы действительно хотите удалить эту запись?";
+"delete" = "Удалить";
+"cancel" = "Отмена";
+"catalogue" = "Каталог дегустаций";
+"statistics_menu" = "Статистика";
+"settingsQR_menu" = "Настройки QR";
+"scan_text" = "Сканируйте через Vinishko";
+
+/* BottleDetailsModule - RU */
+"description" = "Описание";
+"wine_origin" = "Происхождение";
+"purchase" = "Покупка";
+"comment" = "Комментарий";
+"details" = "Сведения о дегустации";
+"scan_text" = "Сканируйте через Vinishko";
+"tasting_date" = "Дата дегустации";
+
+/* FiltersModule - RU */
+"sort_by" = "Сортировать по";
+"by_date" = "Дате";
+"by_rating" = "Рейтингу";
+"by_price" = "Цене";
+"sort_by_sugar" = "По сахару";
+"sort_by_type" = "По типу";
+"sort_by_grapeSort" = "По сорту";
+"sort_by_country" = "По стране";
+"sort_by_region" = "По региону";
+"sort_by_purchasePlace" = "По месту покупки";
+"clear_all" = "Сбросить";
+"sorting_and_filters_title" = "Сортировка и фильтры";
+
+/* SettingsScreenModule - RU */
+"share_photo" = "Делиться фото";
+"share_rating" = "Делиться рейтингом";
+"share_comment" = "Делиться комментарием";
+"settings_qr_title" = "Настройки QR";
+
+/* QRCodeScannerModule - RU */
+"image_error" = "Ошибка загрузки изображения:";
+"information" = "Информация";
+"message_text" = "Отсканируйте QR-код, отображаемый в приложении Vinishko, чтобы добавить информацию о дегустации в свой каталог.\nУбедитесь, что код полностью помещается в рамку сканера для точного считывания.";
+"ok_button" = "OK";
+"add" = "Добавить?";
+"cancel_button" = "Отмена";
+"yes_button" = "Да!";
+
+/* StatisticsScreenModule - RU */
+"top" = "Топ 10 сортов";
+"show_all" = "Показать все";
+"statistics_title" = "Статистика";
+
+/* FiltersPickers - RU */
+"grape_list_empty" = "Список сортов пуст";
+"regions_list_empty" = "Список регионов пуст";
+"purchase_list_empty" = "Список мест пуст";
+"countries_list_empty" = "Список стран пуст";
+"types_list_empty" = "Список типов пуст";
+"sugar_amount_list_empty" = "Список содержания сахара пуст";

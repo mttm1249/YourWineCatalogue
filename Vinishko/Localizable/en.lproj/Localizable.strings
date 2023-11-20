@@ -1,0 +1,286 @@
+/* Grapes - EN */
+"grape_cabernet_sauvignon" = "Cabernet Sauvignon";
+"grape_merlot" = "Merlot";
+"grape_chardonnay" = "Chardonnay";
+"grape_pinot_noir" = "Pinot Noir";
+"grape_sauvignon_blanc" = "Sauvignon Blanc";
+"grape_syrah" = "Syrah";
+"grape_riesling" = "Riesling";
+"grape_zinfandel" = "Zinfandel";
+"grape_sangiovese" = "Sangiovese";
+"grape_gewurztraminer" = "Gewurztraminer";
+"grape_viognier" = "Viognier";
+"grape_malbec" = "Malbec";
+"grape_barbera" = "Barbera";
+"grape_pinot_gris" = "Pinot Gris";
+"grape_pinot_blanc" = "Pinot Blanc";
+"grape_nebbiolo" = "Nebbiolo";
+"grape_tempranillo" = "Tempranillo";
+"grape_grenache" = "Grenache";
+"grape_petit_verdot" = "Petit Verdot";
+"grape_mourvedre" = "Mourvedre";
+"grape_chenin_blanc" = "Chenin Blanc";
+"grape_albarino" = "Albariño";
+"grape_semillon" = "Sémillon";
+"grape_trebbiano" = "Trebbiano";
+"grape_torrontes" = "Torrontés";
+"grape_verdejo" = "Verdejo";
+"grape_muscat" = "Muscat";
+"grape_garganega" = "Garganega";
+"grape_gruner_veltliner" = "Gruner Veltliner";
+"grape_saperavi" = "Saperavi";
+"grape_tannat" = "Tannat";
+"grape_norton" = "Norton";
+"grape_agiorgitiko" = "Agiorgitiko";
+"grape_xinomavro" = "Xinomavro";
+"grape_vermentino" = "Vermentino";
+"grape_fiano" = "Fiano";
+"grape_touriga_nacional" = "Touriga Nacional";
+"grape_assyrtiko" = "Assyrtiko";
+"grape_carmenere" = "Carménère";
+"grape_tinta_roriz" = "Tinta Roriz";
+"grape_melon_de_bourgogne" = "Melon de Bourgogne";
+"grape_verdelho" = "Verdelho";
+"grape_moscato" = "Moscato";
+"grape_macabeo" = "Macabeo";
+"grape_dolcetto" = "Dolcetto";
+"grape_marsanne" = "Marsanne";
+"grape_bonarda" = "Bonarda";
+"grape_falanghina" = "Falanghina";
+"grape_lambrusco" = "Lambrusco";
+"grape_cinsault" = "Cinsault";
+"grape_picpoul" = "Picpoul";
+"grape_cannonau" = "Cannonau";
+"grape_arinto" = "Arinto";
+"grape_aligote" = "Aligoté";
+"grape_pedro_ximenez" = "Pedro Ximénez";
+"grape_carignan" = "Carignan";
+"grape_mencia" = "Mencia";
+"grape_furmint" = "Furmint";
+"grape_arneis" = "Arneis";
+"grape_auxerrois" = "Auxerrois";
+"grape_godello" = "Godello";
+"grape_nerello_mascalese" = "Nerello Mascalese";
+"grape_counoise" = "Counoise";
+"grape_roussanne" = "Roussanne";
+"grape_friulano" = "Friulano";
+"grape_vernaccia" = "Vernaccia";
+"grape_dornfelder" = "Dornfelder";
+"grape_insolia" = "Insolia";
+"grape_aglianico" = "Aglianico";
+"grape_corvina" = "Corvina";
+"grape_antao_vaz" = "Antão Vaz";
+"grape_rolle" = "Rolle";
+
+/* Regions - EN */
+"region_bordeaux" = "Bordeaux";
+"region_burgundy" = "Burgundy";
+"region_champagne" = "Champagne";
+"region_tuscany" = "Tuscany";
+"region_piedmont" = "Piedmont";
+"region_veneto" = "Veneto";
+"region_rioja" = "Rioja";
+"region_priorat" = "Priorat";
+"region_jerez" = "Jerez";
+"region_california" = "California";
+"region_oregon" = "Oregon";
+"region_washington" = "Washington";
+"region_barossa" = "Barossa";
+"region_margaret_river" = "Margaret River";
+"region_coonawarra" = "Coonawarra";
+"region_mendoza" = "Mendoza";
+"region_patagonia" = "Patagonia";
+"region_salta" = "Salta";
+"region_stellenbosch" = "Stellenbosch";
+"region_paarl" = "Paarl";
+"region_swartland" = "Swartland";
+"region_maule" = "Maule";
+"region_colchagua" = "Colchagua";
+"region_aconcagua" = "Aconcagua";
+"region_douro" = "Douro";
+"region_vinho_verde" = "Vinho Verde";
+"region_alentejo" = "Alentejo";
+"region_marlborough" = "Marlborough";
+"region_hawkes_bay" = "Hawkes Bay";
+"region_central_otago" = "Central Otago";
+"region_mosel" = "Mosel";
+"region_rheingau" = "Rheingau";
+"region_baden" = "Baden";
+"region_rheinhessen" = "Rheinhessen";
+"region_burgenland" = "Burgenland";
+"region_lower_austria" = "Lower Austria";
+"region_styria" = "Styria";
+"region_valais" = "Valais";
+"region_vaud" = "Vaud";
+"region_ticino" = "Ticino";
+"region_vale_dos_vinhedos" = "Vale dos Vinhedos";
+"region_sao_francisco_valley" = "São Francisco Valley";
+"region_campanha" = "Campanha";
+"region_okanagan_valley" = "Okanagan Valley";
+"region_niagara_peninsula" = "Niagara Peninsula";
+"region_nova_scotia" = "Nova Scotia";
+"region_sussex" = "Sussex";
+"region_kent" = "Kent";
+"region_cornwall" = "Cornwall";
+"region_krasnodar" = "Krasnodar";
+"region_stavropol" = "Stavropol";
+"region_kakheti" = "Kakheti";
+"region_imereti" = "Imereti";
+"region_racha" = "Racha";
+"region_ararat" = "Ararat";
+"region_tavush" = "Tavush";
+"region_vayots_dzor" = "Vayots Dzor";
+"region_ganja" = "Ganja";
+"region_sheki" = "Sheki";
+"region_guba" = "Guba";
+"region_peloponnese" = "Peloponnese";
+"region_macedonia" = "Macedonia";
+"region_crete" = "Crete";
+"region_thrace" = "Thrace";
+"region_mizia" = "Mizia";
+"region_strandzha" = "Strandzha";
+"region_limassol" = "Limassol";
+"region_paphos" = "Paphos";
+"region_larnaca" = "Larnaca";
+"region_nistreana" = "Nistreana";
+"region_codru" = "Codru";
+"region_valyaluy" = "Valyaluy";
+"region_vojvodina" = "Vojvodina";
+"region_metohija" = "Metohija";
+"region_sumadija" = "Sumadija";
+"region_canelones" = "Canelones";
+"region_montevideo" = "Montevideo";
+"region_carmelo" = "Carmelo";
+"region_san_jose" = "San Jose";
+"region_puntarenas" = "Puntarenas";
+"region_limon" = "Limon";
+"region_tokaj" = "Tokaj";
+"region_eger" = "Eger";
+"region_balaton" = "Balaton";
+"region_nashik" = "Nashik";
+"region_nandi_hills" = "Nandi Hills";
+"region_pune" = "Pune";
+"region_yamanashi" = "Yamanashi";
+"region_nagano" = "Nagano";
+"region_hokkaido" = "Hokkaido";
+"region_bekaa_valley" = "Bekaa Valley";
+"region_batroun" = "Batroun";
+"region_jezzine" = "Jezzine";
+"region_valle_de_guadalupe" = "Valle de Guadalupe";
+"region_valle_de_parras" = "Valle de Parras";
+"region_queretaro" = "Queretaro";
+
+/* UIComponents - EN */
+"search_text" = "Search";
+"cancel_text" = "Cancel";
+"close_button" = "Close";
+"add_button" = "Add";
+"clear_button" = "Clear";
+"grape_sort_button" = "Grape";
+"country_button" = "Country";
+"region_button" = "Region";
+"rating_bar" = "Rating";
+"without_rating" = "Without rating";
+"currency" = "$";
+
+// menu
+"edit_menu" = "Edit";
+"show_qr_menu" = "Show QR code";
+"delete_menu" = "Delete";
+
+/* WineColors - EN */
+"red_wineColor" = "Red";
+"white_wineColor" = "White";
+"other_wineColor" = "Other";
+
+/* WineSugar - EN */
+"dry_wineSugar" = "Dry";
+"semiDry_wineSugar" = "S. dry";
+"semiSweet_wineSugar" = "S. sweet";
+"sweet_wineSugar" = "Sweet";
+
+/* WineType - EN */
+"still_wineType" = "Still";
+"sparkling_wineType" = "Sparkling";
+"other_wineType" = "Other";
+
+/* MainScreenModule - EN */
+"saved_text" = "Saved!";
+"records_found" = "Records Found";
+"migration_text" = "Restore records from the previous version of the app?";
+"yes" = "Yes!";
+
+/* NewBottleScreenModule - EN */
+"select_source" = "Select source";
+"camera" = "Camera";
+"gallery" = "Gallery";
+"name_title" = "Name";
+"place_title" = "Place of purchase";
+"price_title" = "Price";
+"comment_title" = "Comment";
+"add_wine" = "Add Wine";
+"error" = "Error";
+"ok" = "OK";
+
+/* BottlesCatalogueModule - EN */
+"filters" = "Filters";
+"empty" = "No entries";
+"deleting" = "Deleting";
+"message_alert" = "Are you sure you want to delete this record?";
+"delete" = "Delete";
+"cancel" = "Cancel";
+"catalogue" = "Tasting Catalogue";
+"statistics_menu" = "Statistics";
+"settingsQR_menu" = "QR Settings";
+"scan_text" = "Scan the QR code using Vinishko";
+
+/* BottleDetailsModule - EN */
+"description" = "Description";
+"wine_origin" = "Origin";
+"purchase" = "Purchase";
+"comment" = "Comment";
+"details" = "Tasting Details";
+"scan_text" = "Scan the QR code using Vinishko";
+"tasting_date" = "Tasting date";
+
+/* FiltersModule - EN */
+"sort_by" = "Sort by";
+"by_date" = "Date";
+"by_rating" = "Rating";
+"by_price" = "Price";
+"sort_by_sugar" = "By sugar";
+"sort_by_type" = "By type";
+"sort_by_grapeSort" = "By grape";
+"sort_by_country" = "By country";
+"sort_by_region" = "By region";
+"sort_by_purchasePlace" = "By place of purchase";
+"clear_all" = "Clear all";
+"sorting_and_filters_title" = "Sorting and Filters";
+
+/* SettingsScreenModule - EN */
+"share_photo" = "Share photo";
+"share_rating" = "Share rating";
+"share_comment" = "Share comment";
+"settings_qr_title" = "QR Settings";
+
+/* QRCodeScannerModule - EN */
+"image_error" = "Image loading error:";
+"information" = "Information";
+"message_text" = "Scan the QR code displayed in the Vinishko app to add tasting information to your catalog.\nEnsure the code fully fits in the scanner frame for accurate reading.";
+"ok_button" = "OK";
+"add" = "Add?";
+"cancel_button" = "Cancel";
+"yes_button" = "Yes!";
+
+/* StatisticsScreenModule - EN */
+"top" = "Top 10";
+"show_all" = "Show all";
+"statistics_title" = "Statistics";
+
+/* FiltersPickers - EN */
+"grape_list_empty" = "Grape varieties list is empty";
+"regions_list_empty" = "Regions list is empty";
+"purchase_list_empty" = "Purchase places list is empty";
+"countries_list_empty" = "Countries list is empty";
+"types_list_empty" = "Wine types list is empty";
+"sugar_amount_list_empty" = "Sugar content list is empty";
