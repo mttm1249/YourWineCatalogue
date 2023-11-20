@@ -57,6 +57,20 @@ struct OptionButton: View {
     }
 }
 
+struct CloseButton: View {
+    var action: () -> Void
+
+    var body: some View {
+        HStack {
+            Spacer()
+            Button(Localizable.UIComponents.сloseButton) {
+                action()
+            }
+        }
+        .padding()
+    }
+}
+
 enum FilterButtonType {
     case string(Binding<String?>)
     case wineTypeInt(Binding<Int16?>)
@@ -165,7 +179,7 @@ struct SwitchButton: View {
     var udKey: UserDefaultsKey
     
     @State private var switchIsOn: Bool = false
-
+    
     init(label: String, udKey: UserDefaultsKey) {
         self.label = label
         self.udKey = udKey

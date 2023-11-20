@@ -29,13 +29,9 @@ struct GrapeVarietiesPicker: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            HStack {
-                Spacer()
-                Button(Localizable.UIComponents.сloseButton) {
-                    presentationMode.wrappedValue.dismiss()
-                }
-            }
-            .padding()
+            CloseButton(action: {
+                presentationMode.wrappedValue.dismiss()
+            })
             SearchBarView(text: $searchText)
             HStack(alignment: .top) {
                 Text(selectedGrapeVarieties.map { $0.localize() }.joined(separator: ", "))

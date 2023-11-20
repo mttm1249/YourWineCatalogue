@@ -31,6 +31,9 @@ struct WineSortPicker: View {
                 .padding()
                 .foregroundColor(.gray)
         } else {
+            CloseButton(action: {
+                presentationMode.wrappedValue.dismiss()
+            })
             List {
                 ForEach(wineSorts.filter { !$0.isEmpty }, id: \.self) { wineSort in
                     Button(action: {
@@ -57,6 +60,9 @@ struct WineRegionPicker: View {
                 .padding()
                 .foregroundColor(.gray)
         } else {
+            CloseButton(action: {
+                presentationMode.wrappedValue.dismiss()
+            })
             List {
                 ForEach(wineRegions.filter { !$0.isEmpty }, id: \.self) { region in
                     Button(action: {
@@ -83,6 +89,9 @@ struct PlaceOfPurchasePicker: View {
                 .padding()
                 .foregroundColor(.gray)
         } else {
+            CloseButton(action: {
+                presentationMode.wrappedValue.dismiss()
+            })
             List {
                 ForEach(placesOfPurchase.filter { !$0.isEmpty }, id: \.self) { place in
                     Button(action: {
@@ -109,6 +118,9 @@ struct WineCountryPicker: View {
                 .padding()
                 .foregroundColor(.gray)
         } else {
+            CloseButton(action: {
+                presentationMode.wrappedValue.dismiss()
+            })
             List {
                 ForEach(wineCountries.filter { !$0.isEmpty }, id: \.self) { country in
                     Button(action: {
@@ -135,6 +147,9 @@ struct WineTypePicker: View {
                 .padding()
                 .foregroundColor(.gray)
         } else {
+            CloseButton(action: {
+                presentationMode.wrappedValue.dismiss()
+            })
             List {
                 ForEach(wineTypes, id: \.self) { name in
                     Button(action: {
@@ -161,6 +176,9 @@ struct WineSugarPicker: View {
                 .padding()
                 .foregroundColor(.gray)
         } else {
+            CloseButton(action: {
+                presentationMode.wrappedValue.dismiss()
+            })
             List {
                 ForEach(wineSugarAmount, id: \.self) { amount in
                     Button(action: {

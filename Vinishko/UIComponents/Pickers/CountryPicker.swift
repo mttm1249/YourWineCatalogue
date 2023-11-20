@@ -31,13 +31,9 @@ struct CountryPicker: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Button(Localizable.UIComponents.сloseButton) {
-                    presentationMode.wrappedValue.dismiss()
-                }
-            }
-            .padding()
+            CloseButton(action: {
+                presentationMode.wrappedValue.dismiss()
+            })
             SearchBarView(text: $searchText)
                 .padding(.top, 20)
             
