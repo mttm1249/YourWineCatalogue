@@ -62,6 +62,7 @@ enum Localizable {
         static let price = NSLocalizedString("price_title", comment: "")
         static let comment = NSLocalizedString("comment_title", comment: "")
         static let addWine = NSLocalizedString("add_wine", comment: "")
+        static let editing = NSLocalizedString("wine_editing", comment: "")
         static let error = NSLocalizedString("error", comment: "")
         static let ok = NSLocalizedString("ok", comment: "")
     }

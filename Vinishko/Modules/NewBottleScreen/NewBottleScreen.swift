@@ -15,7 +15,7 @@ struct NewBottleScreen: View {
     var body: some View {
         ScrollView {
             ZStack(alignment: .topTrailing) {
-     
+                
                 Button(action: {
                     self.viewModel.showImagePickerSheet = true
                 }) {
@@ -31,7 +31,7 @@ struct NewBottleScreen: View {
                             .clipShape(Circle())
                     }
                 }
-
+                
                 .actionSheet(isPresented: $viewModel.showImagePickerSheet) {
                     ActionSheet(title: Text(Localizable.NewBottleScreenModule.selectSource), buttons: [
                         .default(Text(Localizable.NewBottleScreenModule.camera).foregroundColor(Pallete.textColor), action: {
@@ -72,7 +72,7 @@ struct NewBottleScreen: View {
             }
             .padding(.bottom, 20)
         }
-        .navigationTitle(Localizable.NewBottleScreenModule.addWine)
+        .navigationTitle(viewModel.checkIfEditing())
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button(action: {

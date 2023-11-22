@@ -218,6 +218,7 @@
 "price_title" = "Цена";
 "comment_title" = "Комментарий";
 "add_wine" = "Добавить винишко";
+"wine_editing" = "Редактирование";
 "error" = "Ошибка";
 "ok" = "OK";
 

@@ -87,7 +87,7 @@ struct PickersModuleView: View {
             .onChange(of: selectedRegion) { newValue in
                 self.selectedRegion = newValue?.localize()
             }
-//            .disabled(selectedCountry == nil)
+            .disabled(selectedCountry == nil)
         }
         .sheet(item: $activeSheet) { item in
             switch item {

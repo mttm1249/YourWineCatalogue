@@ -15,6 +15,7 @@
 		DA033E002A9CBB83004C847D /* BottleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA033DFF2A9CBB83004C847D /* BottleModel.swift */; };
 		DA0355A52AA072EA002EBA77 /* PickersModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0355A42AA072EA002EBA77 /* PickersModuleView.swift */; };
 		DA0355A72AA0768C002EBA77 /* CountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = DA0355A62AA07354002EBA77 /* CountryList.json */; };
+		DA043CA22B0DD8F800D71575 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA043CA12B0DD8F800D71575 /* Roboto-Bold.ttf */; };
 		DA08B2962A9F1BFE00A8872A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA08B2952A9F1BFE00A8872A /* SearchBarView.swift */; };
 		DA095AFC2AF92685008960A4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DA095AFB2AF92685008960A4 /* FirebaseAnalytics */; };
 		DA095AFE2AF92685008960A4 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DA095AFD2AF92685008960A4 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -111,6 +112,7 @@
 		DA033DFF2A9CBB83004C847D /* BottleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleModel.swift; sourceTree = "<group>"; };
 		DA0355A42AA072EA002EBA77 /* PickersModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickersModuleView.swift; sourceTree = "<group>"; };
 		DA0355A62AA07354002EBA77 /* CountryList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryList.json; sourceTree = "<group>"; };
+		DA043CA12B0DD8F800D71575 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		DA08B2952A9F1BFE00A8872A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		DA195D202A9F4469000753B3 /* BubbleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleDetailsView.swift; sourceTree = "<group>"; };
 		DA2600CC2AD2DE5F003AD868 /* StatisticsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreen.swift; sourceTree = "<group>"; };
@@ -327,6 +329,14 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		DA0C66952B0CAB4700525790 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DA043CA12B0DD8F800D71575 /* Roboto-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		DA2600D02AD2E18F003AD868 /* StatisticsScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,8 +460,9 @@
 		DA7CCBC32A54410500C5876D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				DA7CCBC42A54410E00C5876D /* Pallete.swift */,
+				DA0C66952B0CAB4700525790 /* Fonts */,
 				DA033DEE2A9CA0B3004C847D /* Fonts.swift */,
+				DA7CCBC42A54410E00C5876D /* Pallete.swift */,
 				DA033DF82A9CAAD8004C847D /* Images.swift */,
 			);
 			path = Common;
@@ -570,6 +581,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA043CA22B0DD8F800D71575 /* Roboto-Bold.ttf in Resources */,
 				DA7CCBAD2A543B9E00C5876D /* Preview Assets.xcassets in Resources */,
 				DA871A762B0A18EE00621578 /* InfoPlist.strings in Resources */,
 				DA6556B22AA1ED7F00D8427C /* Localizable.strings in Resources */,
@@ -796,7 +808,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 62;
+				CURRENT_PROJECT_VERSION = 64;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;
@@ -834,7 +846,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Vinishko/Vinishko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 62;
+				CURRENT_PROJECT_VERSION = 64;
 				DEVELOPMENT_ASSET_PATHS = "\"Vinishko/Preview Content\"";
 				DEVELOPMENT_TEAM = 7GM9RUFL9F;
 				ENABLE_PREVIEWS = YES;

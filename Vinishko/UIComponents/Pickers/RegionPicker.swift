@@ -39,7 +39,9 @@ struct RegionPicker: View {
                 }) {
                     HStack {
                         Text(Localizable.UIComponents.addButton)
+                            .font(Fonts.bold18)
                         Text(searchText).underline()
+                            .font(Fonts.bold18)
                     }
                 }
                 .padding()

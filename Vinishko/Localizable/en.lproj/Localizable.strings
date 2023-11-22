@@ -219,6 +219,7 @@
 "price_title" = "Price";
 "comment_title" = "Comment";
 "add_wine" = "Add Wine";
+"wine_editing" = "Editing";
 "error" = "Error";
 "ok" = "OK";
 

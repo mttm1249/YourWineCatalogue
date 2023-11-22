@@ -13,25 +13,27 @@ struct MainScreenView: View {
     var body: some View {
         NavigationView {
             MainScreenAnimationView {
-                VStack(spacing: 25) {
-                    Spacer()
-                    Text(MainLogo.logoText)
-                        .font(Fonts.logo)
-                        .foregroundColor(Pallete.mainColor)
-                        .padding(.bottom, 150)
-                    
-                    NavigationButton(destination:
-                                        NewBottleScreen(viewModel: NewBottleViewModel(editableBottle: nil,
-                                                                                      context: CoreDataManager.managedContext)),
-                                     imageName: Images.plus)
-                    
-                    NavigationButton(destination: BottlesCatalogueView()
-                        .environmentObject(BottlesCatalogueViewModel(context: CoreDataManager.managedContext)),
-                                     imageName: Images.listStar)
-                    .padding(.bottom, 180)
-                    
+                VStack {
+                        Text(MainLogo.logoText)
+                            .font(Fonts.logo)
+                            .foregroundColor(Pallete.mainColor)
+                        .padding(.top, 130)
+                
                     Spacer()
                     
+                    VStack(spacing: 25) {
+                        NavigationButton(destination:
+                                            NewBottleScreen(viewModel: NewBottleViewModel(editableBottle: nil,
+                                                                                          context: CoreDataManager.managedContext)),
+                                         imageName: Images.plus)
+                        NavigationButton(destination: BottlesCatalogueView()
+                            .environmentObject(BottlesCatalogueViewModel(context: CoreDataManager.managedContext)),
+                                         imageName: Images.listStar)
+                    }
+                    .padding(.bottom, 150)
+                    
+                    
+                    Spacer()
                 }
                 .overlay(
                     VStack {
@@ -50,7 +52,7 @@ struct MainScreenView: View {
             viewModel.checkRecordsAndMigrate()
             viewModel.listenForSaveNotification()
         }
-
+        
         .alert(isPresented: $viewModel.showMigrationAlert) {
             Alert(
                 title: Text(Localizable.MainScreenModule.alertMigration),
@@ -64,10 +66,10 @@ struct MainScreenView: View {
                 }
             )
         }
-
+        
     }
 }
 
 #Preview {
-        MainScreenView()
-    }
+    MainScreenView()
+}

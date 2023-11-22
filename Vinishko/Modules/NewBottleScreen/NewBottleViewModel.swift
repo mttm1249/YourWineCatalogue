@@ -43,6 +43,14 @@ class NewBottleViewModel: ObservableObject {
         loadBottleDetails()
     }
     
+    func checkIfEditing() -> String {
+        if editableBottle != nil {
+            return Localizable.NewBottleScreenModule.editing
+        } else {
+            return Localizable.NewBottleScreenModule.addWine
+        }
+    }
+    
     func loadBottleDetails() {
         guard let editableBottle = editableBottle else { return }
         
@@ -98,7 +106,7 @@ class NewBottleViewModel: ObservableObject {
             
             CoreDataManager.shared.saveContext()
             
-            // update bottle details
+            // обновляем бутылку для отображения деталей после выхода
             onBottleSaved?(editableBottle)
             
             HapticFeedbackService.generateFeedback(style: .medium)
@@ -125,7 +133,7 @@ class NewBottleViewModel: ObservableObject {
         }
     }
     
-    // exclude empty records when filtering
+    // исключаем пустые записи во время фильтрации
     func checkCountryCode(_ selectedCountry: Country?) -> String {
         return selectedCountry?.code ?? ""
     }

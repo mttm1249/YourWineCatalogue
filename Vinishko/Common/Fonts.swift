@@ -12,7 +12,7 @@ struct MainLogo {
 }
 
 struct Fonts {
-    static let logo = Font.custom("SignPainter-HouseScript", size: 55).bold()
+    static let logo = Font.custom("Roboto-Bold", size: 36)
     
     static let regular12 = Font.system(size: 12)
     static let regular14 = Font.system(size: 14)
