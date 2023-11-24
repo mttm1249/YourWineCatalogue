@@ -72,7 +72,7 @@ struct NewBottleScreen: View {
             }
             .padding(.bottom, 20)
         }
-        .navigationTitle(viewModel.checkIfEditing())
+        .navigationTitle(viewModel.checkIfEditing()).navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button(action: {

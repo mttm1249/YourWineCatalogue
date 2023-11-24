@@ -64,7 +64,7 @@ struct BottleDetailsView: View {
                 .padding(.horizontal, 16)
             }
         }
-        .navigationTitle(Localizable.BottleDetailsModule.details)
+        .navigationTitle(Localizable.BottleDetailsModule.details).navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 NavigationLink(destination: NewBottleScreen(viewModel: NewBottleViewModel(editableBottle: bottle, context: CoreDataManager.managedContext, onBottleSaved: { updatedBottle in

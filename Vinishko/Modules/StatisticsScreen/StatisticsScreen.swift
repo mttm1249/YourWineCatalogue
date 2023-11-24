@@ -52,7 +52,7 @@ struct StatisticsScreen: View {
                     .padding()
                 }
             }
-            .navigationTitle(Localizable.StatisticsScreenModule.statisticsTitle)
+            .navigationTitle(Localizable.StatisticsScreenModule.statisticsTitle).navigationBarTitleDisplayMode(.inline)
         }
     }
 }

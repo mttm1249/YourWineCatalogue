@@ -16,7 +16,7 @@ struct SettingsScreenView: View {
             Spacer()
         }
         .padding(.vertical)
-        .navigationTitle(Localizable.SettingsScreenModule.settingsTitle)
+        .navigationTitle(Localizable.SettingsScreenModule.settingsTitle).navigationBarTitleDisplayMode(.inline)
     }
 }
 

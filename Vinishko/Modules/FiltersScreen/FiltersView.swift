@@ -105,7 +105,7 @@ struct FiltersView: View {
                     Text(Localizable.FiltersModule.clearAll)
                         .foregroundColor(.red)
                 }
-                .navigationTitle(Localizable.FiltersModule.sortingAndFiltersTitle)
+                .navigationTitle(Localizable.FiltersModule.sortingAndFiltersTitle).navigationBarTitleDisplayMode(.inline)
                 .sheet(item: $selectedPicker) { item in
                     switch item {
                     case .wineSort:

@@ -300,7 +300,6 @@ final class BottlesCatalogueViewModel: NSObject, ObservableObject, NSFetchedResu
                 print("Ошибка при загрузке: \(error.localizedDescription)")
             } else if let urlString = urlString {
                 self?.generateQRCode(with: urlString)
-                print("URL изображения: \(urlString)")
             }
         }
     }

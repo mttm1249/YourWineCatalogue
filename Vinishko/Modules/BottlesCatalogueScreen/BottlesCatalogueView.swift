@@ -108,7 +108,7 @@ struct BottlesCatalogueView: View {
                 }
             }
         }
-        .navigationTitle(Localizable.BottlesCatalogueModule.catalogue)
+        .navigationTitle(Localizable.BottlesCatalogueModule.catalogue).navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {

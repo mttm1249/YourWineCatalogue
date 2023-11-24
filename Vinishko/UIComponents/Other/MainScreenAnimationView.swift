@@ -27,8 +27,10 @@ struct MainScreenAnimationView<Content: View>: View {
             content
         }
         .onAppear {
-            withAnimation(.linear(duration: 1.5).repeatForever(autoreverses: false)) {
-                self.waveOffset = Angle(degrees: 360)
+            if #available(iOS 16, *) {
+                withAnimation(.linear(duration: 1.5).repeatForever(autoreverses: false)) {
+                    self.waveOffset = Angle(degrees: 360)
+                }
             }
         }
     }

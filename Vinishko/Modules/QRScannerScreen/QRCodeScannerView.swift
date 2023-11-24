@@ -46,26 +46,29 @@ struct QRCodeScanner: UIViewControllerRepresentable {
             if let result = try? JSONDecoder().decode(QRModel.self, from: Data(string.utf8)) {
                 DispatchQueue.main.async {
                     
-                    // Начало загрузки изображения
-                    self.viewModel.isImageLoading = true
-                    
-                    _ = NetworkService.shared.downloadImage(url: result.imageURL ?? "",
-                                                            onProgress: { progress in
-                        self.viewModel.downloadProgress = progress
+                    //Проверяем можно ли делиться изображением
+                    let userDefaults = UserDefaults.standard
+                    if userDefaults.bool(forKey: UserDefaultsKey.photoShare.rawValue) {
+                        // Начало загрузки изображения
+                        self.viewModel.isImageLoading = true
                         
-                    }, onCompletion: { result in
-                        switch result {
-                        case .success(let image):
-                            self.viewModel.image = image
-                        case .failure(let error):
-                            self.viewModel.alertMessage = "\(Localizable.QRCodeScannerModule.imageError) \(error.localizedDescription)"
-                            self.viewModel.showAlert = true
-                        }
-                        // Завершение загрузки изображения
-                        self.viewModel.isImageLoading = false
+                        _ = NetworkService.shared.downloadImage(url: result.imageURL ?? "",
+                                                                onProgress: { progress in
+                            self.viewModel.downloadProgress = progress
+                            
+                        }, onCompletion: { result in
+                            switch result {
+                            case .success(let image):
+                                self.viewModel.image = image
+                            case .failure(let error):
+                                self.viewModel.alertMessage = "\(Localizable.QRCodeScannerModule.imageError) \(error.localizedDescription)"
+                                self.viewModel.showAlert = true
+                            }
+                            // Завершение загрузки изображения
+                            self.viewModel.isImageLoading = false
+                        })
                     }
-                    )
-                    
+                   
                     // Обновление остальной информации о бутылке
                     self.viewModel.rating = result.rating ?? 0
                     self.viewModel.bottleName = result.name
