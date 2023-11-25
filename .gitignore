@@ -1,12 +1,9 @@
 # Xcode files
 **/xcuserdata/
 **/*.xcworkspace
-**/*.xcodeproj/project.xcworkspace
-**/*.xcodeproj/xcuserdata
-**/*.xcodeproj/project.pbxproj
+**/*.xcodeproj/
 *.DS_Store
 
 # Custom files to ignore
 GoogleService-Info.plist
 Vinishko.entitlements
-.DS_Store
