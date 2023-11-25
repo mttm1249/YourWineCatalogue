@@ -1,7 +1,6 @@
 # Xcode files
 **/xcuserdata/
 **/*.xcworkspace
-**/*.xcodeproj/
 *.DS_Store
 
 # Custom files to ignore

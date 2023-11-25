@@ -46,16 +46,13 @@ struct QRCodeScanner: UIViewControllerRepresentable {
             if let result = try? JSONDecoder().decode(QRModel.self, from: Data(string.utf8)) {
                 DispatchQueue.main.async {
                     
-                    //Проверяем можно ли делиться изображением
-                    let userDefaults = UserDefaults.standard
-                    if userDefaults.bool(forKey: UserDefaultsKey.photoShare.rawValue) {
                         // Начало загрузки изображения
                         self.viewModel.isImageLoading = true
                         
-                        _ = NetworkService.shared.downloadImage(url: result.imageURL ?? "",
+                    if let imageURL = result.imageURL, !imageURL.isEmpty {
+                        _ = NetworkService.shared.downloadImage(url: imageURL,
                                                                 onProgress: { progress in
                             self.viewModel.downloadProgress = progress
-                            
                         }, onCompletion: { result in
                             switch result {
                             case .success(let image):
@@ -67,6 +64,8 @@ struct QRCodeScanner: UIViewControllerRepresentable {
                             // Завершение загрузки изображения
                             self.viewModel.isImageLoading = false
                         })
+                    } else {
+                        self.viewModel.isImageLoading = false
                     }
                    
                     // Обновление остальной информации о бутылке
