@@ -1,5 +1,12 @@
-# .gitignore for iOS projects
+# Xcode files
+**/xcuserdata/
+**/*.xcworkspace
+**/*.xcodeproj/project.xcworkspace
+**/*.xcodeproj/xcuserdata
+**/*.xcodeproj/project.pbxproj
+*.DS_Store
 
-# Ignore .DS_Store files
+# Custom files to ignore
+GoogleService-Info.plist
+Vinishko.entitlements
 .DS_Store
-**/.DS_Store
