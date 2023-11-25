@@ -10,9 +10,9 @@ import CoreData
 
 struct BottleDetailsView: View {
     
+    @ObservedObject var viewModel: BottleDetailsViewModel
     private let lm = LocalizationManager.shared
     var bottle: Bottle
-    @ObservedObject var viewModel: BottleDetailsViewModel
     
     var body: some View {
         ScrollView {
